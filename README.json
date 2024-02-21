@@ -20,6 +20,16 @@
             {
                 "Titre":"/docs",
                 "Description":"Documentation"
+            },
+            {
+                "Titre":"/rapport",
+                "Description":"Rapport de prototype",
+                "Lien":"https://labs-web.github.io/prototype/"
+            },
+            {
+                "Titre":"/présentation",
+                "Description":"Présentation de prototype",
+                "Lien":"https://labs-web.github.io/prototype/presentation.html#/"
             }
         ]
     },   
@@ -32,7 +42,6 @@
                 "Titre":"Autoformation",
                 "Lien":"#"
             }
-           
         ]
     } 
     

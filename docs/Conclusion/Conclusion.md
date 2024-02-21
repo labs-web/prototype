@@ -1,7 +1,7 @@
 ---
 layout: default
 chapitre: conclusion
-order: 10
+order: 30
 
 ---
-# conclusion
+# Conclusion
