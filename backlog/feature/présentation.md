@@ -1,0 +1,8 @@
+## Travail à faire
+
+- Création d'un document markdown qui contient le contenue de tous les pages
+
+## Livrable
+
+- doc/presentation.md
+  - jekyll condition

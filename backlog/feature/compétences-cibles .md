@@ -1,0 +1,7 @@
+## Travail à faire
+
+Compétences et niveaux cibles
+
+## Livrables
+- docs/compétences-cibles/compétences-cibles.md
+- docs/compétences-cibles/images/*

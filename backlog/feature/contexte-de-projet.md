@@ -1,0 +1,12 @@
+## Travail à faire
+
+Contexte de ce travail ( Prototype )
+
+- Projet file rouge
+- Processus 2TUP
+- Branche technique
+- Prototype
+
+## Livrables
+- docs/contexte-projet/contexte-projet.md
+- docs/contexte-projet/images/*

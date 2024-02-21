@@ -1,0 +1,13 @@
+## Travail à faire
+
+Réalisation :
+
+- Init rapport
+- Init présentation
+- Table de matière
+- Introduction
+- Conclusion
+
+## Livrables
+
+- docs/*
