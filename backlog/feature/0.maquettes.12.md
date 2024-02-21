@@ -1,0 +1,10 @@
+## Travail à faire
+
+- Maquettage en format HTML/CSS avec Admin LTE
+
+ - Gestion des tâches
+ - Gestion des projets
+ - Gestion des utilisateurs
+
+## Livrables
+- maquettes/*

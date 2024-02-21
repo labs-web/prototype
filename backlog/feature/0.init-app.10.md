@@ -1,0 +1,9 @@
+## Travail à faire
+
+- Création d'une application laravel vide 
+- Installation de Admin LTE par npm
+
+## Livrables
+
+- docs/app/init-app/init-app.md
+- app/*

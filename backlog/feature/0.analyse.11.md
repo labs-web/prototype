@@ -1,0 +1,12 @@
+## Travail à faire
+
+Analyse 
+
+- Empathie
+- Définir le problème
+- Idéation
+- Diagramme de cas d'utilisation
+
+## Livrables
+- docs/analyse/analyse.md
+- docs/analyse/images/*

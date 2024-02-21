@@ -1,0 +1,16 @@
+## Travail à faire
+
+L'introduction doit contient les éléments suivants  : 
+
+- Travail à réaliser
+- Contenue du rapport
+  - Prérequis pour la réalisation de ce travail
+  - Contexte de ce travail ( Prototype )
+    - Projet file rouge
+    - Validation des compétences
+  - Compétences et niveaux cibles 
+
+
+## Livrables
+- docs/introduction/introduction.md
+- docs/introduction/images/*
