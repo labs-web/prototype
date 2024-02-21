@@ -2,7 +2,7 @@
 
 - Référence :   
 
-
+ 
 
 ## Backlog 
 
@@ -27,18 +27,19 @@ Le backlog est une liste ordonées des tâches
 - **thème** 
 ## Livrables 
 
-
+ 
 
 - /Backlog 
   - Backlog 
 - /docs 
   - Documentation 
+- /rapport 
+  - Rapport de prototype 
+- /présentation 
+  - Présentation de prototype 
 ## Références 
 
-
+ 
 
 - [Autoformation](#) 
 
-# prototype
-- [Rapport prototype](https://labs-web.github.io/prototype/)
-- [Présentation prototype](https://labs-web.github.io/prototype/presentation.html#/)
