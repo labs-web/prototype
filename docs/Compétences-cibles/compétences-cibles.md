@@ -8,7 +8,7 @@ order: 5
 # Compétences cibles
 
 ![Compétences](/prototype/Compétences-cibles/images/Compétences-cibles.png)
-
+*figure: Compétences cibles*
 <!-- note -->
 
 Développer une application web qui répond aux 6 compétences visées du référentiel :
