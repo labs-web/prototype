@@ -35,15 +35,15 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-7">
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
                                 <label for="remember">Se souvenir de moi</label>
                             </div>
                         </div>
 
-                        <div class="col-4">
-                            <a href="../project/index.php" type="submit" class="btn btn-info btn-block">connecter</a>
+                        <div class="col-5">
+                            <a href="../projets/index.php" type="submit" class="btn btn-info btn-block">connecter</a>
                         </div>
 
                     </div>
