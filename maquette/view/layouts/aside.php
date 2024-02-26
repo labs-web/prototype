@@ -2,7 +2,7 @@
   <!-- Logo de la marque -->
   <a href="../gestion_des_projet/projets/index.php" class="brand-link">
     <img src="../assets/images/logo.png" class="brand-image img-circle elevation-3" alt="Image de groupe">
-    <span class="brand-text font-weight-light text-center">Gestion de Projets</span>
+    <span class="brand-text font-weight-light text-center">Gestion des Projets</span>
   </a>
 
   <!-- Barre latérale -->
@@ -11,7 +11,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="../projets/index.php" class="nav-link active">
+            <a href="../projets/index.php" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Projets
