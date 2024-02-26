@@ -10,3 +10,4 @@ order: 7
 _figure: diagramme de class_
 
 <!-- new slide -->
+ 
