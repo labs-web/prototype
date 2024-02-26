@@ -116,7 +116,7 @@ Pour le développement de le prototype, ont va utiliser de différentes technolo
 
 ## Prototype
 
-![prototype](./images/prototype.png){:width="500px"}*figure: prototype*
+![prototype](./images/prototype.png){:width="700px"}*figure: prototype*
 
 <!-- note -->
 
