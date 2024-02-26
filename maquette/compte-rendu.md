@@ -3,7 +3,7 @@ layout: default
 chapitre: maquettes
 order: 8
 ---
-
+<!-- TODO : Tous les fichiers markdown doit être situé dans /docs -->
 
 # compte rendu maquettes
 
