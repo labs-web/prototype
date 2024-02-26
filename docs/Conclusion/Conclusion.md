@@ -5,4 +5,3 @@ order: 30
 
 ---
 # Conclusion
-{:class="sectionHeader}
