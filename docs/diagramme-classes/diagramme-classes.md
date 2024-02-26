@@ -9,3 +9,4 @@ order: 7
 ![Introduction](./images/diagramme-classes.png){:width="500px"}_figure: diagramme de class_
 
 <!-- new slide -->
+ 
