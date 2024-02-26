@@ -5,20 +5,19 @@ order: 6
 ---
 
 # Analyse
+{:class="sectionHeader"}
 
 <!-- new slide -->
 
-## Empathie
+## Empathie chef de projet
  
-![Empathy](/prototype/analyse/images/empathy.jpg){:width="500px"}
+![Empathy](/prototype/analyse/images/empathyChef.PNG){:width="1000px"}
 
 <!-- note -->
 
 ## Chef de projet
 
 Le chef de projet occupe une place essentielle dans le processus de réalisation des projets. Dans cette section, nous explorerons en détail sa méthode de gestion pour mener à bien ces projets.
-
-<!-- note -->
 
 ### Empathie : Chef de projet
 
@@ -40,10 +39,14 @@ Une séance d’empathie a été réalisée avec Abdelatif Soklabi, un formateur
   - Utiliser Google Sheets pour définir les tâches pour chaque projet.
   - Partager les tâches avec mes stagiaires.
 
-!['Analyse'](/prototype/analyse/images/empathyChef.PNG){:width="100%"}
-_figure: empathie de chef de projet_
+<!-- new slide -->
 
-## membre
+## Empathie de membre
+
+!['Analyse'](/prototype/analyse/images/empathyMember.PNG){:width="1000px"}
+_figure: empathy de membre_
+
+<!-- note -->
 
 Chaque membre dans chaque projet joue un rôle essentiel dans la réalisation du projet en complétant les tâches. Voici un processus pour y parvenir avec la contribution de certains membres.
 
@@ -70,9 +73,6 @@ Une séance d’empathie a été réalisée avec les apprenants de formateur abd
   - Consulter la feuille Google fournie par mon chef de projet.
   - Vérifier les tâches nécessaires.
 
-!['Analyse'](/prototype/analyse/images/empathyMember.PNG){:width="100%"}
-_figure: empathy de membre_
-
 <!-- new slide -->
 
 ## Définir le problème
@@ -87,7 +87,7 @@ Perdre énormément de temps à consulter les tâches et à naviguer entre celle
 
 ## Idéation
 
-![Ideation](/prototype/analyse/images/ideation.jpg){:width="700px"}
+![Ideation](/prototype/analyse/images/ideation.jpg){:width="1000px"}
 *figure: ideation*
 
 <!-- note -->
