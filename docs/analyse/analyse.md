@@ -18,6 +18,8 @@ order: 6
 
 Le chef de projet occupe une place essentielle dans le processus de réalisation des projets. Dans cette section, nous explorerons en détail sa méthode de gestion pour mener à bien ces projets.
 
+<!-- note -->
+
 ### Empathie : Chef de projet
 
 Une séance d’empathie a été réalisée avec Abdelatif Soklabi, un formateur web en solicode
