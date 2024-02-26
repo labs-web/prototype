@@ -6,6 +6,7 @@ order: 3
 
 
 # Contexte du projet
+{:class="sectionHeader"}
 
 <!-- note -->
 
@@ -82,6 +83,7 @@ Les étapes de design thinking :
 <!-- new slide -->
 
 # Branche technique
+{:class="sectionHeader"}
 
 <!-- note -->
 
