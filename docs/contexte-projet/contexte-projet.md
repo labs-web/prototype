@@ -16,7 +16,6 @@ Le projet consiste en le développement d'un système CRUD pour gérer les entit
 
 
 ## 2TUP
-
 ![Méthode 2TUP](/prototype/contexte-projet/images/2tup.png){:width="900px"}*figure: Méthode 2TUP*
 
 
