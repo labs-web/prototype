@@ -20,4 +20,7 @@ Développer une application web qui répond aux 6 compétences visées du réfé
 - **C6 Test** : Préparer et exécuter les plans de tests d’une application.
 - **C7 Deploiement** : Préparer et exécuter le déploiement d’une application web et mobile - perfectionnement.
 
+download file Competences.fig :
+ - [Competences](/prototype/Compétences-cibles/Competences.fig "download")
+
 <!-- new slide -->

@@ -6,6 +6,7 @@ order: 3
 
 
 # Contexte du projet
+{:class="sectionHeader"}
 
 <!-- note -->
 
@@ -15,7 +16,6 @@ Le projet consiste en le développement d'un système CRUD pour gérer les entit
 
 
 ## 2TUP
-
 ![Méthode 2TUP](/prototype/contexte-projet/images/2tup.png){:width="900px"}*figure: Méthode 2TUP*
 
 
@@ -45,8 +45,43 @@ Le processus s'articule ensuite autour de 3 phases essentielles :
 <!-- new slide -->
 
 
+## Design thinking
+
+![Méthode 2TUP](/prototype/contexte-projet/images/design-thinking.png){:width="900px"}*figure: Les étapes du Design Thinking*
+
+
+<!-- note -->
+
+- Le design thinking est une approche centrée sur l'humain pour résoudre des problèmes complexes et développer des solutions innovantes. Il met l'accent sur l'empathie, la collaboration multidisciplinaire, l'expérimentation et l'itération rapide.
+Les étapes de design thinking : 
+
+### Empathie
+
+- Comprendre les besoins et les perspectives des utilisateurs concernés par le problème à résoudre. Cela implique d'observer, d'écouter et d'interagir avec les utilisateurs pour acquérir une compréhension approfondie de leurs besoins, motivations et défis.
+
+### Définir le problème
+
+- Définir clairement le problème à résoudre en se basant sur les informations recueillies lors de la phase d'empathie. Il s'agit de formuler une question ou un défi spécifique qui orientera le processus de conception.
+
+
+### Idéation
+
+- Générer un grand nombre d'idées créatives pour aborder le problème identifié. Encourager la pensée divergente, où toutes les idées sont les bienvenues, sans jugement, afin de favoriser l'exploration de différentes solutions possibles.
+
+
+### Prototype 
+
+- Créer des prototypes tangibles ou des représentations visuelles des solutions potentielles. Les prototypes peuvent être simples et rapides à réaliser, mais doivent être suffisamment concrets pour recueillir des retours et les itérer.
+
+
+### Test
+
+- Tester les prototypes auprès d’utilisateurs réels. Les premières maquettes comportent nécessairement des erreurs, qu’il faut identifier au plus vite et dont il faut ensuite tirer des enseignements.
+
+<!-- new slide -->
 
 # Branche technique
+{:class="sectionHeader"}
 
 <!-- note -->
 
@@ -81,7 +116,7 @@ Pour le développement de le prototype, ont va utiliser de différentes technolo
 
 ## Prototype
 
-![prototype](./images/prototype.png){:width="500px"}*figure: prototype*
+![prototype](./images/prototype.png){:width="700px"}*figure: prototype*
 
 <!-- note -->
 
