@@ -22,6 +22,3 @@ Les prérequis comprend les étapes suivantes :
 
 <!-- new slide -->
 
-
-
-
