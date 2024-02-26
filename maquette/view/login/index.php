@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php include_once "../layouts/heade.php"; ?>
+<?php include_once "../layouts/heade.php" ?>
 
 <body class="hold-transition login-page">
 <div class="login-box">
