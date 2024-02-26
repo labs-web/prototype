@@ -6,4 +6,6 @@ order: 7
 
 # Diagramme de packages
 
-<!-- new slide -->
+![Diagramme de packages](/prototype/Diagramme-de-packages/images/Diagramme-des-paquetages.png){:width="900px"}*figure: Diagramme de packages*
+
+<!-- new slide -
