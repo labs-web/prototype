@@ -15,3 +15,5 @@ order: 11
 ```shell
     npm install admin-lte@^3.2 --save
 ``` 
+
+<!-- new slide -->
