@@ -8,6 +8,7 @@ order: 4
 # Prérequis 
 
 Les prérequis comprend les étapes suivantes :
+{:class="hiddenPresentation"}
 
 - Planification des tâches à effectuer
 - Rédaction du cahier des charges (problématique, solution proposée, choix des technologies...)
