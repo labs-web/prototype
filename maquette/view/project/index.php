@@ -69,7 +69,7 @@
                                                 <td>11-7-2014</td>
                                                 <td>11-7-2014</td>
                                                 <td class="text-center">
-                                                    <a href="././tache/index.html" class="btn btn-sm btn-default mx-2">les Tâches</a>
+                                                    <a href="././tache/index.html" class="btn btn-sm btn-secondary mx-2"><i class="nav-icon fas fa-tasks"></i> Les Tâches</a>
                                                     <a href="./show.php" class='btn btn-default btn-sm'>
                                                         <i class="far fa-eye"></i>
                                                     </a>
@@ -85,7 +85,7 @@
                                                 <td>11-7-2014</td>
                                                 <td>11-7-2014</td>
                                                 <td class="text-center">
-                                                    <a href="././tache/index.html" class="btn btn-sm btn-default mx-2">les Tâches</a>
+                                                <a href="././tache/index.html" class="btn btn-sm btn-secondary mx-2"><i class="nav-icon fas fa-tasks"></i> Les Tâches</a>
                                                     <a href="./show.php" class='btn btn-default btn-sm'>
                                                         <i class="far fa-eye"></i>
                                                     </a>
@@ -101,7 +101,7 @@
                                                 <td>11-7-2014</td>
                                                 <td>11-7-2014</td>
                                                 <td class="text-center">
-                                                    <a href="../tache/index.php" class="btn btn-sm btn-default mx-2">les Tâches</a>
+                                                <a href="././tache/index.html" class="btn btn-sm btn-secondary mx-2"><i class="nav-icon fas fa-tasks"></i> Les Tâches</a>
                                                     <a href="./show.php" class='btn btn-default btn-sm'>
                                                         <i class="far fa-eye"></i>
                                                     </a>
