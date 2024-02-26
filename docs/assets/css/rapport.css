@@ -99,7 +99,7 @@ code {
 img {
 	display: block;
 	margin-left: auto;
-	margin-right: auto;
+	margin: 15px auto;
 	max-width: 100%;
 
 }
@@ -115,7 +115,7 @@ img+em {
 	font-style: italic;
 	font-size: 11pt;
 	color: #666;
-	margin-top: 5px;
+	margin: 10px 0 15px;
 }
 
 
@@ -148,43 +148,39 @@ h1 {
 	page-break-before: always;
 	margin-top: 12.0pt;
 	margin-bottom: 1pt;
+	margin: 2rem 0;
 	font-size: 25.0pt;
 	color: #2E74B5;
 }
 
 h2 {
-	/* margin-top:2.0pt; */
-	margin-bottom: 5pt;
 	font-size: 18.0pt;
+	margin: 1.5rem 0 1rem;
 	color: #2E74B5;
 }
 
 h3 {
-	/* margin-top:2.0pt; */
 	font-size: 15.0pt;
-	margin-bottom: 1pt;
+	margin: 0.75rem 0 0.5rem;
 	color: #1F4D78;
 }
 
 h4 {
-	/* margin-top:2.0pt; */
 	font-size: 14.0pt;
-	margin-bottom: 1pt;
+	margin: 0.5rem 0 0.25rem;
 	color: #2E74B5;
 	font-style: italic;
 }
 
 h5 {
-	/* margin-top:2.0pt; */
 	font-size: 13.0pt;
-	margin-bottom: 1pt;
+	margin: 0.25rem 0 0.2rem;
 	color: #2E74B5;
 }
 
 h6 {
-	/* margin-top:2.0pt; */
 	font-size: 12.0pt;
-	margin-bottom: 1pt;
+	margin: 1.2pt 0 1pt;
 	color: #1F4D78;
 }
 
@@ -193,8 +189,6 @@ h2,
 h3,
 h4,
 h5 {
-	margin-right: 0cm;
-	margin-left: 0cm;
 	line-height: 107%;
 	page-break-after: avoid;
 	font-weight: normal;
