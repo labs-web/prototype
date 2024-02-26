@@ -1,5 +1,3 @@
-<!-- TODO fixed: Les noms des packages : utilisateurs, projets,taches -->
-
 # Maquette
 
 ## install adminlte
