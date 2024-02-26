@@ -6,6 +6,7 @@ order: 3
 
 
 # Contexte du projet
+{:class="sectionHeader"}
 
 <!-- note -->
 
@@ -15,7 +16,6 @@ Le projet consiste en le développement d'un système CRUD pour gérer les entit
 
 
 ## 2TUP
-
 ![Méthode 2TUP](/prototype/contexte-projet/images/2tup.png){:width="900px"}*figure: Méthode 2TUP*
 
 
@@ -46,7 +46,6 @@ Le processus s'articule ensuite autour de 3 phases essentielles :
 
 
 ## Design thinking
-
 
 ![Méthode 2TUP](/prototype/contexte-projet/images/design-thinking.png){:width="900px"}*figure: Les étapes du Design Thinking*
 
@@ -82,6 +81,7 @@ Les étapes de design thinking :
 <!-- new slide -->
 
 # Branche technique
+{:class="sectionHeader"}
 
 <!-- note -->
 
@@ -116,7 +116,7 @@ Pour le développement de le prototype, ont va utiliser de différentes technolo
 
 ## Prototype
 
-![prototype](./images/prototype.png){:width="500px"}*figure: prototype*
+![prototype](./images/prototype.png){:width="700px"}*figure: prototype*
 
 <!-- note -->
 
