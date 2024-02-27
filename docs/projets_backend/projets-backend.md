@@ -6,6 +6,10 @@ order: 11
 
 # projets_backend 
 
+![Projet backend](/prototype/projets_backend/images/backend.jpg){:width="1000px"}
+
+<!-- note -->
+
 ## Les command 
 
 installer composer
