@@ -5,7 +5,7 @@ order: 9
 ---
 # Exposé name space
 
-![name space](/prototype/exposé-name-space/images/namespace.png){:width="700px"}*figure: Name space*
+![name space](./images/namespace.png){:width="700px"}*figure: Name space*
 
 <!-- note -->
 
@@ -20,9 +20,9 @@ Par exemple, vous pouvez avoir un ensemble de classes qui décrivent un tableau 
 ## Références
 
 ### Lien de Présentation
-[Exposé-name-space/présentation.html](/prototype/Exposé-name-space/présentation.html)
+[https://labs-web.github.io/prototype/Exposé-name-space/rapport.html](/prototype/Exposé-name-space/présentation.html)
 
 ### Lien de Rapport
-[Exposé-name-space/rapport.html](/prototype/Exposé-name-space/rapport.html)  
+[https://labs-web.github.io/prototype/Exposé-name-space/présentation.html#/](/prototype/Exposé-name-space/rapport.html)  
 
 <!-- new slide -->
