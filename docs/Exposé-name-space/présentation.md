@@ -15,12 +15,9 @@ order: 1
 <!-- new slide -->
 
 ## Déclarer un namespace
-```bash
-<?php
 
+```php 
 namespace Projets;
-
-?>
 ```
 
 ![Déclarer un namespace](/prototype/exposé-name-space/images/Déclarer-un-namespace.png)
@@ -29,12 +26,8 @@ namespace Projets;
 
 ## Pour une organisation plus poussée
 
-```bash
-<?php
-
+```php
 namespace Model\Projets;
-
-?>
 ```
 
 <!-- new slide -->
@@ -42,11 +35,7 @@ namespace Model\Projets;
 ## Utiliser des namespace
 
 ```bash
-<?php
-
 $Projets = new Model\Projets();
-
-?>
 ```
 
 <!-- new slide -->
@@ -54,11 +43,6 @@ $Projets = new Model\Projets();
 ## Alias d'espace de noms
 
 ```bash
-<?php
-
 use Model\Projets as P;
 $Projets = new P();
-
-?>
 ```
-<!-- new slide -->
