@@ -7,9 +7,13 @@ order: 8
 
 # compte rendu maquettes
 
-## install adminlte
+- install adminlte
 ```bash
 npm install admin-lte@^3.2 --save
+```
+- exécuter le serveur php
+```bash
+php -S localhost:8000
 ```
 <!-- note -->
 
