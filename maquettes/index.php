@@ -1,27 +1,12 @@
-<?php
-session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['email'])) {
-    
-            if ($_SESSION['email'] === "chef-project@solicode.com") {
-                $_SESSION['name'] = "chef de projet";
-            }
-            header("Location: ../../gestion_des_projet/project/index.php");
-            exit();
-        }else {
-        echo "Email or not set.";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php include_once "../layouts/heade.php"; ?>
+<?php include_once "./view/layouts/heade.php" ?>
 
 <body class="hold-transition login-page">
 <div class="login-box">
         <div class="login-logo">
-            <img src="../../adminlte/dist/img/gestion-de-projet.png" alt="" srcset="" width="90px">
+            <img src="./view/assets/images/logo.png" alt="" srcset="" width="90px">
             <h4>Gestion des Projet</h4>
         </div>
         <!-- /.login-logo -->
@@ -50,16 +35,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
 
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-7">
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
                                 <label for="remember">Se souvenir de moi</label>
                             </div>
                         </div>
 
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-info btn-block">connecter</button>
-                            <!-- <a href="./gestion_des_projet/project/index.php" type="submit" class="btn btn-primary btn-block">connecter</a> -->
+                        <div class="col-5">
+                            <a href="./view/projets/index.php" type="submit" class="btn btn-info btn-block">connecter</a>
                         </div>
 
                     </div>
