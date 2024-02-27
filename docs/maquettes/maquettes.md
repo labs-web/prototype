@@ -30,7 +30,7 @@ _figure: Plus d'information_
 
 <!-- new slide -->
 
-## Ajouter
+## Ajouter projets
 
 ![Ajoute](/prototype/maquettes/images/ajoute.png){:width="850px"}
 _figure: ajoute_
@@ -38,7 +38,16 @@ _figure: ajoute_
 <!-- new slide -->
 
 ## Tâches
+
 ![Tâches](/prototype/maquettes/images/taches.png){:width="1300px"}
 _figure: tâches_
+
+## Les commande à utiliser
+
+install adminlte
+
+```bash
+npm install admin-lte@^3.2 --save
+```
 
 <!-- new slide -->
