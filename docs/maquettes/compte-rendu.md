@@ -4,7 +4,7 @@ chapitre: maquettes
 order: 8
 ---
 
-# compte rendu maquettes
+# Compte rendu maquettes
 
 install adminlte
 
