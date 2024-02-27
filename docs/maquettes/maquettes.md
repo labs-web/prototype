@@ -4,33 +4,36 @@ chapitre: maquettes
 order: 8
 ---
 
-
-# Maquettes 
+# Maquettes
 {:class="sectionHeader"}
 
-<!-- new slide -->      
+<!-- new slide -->
 
 ## Login
-![login](/prototype/maquettes/images/login.png){:width="500px"}*figure: login*
 
-<!-- new slide -->      
+![login](/prototype/maquettes/images/login.png){:width="1300px"}_figure: login_
 
-## Index
-![index](/prototype/maquettes/images/index.png){:width="1200px"}*figure: index*
+<!-- new slide -->
 
-<!-- new slide -->      
+## Page d'accueil
+
+![index](/prototype/maquettes/images/index.png){:width="1300px"}_figure: index_
+
+<!-- new slide -->
 
 ## More detaills
-![Plus d'information](/prototype/maquettes/images/more-detaills.png){:width="1200px"}*figure: Plus d'information*
 
-<!-- new slide -->      
+![Plus d'information](/prototype/maquettes/images/more-detaills.png){:width="1300px"}_figure: Plus d'information_
 
-## Ajoute
-![Ajoute](/prototype/maquettes/images/ajoute.png){:width="850px"}*figure: ajoute*
+<!-- new slide -->
 
-<!-- new slide -->      
+## Ajouter
 
-## Modifier
-![Modifier](/prototype/maquettes/images/modifier.png){:width="850px"}*figure: modifier*
+![Ajoute](/prototype/maquettes/images/ajoute.png){:width="850px"}_figure: ajoute_
 
-<!-- new slide -->      
+<!-- new slide -->
+
+## Tâches
+![Tâches](/prototype/maquettes/images/taches.png){:width="1300px"}_figure: modifier_
+
+<!-- new slide -->

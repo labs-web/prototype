@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-info elevation-4 position-fixed">
   <!-- Logo de la marque -->
-  <a href="../gestion_des_projet/projets/index.php" class="brand-link">
+  <a href="../projets/index.php" class="brand-link">
     <img src="../assets/images/logo.png" class="brand-image img-circle elevation-3" alt="Image de groupe">
     <span class="brand-text font-weight-light text-center">Gestion des Projets</span>
   </a>
@@ -19,7 +19,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../taches/index.php" class="nav-link ">
+            <a href="../taches/index.php" class="nav-link">
               <i class="nav-icon fas fa-tasks"></i>
               <p>
                 Tâches
