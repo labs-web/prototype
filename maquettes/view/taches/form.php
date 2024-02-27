@@ -6,12 +6,6 @@
         </div>
 
         <div class="form-group">
-            <label for="inputDescription">Description</label>
-            <textarea name="projectDescription" class="form-control" id="inputDescription" placeholder="Entrez la description">Description de CNMH</textarea>
-        </div>
-
-
-        <div class="form-group">
             <label for="exampleInputPassword1">Date de début</label>
             <input name="startDate" type="date" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe" value="2023-01-01">
         </div>
@@ -19,6 +13,11 @@
         <div class="form-group">
             <label for="exampleInputPassword1">Date de fin</label>
             <input name="endDate" type="date" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe" value="2023-12-31">
+        </div>
+        
+        <div class="form-group">
+            <label for="inputDescription">Description</label>
+            <textarea name="projectDescription" class="form-control" id="inputDescription" placeholder="Entrez la description">Description de CNMH</textarea>
         </div>
 
     </div>
