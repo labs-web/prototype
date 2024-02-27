@@ -23,7 +23,7 @@ _figure: index_
 
 <!-- new slide -->
 
-## More detaills
+## Plus d'information
 
 ![Plus d'information](/prototype/maquettes/images/more-detaills.png){:width="1300px"}
 _figure: Plus d'information_
@@ -39,6 +39,6 @@ _figure: ajoute_
 
 ## Tâches
 ![Tâches](/prototype/maquettes/images/taches.png){:width="1300px"}
-_figure: modifier_
+_figure: tâches_
 
 <!-- new slide -->
