@@ -2,15 +2,15 @@
 <html lang="fr">
 
 <!-- Inclure l'en-tête -->
-<?php include_once "../../layouts/heade.php" ?>
+<?php include_once "../layouts/heade.php" ?>
 
 <body class="sidebar-mini" style="height: auto;">
 
     <div class="wrapper">
         <!-- Navigation -->
-        <?php include_once "../../layouts/nav.php" ?>
+        <?php include_once "../layouts/nav.php" ?>
         <!-- Barre latérale -->
-        <?php include_once "../../layouts/aside.php" ?>
+        <?php include_once "../layouts/aside.php" ?>
 
 
 
@@ -35,20 +35,19 @@
                                 <div class="card-body">
                                     <div class="col-sm-12">
                                         <label for="nom">Nom:</label>
-                                        <p>Projet 1</p>
+                                        <p>alami</p>
                                     </div>
 
                                     <!-- Description Field -->
                                     <div class="col-sm-12">
-                                        <label for="description">Description:</label>
-                                        <p>Description du projet 1.</p>
+                                        <label for="description">Prénom:</label>
+                                        <p>ahmed</p>
                                     </div>
 
                                     <!-- Description Field -->
                                     <div class="col-sm-12">
-                                        <label for="description">Date:</label>
-                                        <p>Date de début: 11-7-2014</p>
-                                        <p>Date de fin: 11-7-2014</p>
+                                        <label for="description">Email</label>
+                                        <p>ahmed@gmail.com </p>
                                     </div>
                                 </div>
                             </div>
@@ -61,12 +60,12 @@
 
 
         <!-- Inclure le pied de page -->
-        <?php include_once "../../layouts/footer.php" ?>
+        <?php include_once "../layouts/footer.php" ?>
 
     </div>
 
     <!-- Inclure le script -->
-    <?php include_once "../../layouts/script-link.php" ?>
+    <?php include_once "../layouts/script-link.php" ?>
 </body>
 
 </html>
