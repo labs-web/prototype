@@ -3,8 +3,6 @@ layout: presentation
 order: 1
 ---
 
-
-
 # Unit test
 
 ![unit-test](./images/unit_test.png){:width="900px"}*figure: Unit test*
@@ -17,14 +15,13 @@ order: 1
 
 <!-- new slide -->
 
-# Différence entre les tests fonctionnels et les tests unitaires
+# Tests: Fonctionnels vs. Unitaires
 
 ![unit-test](./images/feature-unit-test-laravel.png){:width="900px"}*figure: tests fonctionnels et les tests unitaires*
 
 <!-- new slide -->
 
 # Création de tests
-
 
 ```shell
   php artisan make:test UserTest
@@ -36,9 +33,7 @@ order: 1
 
 <!-- new slide -->
 
-
 # Exécution de tests
-
 
 ```shell
   ./vendor/bin/phpunit
@@ -60,11 +55,9 @@ order: 1
   $response->assertStatus($code);
 ```
 
-
 ```shell
   $response->assertSee($value, $escaped = true);
 ```
-
 
 ```shell
   $response->assertDontSee($value, $escaped = true);
@@ -74,12 +67,11 @@ order: 1
 
 # Test de base de données
 
-
 ![unit-test](./images/Database.jpg){:width="900px"}*figure: Test de base de données*
 
 <!-- new slide -->
 
-## Réinitialisation de la base de données après chaque test
+## Réinitialisation de la base de données
 
 ![unit-test](./images/Resetting-database.png)*figure: Réinitialisation de la base de données*
 

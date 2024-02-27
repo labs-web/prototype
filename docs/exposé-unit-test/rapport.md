@@ -16,15 +16,13 @@ Les tests unitaires sont une technique de test de logiciels dans laquelle des un
 
 # Unit Testing Laravel
 
-
 ![unit-test](./images/uni_test-laravel.png){:width="900px"}*figure: Unit Testing Laravel*
-
 
 Laravel est conçu en pensant aux tests. En fait, la prise en charge des tests avec PHPUnit est incluse dès le départ et un fichier phpunit.xml est déjà configuré pour votre application. Le framework est également livré avec des méthodes d'assistance pratiques qui vous permettent de tester de manière expressive vos applications.
 
 Par défaut, le répertoire tests de votre application contient deux répertoires : Feature et Unit. Les tests unitaires sont des tests qui se concentrent sur une très petite partie isolée de votre code. Les tests dans votre répertoire de test « Unit » ne démarrent pas votre application Laravel et ne peuvent donc pas accéder à la base de données de votre application ou à d'autres services de framework.
 
-# Différence entre les tests fonctionnels et les tests unitaires
+# Tests: Fonctionnels vs. Unitaires
 
 ![unit-test](./images/feature-unit-test-laravel.png){:width="900px"}*figure: tests fonctionnels et les tests unitaires*
 
@@ -114,19 +112,16 @@ Affirmez que la chaîne donnée n'est pas contenue dans la réponse renvoyée pa
 Laravel fournit une variété d'outils et d'assertions utiles pour faciliter le test de vos applications basées sur des bases de données. De plus, les usines de modèles et les seeders Laravel facilitent la création d'enregistrements de base de données de test à l'aide des modèles et des relations Eloquent de votre application.
 
 
-## Réinitialisation de la base de données après chaque test
-
+## Réinitialisation de la base de données
 
 Le trait `Illuminate\Foundation\Testing\RefreshDatabase` ne migre pas votre base de données si votre schéma est à jour. Au lieu de cela, il exécutera uniquement le test dans le cadre d'une transaction de base de données. Par conséquent, tous les enregistrements ajoutés à la base de données par des scénarios de test qui n'utilisent pas cette caractéristique peuvent toujours exister dans la base de données.
 
 Si vous souhaitez réinitialiser totalement la base de données, vous pouvez utiliser les traits `Illuminate\Foundation\Testing\DatabaseMigrations` ou `Illuminate\Foundation\Testing\DatabaseTruncation` à la place. Cependant, ces deux options sont nettement plus lentes que le trait `RefreshDatabase`.
 
 
-
 ## Available Assertions
 
 Laravel fournit plusieurs assertions de base de données pour vos tests de fonctionnalités `PHPUnit`.
-
 
 - assertDatabaseCount
 Affirmez qu'une table de la base de données contient le nombre d'enregistrements donné :
@@ -134,7 +129,6 @@ Affirmez qu'une table de la base de données contient le nombre d'enregistrement
 ```shell
   $this->assertDatabaseCount('users', 5);
 ```
-
 
 - assertDatabaseHas
 Affirmer qu'une table de la base de données contient des enregistrements correspondant aux contraintes de requête clé/valeur données :
@@ -155,8 +149,9 @@ Affirmer qu'une table de la base de données ne contient pas d'enregistrements c
 ```
 
 
+# Conlusion
 
+Les tests sont un élément crucial du développement logiciel, garantissant que chaque composant fonctionne comme prévu et que l'ensemble de l'application répond aux exigences fonctionnelles et de performance. Dans cet exposé, nous avons exploré deux types de tests principaux dans le contexte de Laravel : les tests fonctionnels et les tests unitaires.
 
-
-
+En somme, la combinaison de tests fonctionnels et unitaires avec une gestion efficace de la base de données permet aux développeurs Laravel de garantir la qualité, la fiabilité et la performance de leurs applications tout au long du processus de développement. Ces pratiques contribuent à la création de logiciels robustes et évolutifs qui répondent aux attentes des utilisateurs et des clients.
 
