@@ -9,7 +9,7 @@ order: 1
 <!-- new slide -->
 
 ## Introduction
-![name space](/prototype/exposé-name-space/images/namespace.png){:width="700px"}*figure: Name space*
+![name space](./images/namespace.png){:width="700px"}*figure: Name space*
 
 <!-- new slide -->
 
@@ -19,7 +19,7 @@ order: 1
 namespace Projets;
 ```
 
-![Déclarer un namespace](/prototype/exposé-name-space/images/Déclarer-un-namespace.png){:width="900px"}
+![Déclarer un namespace](./images/Déclarer-un-namespace.png){:width="900px"}
 
 <!-- new slide -->
 

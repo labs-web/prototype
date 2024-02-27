@@ -2,7 +2,7 @@
 
 ## Introduction
 
-![name space](/prototype/exposé-name-space/images/namespace.png){:width="700px"}*figure: Name space*
+![name space](./images/namespace.png){:width="700px"}*figure: Name space*
 
 <!-- image name space -->
 Les espaces de noms sont des qualificatifs qui résolvent deux problèmes différents :
@@ -20,7 +20,7 @@ namespace Projets;
 ```
 - Une déclaration d'espace de noms doit être la première chose dans le fichier PHP. Le code suivant serait invalide :
 
-![Déclarer un namespace](/prototype/exposé-name-space/images/Déclarer-un-namespace.png)*figure: Déclarer un namespace*
+![Déclarer un namespace](./images/Déclarer-un-namespace.png)*figure: Déclarer un namespace*
 
 ## Pour une organisation plus poussée
 Pour une organisation plus poussée, il est possible d'avoir des espaces de noms imbriqués :
