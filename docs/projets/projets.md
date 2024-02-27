@@ -48,3 +48,15 @@ Création de fichier de ProjetRepository.php
 ```bash
 echo > ProjetRepository.php
 ```
+
+Création de ProjetsSeeder seeder 
+
+```bash
+php artisan make:seeder projets/ProjetsSeeder
+```
+
+Command pour inserer projets info sur base donnée en utilisant seeders
+
+```bash
+php artisan db:seed --class=Database\Seeders\projets\ProjetsSeeder
+```
