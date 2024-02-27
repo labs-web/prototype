@@ -17,7 +17,8 @@ namespace Projets;
 ?>
 ```
 - Une déclaration d'espace de noms doit être la première chose dans le fichier PHP. Le code suivant serait invalide :
-<!-- image Syntax error -->
+
+![Déclarer un namespace](/prototype/exposé-name-space/images/Déclarer-un-namespace.png)
 
 ## Pour une organisation plus poussée
 Pour une organisation plus poussée, il est possible d'avoir des espaces de noms imbriqués :

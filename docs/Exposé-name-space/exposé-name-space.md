@@ -19,9 +19,9 @@ Par exemple, vous pouvez avoir un ensemble de classes qui décrivent un tableau 
 ## Liens
 
 ### Lien de Présentation
-[Présentation exposé name space](/prototype/Exposé-name-space/présentation.html)
+[Exposé-name-space/présentation.html](/prototype/Exposé-name-space/présentation.html)
 
 ### Lien de Rapport
-[Rapport exposé name space](/prototype/Exposé-name-space/rapport.html)  
+[Exposé-name-space/rapport.html](/prototype/Exposé-name-space/rapport.html)  
 
 <!-- new slide -->
