@@ -1,13 +1,22 @@
 # Maquette
 
-## install adminlte
+## Obtenir la Maquette
+
+### Cloner le Dépôt Prototype
+
 ```bash
-npm install admin-lte@^3.2 --save
+git clone https://github.com/labs-web/prototype.git
+
+cd prototype
+```
+- Installer les Dépendances
+  
+```bash
+  npm install
 ```
 
-## Get Maquette
+- Exécuter le Serveur Intégré PHP
+  
 ```bash
-cd maquette 
-npm install
 php -S localhost:8000
 ```

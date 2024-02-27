@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-info elevation-4 position-fixed">
   <!-- Logo de la marque -->
-  <a href="../projets/index.php" class="brand-link">
-    <img src="../assets/images/logo.png" class="brand-image img-circle elevation-3" alt="Image de groupe">
+  <a href="index.php" class="brand-link">
+    <img src="/view/assets/images/logo.png" class="brand-image img-circle elevation-3" alt="Image de groupe">
     <span class="brand-text font-weight-light text-center">Gestion des Projets</span>
   </a>
 
@@ -11,7 +11,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="../projets/index.php" class="nav-link">
+            <a href="index.php" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Projets
@@ -19,7 +19,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../taches/index.php" class="nav-link">
+            <a href="/view/taches/index.php" class="nav-link">
               <i class="nav-icon fas fa-tasks"></i>
               <p>
                 Tâches
@@ -28,7 +28,7 @@
           </li>
           <!-- MEMBRE -->
           <li class="nav-item">
-            <a href="../utilisateurs/index.php" class="nav-link ">
+            <a href="/view/utilisateurs/index.php" class="nav-link ">
               <i class="fa-solid fa-users pl-1 pr-1"></i>
               <p>
                 Utilisateur
