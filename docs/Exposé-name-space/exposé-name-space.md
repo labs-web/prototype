@@ -5,6 +5,8 @@ order: 9
 ---
 # Exposé name space
 
+## Résumé
+![name space](/prototype/exposé-name-space/images/namespace.png){:width="700px"}*figure: Name space*
 
 <!-- note -->
 
