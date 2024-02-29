@@ -36,18 +36,14 @@
    <script src="../../node_modules/admin-lte/dist/js/validationForm.js"></script>
    <!-- scripts -->
    
-   <script>
-       tinymce.init({
-           selector: '#inputDescription',
-           height: 300, // Set the height of the editor
-           menubar: false, // Hide the menu bar
-           plugins: [
-               'advlist autolink lists link image charmap print preview anchor',
-               'searchreplace visualblocks code fullscreen',
-               'insertdatetime media table paste code help wordcount'
-           ],
-           toolbar: 'undo redo | formatselect | bold italic backcolor | \
-                   alignleft aligncenter alignright alignjustify | \
-                   bullist numlist outdent indent | removeformat | help'
-       });
-   </script>
+<!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/olc58yk4u06dizq9mfugzr102xtf2bbtrfh77s54c087gtv7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+  });
+</script>
