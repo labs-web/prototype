@@ -4,7 +4,7 @@ chapitre: Projets backend
 order: 11
 ---
 
-# projets_backend
+# projets backend
 
 ![Projet backend](/prototype/projets_backend/images/backend.jpg){:width="1000px"}
 
