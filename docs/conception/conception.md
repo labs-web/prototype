@@ -4,14 +4,17 @@ chapitre: Conception
 order: 7
 ---
 
-# Diagramme de class
+
+# Conception
+
+## Diagramme de class
 
 ![Introduction](./images/diagramme-classes.png){:width="1000px"}*figure: diagramme de class*
 
 <!-- new slide -->
 
 
-# Diagramme de packages
+## Diagramme de packages
 
 ![Diagramme de packages](./images/Diagramme-des-packages.png){:width="900px"}*figure: Diagramme de packages*
 
