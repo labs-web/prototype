@@ -5,7 +5,6 @@ presentation: prérequis
 order: 4
 ---
 
-
 # Prérequis 
 
 Les prérequis comprend les étapes suivantes :
