@@ -10,6 +10,7 @@ order: 4
 Les prérequis comprend les étapes suivantes :
 {:class="hiddenPresentation"}
 
+- autoformation laravel 
 - Planification des tâches à effectuer
 - Rédaction du cahier des charges (problématique, solution proposée, choix des technologies...)
 - Maquettage des différentes pages de l'application
