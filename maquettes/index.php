@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php include_once "../layouts/heade.php" ?>
+<?php include_once "./view/layouts/heade.php" ?>
 
 <body class="hold-transition login-page">
 <div class="login-box">
         <div class="login-logo">
-            <img src="../assets/images/logo.png" alt="" srcset="" width="90px">
+            <img src="./view/assets/images/logo.png" alt="" srcset="" width="90px">
             <h4>Gestion des Projet</h4>
         </div>
         <!-- /.login-logo -->
@@ -43,7 +43,7 @@
                         </div>
 
                         <div class="col-5">
-                            <a href="../projets/index.php" type="submit" class="btn btn-info btn-block">connecter</a>
+                            <a href="./view/projets/index.php" type="submit" class="btn btn-info btn-block">connecter</a>
                         </div>
 
                     </div>

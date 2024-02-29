@@ -1,6 +1,15 @@
 <form>
     <div class="card-body">
         <div class="form-group">
+            <label for="exampleInputProject">Projet</label>
+            <select name="project" class="form-control" id="exampleInputProject">
+                <option value="projet1">Projet 1</option>
+                <option value="projet2">Projet 2</option>
+                <option value="projet3">Projet 3</option>
+            </select>
+        </div>
+
+        <div class="form-group">
             <label for="exampleInputEmail1">Nom</label>
             <input name="nom" type="text" class="form-control" id="exampleInputEmail1" placeholder="Entrer le nom" value="tâche 1">
         </div>
@@ -27,19 +36,3 @@
         <button type="submit" class="btn btn-info">Soumettre</button>
     </div>
 </form>
-
-<script>
-    tinymce.init({
-        selector: '#inputDescription',
-        height: 300, // Set the height of the editor
-        menubar: false, // Hide the menu bar
-        plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table paste code help wordcount'
-        ],
-        toolbar: 'undo redo | formatselect | bold italic backcolor | \
-                   alignleft aligncenter alignright alignjustify | \
-                   bullist numlist outdent indent | removeformat | help'
-    });
-</script>
