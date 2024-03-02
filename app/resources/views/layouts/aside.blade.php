@@ -4,7 +4,7 @@ $current_route = $_SERVER['REQUEST_URI'];
 <aside class="main-sidebar sidebar-dark-info elevation-4 position-fixed">
   <!-- Logo de la marque -->
   <a href="/view/home.php" class="brand-link">
-    <img src="{{ assets('images/logo.png')}}" class="brand-image img-circle elevation-3" alt="Image de groupe">
+    <img src="{{ asset('images/logo.png')}}" class="brand-image img-circle elevation-3" alt="Image de groupe">
     <span class="brand-text font-weight-light text-center h6">Gestion des Projets</span>
   </a>
 
