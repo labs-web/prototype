@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php include_once "./view/layouts/heade.php" ?>
+<?php include_once "view/layouts/heade.php" ?>
 
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -10,6 +10,7 @@
             <h4>Gestion des Projet</h4>
         </div>
         <!-- /.login-logo -->
+        
 
         <!-- /.login-box-body -->
         <div class="card">
@@ -43,7 +44,7 @@
                         </div>
 
                         <div class="col-5">
-                            <a href="./view/projets/index.php" type="submit" class="btn btn-info btn-block">connecter</a>
+                            <a href="./view/home.php" type="submit" class="btn btn-info btn-block">connecter</a>
                         </div>
 
                     </div>
@@ -57,6 +58,6 @@
 </body>
 
 <!-- get script -->
-<?php include_once "../layouts/script-link.php"; ?>
+<?php include_once "view/layouts/script-link.php"; ?>
 
 </html>
