@@ -52,5 +52,24 @@ class projetTest extends TestCase
         $this->projectRepository->update($Existingproject->id , $projectUpdate);
         $this->assertDatabaseHas('projets' , $projectUpdate);
     }
+    public function test_delete_project(){
+        $this->actingAs($this->user);
+        $projectData = Projet::factory()->create();
+        $this->projectRepository->destroy($projectData->id);
+        $this->assertDatabaseMissing('projets' , ['id' => $projectData->id]);
+    }
+    public function test_project_search(){
+        $this->actingAs($this->user);
+        $projectData = [
+            'nom' => 'portfolio',
+            'description' => 'portfolio application',
+            'date_debut' => '2023-10-10 16:22:14',
+            'date_de_fin' => '2024-03-02 16:22:14',
+        ];
+        $createProject = $this->projectRepository->store($projectData);
+        $searchValue = 'portfolio';
+        $searchResults = $this->projectRepository->searchData($searchValue);
+        $this->assertTrue($searchResults->contains('nom', $searchValue));
+    }
 
 }

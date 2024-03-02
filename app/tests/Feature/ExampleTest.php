@@ -107,5 +107,6 @@ public function test_get_all_projects()
         // Then the project should be deleted from the database
         $this->assertDatabaseMissing('projects', ['id' => $existingProject->id]);
     }
+    
 
 }
