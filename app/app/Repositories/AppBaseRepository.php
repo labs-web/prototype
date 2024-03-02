@@ -24,4 +24,4 @@ abstract class AppBaseRepository {
         $toDelete = $this->model->find($id);
         return $toDelete->delete();
     }
-}
+} 
