@@ -15,7 +15,7 @@ abstract class AppBaseRepository {
     }
     public function update($id ,$validatedData){
         $toUpdate = $this->model->find($id);
-        $this->model->update($validatedData);
+        $toUpdate->update($validatedData);
     }
     public function store(array $validatedData){
         return $this->model->create($validatedData);
