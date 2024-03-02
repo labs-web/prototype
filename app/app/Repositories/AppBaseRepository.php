@@ -10,17 +10,18 @@ abstract class AppBaseRepository {
     public function __construct(Model $model){
         $this->model = $model;
     }
-    public function paginatedData($perpage){
+    public function paginatedData($perpage = 4){
         return $this->model->paginate($perpage);
     }
-    public function update($validatedData){
+    public function update($id ,$validatedData){
+        $toUpdate = $this->model->find($id);
         $this->model->update($validatedData);
     }
     public function store(array $validatedData){
         return $this->model->create($validatedData);
     }
-    public function destroy($Obj){
-        $toDelete = $this->model->find($Obj->id);
+    public function destroy($id){
+        $toDelete = $this->model->find($id);
         return $toDelete->delete();
     }
 }
