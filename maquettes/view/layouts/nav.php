@@ -14,22 +14,22 @@
 
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <img src="../../adminlte/dist/img/directeur.png" class="user-image img-circle elevation-2" alt="Image d'utilisateur">
-                <span class="d-none d-md-inline"><?php echo  $_SESSION['name']; ?></span>
+                <img src="/view/assets/images/man.png" class="user-image img-circle elevation-2" alt="Image d'utilisateur">
+                <span class="d-none d-md-inline">chef de Projets</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <!-- Image d'utilisateur -->
                 <li class="user-header bg-info">
-                    <img src="../../adminlte/dist/img/directeur.png" class="img-circle elevation-2" alt="Image d'utilisateur">
+                    <img src="/view/assets/images/man.png" class="img-circle elevation-2" alt="Image d'utilisateur">
                     <p>
-                    <?php echo  $_SESSION['name']; ?>
+                    chef de Projets
                         <small>Membre depuis le 28/12/2023</small>
                     </p>
                 </li>
                 <!-- Pied de page du menu -->
                 <li class="user-footer">
                     <a href="#" class="btn btn-default btn-flat">Profil</a>
-                    <a href="../../auth/connecter/index.php" class="btn btn-default btn-flat float-right">
+                    <a href="/index.php" class="btn btn-default btn-flat float-right">
                         Se déconnecter
                     </a>
                 </li>
