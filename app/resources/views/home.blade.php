@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-wrapper">
 
-    <div class="content-wrapper pt-4">
+        <div class="pt-4">
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
@@ -25,7 +25,8 @@
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="./projets/index.php" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="./projets/index.php" class="small-box-footer">Plus d'informations <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
 
@@ -39,7 +40,8 @@
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
-                                <a href="./taches/index.php" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="./taches/index.php" class="small-box-footer">Plus d'informations <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
 
@@ -53,7 +55,8 @@
                                 <div class="icon">
                                     <i class="ion ion-person-add"></i>
                                 </div>
-                                <a href="./utilisateurs/index.php" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="./utilisateurs/index.php" class="small-box-footer">Plus d'informations <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
 
