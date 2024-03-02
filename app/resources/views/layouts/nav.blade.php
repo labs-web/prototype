@@ -14,13 +14,13 @@
 
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <img src="/view/assets/images/man.png" class="user-image img-circle elevation-2" alt="Image d'utilisateur">
+                <img src="{{assets('images/man.png')}}" class="user-image img-circle elevation-2" alt="Image d'utilisateur">
                 <span class="d-none d-md-inline">chef de Projets</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <!-- Image d'utilisateur -->
                 <li class="user-header bg-info">
-                    <img src="/view/assets/images/man.png" class="img-circle elevation-2" alt="Image d'utilisateur">
+                    <img src="{{assets('images/man.png')}}" class="img-circle elevation-2" alt="Image d'utilisateur">
                     <p>
                     chef de Projets
                         <small>Membre depuis le 28/12/2023</small>
