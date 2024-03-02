@@ -17,7 +17,7 @@
 
         <div class="form-group">
             <label for="inputDescription">Description</label>
-            <textarea name="projectDescription" class="form-control" id="inputDescription" placeholder="Entrez la description">Description de CNMH</textarea>
+            <textarea name="projectDescription" class="form-control" rows="7" id="inputDescription" placeholder="Entrez la description">Description de CNMH</textarea>
         </div>
 
     </div>
@@ -28,4 +28,10 @@
     </div>
 </form>
 
-
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+    // Initialize Quill editor
+    var quill = new Quill('#inputDescription', {
+      theme: 'snow'  // 'snow' is the built-in theme, you can customize this
+    });
+  </script>
