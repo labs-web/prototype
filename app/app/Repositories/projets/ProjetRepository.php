@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\projet;
+namespace App\Repositories\projets;
 
 use App\Models\projets\Projet;
 use App\Repositories\AppBaseRepository;

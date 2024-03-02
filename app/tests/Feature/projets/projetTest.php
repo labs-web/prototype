@@ -4,10 +4,9 @@ namespace Tests\Feature\projets;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\WithFaker;
 use App\Repositories\projets\ProjetRepository;
 use App\Models\projets\Projet;
-use SebastianBergmann\CodeCoverage\Report\Xml\Project;
+use League\CommonMark\Extension\DescriptionList\Node\Description;
 use Tests\TestCase;
 
 class projetTest extends TestCase
@@ -28,6 +27,30 @@ class projetTest extends TestCase
         $projectData = Projet::factory()->create();
         $project = $this->projectRepository->paginatedData();
         $this->assertNotEmpty($project);
+    }
+    public function test_create_project(){
+        $this->actingAs($this->user);
+
+        $projectData = [
+            'nom' => 'cnmh',
+            'description' => 'cnmh management',
+            'date_debut' => '2023-10-10 16:22:14',
+            'date_de_fin' => '2024-03-02 16:22:14',
+        ];
+        $project = $this->projectRepository->store($projectData);
+        $this->assertDatabaseHas('projets' , $projectData);
+    }
+    public function test_update_data(){
+        $this->actingAs($this->user);
+        $Existingproject = Projet::factory()->create();
+        $projectUpdate = [
+            'nom' => 'portfolio',
+            'description' => 'portfolio application',
+            'date_debut' => '2023-10-10 16:22:14',
+            'date_de_fin' => '2024-03-02 16:22:14',
+        ];
+        $this->projectRepository->update($Existingproject->id , $projectUpdate);
+        $this->assertDatabaseHas('projets' , $projectUpdate);
     }
 
 }
