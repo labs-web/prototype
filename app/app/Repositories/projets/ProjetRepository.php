@@ -3,7 +3,7 @@
 namespace App\Repositories\projet;
 
 use App\Models\projets\Projet;
-use App\Repository\Repositories\AppBaseRepository;
+use App\Repositories\AppBaseRepository;
 use Illuminate\Database\Eloquent\Model;
 
 class ProjetRepository extends AppBaseRepository {
