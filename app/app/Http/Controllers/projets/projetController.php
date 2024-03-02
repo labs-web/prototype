@@ -16,9 +16,15 @@ class projetController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        
+     $projectData = $this->projectRepository->paginatedData(4);
+     if($request->ajax()){
+        $searchValue = $request->get('searchValue');
+        $searchQuery = str_replace(' ' ,'%' , $searchValue);
+        $responseData = $this->projectRepository->searchData($searchQuery);
+        return view('projets/index' , compact('responseData'));
+     }   
     }
 
     /**
