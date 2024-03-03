@@ -13,6 +13,10 @@ abstract class AppBaseRepository {
     public function paginatedData($perpage = 4){
         return $this->model->paginate($perpage);
     }
+    public function show($id)
+    {
+        return $fetcheddData = $this->model->findOrFail($id);
+    }
     public function update($id ,$validatedData){
         $toUpdate = $this->model->find($id);
         $toUpdate->update($validatedData);
