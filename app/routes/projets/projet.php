@@ -13,5 +13,4 @@ use App\Http\Controllers\projets\projetController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('projets',[projetController::class , 'index'])->name('projets.index');
+Route::resource('projets' , projetController::class);

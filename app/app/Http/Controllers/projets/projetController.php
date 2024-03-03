@@ -5,7 +5,7 @@ namespace App\Http\Controllers\projets;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\projets\projetRequest;
-use App\Repositories\projet\ProjetRepository;
+use App\Repositories\projets\ProjetRepository;
 
 class projetController extends Controller
 {
@@ -23,8 +23,9 @@ class projetController extends Controller
         $searchValue = $request->get('searchValue');
         $searchQuery = str_replace(' ' ,'%' , $searchValue);
         $responseData = $this->projectRepository->searchData($searchQuery);
-        return view('projets/index' , compact('responseData'));
+        return view('projets.index' , compact('responseData'));
      }   
+     return view('projets.index' , compact('projectData'));
     }
 
     /**
@@ -32,15 +33,16 @@ class projetController extends Controller
      */
     public function create()
     {
-        //
+        return view('projets.create');
     }
-
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(projetRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        $this->projectRepository->store($validatedData);
+        return redirect()->route('projets.create')->with('success' , 'Le projet a été ajouté avec succès.');
     }
 
     /**
@@ -48,7 +50,7 @@ class projetController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**
