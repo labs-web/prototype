@@ -37,4 +37,24 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
         });
     }
+    protected function mapWebRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
+
+        $this->loadRoutesFromDirectory('web');
+
+    }
+
+    protected function loadRoutesFromDirectory($directory)
+    {
+        $routePath = base_path('routes/' . $directory);
+
+        $files = glob($routePath . '/*.php');
+
+        foreach ($files as $file) {
+            require $file;
+        }
+    }
 }
