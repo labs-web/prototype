@@ -20,9 +20,9 @@ Par exemple, vous pouvez avoir un ensemble de classes qui décrivent un tableau 
 ## Références
 
 ### Lien de Présentation
-[https://labs-web.github.io/prototype/exposé-name-space/rapport.html](./exposé-name-space/présentation.html)
+[https://labs-web.github.io/prototype/exposé-name-space/rapport.html](./Exposé-name-space/présentation.html)
 
 ### Lien de Rapport
-[https://labs-web.github.io/prototype/exposé-name-space/présentation.html#/](./exposé-name-space/rapport.html)  
+[https://labs-web.github.io/prototype/exposé-name-space/présentation.html#/](./Exposé-name-space/rapport.html)  
 
 <!-- new slide -->
