@@ -1,7 +1,8 @@
 ---
 layout: default
-chapitre: Introduction
-order: 1
+chapitre: introduction
+presentation: introduction
+order: 2
 ---
 
 # Introduction
