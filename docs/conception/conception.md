@@ -11,7 +11,6 @@ order: 8
 <!-- new slide -->
 
 ## Diagramme de class
-
 ![Introduction](./images/diagramme-classes.png){:width="900px"}*figure: diagramme de class*
 
 <!-- note -->
@@ -22,7 +21,6 @@ download file diagramme classes :
 <!-- new slide -->
 
 ## Diagramme de packages
-
 ![Diagramme de packages](./images/Diagramme-des-packages.png){:width="900px"}*figure: Diagramme de packages*
 
 <!-- note -->
