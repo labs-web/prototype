@@ -2,7 +2,7 @@
 layout: default
 chapitre: maquettes
 presentation: maquettes
-order: 10
+order: 30
 ---
 
 # Maquettes
