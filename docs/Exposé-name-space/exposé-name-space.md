@@ -1,7 +1,8 @@
 ---
 layout: default
 chapitre: Exposé name space
-order: 9
+presentation: Exposé name space
+order: 10
 ---
 # Exposé name space
 
@@ -16,13 +17,12 @@ Les espaces de noms sont des qualificatifs qui résolvent deux problèmes diffé
 
 Par exemple, vous pouvez avoir un ensemble de classes qui décrivent un tableau HTML, comme Tableau, Ligne et Cellule tout en ayant également un autre ensemble de classes pour décrire les meubles, tels que Table, Chaise et Lit. Les espaces de noms peuvent être utilisés pour organiser les classes en deux groupes différents tout en empêchant les deux classes Table et Table d’être mélangées.
 
-
 ## Références
 
 ### Lien de Présentation
-[https://labs-web.github.io/prototype/Exposé-name-space/rapport.html](/prototype/Exposé-name-space/présentation.html)
+[https://labs-web.github.io/prototype/exposé-name-space/rapport.html](./exposé-name-space/présentation.html)
 
 ### Lien de Rapport
-[https://labs-web.github.io/prototype/Exposé-name-space/présentation.html#/](/prototype/Exposé-name-space/rapport.html)  
+[https://labs-web.github.io/prototype/exposé-name-space/présentation.html#/](./exposé-name-space/rapport.html)  
 
 <!-- new slide -->
