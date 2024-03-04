@@ -1,10 +1,10 @@
 ---
 layout: default
 chapitre: init-app
-order: 11
+order: 30
 ---
 
-# init-app
+# Init app
 
 - créer un nouveau projet Laravel via Composer
 ```shell
