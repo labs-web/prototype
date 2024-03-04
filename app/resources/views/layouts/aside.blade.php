@@ -22,7 +22,7 @@ $current_route = $_SERVER['REQUEST_URI'];
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('projets.index')}}" class="nav-link  {{ request()->routeIs('projets') ? 'active' : '' }}">
+            <a href="{{route('projets.index')}}" class="nav-link  {{ Illuminate\Support\Str::contains(request()->url(), 'projets') ? 'active' : '' }}">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Projets

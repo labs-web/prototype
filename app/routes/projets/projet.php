@@ -14,3 +14,5 @@ use App\Http\Controllers\projets\projetController;
 |
 */
 Route::resource('projets' , projetController::class);
+Route::get('export', [projetController::class, 'export'])->name('projets.export');
+Route::post('import', [projetController::class, 'import'])->name('projets.import');
