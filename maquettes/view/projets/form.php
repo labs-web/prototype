@@ -17,7 +17,7 @@
 
         <div class="form-group">
             <label for="inputDescription">Description</label>
-            <textarea name="projectDescription" class="form-control" id="inputDescription" placeholder="Entrez la description">Description de CNMH</textarea>
+            <textarea name="projectDescription" class="form-control" rows="7" id="inputDescription" placeholder="Entrez la description">Description de CNMH</textarea>
         </div>
 
     </div>
@@ -28,18 +28,10 @@
     </div>
 </form>
 
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
-    tinymce.init({
-        selector: '#inputDescription',
-        height: 300, // Set the height of the editor
-        menubar: false, // Hide the menu bar
-        plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table paste code help wordcount'
-        ],
-        toolbar: 'undo redo | formatselect | bold italic backcolor | \
-                   alignleft aligncenter alignright alignjustify | \
-                   bullist numlist outdent indent | removeformat | help'
+    // Initialize Quill editor
+    var quill = new Quill('#inputDescription', {
+      theme: 'snow'  // 'snow' is the built-in theme, you can customize this
     });
-</script>
+  </script>
