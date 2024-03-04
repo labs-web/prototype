@@ -23,13 +23,13 @@ class projetController extends Controller
      */
     public function index(Request $request)
     {
-        $projectData = $this->projectRepository->paginatedData(4);
         if ($request->ajax()) {
             $searchValue = $request->get('searchValue');
             $searchQuery = str_replace(' ', '%', $searchValue);
-            $responseData = $this->projectRepository->searchData($searchQuery);
-            return view('projets.index', compact('responseData'));
+            $projectData = $this->projectRepository->searchData($searchQuery);
+            return view('projets.table', compact('projectData'))->render();
         }
+        $projectData = $this->projectRepository->paginatedData(4);
         return view('projets.index', compact('projectData'));
     }
 
