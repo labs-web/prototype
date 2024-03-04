@@ -1,7 +1,8 @@
 ---
 layout: default
 chapitre: maquettes
-order: 8
+presentation: maquettes
+order: 9
 ---
 
 # Maquettes
@@ -41,6 +42,8 @@ _figure: ajoute_
 
 ![Tâches](/prototype/maquettes/images/taches.png){:width="1300px"}
 _figure: tâches_
+
+<!-- note -->
 
 ## Les commande à utiliser
 
