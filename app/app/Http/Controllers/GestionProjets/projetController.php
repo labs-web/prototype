@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\GestionProjets;
 
 use App\Http\Controllers\Controller;
-use App\Imports\projets\ProjetImport;
+use App\Imports\GestionProjets\ProjetImport;
 use Illuminate\Http\Request;
-use App\Http\Requests\projets\projetRequest;
-use App\Repositories\projets\ProjetRepository;
+use App\Http\Requests\GestionProjets\projetRequest;
+use App\Repositories\GestionProjets\ProjetRepository;
 use Carbon\Carbon;
-use App\Exports\projets\projetExport;
+use App\Exports\GestionProjets\projetExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class projetController extends Controller
