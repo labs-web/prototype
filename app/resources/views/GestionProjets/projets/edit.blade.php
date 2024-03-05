@@ -20,7 +20,7 @@
                                 </div>
                             @endif
                             <!-- Obtenir le formulaire -->
-                            @include('projets.form')
+                            @include('GestionProjets.projets.form')
                         </div>
                     </div>
                 </div>

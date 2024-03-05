@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Imports\projets;
+namespace App\Imports\GestionProjets;
 
 use Carbon\Carbon;
-use App\Models\projets\Projet;
+use App\Models\GestionProjets\Projet;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;

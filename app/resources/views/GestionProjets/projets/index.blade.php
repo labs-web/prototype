@@ -54,7 +54,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @include('projets.table')
+                                        @include('GestionProjets.projets.table')
                                     </tbody>
                                 </table>
                             </div>

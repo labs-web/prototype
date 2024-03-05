@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Exports\projets;
+namespace App\Exports\GestionProjets;
 
-use App\Models\projets\Projet;
+use App\Models\GestionProjets\Projet;
 use Maatwebsite\Excel\Concerns\FromArray;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;

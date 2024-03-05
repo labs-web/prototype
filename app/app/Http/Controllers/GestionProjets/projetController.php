@@ -27,10 +27,10 @@ class projetController extends Controller
             $searchValue = $request->get('searchValue');
             $searchQuery = str_replace(' ', '%', $searchValue);
             $projectData = $this->projectRepository->searchData($searchQuery);
-            return view('projets.table', compact('projectData'))->render();
+            return view('GestionProjets.projets.table', compact('projectData'))->render();
         }
         $projectData = $this->projectRepository->paginatedData(4);
-        return view('projets.index', compact('projectData'));
+        return view('GestionProjets.projets.index', compact('projectData'));
     }
 
     /**
@@ -39,7 +39,7 @@ class projetController extends Controller
     public function create()
     {
         $dataToEdit = null;
-        return view('projets.create', compact('dataToEdit'));
+        return view('GestionProjets.projets.create', compact('dataToEdit'));
     }
     /**
      * Store a newly created resource in storage.
@@ -57,7 +57,7 @@ class projetController extends Controller
     public function show(string $id)
     {
         $fetchedData = $this->projectRepository->show($id);
-        return view('projets.show', compact('fetchedData'));
+        return view('GestionProjets.projets.show', compact('fetchedData'));
     }
 
     /**
@@ -69,7 +69,7 @@ class projetController extends Controller
         $dataToEdit->date_debut = Carbon::parse($dataToEdit->date_debut)->format('Y-m-d');
         $dataToEdit->date_de_fin = Carbon::parse($dataToEdit->date_de_fin)->format('Y-m-d');
 
-        return view('projets.edit', compact('dataToEdit'));
+        return view('GestionProjets.projets.edit', compact('dataToEdit'));
     }
 
     /**
@@ -90,7 +90,7 @@ class projetController extends Controller
     {
         $this->projectRepository->destroy($id);
         $projectData = $this->projectRepository->paginatedData(4);
-        return view('projets.index', compact('projectData'))->with('succes', 'Le projet a été supprimer avec succés.');
+        return view('GestionProjets.projets.index', compact('projectData'))->with('succes', 'Le projet a été supprimer avec succés.');
     }
     public function export()
     {
