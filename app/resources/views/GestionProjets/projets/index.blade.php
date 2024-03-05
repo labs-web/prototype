@@ -42,49 +42,7 @@
 
                                 </div>
                             </div>
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-striped text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th>Titre</th>
-                                            <th>Date de Début</th>
-                                            <th>Date de Fin</th>
-                                            <th class="text-center">Tâches</th>
-                                            <th class="text-center">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @include('GestionProjets.projets.table')
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center p-2">
-                                <div class="d-flex align-items-center mb-2">
-
-                                    <form action="{{ route('projets.import') }}" method="post"
-                                        enctype="multipart/form-data" id="importForm">
-                                        @csrf
-                                        <label for="upload" class="btn btn-default btn-sm mb-0 font-weight-normal">
-                                            <i class="fa-solid fa-file-arrow-down"></i>
-                                            {{ __('IMPORTER') }}
-                                        </label>
-                                        <input type="file" id="upload" name="file" style="display:none;"
-                                            onchange="submitForm()" />
-                                    </form>
-                                    <form>
-                                        <a href="{{ route('projets.export') }}" class="btn  btn-default btn-sm mt-0 mx-2">
-                                            <i class="fa-solid fa-file-export"></i>
-                                            {{ __('EXPORTER') }}
-                                        </a>
-                                    </form>
-
-
-                                </div>
-                                <div class="mr-5">
-                                    {!! $projectData->links() !!}
-                                </div>
-                            </div>
+                            @include('GestionProjets.projets.table')
                         </div>
                     </div>
                 </div>
@@ -99,11 +57,18 @@
     $(document).ready(function() {
         function fetchData(page, searchValue) {
             $.ajax({
-                url: 'projets/?page=' + page + '&searchValue=' + searchValue,
+                url: '/projets/?page=' + page + '&searchValue=' + searchValue,
                 success: function(data) {
-                    $('tbody').html('');
-                    $('tbody').html(data);
-                    console.log(data);
+                    var newData = $(data);
+
+                    $('tbody').html(newData.find('tbody').html());
+                    $('#card-footer').html(newData.find('#card-footer').html());
+                    var paginationHtml = newData.find('.pagination').html();
+                    if (paginationHtml) {
+                        $('.pagination').html(paginationHtml);
+                    } else {
+                        $('.pagination').html('');
+                    }
                 }
             });
             console.log(searchValue);
