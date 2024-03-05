@@ -7,9 +7,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Symfony\Component\Uid\NilUuid;
 
-use Database\Seeders\GestionProjets{
+use Database\Seeders\GestionProjets\{
     ProjetsSeeder,
-}
+};
 
 class DatabaseSeeder extends Seeder
 {
