@@ -42,7 +42,23 @@
 
                                 </div>
                             </div>
-                            @include('projets.table')
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-striped text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>Titre</th>
+                                            <th>Date de Début</th>
+                                            <th>Date de Fin</th>
+                                            <th class="text-center">Tâches</th>
+                                            <th class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @include('projets.table')
+                                    </tbody>
+                                </table>
+                            </div>
+
                             <div class="d-flex justify-content-between align-items-center p-2">
                                 <div class="d-flex align-items-center mb-2">
 
@@ -56,11 +72,13 @@
                                         <input type="file" id="upload" name="file" style="display:none;"
                                             onchange="submitForm()" />
                                     </form>
+                                    <form>
+                                        <a href="{{ route('projets.export') }}" class="btn  btn-default btn-sm mt-0 mx-2">
+                                            <i class="fa-solid fa-file-export"></i>
+                                            {{ __('EXPORTER') }}
+                                        </a>
+                                    </form>
 
-                                    <a href="{{ route('projets.export') }}" class="btn  btn-default btn-sm mt-0 mx-2">
-                                        <i class="fa-solid fa-file-export"></i>
-                                        {{ __('EXPORTER') }}
-                                    </a>
 
                                 </div>
                                 <div class="mr-5">
