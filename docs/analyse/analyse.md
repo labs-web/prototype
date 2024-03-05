@@ -1,7 +1,8 @@
 ---
 layout: default
 chapitre: Analyse
-order: 6
+presentation: Analyse
+order: 20
 ---
 
 # Analyse
@@ -11,7 +12,7 @@ order: 6
 
 ## Empathie chef de projet
  
-![Empathy](/prototype/analyse/images/empathyChef.PNG){:width="1000px"}
+![Empathy](./images/empathyChef.PNG){:width="1000px"}
 
 <!-- note -->
 
@@ -43,7 +44,7 @@ Une séance d’empathie a été réalisée avec Abdelatif Soklabi, un formateur
 
 ## Empathie de membre
 
-!['Analyse'](/prototype/analyse/images/empathyMember.PNG){:width="1000px"}
+!['Analyse'](./images/empathyMember.PNG){:width="1000px"}
 _figure: empathy de membre_
 
 <!-- note -->
@@ -77,7 +78,7 @@ Une séance d’empathie a été réalisée avec les apprenants de formateur abd
 
 ## Définir le problème
 
-![Définir le problem](/prototype/analyse/images/problem.jpg){:width="700px"}
+![Définir le problem](./images/problem.jpg){:width="700px"}
 *figure: définir le problème*
 
 <!-- note -->
@@ -87,7 +88,7 @@ Perdre énormément de temps à consulter les tâches et à naviguer entre celle
 
 ## Idéation
 
-![Ideation](/prototype/analyse/images/ideation.jpg){:width="1000px"}
+![Ideation](./images/ideation.jpg){:width="1000px"}
 *figure: ideation*
 
 <!-- note -->
@@ -98,9 +99,7 @@ Conception et développement d'une application de gestion de projets, de tâches
 
 ## Diagramme de cas d'utilisation
 
-![Cas d'utilisation](/prototype/analyse/images/casdutilisation.PNG){:width="1000px"}
+![Cas d'utilisation](./images/casdutilisation.PNG){:width="1000px"}
 *figure: cas d'utilisation*
 
 <!-- new slide -->
-
-
