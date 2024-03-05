@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\projets\projetController;
+use App\Http\Controllers\GestionProjets\projetController;
 
 /*
 |--------------------------------------------------------------------------
