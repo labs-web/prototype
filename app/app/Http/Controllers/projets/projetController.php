@@ -112,4 +112,5 @@ class projetController extends Controller
         }
         return redirect()->route('projets.index')->with('success', 'Projet a ajouté avec succès');
     }
+
 }
