@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\projets;
+namespace App\Http\Requests\GestionProjets;
 
 use Illuminate\Foundation\Http\FormRequest;
 class projetRequest extends FormRequest
@@ -10,7 +10,7 @@ class projetRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**

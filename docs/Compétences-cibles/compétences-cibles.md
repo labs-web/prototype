@@ -1,13 +1,14 @@
 ---
 layout: default
 chapitre: Compétences cibles
-order: 5
+presentation: Compétences cibles
+order: 6
 
 ---
 
 # Compétences cibles
 
-![Compétences](/prototype/Compétences-cibles/images/Compétences-cibles.png)
+![Compétences](./images/Compétences-cibles.png)
 *figure: Compétences cibles*
 
 <!-- note -->
@@ -21,6 +22,6 @@ Développer une application web qui répond aux 6 compétences visées du réfé
 - **C7 Deploiement** : Préparer et exécuter le déploiement d’une application web et mobile - perfectionnement.
 
 download file Competences.fig :
- - [Competences](/prototype/Compétences-cibles/Competences.fig "download")
+ - [Competences](./competences.fig "download")
 
 <!-- new slide -->
