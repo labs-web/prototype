@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\projets;
+namespace App\Repositories\GestionProjets;
 
-use App\Models\projets\Projet;
+use App\Models\GestionProjets\Projet;
 use App\Repositories\AppBaseRepository;
 use Illuminate\Database\Eloquent\Model;
 

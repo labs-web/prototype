@@ -4,8 +4,8 @@ namespace Tests\Feature\projets;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use App\Repositories\projets\ProjetRepository;
-use App\Models\projets\Projet;
+use App\Repositories\GestionProjets\ProjetRepository;
+use App\Models\GestionProjets\Projet;
 use League\CommonMark\Extension\DescriptionList\Node\Description;
 use Tests\TestCase;
 
