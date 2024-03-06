@@ -103,7 +103,7 @@ class TaskTest extends TestCase
         ];
         $tasks = $this->taskRepository->store($taskData);
         $searchValue = 'test';
-        $searchResults = $this->taskRepository->searchData($searchValue);
+        $searchResults = $this->taskRepository->searchData($searchValue,$projectData->id);
         $this->assertTrue($searchResults->contains('nom', $searchValue));
     }
 
@@ -122,3 +122,5 @@ class TaskTest extends TestCase
         $this->assertNotNull($filterResults);
     }
 }
+
+
