@@ -7,8 +7,8 @@ use App\Repositories\GestionProjets\TaskRepository;
 use App\Http\Requests\GestionProjets\taskRequest;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\TaskExport;
-use App\Imports\ImportTask;
+use App\Exports\GestionProjets\TaskExport;
+use App\Imports\GestionProjets\ImportTask;
 
 class TaskController extends Controller
 {
