@@ -1,9 +1,9 @@
 ---
 layout: default
 chapitre: contexte-projet
+presentation: contexte-projet
 order: 3
 ---
-
 
 # Contexte du projet
 {:class="sectionHeader"}
@@ -16,7 +16,7 @@ Le projet consiste en le développement d'un système CRUD pour gérer les entit
 
 
 ## 2TUP
-![Méthode 2TUP](/prototype/contexte-projet/images/2tup.png){:width="900px"}*figure: Méthode 2TUP*
+![Méthode 2TUP](./images/2tup.png){:width="900px"}*figure: Méthode 2TUP*
 
 
 <!-- note -->
@@ -47,7 +47,7 @@ Le processus s'articule ensuite autour de 3 phases essentielles :
 
 ## Design thinking
 
-![Méthode 2TUP](/prototype/contexte-projet/images/design-thinking.png){:width="900px"}*figure: Les étapes du Design Thinking*
+![Méthode 2TUP](./images/design-thinking.png){:width="900px"}*figure: Les étapes du Design Thinking*
 
 
 <!-- note -->
@@ -87,14 +87,11 @@ Les étapes de design thinking :
 
 La branche technique fait référence à la partie du projet qui est axée sur les aspects techniques et de développement. Cette branche englobe les activités liées à la conception, la programmation, et la mise en œuvre des fonctionnalités et des composants du projet. Elle implique généralement l'utilisation d'outils de développement, la gestion des versions du code source, et la collaboration entre les développeurs. La branche technique joue un rôle essentiel dans la création d'un produit final de haute qualité, en veillant à ce que les spécifications techniques soient respectées et que les fonctionnalités soient correctement implémentées.
 
-
 <!-- new slide -->
-
 
 ## Analyse technique
 
-![Analyse-technique](/prototype/contexte-projet/images/analyse-technique.png){:width="80%"}*figure: Analyse technique*
-
+![Analyse-technique](./images/analyse-technique.png){:width="80%"}*figure: Analyse technique*
 
 <!-- note -->
 
@@ -123,5 +120,3 @@ Pour le développement de le prototype, ont va utiliser de différentes technolo
 Dans cette partie, nous créons un prototype, en utilisant le pattern repository pour gérer les données. Nous ajoutons le support multilingue pour l'interface utilisateur, renforçons la sécurité avec l'authentification, et suivons des bonnes pratiques de déploiement pour une application prête à être utilisée en production.
 
 <!-- new slide -->
-
-

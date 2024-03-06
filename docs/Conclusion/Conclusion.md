@@ -1,7 +1,9 @@
 ---
 layout: default
 chapitre: conclusion
-order: 30
+presentation: conclusion
+order: 60
 
 ---
 # Conclusion
+{:class="sectionHeader"}
