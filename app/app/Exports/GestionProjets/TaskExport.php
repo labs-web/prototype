@@ -16,14 +16,10 @@ class TaskExport implements FromCollection, WithHeadings, WithStyles
 
     public function collection()
     {
-        return Task::select(
-            'nom',
-            'description',
-            'date_debut',
-            'date_de_fin',
-            'project_id'
-        )->get()->map(function ($item) {
+        return Task::with('project')->get()->map(function ($item) {
             $item->description = strip_tags($item->description);
+            $item->project_name = $item->project->nom; 
+            unset($item->project); 
             return $item;
         });
     }
@@ -35,7 +31,7 @@ class TaskExport implements FromCollection, WithHeadings, WithStyles
             'description',
             'date_debut',
             'date_de_fin',
-            'project_id'
+            'nom_de_projet',
         ];
     }
 
