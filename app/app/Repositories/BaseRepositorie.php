@@ -37,7 +37,7 @@ class BaseRepositorie implements RepositorieInterface
         return $record->update($data);
     }
 
-    public function delete($id){
+    public function destroy($id){
         $record = $this->model->find($id);
         return $record->delete();
     }
