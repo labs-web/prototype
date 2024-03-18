@@ -49,7 +49,7 @@
                                     <div class=" p-0">
                                         <form>
                                             <div class="form-row">
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group form-group-sm col-md-4">
                                                     <label for="roleSelect">Role</label>
                                                     <select class="form-control" id="roleSelect">
                                                         <option>admin</option>
@@ -57,7 +57,7 @@
                                                         <option>utilisateur</option>
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group form-group-sm col-md-4">
                                                     <label for="controllerSelect">Controller</label>
                                                     <select class="form-control" id="controllerSelect">
                                                         <option>ProjectsController</option>
@@ -66,7 +66,7 @@
                                                         <!-- Add more controllers as needed -->
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group form-group-sm col-md-4">
                                                     <label for="searchInput">Recherche</label>
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="searchInput" placeholder="Recherche">
