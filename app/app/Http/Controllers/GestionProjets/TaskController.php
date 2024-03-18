@@ -26,9 +26,7 @@ class TaskController extends Controller
     public function index(Request $request,$id){
         $project = $this->projetRepisotorie->find($id);
         $projects = $this->taskRepository->filter();
-        $tasks = $project->tasks();
-
-        dd($project);
+        $tasks = $project->tasks;
 
         if($request->ajax()){
             $searchTask = $request->get('searchTask');
