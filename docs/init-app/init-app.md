@@ -43,7 +43,9 @@ php artisan serve
 ```shell
  php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 ```
-
+```shell
+php artisan migrate
+```
 
 - installation maatwebsite/excel 
 ```shell
