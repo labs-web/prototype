@@ -50,7 +50,7 @@ php artisan serve
 composer require maatwebsite/excel
 ```
  - ajouté `Maatwebsite\Excel\ExcelServiceProvider::class,` dans config/app.php providers
- - ajouté `'Excel' => Maatwebsite\Excel\Facades\Excel::class,` dans config/app.php aliases
+ - ajouté `Excel' => Maatwebsite\Excel\Facades\Excel::class,` dans config/app.php aliases
 
 
 ```shell
