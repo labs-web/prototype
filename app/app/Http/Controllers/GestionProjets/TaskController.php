@@ -59,10 +59,10 @@ class TaskController extends Controller
         return back()->with('success','Tâche ajoutée avec succès.');
     }
 
-    public function edit($id, $task_id){
-        $task = $this->taskRepository->find($task_id);
-        $project = $this->projetRepisotorie->find($id);
-        return view('GestionProjets.task.edit',compact('task','project'));
+    public function edit($id){
+        $task = $this->taskRepository->find($id);
+        $projects = $this->taskRepository->filter();
+        return view('GestionProjets.task.edit',compact('task','projects'));
     }
 
     public function update(Request $request,$task_id){

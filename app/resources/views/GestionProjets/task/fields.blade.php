@@ -10,7 +10,7 @@
 
 <div class="form-group">
     <label for="exampleInputEmail1">Nom</label>
-    <input name="nom" type="text" class="form-control" id="exampleInputEmail1" placeholder="Entrer le nom" value="">
+    <input name="nom" type="text" class="form-control" id="exampleInputEmail1" placeholder="Entrer le nom" value="{{isset($task) ? $task->nom : null}}">
 </div>
 
 <div class="form-group">
