@@ -4,10 +4,10 @@ namespace App\Repositories\GestionProjets;
 
 use App\Models\GestionProjets\Task;
 use App\Models\GestionProjets\Projet;
-use App\Repositories\AppBaseRepository;
+use App\Repositories\BaseRepositorie;
 use Illuminate\Database\Eloquent\Model;
 
-class TaskRepository extends AppBaseRepository {
+class TaskRepository extends BaseRepositorie {
     protected $model;
 
     public function __construct(Task $task){
