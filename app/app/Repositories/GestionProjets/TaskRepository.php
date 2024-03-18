@@ -32,4 +32,3 @@ class TaskRepository extends BaseRepositorie {
     }
    
 }
-
