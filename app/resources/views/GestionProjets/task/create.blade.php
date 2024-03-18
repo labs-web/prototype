@@ -2,6 +2,12 @@
 @section('content')
 
 <div class="content-header">
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        {{ session('success') }}.
+    </div>
+    @endif
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
@@ -20,7 +26,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Ajouter un tache</h3>
                 </div>
-                <form action="" method="POST">
+                <form action="{{ route('task.store') }}" method="POST">
                     @csrf
                     @method('POST')
                     <div class="card-body">

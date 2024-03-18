@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1></h1>
+                <h1>Editer la tache {{$task->nom}}</h1>
             </div>
         </div>
     </div>
@@ -27,15 +27,15 @@
                 <div class="card-header">
                     <h3 class="card-title">Editer</h3>
                 </div>
-                <form action="" method="post">
+                <form action="{{ route('task.update',$task->id) }}" method="post">
                     @csrf
-                    @method('post')
+                    @method('put')
                     <div class="card-body">
                         @include('GestionProjets.task.fields')
                     </div>
 
                     <div class="card-footer">
-                        <a href="" class="btn btn-default">Cancel</a>
+                        <a href="{{ route('task.index') }}" class="btn btn-default">Cancel</a>
                         <button type="submit" class="btn btn-primary">Editer</button>
                     </div>
                 </form>
