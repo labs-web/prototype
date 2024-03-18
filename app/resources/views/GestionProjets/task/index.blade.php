@@ -11,11 +11,13 @@
 
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Les taches</h1>
+                <h1>Les taches @isset($project)
+                    de {{$project->nom}}
+                @endisset</h1>
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href="" class="btn btn-info">Ajouter</a>
+                    <a href="{{ route('task.create') }}" class="btn btn-info">Ajouter</a>
                 </div>
             </div>
         </div>
@@ -33,7 +35,7 @@
                             <div class="dropdown input-group">
                                 <button class="btn btn-default mr-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa-solid fa-filter text-dark pr-2 border-right"></i>
-                                    Projets
+                                    Choisir un projet
                                 </button>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

@@ -18,7 +18,7 @@
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Ajouter {{$type}}</h3>
+                    <h3 class="card-title">Ajouter un tache</h3>
                 </div>
                 <form action="" method="POST">
                     @csrf
@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <a href="" class="btn btn-default">Cancel</a>
+                        <a href="{{ route('task.index') }}" class="btn btn-default">Cancel</a>
                         <button type="submit" class="btn btn-primary">Ajouter</button>
                     </div>
                 </form>

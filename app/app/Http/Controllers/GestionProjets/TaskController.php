@@ -26,19 +26,31 @@ class TaskController extends Controller
     public function index(Request $request){
         $projects = $this->taskRepository->filter();
         $tasks = $this->taskRepository->paginate();
- 
         if($request->ajax()){
             $searchTask = $request->get('searchTask');
             $searchTask = str_replace(" ", "%", $searchTask);
-            $tasks = $this->taskRepository->searchData($searchTask);
+            $tasks = $this->taskRepository->search($searchTask);
             return view('GestionProjets.task.index', compact('tasks','projects'))->render();
         }
         return view('GestionProjets.task.index', compact('tasks', 'projects'));
     }
 
-    public function create($id){
+    public function show(Request $request,$id){
         $project = $this->projetRepisotorie->find($id);
-        return view('GestionProjets.task.create',compact('project'));
+        $projects = $this->taskRepository->filter();
+        $tasks = $project->tasks()->paginate();
+        if($request->ajax()){
+            $searchTask = $request->get('searchTask');
+            $searchTask = str_replace(" ", "%", $searchTask);
+            $tasks = $this->taskRepository->searchData($searchTask,$id);
+            return view('GestionProjets.task.index', compact('tasks','projects','project'))->render();
+        }
+        return view('GestionProjets.task.index', compact('tasks', 'projects','project'));
+    }
+
+    public function create(){
+        $projects = $this->taskRepository->filter();
+        return view('GestionProjets.task.create',compact('projects'));
     }
 
     public function store(taskRequest $request){

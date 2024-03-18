@@ -10,27 +10,26 @@
         </tr>
     </thead>
     <tbody id="membre-table">
-        @foreach ($tasks as $item)
-            <tr>
-                <td>{{$item->nom}}</td>
-                <td>{{$item->description}}</td>
-                <td>{{$item->date_debut}}</td>
-                <td>{{$item->date_de_fin}}</td>
-                <td class="d-flex justify-content-center">
-                    <a href="{{ route('task.edit', $item->id) }}" class="btn btn-sm btn-default"><i
-                            class="fa-solid fa-pen-to-square"></i></a>
-                            <form action="{{ route('task.delete', $item->id) }}" class="ml-2" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="button" class="btn btn-sm btn-danger" onclick="confirmDelete(this.form)"><i
-                                        class="fa-solid fa-trash"></i></button>
-                            </form>
-                            
-                </td>
-
-                
-            </tr>
-        @endforeach
+        @forelse ($tasks as $item)
+        <tr>
+            <td>{{$item->nom}}</td>
+            <td>{{$item->description}}</td>
+            <td>{{$item->date_debut}}</td>
+            <td>{{$item->date_de_fin}}</td>
+            <td class="d-flex justify-content-center">
+                <a href="{{ route('task.edit', $item->id) }}" class="btn btn-sm btn-default"><i
+                        class="fa-solid fa-pen-to-square"></i></a>
+                        <form action="{{ route('task.delete', $item->id) }}" class="ml-2" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="button" class="btn btn-sm btn-danger" onclick="confirmDelete(this.form)"><i
+                                    class="fa-solid fa-trash"></i></button>
+                        </form> 
+            </td>
+        </tr>
+        @empty
+            <tr><td>Aucun tâches trouvée</td></tr>
+        @endforelse ($tasks as $item)
     </tbody>
 </table>
 </div>
