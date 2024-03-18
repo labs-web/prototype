@@ -58,25 +58,25 @@ $current_route = $_SERVER['REQUEST_URI'];
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/view/Authorisations/Autorisations/index.php" class="nav-link active">
+              <a href="/view/autorisation/Autorisations/index.php" class="nav-link active">
                 <i class="far fa-check-circle nav-icon"></i>
                 <p>Autorisation</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/view/Authorisations/Roles/index.php" class="nav-link">
+              <a href="/view/autorisation/Roles/index.php" class="nav-link">
                 <i class="far fa-user-circle nav-icon"></i>
                 <p>Rôle</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/view/Authorisations/Controllers/index.php" class="nav-link ">
+              <a href="/view/autorisation/Controllers/index.php" class="nav-link ">
                 <i class="fas fa-gamepad nav-icon"></i>
                 <p>Controllers</p>
               </a>
             </li>
             <li class="nav-item ">
-              <a href="/view/Authorisations/Actions/index.php" class="nav-link ">
+              <a href="/view/autorisation/Actions/index.php" class="nav-link ">
                 <i class="fas fa-cogs nav-icon"></i>
                 <p>Actions</p>
               </a>
