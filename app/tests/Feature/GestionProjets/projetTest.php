@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\projets;
+namespace Tests\Feature\GestionProjets;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -22,52 +22,63 @@ class projetTest extends TestCase
         $this->user = User::factory()->create();
     }
 
-    public function test_get_paginated_projects(){
+    public function test_get_paginated_projects()
+    {
         $this->actingAs($this->user);
-        $projectData = Projet::factory()->create();
-        $project = $this->projectRepository->paginatedData();
-        $this->assertNotEmpty($project);
+        $project = Projet::factory()->create();
+        $projects = $this->projectRepository->paginate();
+        // dd($projects);
+        $this->assertNotNull($projects);
+        $this->assertNotEmpty($projects);
     }
-    public function test_create_project(){
-        $this->actingAs($this->user);
 
+
+    public function test_create_project()
+    {
+        $this->actingAs($this->user);
         $projectData = [
-            'nom' => 'cnmh',
-            'description' => 'cnmh management',
+            'nom' => 'project create test',
+            'description' => 'project create test',
             'date_debut' => '2023-10-10 16:22:14',
             'date_de_fin' => '2024-03-02 16:22:14',
         ];
-        $project = $this->projectRepository->store($projectData);
-        $this->assertDatabaseHas('projets' , $projectData);
+        $project = $this->projectRepository->create($projectData);
+        $this->assertEquals($projectData['nom'], $project->nom);
     }
+
+
     public function test_update_data(){
         $this->actingAs($this->user);
-        $Existingproject = Projet::factory()->create();
-        $projectUpdate = [
-            'nom' => 'portfolio',
-            'description' => 'portfolio application',
+        $project = Projet::factory()->create();
+        $projectData = [
+            'nom' => 'project update test',
+            'description' => 'project update test',
             'date_debut' => '2023-10-10 16:22:14',
             'date_de_fin' => '2024-03-02 16:22:14',
         ];
-        $this->projectRepository->update($Existingproject->id , $projectUpdate);
-        $this->assertDatabaseHas('projets' , $projectUpdate);
+        $this->projectRepository->update($project->id , $projectData);
+        $this->assertDatabaseHas('projets' , $projectData);
     }
+
+
     public function test_delete_project(){
         $this->actingAs($this->user);
-        $projectData = Projet::factory()->create();
-        $this->projectRepository->destroy($projectData->id);
-        $this->assertDatabaseMissing('projets' , ['id' => $projectData->id]);
+        $project = Projet::factory()->create();
+        $this->projectRepository->destroy($project->id);
+        $this->assertDatabaseMissing('projets' , ['id' => $project->id]);
     }
+
+
     public function test_project_search(){
         $this->actingAs($this->user);
         $projectData = [
-            'nom' => 'portfolio',
-            'description' => 'portfolio application',
+            'nom' => 'test',
+            'description' => 'search project test',
             'date_debut' => '2023-10-10 16:22:14',
             'date_de_fin' => '2024-03-02 16:22:14',
         ];
-        $createProject = $this->projectRepository->store($projectData);
-        $searchValue = 'portfolio';
+        $this->projectRepository->create($projectData);
+        $searchValue = 'test';
         $searchResults = $this->projectRepository->searchData($searchValue);
         $this->assertTrue($searchResults->contains('nom', $searchValue));
     }

@@ -57,7 +57,8 @@ class TaskController extends Controller
         return back()->with('success','Tâche mise à jour avec succès.');
     }
 
-    public function destroy($id, $task_id)
+    
+    public function destroy($task_id)
     {
         $result = $this->taskRepository->destroy($task_id);
         if ($result) {
