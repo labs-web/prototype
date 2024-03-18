@@ -34,8 +34,8 @@ class TaskTest extends TestCase
                     'date_de_fin' => '2024-03-02',
                     'project_id' => $projectData->id
         ];
-        $tasks = $this->taskRepository->store($taskData);
-        $tasks = $this->taskRepository->paginatedData();
+        $tasks = $this->taskRepository->create($taskData);
+        $tasks = $this->taskRepository->paginate();
         $this->assertNotNull($tasks);
     }
 
@@ -50,7 +50,7 @@ class TaskTest extends TestCase
             'date_de_fin' => '2024-03-02',
             'project_id' => $projectData->id
         ];
-        $task = $this->taskRepository->store($taskData);
+        $task = $this->taskRepository->create($taskData);
         $this->assertEquals($taskData['nom'], $task->nom);
     }
 
@@ -65,7 +65,7 @@ class TaskTest extends TestCase
             'date_de_fin' => '2024-03-02',
             'project_id' => $projectData->id
         ];
-        $tasks = $this->taskRepository->store($taskData);
+        $tasks = $this->taskRepository->create($taskData);
         $taskData = [
             'nom' => 'test',
             'description' => 'test',
@@ -85,7 +85,7 @@ class TaskTest extends TestCase
             'date_de_fin' => '2024-03-02',
             'project_id' => $projectData->id
         ];
-        $tasks = $this->taskRepository->store($taskData);
+        $tasks = $this->taskRepository->create($taskData);
         $this->taskRepository->destroy($tasks->id);
         $this->assertDatabaseMissing('tasks', ['id' => $tasks->id]);
     }
@@ -101,7 +101,7 @@ class TaskTest extends TestCase
             'date_de_fin' => '2024-03-02',
             'project_id' => $projectData->id
         ];
-        $tasks = $this->taskRepository->store($taskData);
+        $tasks = $this->taskRepository->create($taskData);
         $searchValue = 'test';
         $searchResults = $this->taskRepository->searchData($searchValue,$projectData->id);
         $this->assertTrue($searchResults->contains('nom', $searchValue));
@@ -117,7 +117,7 @@ class TaskTest extends TestCase
             'date_de_fin' => '2024-03-02',
             'project_id' => $projectData->id
         ];
-        $tasks = $this->taskRepository->store($taskData);
+        $tasks = $this->taskRepository->create($taskData);
         $filterResults = $this->taskRepository->filter();
         $this->assertNotNull($filterResults);
     }
