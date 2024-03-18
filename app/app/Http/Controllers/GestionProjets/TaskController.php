@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\GestionProjets;
 
 use Illuminate\Http\Request;
 use App\Repositories\GestionProjets\TaskRepository;
@@ -10,6 +10,8 @@ use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\GestionProjets\TaskExport;
 use App\Imports\GestionProjets\ImportTask;
+use App\Http\Controllers\Controller;
+
 
 class TaskController extends Controller
 {
@@ -22,16 +24,19 @@ class TaskController extends Controller
     }
 
     public function index(Request $request,$id){
-        $tasks = $this->taskRepository->paginate();
         $project = $this->projetRepisotorie->find($id);
-        $filter = $this->taskRepository->filter();
+        $projects = $this->taskRepository->filter();
+        $tasks = $project->tasks();
+
+        dd($project);
+
         if($request->ajax()){
             $searchTask = $request->get('searchTask');
             $searchTask = str_replace(" ", "%", $searchTask);
             $tasks = $this->taskRepository->searchData($searchTask,$id);
-            return view('GestionProjets.task.index', compact('tasks', 'project','filter'))->render();
+            return view('GestionProjets.task.index', compact('tasks', 'project','projects'))->render();
         }
-        return view('GestionProjets.task.index', compact('tasks', 'project','filter'));
+        return view('GestionProjets.task.index', compact('tasks', 'project','projects'));
     }
 
     public function create($id){
