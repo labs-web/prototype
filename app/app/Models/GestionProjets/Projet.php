@@ -17,7 +17,7 @@ class projet extends Model
         
     ];
     public function tasks(){
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Task::class,'project_id');
     }
 }
 
