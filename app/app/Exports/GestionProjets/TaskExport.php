@@ -18,11 +18,13 @@ class TaskExport implements FromCollection, WithHeadings, WithStyles
     {
         return Task::with('project')->get()->map(function ($item) {
             $item->description = strip_tags($item->description);
-            $item->project_name = $item->project->nom; 
-            unset($item->project); 
-            return $item;
+            $item->project_name = $item->project->nom;
+            unset($item->project);
+    
+            return $item->only(['nom', 'description', 'date_debut', 'date_de_fin', 'project_name']);
         });
     }
+    
 
     public function headings(): array
     {

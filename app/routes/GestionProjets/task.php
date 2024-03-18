@@ -12,6 +12,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/projet/task/{id}/edit',[TaskController::class,'edit'])->name('task.edit');
     Route::put('/projet/task/{id}/update',[TaskController::class,'update'])->name('task.update');
     Route::delete('/projet/task/{id}/delete',[TaskController::class,'destroy'])->name('task.delete');
+    Route::get('/projet/task/export',[TaskController::class,'export'])->name('task.export');
+    Route::post('/projet/task/import',[TaskController::class,'import'])->name('task.import');
+
+
 });
 
 Auth::routes();

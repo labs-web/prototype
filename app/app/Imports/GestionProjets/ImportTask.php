@@ -3,56 +3,44 @@
 namespace App\Imports\GestionProjets;
 
 use App\Models\GestionProjets\Task;
-use App\Models\GestionProjets\Projet; // Make sure to import the Projet model
+use App\Models\GestionProjets\Projet;
 use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use DateTime;
 
 class ImportTask implements ToModel, WithHeadingRow
 {
     public function model(array $row)
     {
-        // Find the project by its name
         $project = Projet::where('nom', $row['nom_de_projet'])->first();
 
         if (!$project) {
-            return null; 
+            return null;
         }
 
-        $rules = [
-            'nom' => 'required|string|max:255',
-            'description' => 'required',
-            'date_debut' => 'required',
-            'date_de_fin' => 'required',
-            'nom_de_projet' => 'required',
-        ];
-
-        $rules['nom'] = Rule::unique('tasks', 'nom')->where(function ($query) use ($project) {
-            return $query->where('project_id', $project->id);
-        });
-
-        $validator = \Validator::make($row, $rules);
-
-        if ($validator->fails()) {
-            return null; 
-        }
-
-        
-        $existingTask = Task::where([
+        if (Task::where([
             'nom' => $row['nom'],
             'project_id' => $project->id,
-        ])->first();
-
-        if ($existingTask) {
-            return null; 
+        ])->exists()) {
+            return null;
         }
+
+        $dateDebut = $this->convertToValidDate($row['date_debut']);
+        $dateDeFin = $this->convertToValidDate($row['date_de_fin']);
 
         return new Task([
             'nom' => $row['nom'],
             'description' => $row['description'],
-            'date_debut' => $row['date_debut'],
-            'date_de_fin' => $row['date_de_fin'],
+            'date_debut' => $dateDebut,
+            'date_de_fin' => $dateDeFin,
             'project_id' => $project->id,
         ]);
+    }
+
+    private function convertToValidDate($numericDate)
+    {
+        $unixTimestamp = ($numericDate - 25569) * 86400;
+        return date('Y-m-d', $unixTimestamp);
     }
 }
