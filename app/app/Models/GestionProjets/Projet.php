@@ -20,3 +20,4 @@ class projet extends Model
         return $this->hasMany(Task::class);
     }
 }
+
