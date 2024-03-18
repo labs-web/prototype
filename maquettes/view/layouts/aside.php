@@ -13,39 +13,77 @@ $current_route = $_SERVER['REQUEST_URI'];
     <!-- Menu latéral -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item">
-            <a href="/view/home.php" class="nav-link <?php echo (strpos($current_route, 'home') !== false) ? 'active' : ''; ?>">
+        <li class="nav-item">
+          <a href="/view/home.php" class="nav-link <?php echo (strpos($current_route, 'home') !== false) ? 'active' : ''; ?>">
             <i class="nav-icon fas fa-home"></i>
-              <p>
-                Accueil
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/view/projets/index.php" class="nav-link <?php echo (strpos($current_route, 'projets') !== false) ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Projets
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/view/taches/index.php" class="nav-link <?php echo (strpos($current_route, 'taches') !== false) ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-tasks"></i>
-              <p>
-                Tâches
-              </p>
-            </a>
-          </li>
-          <!-- MEMBRE -->
-          <li class="nav-item">
-            <a href="/view/utilisateurs/index.php" class="nav-link <?php echo (strpos($current_route, 'utilisateurs') !== false) ? 'active' : ''; ?>">
-              <i class="fa-solid fa-users pl-1 pr-1"></i>
-              <p>
-                Utilisateur
-              </p>
-            </a>
+            <p>
+              Accueil
+            </p>
+          </a>
         </li>
+        <li class="nav-item">
+          <a href="/view/GestionProjets/projets/index.php" class="nav-link <?php echo (strpos($current_route, 'projets') !== false) ? 'active' : ''; ?>">
+            <i class="nav-icon fas fa-table"></i>
+            <p>
+              Projets
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/view/GestionProjets/taches/index.php" class="nav-link <?php echo (strpos($current_route, 'taches') !== false) ? 'active' : ''; ?>">
+            <i class="nav-icon fas fa-tasks"></i>
+            <p>
+              Tâches
+            </p>
+          </a>
+        </li>
+        <!-- MEMBRE -->
+        <li class="nav-item">
+          <a href="/view/GestionProjets/utilisateurs/index.php" class="nav-link <?php echo (strpos($current_route, 'utilisateurs') !== false) ? 'active' : ''; ?>">
+            <i class="fa-solid fa-users pl-1 pr-1"></i>
+            <p>
+              Utilisateur
+            </p>
+          </a>
+        </li>
+
+        <!-- Authorisation -->
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-user-lock"></i>
+            <p>
+              Droit d'accès
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="/view/autorisation/Autorisations/index.php" class="nav-link active">
+                <i class="far fa-check-circle nav-icon"></i>
+                <p>Autorisation</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/view/autorisation/Roles/index.php" class="nav-link">
+                <i class="far fa-user-circle nav-icon"></i>
+                <p>Rôle</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/view/autorisation/Controllers/index.php" class="nav-link ">
+                <i class="fas fa-gamepad nav-icon"></i>
+                <p>Controllers</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a href="/view/autorisation/Actions/index.php" class="nav-link ">
+                <i class="fas fa-cogs nav-icon"></i>
+                <p>Actions</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
