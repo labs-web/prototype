@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\GestionProjets\TaskRepository;
+use App\Repositories\GestionProjets\ProjetRepository;
 use App\Http\Requests\GestionProjets\taskRequest;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Facades\Excel;
@@ -13,15 +14,16 @@ use App\Imports\GestionProjets\ImportTask;
 class TaskController extends Controller
 {
     protected $taskRepository;
+    protected $projetRepisotorie;
 
-    public function __construct(TaskRepository $taskRepository){
+    public function __construct(TaskRepository $taskRepository, ProjetRepository $projetRepisotorie){
         $this->taskRepository = $taskRepository;
+        $this->projetRepisotorie = $projetRepisotorie;
     }
 
     public function index(Request $request,$id){
-        $tasks = $this->taskRepository->paginatedData();
-        $projetRepisotorie = new ProjetRepository();
-        $project = $this->projetRepisotorie->show($id);
+        $tasks = $this->taskRepository->paginate();
+        $project = $this->projetRepisotorie->find($id);
         $filter = $this->taskRepository->filter();
         if($request->ajax()){
             $searchTask = $request->get('searchTask');
@@ -33,8 +35,7 @@ class TaskController extends Controller
     }
 
     public function create($id){
-        $projetRepisotorie = new ProjetRepository();
-        $project = $this->projetRepisotorie->show($id);
+        $project = $this->projetRepisotorie->find($id);
         return view('GestionProjets.task.create',compact('project'));
     }
 
@@ -45,9 +46,8 @@ class TaskController extends Controller
     }
 
     public function edit($id, $task_id){
-        $task = $this->taskRepository->show($task_id);
-        $projetRepisotorie = new ProjetRepository();
-        $project = $this->projetRepisotorie->show($id);
+        $task = $this->taskRepository->find($task_id);
+        $project = $this->projetRepisotorie->find($id);
         return view('GestionProjets.task.edit',compact('task','project'));
     }
 
