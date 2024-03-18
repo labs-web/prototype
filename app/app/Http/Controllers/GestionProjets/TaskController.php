@@ -23,18 +23,17 @@ class TaskController extends Controller
         $this->projetRepisotorie = $projetRepisotorie;
     }
 
-    public function index(Request $request,$id){
-        $project = $this->projetRepisotorie->find($id);
+    public function index(Request $request){
         $projects = $this->taskRepository->filter();
-        $tasks = $project->tasks;
-
+        $tasks = $this->taskRepository->paginate();
+ 
         if($request->ajax()){
             $searchTask = $request->get('searchTask');
             $searchTask = str_replace(" ", "%", $searchTask);
-            $tasks = $this->taskRepository->searchData($searchTask,$id);
-            return view('GestionProjets.task.index', compact('tasks', 'project','projects'))->render();
+            $tasks = $this->taskRepository->searchData($searchTask);
+            return view('GestionProjets.task.index', compact('tasks','projects'))->render();
         }
-        return view('GestionProjets.task.index', compact('tasks', 'project','projects'));
+        return view('GestionProjets.task.index', compact('tasks', 'projects'));
     }
 
     public function create($id){
