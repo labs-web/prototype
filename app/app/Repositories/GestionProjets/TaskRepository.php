@@ -32,3 +32,4 @@ class TaskRepository extends AppBaseRepository {
     }
    
 }
+
