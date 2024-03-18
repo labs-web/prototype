@@ -4,7 +4,7 @@ namespace App\Models\GestionProjets;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\taches\Tache;
+use App\Models\GestionProjets\Task;
 
 class projet extends Model
 {
@@ -16,7 +16,8 @@ class projet extends Model
         'date_de_fin',
         
     ];
-    public function Tache(){
-        return $this->hasMany(Tache::class);
+    public function tasks(){
+        return $this->hasMany(Task::class);
     }
 }
+
