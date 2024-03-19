@@ -14,8 +14,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::delete('/projet/tâches/{id}/delete',[TaskController::class,'destroy'])->name('task.delete');
     Route::get('/projet/tâches/export',[TaskController::class,'export'])->name('task.export');
     Route::post('/projet/tâches/import',[TaskController::class,'import'])->name('task.import');
-
-
 });
 
 Auth::routes();
