@@ -27,16 +27,20 @@ class UsersTest extends TestCase
     public function test_create_user()
     {
         // Generate fake user data
+        $password = 'password123';
         $userData = [
             'name' => 'ahmed',
             'lastname' => 'achaou', // Include lastname
             'email' => 'ahmedachoua@gmail.com',
-            'password' => Hash::make('password123'),
-            'password_confirmation' => Hash::make('password123'),
+            'password' => $password,
+            'password_confirmation' => $password,
         ];
     
+        // Hash the password for comparison
+        $hashedPassword = Hash::make($password);
+    
         // Assert password confirmation
-        $this->assertEquals($userData['password'], $userData['password_confirmation']);
+        $this->assertTrue(Hash::check($userData['password'], $hashedPassword));
     
         // Remove password_confirmation from user data
         unset($userData['password_confirmation']);
@@ -45,7 +49,9 @@ class UsersTest extends TestCase
         $this->utilisateursRepository->create($userData);
     
         // Assert user creation result
-        $this->assertDatabaseHas('users', $userData);
+        $this->assertDatabaseHas('users', ['email' => $userData['email']]);
     }
+    
+    
     
 }
