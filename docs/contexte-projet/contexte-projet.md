@@ -109,6 +109,12 @@ Pour le développement de le prototype, ont va utiliser de différentes technolo
 - AdminLTE: est un thème d'administration basé sur Bootstrap.
     - Rôle: Offrir une interface utilisateur moderne et réactive pour la gestion de l'application.
 
+Pour la mise en place des tests unitaires, on va séparer les tâches entre le frontend et le backend :
+
+- Test unitaire : Séparation des tâches en frontend et backend pour l'ajout de tests unitaires.
+
+- Interfaces : Les développeurs ne respectent pas les méthodes.
+
 <!-- new slide -->
 
 ## Prototype

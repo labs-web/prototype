@@ -3,10 +3,10 @@
 namespace App\Repositories\GestionProjets;
 
 use App\Models\GestionProjets\Projet;
-use App\Repositories\AppBaseRepository;
+use App\Repositories\BaseRepositorie;
 use Illuminate\Database\Eloquent\Model;
 
-class ProjetRepository extends AppBaseRepository {
+class ProjetRepository extends BaseRepositorie {
     protected $model;
 
     public function __construct(Projet $projet){
