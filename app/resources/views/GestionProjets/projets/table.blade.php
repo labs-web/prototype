@@ -17,7 +17,7 @@
                     <td>{{ $project->date_debut }}</td>
                     <td>{{ $project->date_de_fin }}</td>
                     <td class="text-center">
-                        <a href="{{route('task.index')}}" class="btn btn-sm btn-secondary mx-2">
+                        <a href="{{route('task.show' , $project->id)}}" class="btn btn-sm btn-secondary mx-2">
                             <i class="nav-icon fas fa-tasks"></i> Les Tâches
                         </a>
                     </td>
