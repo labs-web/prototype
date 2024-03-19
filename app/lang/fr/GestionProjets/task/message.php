@@ -13,5 +13,7 @@ return [
     'name' => 'Nom',
     'description' => 'Description',
     'startDate' => 'Date de début',
-    'endDate' => 'Date de fin'
+    'endDate' => 'Date de fin',
+    'back' => 'Retour',
+    'detail' => 'Detail de tâche'
 ];
