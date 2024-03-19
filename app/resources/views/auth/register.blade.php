@@ -28,6 +28,22 @@
                         </div>
 
                         <div class="input-group mb-3">
+                            <input type="text" name="lastname"
+                                class="form-control @error('lastname') is-invalid @enderror" value="{{ old('lastname') }}"
+                                placeholder="Full lastname">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-user"></span></div>
+                            </div>
+                            @error('lastname')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+
+                        
+                        <div class="input-group mb-3">
                             <input type="email" name="email" value="{{ old('email') }}"
                                 class="form-control @error('email') is-invalid @enderror" placeholder="Email">
                             <div class="input-group-append">
