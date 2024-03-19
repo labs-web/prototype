@@ -19,8 +19,6 @@ class RoleFactory extends Factory
         return [
             'name' => fake()->text(7),
             'guard_name' => fake()->text(10),
-            'created_at' => fake()->date(),
-            'updated_at' => fake()->date(),
         ];
     }
 }

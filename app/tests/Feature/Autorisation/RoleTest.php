@@ -37,10 +37,8 @@ class RoleTest extends TestCase
     {
         $this->actingAs($this->user);
         $roleData = [
-            'name' => 'admin',
+            'name' => 'adminsss',
             'guard_name' => 'web',
-            'created_at' => '2023-10-10 16:22:14',
-            'updated_at' => '2024-03-02 16:22:14',
         ];
         $role = $this->roleRepository->create($roleData);
         $this->assertEquals($roleData['name'], $role->name);
@@ -51,10 +49,8 @@ class RoleTest extends TestCase
         $this->actingAs($this->user);
         $role = Role::factory()->create();
         $roleData = [
-            'name' => 'admin',
+            'name' => 'admins',
             'guard_name' => 'web',
-            'created_at' => '2023-10-10 16:22:14',
-            'updated_at' => '2024-03-02 16:22:14',
         ];
         $this->roleRepository->update($role->id , $roleData);
         $this->assertDatabaseHas('roles' , $roleData);
@@ -73,8 +69,6 @@ class RoleTest extends TestCase
         $roleData = [
             'name' => 'admin',
             'guard_name' => 'web',
-            'created_at' => '2023-10-10 16:22:14',
-            'updated_at' => '2024-03-02 16:22:14',
         ];
         $this->roleRepository->create($roleData);
         $searchValue = 'admin';
