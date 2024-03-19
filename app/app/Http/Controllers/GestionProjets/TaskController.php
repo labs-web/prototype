@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\GestionProjets;
 
 use Illuminate\Http\Request;
 use App\Repositories\GestionProjets\TaskRepository;
@@ -10,6 +10,8 @@ use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\GestionProjets\TaskExport;
 use App\Imports\GestionProjets\ImportTask;
+use App\Http\Controllers\Controller;
+
 
 class TaskController extends Controller
 {
@@ -21,22 +23,34 @@ class TaskController extends Controller
         $this->projetRepisotorie = $projetRepisotorie;
     }
 
-    public function index(Request $request,$id){
+    public function index(Request $request){
+        $projects = $this->taskRepository->filter();
         $tasks = $this->taskRepository->paginate();
+        if($request->ajax()){
+            $searchTask = $request->get('searchTask');
+            $searchTask = str_replace(" ", "%", $searchTask);
+            $tasks = $this->taskRepository->search($searchTask);
+            return view('GestionProjets.task.index', compact('tasks','projects'))->render();
+        }
+        return view('GestionProjets.task.index', compact('tasks', 'projects'));
+    }
+
+    public function show(Request $request,$id){
         $project = $this->projetRepisotorie->find($id);
-        $filter = $this->taskRepository->filter();
+        $projects = $this->taskRepository->filter();
+        $tasks = $project->tasks()->paginate();
         if($request->ajax()){
             $searchTask = $request->get('searchTask');
             $searchTask = str_replace(" ", "%", $searchTask);
             $tasks = $this->taskRepository->searchData($searchTask,$id);
-            return view('GestionProjets.task.index', compact('tasks', 'project','filter'))->render();
+            return view('GestionProjets.task.index', compact('tasks','projects','project'))->render();
         }
-        return view('GestionProjets.task.index', compact('tasks', 'project','filter'));
+        return view('GestionProjets.task.index', compact('tasks', 'projects','project'));
     }
 
-    public function create($id){
-        $project = $this->projetRepisotorie->find($id);
-        return view('GestionProjets.task.create',compact('project'));
+    public function create(){
+        $projects = $this->taskRepository->filter();
+        return view('GestionProjets.task.create',compact('projects'));
     }
 
     public function store(taskRequest $request){
@@ -45,10 +59,10 @@ class TaskController extends Controller
         return back()->with('success','Tâche ajoutée avec succès.');
     }
 
-    public function edit($id, $task_id){
-        $task = $this->taskRepository->find($task_id);
-        $project = $this->projetRepisotorie->find($id);
-        return view('GestionProjets.task.edit',compact('task','project'));
+    public function edit($id){
+        $task = $this->taskRepository->find($id);
+        $projects = $this->taskRepository->filter();
+        return view('GestionProjets.task.edit',compact('task','projects'));
     }
 
     public function update(Request $request,$task_id){
@@ -58,7 +72,7 @@ class TaskController extends Controller
     }
 
     
-    public function destroy($id, $task_id)
+    public function destroy($task_id)
     {
         $result = $this->taskRepository->destroy($task_id);
         if ($result) {
