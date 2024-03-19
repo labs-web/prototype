@@ -76,9 +76,9 @@
         var url;
 
         if (projectID) {
-            url = '/projet/' + projectID + '/task?page=' + page + '&searchTask=' + search;
+            url = '/projet/' + projectID + '/tâches?page=' + page + '&searchTask=' + search;
         } else {
-            url = '/projet/task?page=' + page + '&searchTask=' + search;
+            url = '/projets/tâches?page=' + page + '&searchTask=' + search;
         }
 
         $.ajax({
