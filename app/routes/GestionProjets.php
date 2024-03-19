@@ -15,5 +15,4 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/projet/tâches/export',[TaskController::class,'export'])->name('task.export');
     Route::post('/projet/tâches/import',[TaskController::class,'import'])->name('task.import');
 });
-
 Auth::routes();
