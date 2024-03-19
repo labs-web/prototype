@@ -2,15 +2,25 @@
 
 namespace App\Http\Controllers\Autorisation;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Repositories\Autorisation\GestionControllersRepository;
 use App\Models\Autorisation\Controller as AutorisationController;
 
 class GestionControllersController extends Controller
 {
+
+
+    protected $controllersRepository;
+
+    public function __construct(GestionControllersRepository $controllersRepository){
+        $this->controllersRepository = $controllersRepository;
+    }
+
+
     public function index()
     {
-        $controllers = AutorisationController::all();
+        $controllers = $this->controllersRepository->paginate();
         return view('controllers.index', compact('controllers'));
     }
 
