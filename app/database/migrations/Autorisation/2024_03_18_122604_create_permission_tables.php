@@ -1,4 +1,5 @@
 <?php
+namespace App\Database\Migrations\Autorisation;
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
