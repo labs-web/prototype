@@ -3,7 +3,7 @@
 namespace Tests\Feature\Autorisation;
 
 use App\Models\Autorisation\Role;
-use App\Repositories\GestionProjets\RoleRepository;
+use App\Repositories\Autorisation\RoleRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Models\User;
 
@@ -23,7 +23,7 @@ class RoleTest extends TestCase
         $this->user = User::factory()->create();
     }
 
-    public function test_get_paginated_projects()
+    public function test_get_paginated_role()
     {
         $this->actingAs($this->user);
         $role = Role::factory()->create();
@@ -37,13 +37,13 @@ class RoleTest extends TestCase
     {
         $this->actingAs($this->user);
         $roleData = [
-            'nom' => 'admin',
+            'name' => 'admin',
             'guard_name' => 'web',
             'date_debut' => '2023-10-10 16:22:14',
             'date_de_fin' => '2024-03-02 16:22:14',
         ];
         $role = $this->roleRepository->create($roleData);
-        $this->assertEquals($roleData['nom'], $role->nom);
+        $this->assertEquals($roleData['name'], $role->name);
     }
 
 
@@ -51,7 +51,7 @@ class RoleTest extends TestCase
         $this->actingAs($this->user);
         $role = Role::factory()->create();
         $roleData = [
-            'nom' => 'role update test',
+            'name' => 'role update test',
             'description' => 'role update test',
             'date_debut' => '2023-10-10 16:22:14',
             'date_de_fin' => '2024-03-02 16:22:14',
@@ -71,7 +71,7 @@ class RoleTest extends TestCase
     public function test_role_search(){
         $this->actingAs($this->user);
         $roleData = [
-            'nom' => 'admin',
+            'name' => 'admin',
             'guard_name' => 'web',
             'date_debut' => '2023-10-10 16:22:14',
             'date_de_fin' => '2024-03-02 16:22:14',
@@ -79,7 +79,7 @@ class RoleTest extends TestCase
         $this->roleRepository->create($roleData);
         $searchValue = 'admin';
         $searchResults = $this->roleRepository->searchData($searchValue);
-        $this->assertTrue($searchResults->contains('nom', $searchValue));
+        $this->assertTrue($searchResults->contains('name', $searchValue));
     }
 
 }

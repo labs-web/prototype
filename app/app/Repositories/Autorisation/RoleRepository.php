@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\GestionProjets;
+namespace App\Repositories\Autorisation;
 
 use App\Models\Autorisation\Role;
 use App\Repositories\BaseRepositorie;
@@ -14,7 +14,7 @@ class RoleRepository extends BaseRepositorie {
     public function searchData($searchableData, $perPage = 4)
     {
         return $this->model->where(function ($query) use ($searchableData) {
-            $query->where('nom', 'like', '%' . $searchableData . '%');
+            $query->where('name', 'like', '%' . $searchableData . '%');
         })->paginate($perPage);
     }
 }

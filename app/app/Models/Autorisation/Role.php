@@ -10,7 +10,7 @@ class Role extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nom' ,
+        'name' ,
         'guard_name'
     ];
 }
