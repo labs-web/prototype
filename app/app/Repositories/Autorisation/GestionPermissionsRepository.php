@@ -17,5 +17,6 @@ class GestionPermissionsRepository extends BaseRepositorie {
             $query->where('name', 'like', '%' . $searchableData . '%');
         })->paginate($perPage);
     }
+    
 
 }
