@@ -23,7 +23,7 @@ class projetController extends Controller
      */
     public function index(Request $request)
     {
-        $projectData = $this->projectRepository->paginatedData(4);
+        $projectData = $this->projectRepository->paginate();
         if ($request->ajax()) {
             $searchValue = $request->get('searchValue');
             if($searchValue !== ''){
@@ -50,7 +50,7 @@ class projetController extends Controller
     public function store(projetRequest $request)
     {
         $validatedData = $request->validated();
-        $this->projectRepository->store($validatedData);
+        $this->projectRepository->create($validatedData);
         return redirect()->route('projets.create')->with('success', 'Le projet a été ajouté avec succès.');
     }
 
@@ -59,7 +59,7 @@ class projetController extends Controller
      */
     public function show(string $id)
     {
-        $fetchedData = $this->projectRepository->show($id);
+        $fetchedData = $this->projectRepository->find($id);
         return view('GestionProjets.projets.show', compact('fetchedData'));
     }
 
@@ -68,7 +68,7 @@ class projetController extends Controller
      */
     public function edit(string $id)
     {
-        $dataToEdit = $this->projectRepository->show($id);
+        $dataToEdit = $this->projectRepository->find($id);
         $dataToEdit->date_debut = Carbon::parse($dataToEdit->date_debut)->format('Y-m-d');
         $dataToEdit->date_de_fin = Carbon::parse($dataToEdit->date_de_fin)->format('Y-m-d');
 
@@ -92,13 +92,13 @@ class projetController extends Controller
     public function destroy(string $id)
     {
         $this->projectRepository->destroy($id);
-        $projectData = $this->projectRepository->paginatedData(4);
+        $projectData = $this->projectRepository->paginate();
         return view('GestionProjets.projets.index', compact('projectData'))->with('succes', 'Le projet a été supprimer avec succés.');
     }
     public function export()
     {
         $perPage = PHP_INT_MAX;
-        $projects = $this->projectRepository->paginatedData($perPage);
+        $projects = $this->projectRepository->paginate();
 
         return Excel::download(new ProjetExport($projects), 'projet_export.xlsx');
     }

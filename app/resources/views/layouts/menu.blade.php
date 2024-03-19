@@ -12,4 +12,9 @@
         <p>Taches</p>
     </a>
 </li>
-
+<li class="nav-item">
+    <a href="{{ route('projets.index') }}" class="nav-link {{ Request::is('projets.index') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Projets</p>
+    </a>
+</li>

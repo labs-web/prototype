@@ -1,55 +1,53 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="content-wrapper" style="min-height: 1302.4px;">
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>Liste des projets</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="float-sm-right">
-                            <a href="{{ route('projets.create') }}" class="btn btn-info">
-                                <i class="fas fa-plus"></i> Nouveau projet
-                            </a>
-                        </div>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Liste des projets</h1>
+                </div>
+                <div class="col-sm-6">
+                    <div class="float-sm-right">
+                        <a href="{{ route('projets.create') }}" class="btn btn-info">
+                            <i class="fas fa-plus"></i> Nouveau projet
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="content">
-            <div class="container-fluid">
-                @if (@session('success'))
-                    <div class="ml-4 mt-2">
-                        <span class="font-medium text-success">{{ session('success') }}</span>
-                    </div>
-                @endif
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header col-md-12">
-                                <div class=" p-0">
-                                    <div class="input-group input-group-sm float-sm-right col-md-3 p-0">
-                                        <input type="text" name="table_search" id="table_search"
-                                            class="form-control float-right" placeholder="Recherche">
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            @if (@session('success'))
+                <div class="ml-4 mt-2">
+                    <span class="font-medium text-success">{{ session('success') }}</span>
+                </div>
+            @endif
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header col-md-12">
+                            <div class=" p-0">
+                                <div class="input-group input-group-sm float-sm-right col-md-3 p-0">
+                                    <input type="text" name="table_search" id="table_search"
+                                        class="form-control float-right" placeholder="Recherche">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                            <i class="fas fa-search"></i>
+                                        </button>
                                     </div>
-
                                 </div>
+
                             </div>
-                            @include('GestionProjets.projets.table')
                         </div>
+                        @include('GestionProjets.projets.table')
                     </div>
                 </div>
             </div>
-            <input type="hidden" id='page' value="1">
-        </section>
-    </div>
+        </div>
+        <input type="hidden" id='page' value="1">
+    </section>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

@@ -13,6 +13,9 @@ use App\Http\Controllers\GestionProjets\projetController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::resource('projets' , projetController::class);
-Route::get('export', [projetController::class, 'export'])->name('projets.export');
-Route::post('import', [projetController::class, 'import'])->name('projets.import');
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::resource('projets' , projetController::class);
+    Route::get('export', [projetController::class, 'export'])->name('projets.export');
+    Route::post('import', [projetController::class, 'import'])->name('projets.import');
+});
