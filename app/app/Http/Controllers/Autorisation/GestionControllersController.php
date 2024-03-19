@@ -21,21 +21,22 @@ class GestionControllersController extends Controller
     public function index()
     {
         $controllers = $this->controllersRepository->paginate();
-        return view('controllers.index', compact('controllers'));
+        return view('Autorisation.controllers.index', compact('controllers'));
     }
 
     public function create()
     {
-        return view('controllers.create');
+        return view('Autorisation.controllers.create');
     }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|unique:controllers|max:255',
+            'nom' => 'required|unique:controllers|max:255',
         ]);
 
-        $controller = AutorisationController::create($validatedData);
+        dd($validatedData);
+        $this->controllersRepository->create($validatedData);
         return redirect()->route('controllers.index')->with('success', 'Controller created successfully');
     }
 
@@ -48,16 +49,17 @@ class GestionControllersController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|unique:controllers,name,' . $controller->id . '|max:255',
-            // Add more validation rules as needed
         ]);
 
-        $controller->update($validatedData);
+        $this->controllersRepository->update($controller->id,$validatedData);
+
         return redirect()->route('controllers.index')->with('success', 'Controller updated successfully');
     }
 
     public function destroy(AutorisationController $controller)
     {
-        $controller->delete();
+        $this->controllersRepository->destroy($controller->id);
+
         return redirect()->route('controllers.index')->with('success', 'Controller deleted successfully');
     }
 }
