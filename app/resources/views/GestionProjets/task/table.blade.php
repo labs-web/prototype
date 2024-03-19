@@ -17,9 +17,9 @@
             <td>{{$item->date_de_fin}}</td>
             <td>{{$item->project->nom}}</td>
             <td class="d-flex justify-content-center">
+                <a href="{{ route('task.detail', $item->id) }}" class="btn btn-sm btn-default mr-2"><i class="far fa-eye"></i></a>
                 <a href="{{ route('task.edit', $item->id) }}" class="btn btn-sm btn-default"><i
                         class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="{{ route('task.detail', $item->id) }}" class="btn btn-sm btn-default ml-2"><i class="far fa-eye"></i></a>
                         <form action="{{ route('task.delete', $item->id) }}" class="ml-2" method="post">
                             @csrf
                             @method('delete')
