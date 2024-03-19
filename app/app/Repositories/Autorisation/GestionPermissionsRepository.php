@@ -4,6 +4,7 @@ namespace App\Repositories\Autorisation;
 
 use App\Models\Autorisation\Controller as AutorisationController;
 use App\Repositories\BaseRepositorie;
+use Illuminate\Support\Facades\Artisan;
 
 class GestionPermissionsRepository extends BaseRepositorie {
     protected $model;
@@ -17,6 +18,10 @@ class GestionPermissionsRepository extends BaseRepositorie {
             $query->where('name', 'like', '%' . $searchableData . '%');
         })->paginate($perPage);
     }
-    
+    public function runSeeders()
+    {
+        Artisan::call('db:seed');
+        // You can add additional logic here if needed
+    }
 
 }
