@@ -21,7 +21,6 @@ class ControllerSeeder extends Seeder
         }
     }
 
-
     public static function extractControllerNames(): array {
         $extractControllerNames = [];
         // Loop through all routes
