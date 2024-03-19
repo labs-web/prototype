@@ -16,8 +16,6 @@ order: 1
 
 <!-- new slide -->
 
-
-
 ## comment il fonction
 
 ![TDD](./images/How-TDD-Works.png){:width="700px"}*figure: TDD*

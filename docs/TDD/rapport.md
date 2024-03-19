@@ -14,5 +14,21 @@ TDD, ou Test-driven development, est une approche de développement de logiciels
 
 - Refactoriser : Une fois que le test passe, on peut retravailler le code pour en améliorer la structure ou l'efficacité, tout en veillant à ce que tous les tests réussissent toujours.
 
+
+## Importance du développement piloté par les tests
+
+Le développement piloté par les tests (TDD) est vital pour huit raisons principales. Il permet aux équipes DevOps de :
+
+
+![name space](./images/inportanceOFtdd.png){:width="700px"}*figure: TDD*
+
+
+
+
+
+
+
+
+
 ## Référence
 [https://www.browserstack.com/guide/what-is-test-driven-development#toc0](https://www.browserstack.com/guide/what-is-test-driven-development#toc0)
