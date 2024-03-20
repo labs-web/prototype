@@ -7,6 +7,8 @@ use App\Repositories\BaseRepositorie;
 use Illuminate\Database\Eloquent\Model;
 
 class UtilisateursRepository extends BaseRepositorie {
+
+    // model user
     protected $model;
 
     public function __construct(User $user){
