@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Autorisation;
 
+use App\Exports\Autorisation\RolesExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Autorisation\RoleRequest;
+use App\Imports\Autorisation\RolesImport;
 use App\Repositories\Autorisation\RoleRepository;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RolesController extends Controller
 {
@@ -15,6 +18,7 @@ class RolesController extends Controller
         $this->roleRepository = $roleRepository;
     }
 
+    // Index
     public function index(Request $request){
         $roles = $this->roleRepository->paginate();
         if($request->ajax()){
@@ -38,19 +42,20 @@ class RolesController extends Controller
         return to_route('roles.index')->with('success','Role ajoutée avec succès.');
     }
     
-    // edit
+    // Edit
     public function edit($id){
         $role = $this->roleRepository->find($id);
         return view('Autorisation.roles.edit', compact('role'));
     }
 
-    // update
+    // Update
     public function update(RoleRequest $request,$task_id){
         $data = $request->validated();
         $task = $this->roleRepository->update($task_id,$data);
         return to_route('roles.index')->with('success','Role mise à jour avec succès.');
     }
 
+    // Delete
     public function destroy($id)
     {
         $result = $this->roleRepository->destroy($id);
@@ -61,5 +66,24 @@ class RolesController extends Controller
         }
     }
     
+    // Export
+    public function export()
+    {
+        return Excel::download(new RolesExport, 'Task.xlsx');
+    }
+
+    // Import
+    public function import(Request $request)
+    {
+       
+        $file = $request->file('file');
+        
+        if ($file) {
+            $path = $file->store('files');
+            Excel::import(new RolesImport, $path);
+        }
+        
+        return redirect()->back();
+    }
 }
 

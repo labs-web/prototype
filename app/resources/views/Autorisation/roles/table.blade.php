@@ -28,7 +28,7 @@
 </div>
 <div class="d-flex justify-content-between align-items-center p-2">
     <div class="d-flex align-items-center mb-2 ml-2 mt-2">
-        <form action="{{ route('task.import') }}" method="post" class="mt-2" enctype="multipart/form-data"
+        <form action="{{ route('roles.import') }}" method="post" class="mt-2" enctype="multipart/form-data"
             id="importForm">
             @csrf
             <label for="upload" class="btn btn-default btn-sm">
@@ -37,7 +37,7 @@
             </label>
             <input type="file" id="upload" name="file" style="display:none;" onchange="submitForm()" />
         </form>
-        <a href="{{ route('task.export') }}" class="btn  btn-default btn-sm mt-0 mx-2 text-bold">
+        <a href="{{ route('roles.export') }}" class="btn  btn-default btn-sm mt-0 mx-2 text-bold">
             <i class="fa-solid fa-file-export"></i>
             EXPORTER</a>
     </div>
