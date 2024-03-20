@@ -4,6 +4,7 @@ namespace App\Http\Controllers\GestionProjets;
 
 use App\Http\Controllers\Controller;
 use App\Imports\GestionProjets\ProjetImport;
+use App\Models\GestionProjets\projet;
 use Illuminate\Http\Request;
 use App\Http\Requests\GestionProjets\projetRequest;
 use App\Repositories\GestionProjets\ProjetRepository;
@@ -97,8 +98,7 @@ class projetController extends Controller
     }
     public function export()
     {
-        $perPage = PHP_INT_MAX;
-        $projects = $this->projectRepository->paginate();
+        $projects = projet::all();
 
         return Excel::download(new ProjetExport($projects), 'projet_export.xlsx');
     }
