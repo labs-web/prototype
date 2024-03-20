@@ -10,7 +10,7 @@
         <tr>
             <td>{{$role->name}}</td>
             <td class="text-center">
-                <a href="./edit.php" class="btn btn-sm btn-default"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-sm btn-default"><i class="fa-solid fa-pen-to-square"></i></a>
                 <button type="button" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
             </td>
         </tr>

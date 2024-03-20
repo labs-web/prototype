@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Autorisation;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Autorisation\RoleRequest;
 use App\Repositories\Autorisation\RoleRepository;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,26 @@ class RolesController extends Controller
     // create
     public function create(){
         return view('Autorisation.roles.create');
+    }
+
+    // store
+    public function store(RoleRequest $request){
+        $data = $request->validated();
+        $this->roleRepository->create($data);
+        return to_route('roles.index')->with('success','Role ajoutée avec succès.');
+    }
+    
+    // edit
+    public function edit($id){
+        $role = $this->roleRepository->find($id);
+        return view('Autorisation.roles.edit', compact('role'));
+    }
+
+    // update
+    public function update(RoleRequest $request,$task_id){
+        $data = $request->validated();
+        $task = $this->roleRepository->update($task_id,$data);
+        return to_route('roles.index')->with('success','Role mise à jour avec succès.');
     }
     
 }

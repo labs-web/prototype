@@ -4,16 +4,9 @@
         <section class="content-header">
             <div class="content-header">
                 <div class="container-fluid">
-                    @if (session('success'))
-                        <div class="alert alert-success alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            {{ session('success') }}.
-                        </div>
-                    @endif
-
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Role</h1>
+                            <h1>Les Roles</h1>
                         </div>
                         <div class="col-sm-6">
 
@@ -32,6 +25,13 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        {{ session('success') }}.
+                    </div>
+                @endif
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -50,7 +50,7 @@
                             </div>
 
                             <div class="card-body table-responsive p-0">
-                                {{-- get table--}}
+                                {{-- get table --}}
                                 @include('Autorisation.roles.table')
                             </div>
 
