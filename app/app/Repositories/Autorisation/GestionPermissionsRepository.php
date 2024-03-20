@@ -20,4 +20,8 @@ class GestionPermissionsRepository extends BaseRepositorie {
         })->paginate($perPage);
     }
 
+    public function filter()
+    {
+       return AutorisationController::all();
+    }
 }
