@@ -50,6 +50,16 @@ class RolesController extends Controller
         $task = $this->roleRepository->update($task_id,$data);
         return to_route('roles.index')->with('success','Role mise à jour avec succès.');
     }
+
+    public function destroy($id)
+    {
+        $result = $this->roleRepository->destroy($id);
+        if ($result) {
+            return to_route('roles.index')>with('success', 'La Role a été supprimée avec succès.');
+        } else {
+            return to_route('roles.index')>with('error', 'Échec de la suppression de la Role. Veuillez réessayer.');
+        }
+    }
     
 }
 
