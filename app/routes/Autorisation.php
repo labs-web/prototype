@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('/Autorisation/roles', RolesController::class);
-    Route::get('/Autorisation/roles/export',[RolesController::class,'export'])->name('roles.export');
-    Route::post('/Autorisation/roles/import',[RolesController::class,'import'])->name('roles.import');
+    Route::get('/roles/export',[RolesController::class,'export'])->name('role.export');
+    Route::post('/roles/import',[RolesController::class,'import'])->name('roles.import');
 });
 
 

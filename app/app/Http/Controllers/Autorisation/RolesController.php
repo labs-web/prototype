@@ -69,7 +69,7 @@ class RolesController extends Controller
     // Export
     public function export()
     {
-        return Excel::download(new RolesExport, 'Task.xlsx');
+        return Excel::download(new RolesExport, 'Roles.xlsx');
     }
 
     // Import

@@ -20,7 +20,7 @@
             </tr>
         @empty
             <tr>
-                <td colspan="2" class="text-center">Aucun tâches trouvée</td>
+                <td colspan="2" class="text-center">Aucun roles trouvée</td>
             </tr>
         @endforelse
     </tbody>
@@ -37,7 +37,7 @@
             </label>
             <input type="file" id="upload" name="file" style="display:none;" onchange="submitForm()" />
         </form>
-        <a href="{{ route('roles.export') }}" class="btn  btn-default btn-sm mt-0 mx-2 text-bold">
+        <a href="{{ route('role.export') }}" class="btn  btn-default btn-sm mt-0 mx-2 text-bold">
             <i class="fa-solid fa-file-export"></i>
             EXPORTER</a>
     </div>
@@ -52,8 +52,11 @@
 <x-modal-delete-role />
 
 <script>
+    function submitForm() {
+        document.getElementById('importForm').submit();
+    }
+
     function AddIdInModal(roleId) {
-        document.getElementById('deleteForm').action = "{{ route('roles.destroy', ':roleId') }}".replace(':roleId',
-            roleId);
+        document.getElementById('deleteForm').action = "{{ route('roles.destroy', ':roleId') }}".replace(':roleId', roleId);
     }
 </script>

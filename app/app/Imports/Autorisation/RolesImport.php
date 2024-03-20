@@ -16,18 +16,15 @@ class RolesImport implements ToModel, WithHeadingRow
             'name' => 'required|string|max:25',
         ];
 
-        $rules['name'] = Rule::unique('roles', 'name');
-
         $validator = Validator::make($row, $rules);
 
         if ($validator->fails()) {
             return null;
         }
 
+        $existingRole = Role::where('name', $row['name'])->exists();
 
-        $role = Role::where('name', $row['name'])->first();
-
-        if (!$role) {
+        if ($existingRole) {
             return null;
         }
 
