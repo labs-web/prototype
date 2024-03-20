@@ -9,4 +9,5 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/Autorisation/roles', RolesController::class);
 });
 
+
 Auth::routes();

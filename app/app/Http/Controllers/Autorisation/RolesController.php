@@ -55,9 +55,9 @@ class RolesController extends Controller
     {
         $result = $this->roleRepository->destroy($id);
         if ($result) {
-            return to_route('roles.index')>with('success', 'La Role a été supprimée avec succès.');
+            return to_route('roles.index')->with('success', 'La Role a été supprimée avec succès.');
         } else {
-            return to_route('roles.index')>with('error', 'Échec de la suppression de la Role. Veuillez réessayer.');
+            return to_route('roles.index')->with('error', 'Échec de la suppression de la Role. Veuillez réessayer.');
         }
     }
     
