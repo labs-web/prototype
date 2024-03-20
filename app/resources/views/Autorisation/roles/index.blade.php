@@ -1,36 +1,16 @@
 @extends('layouts.app')
 @section('content')
-    <div class="content-header">
-        <div class="container-fluid">
-            @if (session('success'))
-                <div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    {{ session('success') }}.
-                </div>
-            @endif
-
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>{{ __('GestionProjets/task/message.tasks') }}
-                        @isset($project)
-                            de {{ $project->nom }}<div id="projectID" data-projectid="{{ $project->id }}"></div>
-                        @endisset
-                    </h1>
-                </div>
-                <div class="col-sm-6">
-                    <div class="float-sm-right">
-                        <a href="{{ route('task.create') }}"
-                            class="btn btn-info">{{ __('GestionProjets/task/message.add') }}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="content-wrapper">
+    <div class="content">
         <section class="content-header">
             <div class="content-header">
                 <div class="container-fluid">
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            {{ session('success') }}.
+                        </div>
+                    @endif
+
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1>Role</h1>
@@ -38,8 +18,8 @@
                         <div class="col-sm-6">
 
                             <div class="float-sm-right mr-2">
-                                <a href="./create.php" class="btn btn-info">
-                                    <i class="fas fa-plus"></i> Ajouter un Rôle
+                                <a href="{{ route('roles.create') }}" class="btn btn-info">
+                                    <i class="fas fa-plus"></i> {{ __('GestionProjets/task/message.add') }}
                                 </a>
                             </div>
 
@@ -70,43 +50,8 @@
                             </div>
 
                             <div class="card-body table-responsive p-0">
-                                <table class="table table-striped text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th>Nom</th>
-                                            <th class="text-center">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>chef_de_projet</td>
-                                            <td class="text-center">
-                                                <a href="./edit.php" class="btn btn-sm btn-default"><i
-                                                        class="fa-solid fa-pen-to-square"></i></a>
-                                                <button type="button" class="btn btn-sm btn-danger"><i
-                                                        class="fa-solid fa-trash"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>admin</td>
-                                            <td class="text-center">
-                                                <a href="./edit.php" class="btn btn-sm btn-default"><i
-                                                        class="fa-solid fa-pen-to-square"></i></a>
-                                                <button type="button" class="btn btn-sm btn-danger"><i
-                                                        class="fa-solid fa-trash"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>utilisateur</td>
-                                            <td class="text-center">
-                                                <a href="./edit.php" class="btn btn-sm btn-default"><i
-                                                        class="fa-solid fa-pen-to-square"></i></a>
-                                                <button type="button" class="btn btn-sm btn-danger"><i
-                                                        class="fa-solid fa-trash"></i></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                {{-- get table--}}
+                                @include('Autorisation.roles.table')
                             </div>
 
                             <div class="d-flex justify-content-between align-items-center p-2">

@@ -15,16 +15,20 @@ class RolesController extends Controller
     }
 
     public function index(Request $request){
-        $tasks = $this->roleRepository->paginate();
+        $roles = $this->roleRepository->paginate();
         if($request->ajax()){
             $searchRole = $request->get('searchRole');
             $searchRole = str_replace(" ", "%", $searchRole);
             $Roles = $this->roleRepository->searchData($searchRole);
-            return view('Autorisation.role.index', compact('roles'))->render();
+            return view('Autorisation.roles.index', compact('roles'))->render();
         }
-        return view('Autorisation.role.index', compact('tasks', 'projects'));
+        return view('Autorisation.roles.index', compact('roles'));
     }
 
+    // create
+    public function create(){
+        return view('Autorisation.roles.create');
+    }
     
 }
 

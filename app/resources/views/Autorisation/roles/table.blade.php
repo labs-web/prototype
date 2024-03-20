@@ -6,26 +6,16 @@
         </tr>
     </thead>
     <tbody>
+        @forelse ($roles as $role)
         <tr>
-            <td>chef_de_projet</td>
+            <td>{{$role->name}}</td>
             <td class="text-center">
                 <a href="./edit.php" class="btn btn-sm btn-default"><i class="fa-solid fa-pen-to-square"></i></a>
                 <button type="button" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
             </td>
         </tr>
-        <tr>
-            <td>admin</td>
-            <td class="text-center">
-                <a href="./edit.php" class="btn btn-sm btn-default"><i class="fa-solid fa-pen-to-square"></i></a>
-                <button type="button" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
-            </td>
-        </tr>
-        <tr>
-            <td>utilisateur</td>
-            <td class="text-center">
-                <a href="./edit.php" class="btn btn-sm btn-default"><i class="fa-solid fa-pen-to-square"></i></a>
-                <button type="button" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
-            </td>
-        </tr>
+        @empty
+        <tr><td colspan="2" class="text-center">Aucun tâches trouvée</td></tr>
+        @endforelse
     </tbody>
 </table>
