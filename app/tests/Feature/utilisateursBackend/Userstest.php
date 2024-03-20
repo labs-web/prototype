@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\Feature\Autorisation;
+namespace Tests\Feature\utilisateursBackend;
 
 use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use App\Repositories\Autorisation\UtilisateursRepository;
+use App\Repositories\UtilisateursRepository;
 
-class UsersTest extends TestCase
+class Userstest extends TestCase
 {
     /**
      * A basic feature test example.
