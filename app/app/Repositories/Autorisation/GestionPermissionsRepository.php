@@ -12,6 +12,12 @@ class GestionPermissionsRepository extends BaseRepositorie {
     public function __construct(AutorisationController $Controller){
         $this->model = $Controller;
     }
-
+    
+    public function search($searchableData, $perPage = 4)
+    {
+        return $this->model->where(function ($query) use ($searchableData) {
+            $query->where('name', 'like', '%' . $searchableData . '%');
+        })->paginate($perPage);
+    }
 
 }
