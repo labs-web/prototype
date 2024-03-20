@@ -20,7 +20,7 @@ class RolesController extends Controller
         if($request->ajax()){
             $searchRole = $request->get('searchRole');
             $searchRole = str_replace(" ", "%", $searchRole);
-            $Roles = $this->roleRepository->searchData($searchRole);
+            $roles = $this->roleRepository->searchData($searchRole);
             return view('Autorisation.roles.index', compact('roles'))->render();
         }
         return view('Autorisation.roles.index', compact('roles'));

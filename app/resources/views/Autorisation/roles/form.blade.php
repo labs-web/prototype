@@ -4,10 +4,10 @@
         @method('PUT')
     @endif
     <div class="form-group">
-        <label for="roleName">Nom de rôle</label>
-        <input type="text" class="form-control @error('roleName') is-invalid @enderror" id="roleName" placeholder="Enter role name" name="name" value="{{ isset($role) ? $role->name : '' }}">
+        <label for="name">Nom de rôle</label>
+        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Enter role name" name="name" value="{{ isset($role) ? $role->name : '' }}">
         <input type="hidden" value="web" name="guard_name">
-        @error('roleName')
+        @error('name')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
