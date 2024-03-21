@@ -22,9 +22,9 @@ class PermissionController extends Controller
             $searchPermission = $request->get('searchPermission');
             $searchPermission = str_replace(" ", "%", $searchPermission);
             $permission = $this->gestionPermissionsRepository->search($searchPermission);
-            return view('GestionProjets.Permission.index', compact('permission'))->render();
+            return view('Autorisation.Permission.index', compact('permission'))->render();
         }
-        return view('GestionProjets.Permission.index', compact('permission'));
+        return view('Autorisation.Permission.index', compact('permission'));
     }
 
 
@@ -33,7 +33,7 @@ class PermissionController extends Controller
 
     public function create(){
         $controller = $this->gestionPermissionsRepository->filter();
-        return view('GestionProjets.Permission.create',compact('controller'));
+        return view('Autorisation.Permission.create',compact('controller'));
     }
 
     public function store(PermissionRequest $request)
@@ -55,7 +55,7 @@ class PermissionController extends Controller
     public function edit($id){
         $Permission = $this->gestionPermissionsRepository->find($id);
         $controller = $this->gestionPermissionsRepository->filter();
-        return view('GestionProjets.Permission.edit',compact('Permission','controller'));
+        return view('Autorisation.Permission.edit',compact('Permission','controller'));
     }
 
     public function update(Request $request,$Permission_id){
