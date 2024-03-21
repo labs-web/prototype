@@ -40,11 +40,11 @@ class PermissionController extends Controller
     {
         $controller = $request->get('controller'); // Assuming the controller input name is 'controller'
         $action = $request->get('action'); // Assuming the action input name is 'action'
-    
         $combinedName = "$action-$controller";
     
         $data = $request->except(['controller', 'action']); // Exclude controller and action from data
         $data['name'] = $combinedName; // Add combined name to data
+        $data['guard_name'] = 'web';
     
         $permission = $this->gestionPermissionsRepository->create($data);
     
@@ -53,9 +53,9 @@ class PermissionController extends Controller
     
 
     public function edit($id){
-        $Permission = $this->gestionPermissionsRepository->find($id);
+        $permission = $this->gestionPermissionsRepository->find($id);
         $controller = $this->gestionPermissionsRepository->filter();
-        return view('Autorisation.Permission.edit',compact('Permission','controller'));
+        return view('Autorisation.Permission.edit',compact('permission','controller'));
     }
 
     public function update(Request $request,$Permission_id){
