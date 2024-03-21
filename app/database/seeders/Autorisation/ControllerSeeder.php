@@ -17,21 +17,25 @@ class ControllerSeeder extends Seeder
         $controllerNames = $this->extractControllerNames();
 
         foreach ($controllerNames as $controllerName) {
-            AutorisationController::create(['nom' => $controllerName]);
+            // Check if the controller already exists in the database
+            if (!AutorisationController::where('nom', $controllerName)->exists()) {
+                AutorisationController::create(['nom' => $controllerName]);
+            }
         }
     }
 
-    public static function extractControllerNames(): array {
+    public static function extractControllerNames(): array
+    {
         $extractControllerNames = [];
         // Loop through all routes
-        foreach(Route::getRoutes() as $route) {
+        foreach (Route::getRoutes() as $route) {
             $action = $route->getAction();
             // Check if the route has a controller key in its action
-            if(array_key_exists('controller', $action)) {
+            if (array_key_exists('controller', $action)) {
                 $fullControllerName = $action['controller'];
 
                 // Check if the controller is in the correct namespace and does not belong to Auth namespace
-                if(
+                if (
                     strpos($fullControllerName, 'App\Http\Controllers\\') === 0 &&
                     strpos($fullControllerName, 'App\Http\Controllers\Auth\\') !== 0
                 ) {
