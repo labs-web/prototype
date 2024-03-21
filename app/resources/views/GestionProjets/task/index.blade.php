@@ -41,7 +41,7 @@
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     @foreach ($projects as $item)
-                                    <a class="dropdown-item" href="/projet/{{$item->id}}/task">{{$item->nom}}</a>
+                                    <a class="dropdown-item" href="/projet/{{$item->id}}/tâches">{{$item->nom}}</a>
                                     @endforeach
                                     
                                 </div>
