@@ -17,15 +17,14 @@ class PermissionController extends Controller
         $this->gestionPermissionsRepository = $gestionPermissionsRepository;
 }
     public function index(Request $request){
-        $controller = $this->gestionPermissionsRepository->filter();
         $permission = $this->gestionPermissionsRepository->paginate();
         if($request->ajax()){
             $searchPermission = $request->get('searchPermission');
             $searchPermission = str_replace(" ", "%", $searchPermission);
             $permission = $this->gestionPermissionsRepository->search($searchPermission);
-            return view('GestionProjets.Permission.index', compact('permission','controller'))->render();
+            return view('GestionProjets.Permission.index', compact('permission'))->render();
         }
-        return view('GestionProjets.Permission.index', compact('permission', 'controller'));
+        return view('GestionProjets.Permission.index', compact('permission'));
     }
 
 
