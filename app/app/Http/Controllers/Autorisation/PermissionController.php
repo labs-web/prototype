@@ -37,11 +37,21 @@ class PermissionController extends Controller
         return view('GestionProjets.Permission.create',compact('controller'));
     }
 
-    public function store(PermissionRequest $request){
-        $data = $request->all();
+    public function store(PermissionRequest $request)
+    {
+        $controller = $request->get('controller'); // Assuming the controller input name is 'controller'
+        $action = $request->get('action'); // Assuming the action input name is 'action'
+    
+        $combinedName = "$action-$controller";
+    
+        $data = $request->except(['controller', 'action']); // Exclude controller and action from data
+        $data['name'] = $combinedName; // Add combined name to data
+    
         $permission = $this->gestionPermissionsRepository->create($data);
-        return back()->with('success','Permission ajoutée avec succès.');
+    
+        return back()->with('success', 'Permission ajoutée avec succès.');
     }
+    
 
     public function edit($id){
         $Permission = $this->gestionPermissionsRepository->find($id);
