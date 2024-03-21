@@ -4,6 +4,7 @@
             <thead>
                 <tr>
                     <th>{{ __('utilisateurs/messages.Utilisateur Name') }}</th>
+                    <th>{{ __('utilisateurs/messages.Utilisateur Last Name') }}</th>
                     <th>{{ __('utilisateurs/messages.Utilisateur Email') }}</th>             
                    <th class="text-center" >Actions</th>
 
@@ -17,12 +18,18 @@
 
                     <tr>
                         <td>{{ $utilisateur->name }}</td>
+                        <td>{{ $utilisateur->lastname }}</td>
                         <td>{{ $utilisateur->email }}</td>
+
             
-                        <td class="text-center">
-                            <a class="btn btn-default btn-sm'" href="{{ route('utilisateurs.show', $utilisateur->id) }}">
+                        <td class="text-center w-25">
+                            <a class="btn btn-default btn-sm" href="{{ route('utilisateurs.show', $utilisateur->id) }}">
                                 <i class="far fa-eye"></i>
                             </a>
+
+
+                            <a href="{{route('utilisateurs.edit', $utilisateur->id)}}" class="btn btn-sm btn-default"><i class="fa-solid fa-pen-to-square"></i></a>
+
                    
                             <button type="button" class="btn btn-sm btn-danger delete-utilisateur" data-toggle="modal" data-target="#modal-default" data-utilisateur-id="{{ $utilisateur->id }}" data-utilisateur-name="{{ $utilisateur->name }}">
                                 <i class="fa-solid fa-trash"></i>
@@ -63,7 +70,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger">Delete projet</button>
+                    <button type="submit" class="btn btn-danger">Delete User</button>
                 </div>
             </form>
         </div>
@@ -117,14 +124,14 @@
         </div>  
         
          <div class="float-left d-flex">
-            <a href="{{route('export.utilisateurs')}}" style="height: 32px;" class="btn btn-default btn-sm">
+            <a href="{{route('export.utilisateurs')}}" style="height: 32px;" class="btn btn-default btn-sm text-bold">
                 <i class="fa-solid fa-file-export"></i>  {{ __('utilisateurs/messages.Export') }}
             </a>
             
             <form action="{{ route('import.utilisateurs') }}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
                 @csrf 
                 <input type="file" name="utilisateurs" id="formFileInpututilisateurs" style="position: absolute; left: -9999px;">
-                <button type="button" id="fileButtonutilisateurs" class="btn btn-default btn-sm mt-0 mx-2"><i class="fa-solid fa-file-arrow-down"></i> {{ __('utilisateurs/messages.Import') }} </button>
+                <button type="button" id="fileButtonutilisateurs" class="btn btn-default btn-sm mt-0 mx-2 text-bold"><i class="fa-solid fa-file-arrow-down"></i> {{ __('utilisateurs/messages.Import') }} </button>
             </form>
 
             

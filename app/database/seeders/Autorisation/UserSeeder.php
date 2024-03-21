@@ -18,8 +18,8 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Project',
             'lastname' => 'Leader',
-            'email' => 'ProjectLeader@example.com',
-            'password' => Hash::make('ProjectLeader1234'),
+            'email' => 'projectleader@example.com',
+            'password' => Hash::make('projectleader1234'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

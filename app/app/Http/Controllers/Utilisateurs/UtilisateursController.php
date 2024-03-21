@@ -3,20 +3,16 @@
 namespace App\Http\Controllers\Utilisateurs;
 
 use App\Models\User;
-// use App\Exports\UserExport;
-// use App\Exports\MemberExport;
-// use App\Imports\MemberImport;
+use App\Imports\Autorisation\UsersImport;
 use Illuminate\Http\Request;
-// use App\Exports\StagiaireExport;
-// use App\Imports\StagiaireImport;
-use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
-use Illuminate\Http\RedirectResponse;
+use App\Exports\Autorisation\UsersExport;
+use Illuminate\Validation\Rules\Password;
 use App\Repositories\Autorisation\UtilisateursRepository;
 use App\Http\Requests\Autorisation\CreateUtilisateursRequest;
-use App\repositories\StagiaireRepository\StagiaireRepository;
+
 
 
 class UtilisateursController extends controller
@@ -63,15 +59,12 @@ public function create()
     public function store(CreateUtilisateursRequest $request)
     {
 
-      dd($request->attributes());
+    //   dd($request);
        $validatedData = $request->validated();
-
-       if ($validatedData['password'] !== $validatedData['password_confirmation']) {
-           return redirect()->back()->withErrors(['password' => 'The password confirmation does not match.'])->withInput();
-       }
 
         $utilisateurs = $this->utilisateursRepository->create([
             'name' => $request->name,
+            'lastname' => $request->lastname,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
@@ -96,11 +89,9 @@ public function create()
 // ========= show ============
 public function show($id){
 
-    $utilisateurs = $this->utilisateursRepository->find($id);
-
-    if($utilisateurs) {
-
-        return view('utilisateurs.view', compact('utilisateurs'));
+    $utilisateur = $this->utilisateursRepository->find($id);
+    if($utilisateur) {
+        return view('utilisateurs.view', compact('utilisateur'));
     } else {
         abort(404);
     }
@@ -108,5 +99,85 @@ public function show($id){
 
 }
 
+  // ======= edit =========
+
+  public function edit($id){
+
+    $utilisateur = $this->utilisateursRepository->find($id);
+    return view('utilisateurs.update', compact('utilisateur'));
+
+ }
+
+
+ // update function 
+
+
+
+public function update(Request $request, $id)
+{
+    $utilisateur = $this->utilisateursRepository->find($id);
+
+    if (!$utilisateur) {
+        return redirect()->route('utilisateurs.index')->with('error', 'User not found');
+    }
+
+    $validatedData = $request->validate([
+        'name' => ['required', 'string', 'max:25'],
+        'lastname' => ['required', 'string', 'max:25'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$id],
+        'old_password' => ['required', 'string'],
+        'password' => ['required', 'string', 'confirmed', Password::defaults()],
+    ]);
+
+    // Check if the old password matches the current password
+    if (!Hash::check($validatedData['old_password'], $utilisateur->password)) {
+        return redirect()->back()->withErrors(['old_password' => 'The old password is incorrect'])->withInput();
+    }
+
+    $this->utilisateursRepository->update($id, $validatedData);
+
+    return redirect()->route('utilisateurs.index')->with('success', 'User updated successfully');
+}
+
+
+
+// export utilisateurs
+public function exportUtilisateurs() 
+{
+   return Excel::download(new UsersExport, 'Users.xlsx');
+}
+
+
+
+// import utilisateurs ====
+
+public function importUtilisateurs(Request $request)
+{
+
+
+    $request->validate([
+        'utilisateurs' => 'required|mimes:xlsx,xls',
+    ]);
+
+
+    $import = new UsersImport;
+    try {
+        $importedRows = Excel::import($import, $request->file('utilisateurs'));
+    
+        if($importedRows) {
+      
+            $successMessage = 'Fichier importé avec succès.';
+        } else {
+            $successMessage = 'Pas de nouvelles données à importer.';
+        }
+
+        return redirect('/utilisateurs')->with('success', $successMessage);
+    } catch (\Exception $e) {
+        return redirect('/utilisateurs')->with('error', 'une erreur a été acourd vérifier la syntaxe');
+       
+        
+    }
+
+}
 
 }
