@@ -13,7 +13,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/projet/tâches/{id}/edit',[TaskController::class,'edit'])->name('task.edit');
     Route::put('/projet/tâches/{id}/update',[TaskController::class,'update'])->name('task.update');
     Route::delete('/projet/tâches/{id}/delete',[TaskController::class,'destroy'])->name('task.delete');
-    Route::get('/projet/tâches/export',[TaskController::class,'export'])->name('task.export');
+    Route::get('/tâches/export',[TaskController::class,'export'])->name('task.export');
     Route::post('/projet/tâches/import',[TaskController::class,'import'])->name('task.import');
 });
 
