@@ -21,10 +21,11 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            
+
                             <div class="card card-info">
                                 <div class="card-header">
-                                    <h3 class="card-title"> <i class="fas fa-gamepad nav-icon"></i> Ajouter un Controller</h3>
+                                    <h3 class="card-title"> <i class="fas fa-gamepad nav-icon"></i> Ajouter un
+                                        Controller</h3>
                                 </div>
                                 <div class="card-body">
                                     <!-- Obtenir le formulaire -->
@@ -35,9 +36,9 @@
                     </div>
                 </div>
 
-            </section>            
+            </section>
         </div>
-        
+
         <!-- Inclure le pied de page -->
         <?php include_once "../../layouts/footer.php" ?>
         <!-- Inclure le script -->
