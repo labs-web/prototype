@@ -1,45 +1,39 @@
 <table class="table table-striped text-nowrap">
     <thead>
-    <tr>
-        <th>Nom de controller</th>
-        <th class="action-column" style="width: 150px;">Action</th>
-    </tr>
+        <tr>
+            <th>{{ __('Autorisation/controllers/message.NameController') }}</th>
+            <th class="action-column" style="width: 150px;">{{ __('Autorisation/controllers/message.Actions') }}
+            </th>
+        </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>ProjetsController</td>
-        <td>
-        <a href="./edit.php" class="btn btn-sm btn-default"><i class="fas fa-edit"></i></a>
-        <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
-        </td>
-    </tr>
-    <tr>
-        <td>UtilisteurController</td>
-        <td>
-        <a href="./edit.php" class="btn btn-sm btn-default"><i class="fas fa-edit"></i></a>
-        <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
-        </td>
-    </tr>
-    <tr>
-        <td>TacheController</td>
-        <td>
-        <a href="./edit.php" class="btn btn-sm btn-default"><i class="fas fa-edit"></i></a>
-        <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
-        </td>
-    </tr>
-    <!-- Add more rows for other controllers -->
+        @forelse ($controllers as $controller)
+            <tr>
+                <td>{{ $controller->nom }}</td>
+                <td class="d-flex justify-content-center">
+                    <a href="{{ route('controllers.edit', $controller) }}" class="btn btn-sm btn-default"><i
+                            class="fas fa-edit"></i></a>
+                    <form action="{{ route('controllers.destroy', $controller) }}" class="ml-2" method="post">
+                        @csrf
+                        @method('delete')
+                        <button type="button" class="btn btn-sm btn-danger" onclick="confirmDelete(this.form)"><i
+                                class="fa-solid fa-trash"></i></button>
+                    </form>
+                </td>
+            </tr>
+        @empty
+            <tr>
+                <td>{{ __('Autorisation/controllers/message.NoControllers') }}</td>
+            </tr>
+        @endforelse
     </tbody>
     <tfoot>
-    <tr>
-        <td colspan="2">
-        <ul class="pagination  m-0 float-right">
-            <li class="page-item"><a class="page-link text-secondary" href="#">«</a></li>
-            <li class="page-item"><a class="page-link text-secondary active" href="#">1</a></li>
-            <li class="page-item"><a class="page-link text-secondary" href="#">2</a></li>
-            <li class="page-item"><a class="page-link text-secondary" href="#">3</a></li>
-            <li class="page-item"><a class="page-link text-secondary" href="#">»</a></li>
-        </ul>
-        </td>
-    </tr>
+        <tr>
+            <td colspan="2">
+                <ul class="pagination  m-0 float-right">
+                    {{ $controllers->links() }}
+                </ul>
+            </td>
+        </tr>
     </tfoot>
 </table>
