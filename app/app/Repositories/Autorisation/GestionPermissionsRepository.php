@@ -3,8 +3,8 @@
 namespace App\Repositories\Autorisation;
 
 use App\Models\Autorisation\Controller as AutorisationController;
-use App\Repositories\BaseRepositorie;
-use Illuminate\Support\Facades\Artisan;
+use App\Repositories\BaseRepositorie; 
+use Illuminate\Support\Facades\Artisan; 
 
 class GestionPermissionsRepository extends BaseRepositorie {
     protected $model;
