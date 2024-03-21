@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="exampleInputProject">{{__('GestionProjets/task/message.project')}}</label>
-    <select name="project_id" class="form-control" id="exampleInputProject">
+    <select name="project_id" class="form-control" id="exampleInputProject" required>
         @if (isset($task))
             <option value="{{ $task->project->id }}">{{ $task->project->nom }}</option>
         @else
