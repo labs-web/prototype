@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{__('GestionProjets/projets/message.projects')}}</h1>
+                    <h1>{{__('GestionProjets/projet/message.projects')}}</h1>
                 </div>
                 <div class="col-sm-6">
                     <div class="float-sm-right">
                         <a href="{{ route('projets.create') }}" class="btn btn-info">
-                        {{__('GestionProjets/projets/message.add')}}
+                        {{__('GestionProjets/projet/message.add')}}
                         </a>
                     </div>
                 </div>
@@ -19,11 +19,6 @@
     </div>
     <section class="content">
         <div class="container-fluid">
-            @if (@session('success'))
-                <div class="ml-4 mt-2">
-                    <span class="font-medium text-success">{{ session('success') }}</span>
-                </div>
-            @endif
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -41,7 +36,7 @@
 
                             </div>
                         </div>
-                        @include('GestionProjets.projets.table')
+                        @include('GestionProjets.projet.table')
                     </div>
                 </div>
             </div>

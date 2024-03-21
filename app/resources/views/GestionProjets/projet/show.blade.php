@@ -4,10 +4,10 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{__('GestionProjets/projets/message.detail')}}</h1>
+                    <h1>{{__('GestionProjets/projet/message.detail')}}</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a href="{{ route('projets.edit', $fetchedData->id) }}" class="btn btn-default float-right">{{__('GestionProjets/projets/message.edit')}}</a>
+                    <a href="{{ route('projets.edit', $fetchedData->id) }}" class="btn btn-default float-right">{{__('GestionProjets/projet/message.edit')}}</a>
                 </div>
             </div>
         </div>
@@ -20,21 +20,21 @@
                         <div class="card-body">
 
                             <div class="col-sm-12">
-                                <label for="nom">{{__('GestionProjets/projets/message.name')}}:</label>
+                                <label for="nom">{{__('GestionProjets/projet/message.name')}}:</label>
                                 <p>{{ $fetchedData->nom }}</p>
                             </div>
 
                             <!-- Description Field -->
                             <div class="col-sm-12">
-                                <label for="description">{{__('GestionProjets/projets/message.description')}}:</label>
+                                <label for="description">{{__('GestionProjets/projet/message.description')}}:</label>
                                 <p>{{ $fetchedData->description }}</p>
                             </div>
 
                             <!-- Description Field -->
                             <div class="col-sm-12">
-                                <label for="description">{{__('GestionProjets/projets/message.date')}}:</label>
-                                <p>{{__('GestionProjets/projets/message.startDate')}}: {{ $fetchedData->date_debut }}</p>
-                                <p>{{__('GestionProjets/projets/message.endDate')}}: {{ $fetchedData->date_de_fin }}</p>
+                                <label for="description">{{__('GestionProjets/projet/message.date')}}:</label>
+                                <p>{{__('GestionProjets/projet/message.startDate')}}: {{ $fetchedData->date_debut }}</p>
+                                <p>{{__('GestionProjets/projet/message.endDate')}}: {{ $fetchedData->date_de_fin }}</p>
                             </div>
 
 

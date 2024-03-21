@@ -12,7 +12,7 @@ use Carbon\Carbon;
 use App\Exports\GestionProjets\projetExport;
 use Maatwebsite\Excel\Facades\Excel;
 
-class projetController extends Controller
+class ProjetController extends Controller
 {
     protected $projectRepository;
     public function __construct(ProjetRepository $projetRepository)
@@ -30,11 +30,11 @@ class projetController extends Controller
             if($searchValue !== ''){
                 $searchQuery = str_replace(' ', '%', $searchValue);
             $projectData = $this->projectRepository->searchData($searchQuery);
-            return view('GestionProjets.projets.index', compact('projectData'))->render();
+            return view('GestionProjets.projet.index', compact('projectData'))->render();
             }
             
         }
-        return view('GestionProjets.projets.index', compact('projectData'));
+        return view('GestionProjets.projet.index', compact('projectData'));
     }
 
     /**
@@ -43,7 +43,7 @@ class projetController extends Controller
     public function create()
     {
         $dataToEdit = null;
-        return view('GestionProjets.projets.create', compact('dataToEdit'));
+        return view('GestionProjets.projet.create', compact('dataToEdit'));
     }
     /**
      * Store a newly created resource in storage.
@@ -61,7 +61,7 @@ class projetController extends Controller
     public function show(string $id)
     {
         $fetchedData = $this->projectRepository->find($id);
-        return view('GestionProjets.projets.show', compact('fetchedData'));
+        return view('GestionProjets.projet.show', compact('fetchedData'));
     }
 
     /**
@@ -73,7 +73,7 @@ class projetController extends Controller
         $dataToEdit->date_debut = Carbon::parse($dataToEdit->date_debut)->format('Y-m-d');
         $dataToEdit->date_de_fin = Carbon::parse($dataToEdit->date_de_fin)->format('Y-m-d');
 
-        return view('GestionProjets.projets.edit', compact('dataToEdit'));
+        return view('GestionProjets.projet.edit', compact('dataToEdit'));
     }
 
     /**
@@ -94,7 +94,7 @@ class projetController extends Controller
     {
         $this->projectRepository->destroy($id);
         $projectData = $this->projectRepository->paginate();
-        return view('GestionProjets.projets.index', compact('projectData'))->with('succes', 'Le projet a été supprimer avec succés.');
+        return view('GestionProjets.projet.index', compact('projectData'))->with('succes', 'Le projet a été supprimer avec succés.');
     }
     public function export()
     {
