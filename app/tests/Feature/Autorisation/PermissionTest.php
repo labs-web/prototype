@@ -28,6 +28,8 @@ class PermissionTest extends TestCase
         $projectData = Permission::factory()->create();
         $Permissions = $this->gestionPermissionsRepository->paginate();
         $this->assertNotEmpty($Permissions);
+
+ 
     }
 
     public function test_Create_Permission()
@@ -42,6 +44,8 @@ class PermissionTest extends TestCase
         ];
         $Permission = $this->gestionPermissionsRepository->create($PermissionData);
         $this->assertEquals($PermissionData['name'], $Permission->name);
+
+   
     }
 
     public function test_Update_Permission()
@@ -61,6 +65,7 @@ class PermissionTest extends TestCase
         ];
         $this->gestionPermissionsRepository->update($Permissions->id, $PermissionData);
         $this->assertDatabaseHas('Permissions', $PermissionData);
+
     }
 
     public function test_Delete_Permission()
@@ -76,6 +81,8 @@ class PermissionTest extends TestCase
         $Permissions = $this->gestionPermissionsRepository->create($PermissionData);
         $this->gestionPermissionsRepository->destroy($Permissions->id);
         $this->assertDatabaseMissing('Permissions', ['id' => $Permissions->id]);
+
+  
     }
 
     public function test_Search_Permission()
@@ -92,7 +99,7 @@ class PermissionTest extends TestCase
         $searchValue = 'test';
         $searchResults = $this->gestionPermissionsRepository->search($searchValue,$projectData->id);
         $this->assertTrue($searchResults->contains('name', $searchValue));
+
+
     }
-
-
 }
