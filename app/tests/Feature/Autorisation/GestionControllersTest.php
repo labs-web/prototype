@@ -32,11 +32,9 @@ class GestionControllersTest extends TestCase
         $this->assertNotEmpty($controllers);
     }
 
-
     // public function test_create_controller()
     // {
     //     $this->actingAs($this->user);
-
     // }
 
     public function test_create_controller_not_exist()
@@ -75,6 +73,5 @@ class GestionControllersTest extends TestCase
         $this->ControllersRepository->destroy($controller->id);
         $this->assertDatabaseMissing('controllers' , ['id' => $controller->id]);
     }
-
 
 }
