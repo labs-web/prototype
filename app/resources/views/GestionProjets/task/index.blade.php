@@ -11,13 +11,14 @@
 
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Les taches @isset($project)
+                <h1>{{__('GestionProjets/task/message.tasks')}}
+                    @isset($project)
                     de {{$project->nom}}<div id="projectID" data-projectid="{{ $project->id }}"></div>
                 @endisset</h1>
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href="{{ route('task.create') }}" class="btn btn-info">Ajouter</a>
+                    <a href="{{ route('task.create') }}" class="btn btn-info">{{__('GestionProjets/task/message.add')}}</a>
                 </div>
             </div>
         </div>
@@ -35,12 +36,12 @@
                             <div class="dropdown input-group">
                                 <button class="btn btn-default mr-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa-solid fa-filter text-dark pr-2 border-right"></i>
-                                    Choisir un projet
+                                    {{__('GestionProjets/task/message.choix')}}
                                 </button>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     @foreach ($projects as $item)
-                                    <a class="dropdown-item" href="/projet/{{$item->id}}/task">{{$item->nom}}</a>
+                                    <a class="dropdown-item" href="/projet/{{$item->id}}/tâches">{{$item->nom}}</a>
                                     @endforeach
                                     
                                 </div>
@@ -75,9 +76,9 @@
         var url;
 
         if (projectID) {
-            url = '/projet/' + projectID + '/task?page=' + page + '&searchTask=' + search;
+            url = '/projet/' + projectID + '/tâches?page=' + page + '&searchTask=' + search;
         } else {
-            url = '/projet/task?page=' + page + '&searchTask=' + search;
+            url = '/projets/tâches?page=' + page + '&searchTask=' + search;
         }
 
         $.ajax({

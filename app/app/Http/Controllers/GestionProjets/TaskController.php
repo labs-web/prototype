@@ -48,6 +48,11 @@ class TaskController extends Controller
         return view('GestionProjets.task.index', compact('tasks', 'projects','project'));
     }
 
+    public function detail(Request $request, $id){
+        $task = $this->taskRepository->find($id);
+        return view('GestionProjets.task.show', compact('task'));
+    }
+
     public function create(){
         $projects = $this->taskRepository->filter();
         return view('GestionProjets.task.create',compact('projects'));
