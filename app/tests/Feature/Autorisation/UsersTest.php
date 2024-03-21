@@ -36,17 +36,16 @@ public function test_create_user()
 
     $userData = [
         'name' => 'ahmed',
-        // 'lastname' => 'achaou', // Include lastname
+        'lastname' => 'achaou', 
         'email' => 'ahmedachoua@gmail.com',
         'password' => $password,
         'password_confirmation' => $confiramtion_password,
     ];
 
-    // Assert password confirmation
     $this->assertEquals($userData['password_confirmation'], $userData['password']);
-    // Remove password_confirmation from user data
     unset($userData['password_confirmation']);
     $userData['password'] = Hash::make($userData['password']);
+
     // Create the user
     $this->utilisateursRepository->create($userData);
     // Assert user creation result
@@ -66,6 +65,7 @@ public function test_update_user()
     // Create a user that is going to be updated
     $user = User::create([ 
         'name' => 'hamid',
+        'lastname' => 'achaou', 
         'email' => 'hamidachaou@example.com',
         'password' => Hash::make('password123'), // Hash the password
     ]);
@@ -73,6 +73,7 @@ public function test_update_user()
     // Generate updated data for the user
     $updatedData = [
         'name' => 'Adnan',
+        'lastname' => 'ben nassar', 
         'email' => 'AdnanBennasare@example.com',
         'old_password' => $old_password,
         'password' => $new_password,
@@ -90,17 +91,14 @@ public function test_update_user()
 
     // Hash the new password
     $updatedData['password'] = Hash::make($updatedData['password']);
-    // Perform the update
     $result = $this->utilisateursRepository->update($user->id, $updatedData);
-    // Assert that the update was successful
     $this->assertTrue($result);
+
     // Retrieve the updated user from the database
     $updatedUser = User::find($user->id);
 
-    // Assert that the user's attributes have been updated
     $this->assertEquals($updatedData['name'], $updatedUser->name);
     $this->assertEquals($updatedData['email'], $updatedUser->email);
-    // Assert that the new password matches the hashed password in the database
     $this->assertTrue(Hash::check($new_password, $updatedUser->password));
 }
 
