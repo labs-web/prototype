@@ -13,11 +13,3 @@
         </p>
     </a>
 </li>
-
-<li class="nav-item">
-    <a href="{{ route('utilisateurs.index') }}" class="nav-link {{ Request::is('utilisateurs.index') ? 'active' : '' }}">
-        <i class="fa-solid fa-users pl-1 pr-1"></i>
-        <p>{{ __('utilisateurs/message.Users') }}
-        </p>
-    </a>
-</li>
