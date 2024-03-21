@@ -1,24 +1,35 @@
 <div class="form-group">
     <label for="exampleInputcontroller">{{__('Autorisation/Permission/message.controller')}}</label>
-    <select name="controller_id" class="form-control" id="exampleInputcontroller" required>
-        @if (isset($Permission))
-            <option value="{{ $Permission->id }}">{{ substr($Permission->nom, strpos($Permission->nom, '-') + 1) }}
+    <select name="controller" class="form-control" id="exampleInputcontroller" required>
+        @if (isset($permission))
+            <option value="{{ $permission->id }}">{{ substr($permission->nom, strpos($permission->nom, '-') + 1) }}
             </option>
         @else
          <option value="">{{__('Autorisation/Permission/message.choix')}}</option>
         @endif
-        @foreach ($controllers as $item)
-            @if (!isset($Permission) || !$Permission->name || $item->id !== $Permission->controller->id)
-                <option value="{{$item->id}}">{{$item->nom}}</option>
+        @foreach ($controller as $item)
+            @if (!isset($permission) || !$permission->name )
+                <option id="{{$item->id}}" value="{{$item->nom}}">{{$item->nom}}</option>
             @endif
         @endforeach
     </select>
+    @error('controller')
+    <p>
+      {{$message}}
+    </p>
+@enderror
+
 </div>
 
 
 <div class="form-group">
     <label for="exampleInputEmail1">{{__('Autorisation/Permission/message.action')}}</label>
-    <input name="nom" type="text" class="form-control" id="exampleInputEmail1" placeholder="Entrer le nom" value="{{isset($Permission) ? $Permission->action : null}}">
+    <input name="action" type="text" class="form-control" id="exampleInputEmail1" placeholder="Entrer le nom" value="{{isset($permission) ? $permission->action : null}}">
+    @error('action')
+        <p>
+          {{$message}}
+        </p>
+    @enderror
 </div>
 
 

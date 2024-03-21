@@ -11,11 +11,11 @@
 
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>{{__('Autorisation/Permision/message.Permision')}}
+                <h1>{{__('Autorisation/Permission/message.Permission')}}
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href="{{ route('permission.create') }}" class="btn btn-info">{{__('Autorisation/Permision/message.add')}}</a>
+                    <a href="{{ route('permission.create') }}" class="btn btn-info">{{__('Autorisation/Permission/message.add')}}</a>
                 </div>
             </div>
         </div>
@@ -30,19 +30,7 @@
                     <div class="card-header col-md-12">
                         <div class="d-flex justify-content-between">
 
-                            <div class="dropdown input-group">
-                                <button class="btn btn-default mr-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa-solid fa-filter text-dark pr-2 border-right"></i>
-                                    {{__('Autorisation/Permision/message.choix')}}
-                                </button>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    @foreach ($projects as $item)
-                                    <a class="dropdown-item" href="/projet/{{$item->id}}/permissions">{{$item->nom}}</a>
-                                    @endforeach
-                                    
-                                </div>
-                            </div>
+   
 
                             <div class=" p-0">
                                 <div class="input-group input-group-sm">
@@ -56,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                    @include('Autorisation.Permision.table')
+                    @include('Autorisation.Permission.table')
                 </div>
 
             </div>

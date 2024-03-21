@@ -8,14 +8,14 @@
         </tr>
     </thead>
     <tbody id="task-table">
-        @forelse ($permissions as $item)
+        @forelse ($permission as $item)
         <tr>
             <td>{{$item->name}}</td>
             <td>{{$item->guard_name}}</td>
             <td class="d-flex justify-content-center">
                 <a href="{{ route('permission.edit', $item->id) }}" class="btn btn-sm btn-default"><i
                         class="fa-solid fa-pen-to-square"></i></a>
-                        <form action="{{ route('permission.delete', $item->id) }}" class="ml-2" method="post">
+                        <form action="{{ route('permission.destroy', $item->id) }}" class="ml-2" method="post">
                             @csrf
                             @method('delete')
                             <button type="button" class="btn btn-sm btn-danger" onclick="confirmDelete(this.form)"><i
@@ -33,7 +33,7 @@
    
         <div class="">
             <ul class="pagination  m-0 float-right">
-                {{$permissions->links()}}
+                {{$permission->links()}}
             </ul>
         </div>
     </div>
