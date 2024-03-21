@@ -32,39 +32,34 @@ class GestionControllersTest extends TestCase
         $this->assertNotEmpty($controllers);
     }
 
-    // public function test_create_controller()
-    // {
-    //     $this->actingAs($this->user);
-    // }
-
-    public function test_create_controller_not_exist()
-    {
-        $this->actingAs($this->user);
-        $data = [
-            'nom' => 'testController',
-        ];
-        try {
-            $this->ControllersRepository->create($data);
-            $this->fail('Exception attendue non levée.');
-        } catch (\Exception $e) {
-            $this->assertInstanceOf(\Exception::class, $e);
+        public function test_create_controller_not_exist()
+        {
+            $this->actingAs($this->user);
+            $data = [
+                'nom' => 'testController',
+            ];
+            try {
+                $this->ControllersRepository->create($data);
+                $this->fail('Exception attendue non levée.');
+            } catch (\Exception $e) {
+                $this->assertInstanceOf(\Exception::class, $e);
+            }
         }
-    }
 
 
-    public function test_update_controller_not_exist(){
-        $this->actingAs($this->user);
-        $controller = AutorisationController::factory()->create();
-        $Data = [
-            'nom' => 'UpdateController',
-        ];
-        try {
-            $this->ControllersRepository->update($controller->id , $Data);
-            $this->fail('Exception attendue non levée.');
-        } catch (\Exception $e) {
-            $this->assertInstanceOf(\Exception::class, $e);
+        public function test_update_controller_not_exist(){
+            $this->actingAs($this->user);
+            $controller = AutorisationController::factory()->create();
+            $Data = [
+                'nom' => 'UpdateController',
+            ];
+            try {
+                $this->ControllersRepository->update($controller->id , $Data);
+                $this->fail('Exception attendue non levée.');
+            } catch (\Exception $e) {
+                $this->assertInstanceOf(\Exception::class, $e);
+            }
         }
-    }
 
 
     public function test_delete_controller(){
