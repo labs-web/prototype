@@ -2,15 +2,15 @@
 
 namespace App\Repositories\Autorisation;
 
-use App\Models\Autorisation\Controller as AutorisationController;
+use App\Models\Autorisation\Permission ;
 use App\Repositories\BaseRepositorie;
 use Illuminate\Support\Facades\Artisan;
 
 class GestionPermissionsRepository extends BaseRepositorie {
     protected $model;
 
-    public function __construct(AutorisationController $Controller){
-        $this->model = $Controller;
+    public function __construct(Permission $Permission){
+        $this->model = $Permission;
     }
     
     public function search($searchableData, $perPage = 4)
@@ -22,6 +22,6 @@ class GestionPermissionsRepository extends BaseRepositorie {
 
     public function filter()
     {
-       return AutorisationController::all();
+       return Permission::all();
     }
 }

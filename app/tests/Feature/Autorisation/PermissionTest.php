@@ -2,73 +2,90 @@
 
 namespace Tests\Feature\Autorisation;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use App\Models\User;
+use App\Models\Autorisation\Permission;
 use App\Repositories\Autorisation\GestionPermissionsRepository;
-use App\Models\Autorisation\Permission ;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 
+class PermissionTest extends TestCase
+{
+    use DatabaseTransactions;
 
-    /**
-     * A basic feature test example.
-     */
-    class PermissionTest extends TestCase
+    protected $gestionPermissionsRepository;
+    protected $user;
+
+    protected function setUp(): void
     {
-        use DatabaseTransactions;
-        protected $permissionsRepository;
-        protected $permission;
-    
-        protected function setUp(): void
-        {
-            parent::setUp();
-            $this->permissionsRepository = app(GestionPermissionsRepository::class); // Inject the repository
-            $this->permission = Permission::factory()->create();
-        }
-    
-        public function test_get_permissions()
-        {
-            $this->actingAs($this->permission);
-            Permission::factory()->create();
-            $permissions = $this->permissionsRepository->paginate();
-            $this->assertNotNull($permissions);
-            $this->assertNotEmpty($permissions);
-        }
-    
-    
-        public function test_create_permission()
-        {
-            $this->actingAs($this->permission);
-            $data = [
-                'name' => 'testPermission',
-            ];
-            $permission = $this->permissionsRepository->create($data);
-            $this->assertEquals($data['name'], $permission->name);
-            $this->assertDatabaseHas('permissions', [
-                'name' => 'testPermission',
-            ]);
-        }
-    
-    
-        public function test_update_data(){
-            $this->actingAs($this->permission);
-            $permission = Permission::factory()->create();
-            $Data = [
-                'name' => 'UpdatePermission',
-    
-            ];
-            $this->permissionsRepository->update($permission->id , $Data);
-            $this->assertDatabaseHas('permissions' , $Data);
-        }
-    
-    
-        public function test_delete_project(){
-            $this->actingAs($this->permission);
-            $permission = Permission::factory()->create();
-            $this->permissionsRepository->destroy($permission->id);
-            $this->assertDatabaseMissing('permissions' , ['id' => $permission->id]);
-        }
-    
-    
+        parent::setUp();
+        $this->gestionPermissionsRepository = new GestionPermissionsRepository(new Permission);
+        $this->user = User::factory()->create();
     }
 
+
+    public function testCreatePermission()
+    {
+        $this->actingAs($this->user);
+        $projectData = Permission::factory()->create();
+        $PermissionData = [
+            'name' => 'test',
+            'guard_name' => 'test',
+            'started_at' => '2023-10-10',
+            'updated_at' => '2024-03-02',
+        ];
+        $Permission = $this->gestionPermissionsRepository->create($PermissionData);
+        $this->assertEquals($PermissionData['name'], $Permission->name);
+    }
+
+    public function testUpdatePermission()
+    {
+        $this->actingAs($this->user);
+        $projectData = Permission::factory()->create();
+        $PermissionData = [
+            'name' => 'test',
+            'guard_name' => 'test',
+            'started_at' => '2023-10-10',
+            'updated_at' => '2024-03-02',
+        ];
+        $Permissions = $this->gestionPermissionsRepository->create($PermissionData);
+        $PermissionData = [
+            'name' => 'test',
+            'guard_name' => 'test',
+        ];
+        $this->gestionPermissionsRepository->update($Permissions->id, $PermissionData);
+        $this->assertDatabaseHas('Permissions', $PermissionData);
+    }
+
+    public function testDeletePermission()
+    {
+        $this->actingAs($this->user);
+        $projectData = Permission::factory()->create();
+        $PermissionData = [
+            'name' => 'test',
+            'guard_name' => 'test',
+            'started_at' => '2023-10-10',
+            'updated_at' => '2024-03-02',
+        ];
+        $Permissions = $this->gestionPermissionsRepository->create($PermissionData);
+        $this->gestionPermissionsRepository->destroy($Permissions->id);
+        $this->assertDatabaseMissing('Permissions', ['id' => $Permissions->id]);
+    }
+
+    public function testSearchPermission()
+    {
+        $this->actingAs($this->user);
+        $projectData = Permission::factory()->create();
+        $PermissionData = [
+            'name' => 'test',
+            'guard_name' => 'test',
+            'started_at' => '2023-10-10',
+            'updated_at' => '2024-03-02',
+        ];
+        $Permissions = $this->gestionPermissionsRepository->create($PermissionData);
+        $searchValue = 'test';
+        $searchResults = $this->gestionPermissionsRepository->search($searchValue,$projectData->id);
+        $this->assertTrue($searchResults->contains('name', $searchValue));
+    }
+
+
+}
