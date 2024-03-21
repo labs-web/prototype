@@ -16,10 +16,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function (
     Route::post('/downloadSeeder', [GestionControllersController::class, 'downloadSeeder'])->name('controllers.download');
     // Routes for managing permissions
     Route::prefix('permissions')->group(function () {
-        Route::get('/', [PermissionController::class, 'list'])->name('permissions.list');
+        Route::get('/', [PermissionController::class, 'index'])->name('permissions.list');
         Route::get('/create', [PermissionController::class, 'create'])->name('permissions.create');
         Route::post('/', [PermissionController::class, 'store'])->name('permissions.store');
-        Route::get('/{permission}', [PermissionController::class, 'show'])->name('permissions.show');
         Route::get('/{permission}/edit', [PermissionController::class, 'edit'])->name('permissions.edit');
         Route::put('/{permission}', [PermissionController::class, 'update'])->name('permissions.update');
         Route::delete('/{permission}', [PermissionController::class, 'destroy'])->name('permissions.destroy');
