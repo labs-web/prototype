@@ -22,8 +22,15 @@ class PermissionTest extends TestCase
         $this->user = User::factory()->create();
     }
 
+    public function test_Get_Permissions()
+    {
+        $this->actingAs($this->user);
+        $projectData = Permission::factory()->create();
+        $Permissions = $this->gestionPermissionsRepository->paginate();
+        $this->assertNotEmpty($Permissions);
+    }
 
-    public function testCreatePermission()
+    public function test_Create_Permission()
     {
         $this->actingAs($this->user);
         $projectData = Permission::factory()->create();
@@ -37,7 +44,7 @@ class PermissionTest extends TestCase
         $this->assertEquals($PermissionData['name'], $Permission->name);
     }
 
-    public function testUpdatePermission()
+    public function test_Update_Permission()
     {
         $this->actingAs($this->user);
         $projectData = Permission::factory()->create();
@@ -56,7 +63,7 @@ class PermissionTest extends TestCase
         $this->assertDatabaseHas('Permissions', $PermissionData);
     }
 
-    public function testDeletePermission()
+    public function test_Delete_Permission()
     {
         $this->actingAs($this->user);
         $projectData = Permission::factory()->create();
@@ -71,7 +78,7 @@ class PermissionTest extends TestCase
         $this->assertDatabaseMissing('Permissions', ['id' => $Permissions->id]);
     }
 
-    public function testSearchPermission()
+    public function test_Search_Permission()
     {
         $this->actingAs($this->user);
         $projectData = Permission::factory()->create();
