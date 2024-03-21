@@ -23,7 +23,7 @@ class RoleTest extends TestCase
         $this->user = User::factory()->create();
     }
 
-    public function test_get_paginated_role()
+    public function test_paginate_role()
     {
         $this->actingAs($this->user);
         $role = Role::factory()->create();
@@ -37,44 +37,63 @@ class RoleTest extends TestCase
     {
         $this->actingAs($this->user);
         $roleData = [
-            'name' => 'adminsss',
+            'name' => 'admin',
             'guard_name' => 'web',
         ];
         $role = $this->roleRepository->create($roleData);
         $this->assertEquals($roleData['name'], $role->name);
     }
 
+    // public function test_create_an_existing_role() {
+    //     $this->assertFalse(true);
+    // }
 
-    public function test_update_data(){
+    public function test_create_an_existing_role()
+    {
+        // Assuming you have a role named 'adminsss' already existing
+        $roleData = [
+            'name' => 'admin',
+            'guard_name' => 'web',
+        ];
+
+        // Attempting to create the role
+        $role = $this->roleRepository->create($roleData);
+
+        // Asserting that the creation fails and returns false
+        $this->assertFalse($role);
+    }
+
+    public function test_update_role()
+    {
         $this->actingAs($this->user);
         $role = Role::factory()->create();
         $roleData = [
             'name' => 'admins',
             'guard_name' => 'web',
         ];
-        $this->roleRepository->update($role->id , $roleData);
-        $this->assertDatabaseHas('roles' , $roleData);
+        $this->roleRepository->update($role->id, $roleData);
+        $this->assertDatabaseHas('roles', $roleData);
     }
 
 
-    public function test_delete_role(){
+    public function test_delete_role()
+    {
         $this->actingAs($this->user);
         $role = Role::factory()->create();
         $this->roleRepository->destroy($role->id);
-        $this->assertDatabaseMissing('roles' , ['id' => $role->id]);
+        $this->assertDatabaseMissing('roles', ['id' => $role->id]);
     }
 
-    public function test_role_search(){
+    public function test_searchData_role()
+    {
         $this->actingAs($this->user);
         $roleData = [
-            'name' => 'admin',
+            'name' => 'test',
             'guard_name' => 'web',
         ];
         $this->roleRepository->create($roleData);
-        $searchValue = 'admin';
+        $searchValue = 'test';
         $searchResults = $this->roleRepository->searchData($searchValue);
         $this->assertTrue($searchResults->contains('name', $searchValue));
     }
-
 }
-
