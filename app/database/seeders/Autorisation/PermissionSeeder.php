@@ -3,48 +3,28 @@
 namespace Database\Seeders\Autorisation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Route;
-use App\Models\Autorisation\Controller as AutorisationController;
+use App\Models\Autorisation\Permission ;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
-
+use App\Repositories\Autorisation\GestionPermissionsRepository ;
 class PermissionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
 
-        public function run(): void
-        {
-            $controllerNames = $this->extractControllerNames();
-    
-            foreach ($controllerNames as $functionControllerPair) {
-                // Assuming your table has fields for function and controller
-                DB::table('your_table_name')->insert([
-                    'function' => explode('-', $functionControllerPair)[0],
-                    'controller' => explode('-', $functionControllerPair)[1]
-                ]);
-            }
+    public function run(): void
+    {
+        $basePath1 = app_path('Http/Controllers/Autorisation');
+        $basePath2 = app_path('Http/Controllers/GestionProjets');
+        $basePaths = [$basePath1, $basePath2];
+
+        $permissions = app(GestionPermissionsRepository::class, [new Permission]); // Using dependency injection (optional)
+
+        $extractedPermissions = $permissions->extractControllerPermissions($basePaths);
+
+        foreach ($extractedPermissions as $permissionName) {
+            Permission::firstOrCreate(['name' => $permissionName]);
         }
-    
-        public static function extractControllerNames(): array
-        {
-            $extractControllerNames = [];
-    
-            // Loop through all routes
-            foreach (Route::getRoutes() as $route) {
-                $actionParts = explode('@', $route->getActionName()); // Use getActionName instead of fullControllerName
-                $controllerClassName = $actionParts[0]; // Get the controller class name
-    
-                // Check if a method is defined in the action
-                if (isset($actionParts[1])) {
-                    $methodName = $actionParts[1]; // Get the method name
-                    $functionControllerPair = "$methodName-$controllerClassName";
-                    $extractControllerNames[] = $functionControllerPair;
-                }
-            }
-    
-            // Remove duplicate controller names
-            $uniqueControllerNames = array_unique($extractControllerNames);
-            return $uniqueControllerNames;
-        }    
     }
+}
