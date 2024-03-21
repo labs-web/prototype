@@ -15,10 +15,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function (
     Route::delete('controllers/{controller}', [GestionControllersController::class, 'destroy'])->name('controllers.destroy');
     Route::post('/downloadSeeder', [GestionControllersController::class, 'downloadSeeder'])->name('controllers.download');
 
-    // Role
+    // Routes for managing Roles
     Route::resource('/roles', RolesController::class);
-    Route::get('/roles/export',[RolesController::class,'export'])->name('role.export');
-    Route::post('/roles/import',[RolesController::class,'import'])->name('roles.import');
+    Route::get('/export',[RolesController::class,'export'])->name('role.export');
+    Route::post('/import',[RolesController::class,'import'])->name('roles.import');
 });
 
 Auth::routes();
