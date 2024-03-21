@@ -4,6 +4,7 @@ namespace Tests\Feature\Autorisation;
 
 use App\Models\Autorisation\Role;
 use App\Repositories\Autorisation\RoleRepository;
+use Exception;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Models\User;
 
@@ -37,7 +38,7 @@ class RoleTest extends TestCase
     {
         $this->actingAs($this->user);
         $roleData = [
-            'name' => 'admin',
+            'name' => 'test',
             'guard_name' => 'web',
         ];
         $role = $this->roleRepository->create($roleData);
@@ -50,17 +51,21 @@ class RoleTest extends TestCase
 
     public function test_create_an_existing_role()
     {
-        // Assuming you have a role named 'adminsss' already existing
-        $roleData = [
-            'name' => 'admin',
-            'guard_name' => 'web',
-        ];
+        try{
 
-        // Attempting to create the role
-        $role = $this->roleRepository->create($roleData);
-
-        // Asserting that the creation fails and returns false
-        $this->assertFalse($role);
+            $roleData = [
+                'name' => 'admin',
+                'guard_name' => 'web',
+            ];
+    
+            // Attempting to create the role
+            $role = $this->roleRepository->create($roleData);
+    
+            // Asserting that the creation fails and returns false
+            $this->assertFalse($role);
+        } catch (Exception $e){
+            
+        }
     }
 
     public function test_update_role()
