@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Autorisation;
 
-use App\Models\Autorisation\Controller as AutorisationController;
+use App\Models\Autorisation\Permission ;
 use App\Repositories\BaseRepositorie; 
 use Illuminate\Support\Facades\Artisan; 
 use ReflectionClass;
@@ -24,7 +24,7 @@ class GestionPermissionsRepository extends BaseRepositorie {
 
     public function filter()
     {
-       return AutorisationController::all();
+       return Permission::all();
     }
 
 function extractControllerPermissions(string $basePath): array
