@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Autorisation\GestionControllersController;
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function () {
     // Routes for managing controllers
     Route::get('controllers', [GestionControllersController::class, 'index'])->name('controllers.index');
     Route::get('controllers/create', [GestionControllersController::class, 'create'])->name('controllers.create');
