@@ -2,11 +2,11 @@
     <table class="table table-striped text-nowrap">
         <thead>
             <tr>
-                <th>Titre</th>
-                <th>Date de Début</th>
-                <th>Date de Fin</th>
-                <th class="text-center">Tâches</th>
-                <th class="text-center">Actions</th>
+                <th>{{__('GestionProjets/projets/message.title')}}</th>
+                <th>{{__('GestionProjets/projets/message.startDate')}}</th>
+                <th>{{__('GestionProjets/projets/message.endDate')}}</th>
+                <th class="text-center">{{__('GestionProjets/projets/message.task')}}</th>
+                <th class="text-center">{{__('GestionProjets/projets/message.action')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +17,7 @@
                     <td>{{ $project->date_de_fin }}</td>
                     <td class="text-center">
                         <a href="{{ route('task.show', $project->id) }}" class="btn btn-sm btn-secondary mx-2">
-                            <i class="nav-icon fas fa-tasks"></i> Les Tâches
+                            <i class="nav-icon fas fa-tasks"></i> {{__('GestionProjets/projets/message.task')}}
                         </a>
                     </td>
                     <td class="text-center">
@@ -49,14 +49,14 @@
             @csrf
             <label for="upload" class="btn btn-default btn-sm">
                 <i class="fa-solid fa-file-arrow-down"></i>
-                IMPORTER
+                {{__('GestionProjets/projets/message.import')}}
             </label>
             <input type="file" id="upload" name="file" style="display:none;" onchange="submitForm()" />
         </form>
         <form>
             <a href="{{ route('projets.export') }}" class="btn  btn-default btn-sm mt-0 mx-2 text-bold">
             <i class="fa-solid fa-file-export"></i>
-            EXPORTER</a>
+            {{__('GestionProjets/projets/message.export')}}</a>
         </form>
         
     </div>

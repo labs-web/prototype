@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Liste des projets</h1>
+                    <h1>{{__('GestionProjets/projets/message.projects')}}</h1>
                 </div>
                 <div class="col-sm-6">
                     <div class="float-sm-right">
                         <a href="{{ route('projets.create') }}" class="btn btn-info">
-                            <i class="fas fa-plus"></i> Nouveau projet
+                        {{__('GestionProjets/projets/message.add')}}
                         </a>
                     </div>
                 </div>

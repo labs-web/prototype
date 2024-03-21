@@ -10,7 +10,7 @@
 
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title"> <i class="nav-icon fas fa-table"></i> Ajouter un projet</h3>
+                            <h3 class="card-title"> <i class="nav-icon fas fa-table"></i>{{__('GestionProjets/projets/message.addProject')}}</h3>
                         </div>
                         @if (@session('success'))
                             <div class="ml-4 mt-2">
