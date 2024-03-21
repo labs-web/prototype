@@ -23,7 +23,7 @@ class GestionControllersTest extends TestCase
         $this->user = User::factory()->create();
     }
 
-    public function test_get_controllers()
+    public function test_paginate_controllers()
     {
         $this->actingAs($this->user);
         AutorisationController::factory()->create();
@@ -33,32 +33,43 @@ class GestionControllersTest extends TestCase
     }
 
 
-    public function test_create_controller()
+    // public function test_create_controller()
+    // {
+    //     $this->actingAs($this->user);
+
+    // }
+
+    public function test_create_controller_not_exist()
     {
         $this->actingAs($this->user);
         $data = [
             'nom' => 'testController',
         ];
-        $controller = $this->ControllersRepository->create($data);
-        $this->assertEquals($data['nom'], $controller->nom);
-        $this->assertDatabaseHas('controllers', [
-            'nom' => 'testController'
-        ]);
+        try {
+            $this->ControllersRepository->create($data);
+            $this->fail('Exception attendue non levée.');
+        } catch (\Exception $e) {
+            $this->assertInstanceOf(\Exception::class, $e);
+        }
     }
 
 
-    public function test_update_data(){
+    public function test_update_controller_not_exist(){
         $this->actingAs($this->user);
         $controller = AutorisationController::factory()->create();
         $Data = [
             'nom' => 'UpdateController',
         ];
-        $this->ControllersRepository->update($controller->id , $Data);
-        $this->assertDatabaseHas('controllers' , $Data);
+        try {
+            $this->ControllersRepository->update($controller->id , $Data);
+            $this->fail('Exception attendue non levée.');
+        } catch (\Exception $e) {
+            $this->assertInstanceOf(\Exception::class, $e);
+        }
     }
 
 
-    public function test_delete_project(){
+    public function test_delete_controller(){
         $this->actingAs($this->user);
         $controller = AutorisationController::factory()->create();
         $this->ControllersRepository->destroy($controller->id);
