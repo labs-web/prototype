@@ -38,11 +38,13 @@ class GestionPermissionsTest extends TestCase
         $this->actingAs($this->user);
         $data = [
             'name' => 'testPermission',
+            'guard_name' => 'web'
         ];
         $permission = $this->PermissionsRepository->create($data);
         $this->assertEquals($data['name'], $permission->name);
         $this->assertDatabaseHas('permission', [
-            'name' => 'testPermission'
+            'name' => 'testPermission',
+            'guard_name' => 'web'
         ]);
     }
 
@@ -52,6 +54,8 @@ class GestionPermissionsTest extends TestCase
         $permission = AutorisationController::factory()->create();
         $Data = [
             'name' => 'UpdatePermission',
+            'guard_name' => 'web'
+
         ];
         $this->PermissionsRepository->update($permission->id , $Data);
         $this->assertDatabaseHas('permissions' , $Data);
