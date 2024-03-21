@@ -14,3 +14,9 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('controllers.index') }}" class="nav-link {{ Request::is('controllers.index') ? 'active' : '' }}">
+        <i class="fas fa-gamepad nav-icon"></i>
+        <p>Controllers</p>
+    </a>
+</li>
