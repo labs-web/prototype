@@ -17,7 +17,8 @@ class PermissionSeeder extends Seeder
     {
         $basePath1 = app_path('Http/Controllers/Autorisation');
         $basePath2 = app_path('Http/Controllers/GestionProjets');
-        $basePaths = [$basePath1, $basePath2];
+        $basePath3 = app_path('Http/Controllers/');
+        $basePaths = [$basePath1, $basePath2, $basePath3];
 
         $permissions = app(GestionPermissionsRepository::class, [new Permission]); // Using dependency injection (optional)
 
