@@ -2,16 +2,17 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Autorisation\PermissionController;
+use App\Http\Controllers\Autorisation\GestionControllersController;
 
-Route::group(['middleware' => ['auth']], function(){
-    Route::get('/autorisations/permission',[PermissionController::class,'index'])->name('permission.index');
-    Route::get('/autorisation/{id}/permission',[PermissionController::class,'show'])->name('permission.show');
-    Route::get('/autorisation/permission-ajouter',[PermissionController::class,'create'])->name('permission.create');
-    Route::post('/autorisation/permission-ajouter',[PermissionController::class,'store'])->name('permission.store');
-    Route::get('/autorisation/permission/{id}/edit',[PermissionController::class,'edit'])->name('permission.edit');
-    Route::put('/autorisation/permission/{id}/update',[PermissionController::class,'update'])->name('permission.update');
-    Route::delete('/autorisation/permission/{id}/delete',[PermissionController::class,'destroy'])->name('permission.delete');
+Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function () {
+    // Routes for managing controllers
+    Route::get('controllers', [GestionControllersController::class, 'index'])->name('controllers.index');
+    Route::get('controllers/create', [GestionControllersController::class, 'create'])->name('controllers.create');
+    Route::post('controllers', [GestionControllersController::class, 'store'])->name('controllers.store');
+    Route::get('controllers/{controller}/edit', [GestionControllersController::class, 'edit'])->name('controllers.edit');
+    Route::put('controllers/{controller}', [GestionControllersController::class, 'update'])->name('controllers.update');
+    Route::delete('controllers/{controller}', [GestionControllersController::class, 'destroy'])->name('controllers.destroy');
+    Route::post('/downloadSeeder', [GestionControllersController::class, 'downloadSeeder'])->name('controllers.download');
 });
 
 Auth::routes();
