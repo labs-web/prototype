@@ -18,7 +18,7 @@
                             </div>
                         @endif
                         <!-- Obtenir le formulaire -->
-                        @include('GestionProjets.projets.form')
+                        @include('GestionProjets.projets.fields')
                     </div>
                 </div>
             </div>

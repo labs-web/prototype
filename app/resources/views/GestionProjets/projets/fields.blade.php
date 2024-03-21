@@ -29,18 +29,15 @@
                 <div>{{ $message }}</div>
             @enderror
         </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea name="description" id="editor">{{ $dataToEdit ? $dataToEdit->description : '' }}</textarea>
-            @error('description')
-                <div>{{ $message }}</div>
-            @enderror
+        <div class="form-group">
+            <label for="inputDescription">{{__('GestionProjets/task/message.description')}}</label>
+            <textarea name="description" class="form-control" rows="7" id="inputDescription" placeholder="Entrez la description" >{{ $dataToEdit ? $dataToEdit->description : '' }}</textarea>
         </div>
     </div>
 
     <div class="card-footer">
         <a href="./index.php" class="btn btn-default">Annuler</a>
-        <button type="submit" class="btn btn-info">{{ $dataToEdit ? 'Modifier' : 'Ajouter' }}</button>
+        <button type="submit" class="btn btn-primary">{{ $dataToEdit ? 'Modifier' : 'Ajouter' }}</button>
     </div>
 </form>
 

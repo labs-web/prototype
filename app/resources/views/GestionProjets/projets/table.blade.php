@@ -1,4 +1,3 @@
-
 <div class="card-body table-responsive p-0">
     <table class="table table-striped text-nowrap">
         <thead>
@@ -17,21 +16,18 @@
                     <td>{{ $project->date_debut }}</td>
                     <td>{{ $project->date_de_fin }}</td>
                     <td class="text-center">
-                        <a href="{{route('task.show' , $project->id)}}" class="btn btn-sm btn-secondary mx-2">
+                        <a href="{{ route('task.show', $project->id) }}" class="btn btn-sm btn-secondary mx-2">
                             <i class="nav-icon fas fa-tasks"></i> Les Tâches
                         </a>
                     </td>
                     <td class="text-center">
-                        <a href="{{ route('projets.show', $project) }}"
-                            class="btn btn-default btn-sm">
+                        <a href="{{ route('projets.show', $project) }}" class="btn btn-default btn-sm">
                             <i class="far fa-eye"></i>
                         </a>
-                        <a href="{{ route('projets.edit', $project) }}"
-                            class="btn btn-sm btn-default">
+                        <a href="{{ route('projets.edit', $project) }}" class="btn btn-sm btn-default">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
-                        <form action="{{ route('projets.destroy', $project) }}" method="POST"
-                            style="display: inline;">
+                        <form action="{{ route('projets.destroy', $project) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger"
@@ -47,28 +43,26 @@
 </div>
 
 <div class="d-flex justify-content-between align-items-center p-2">
-    <div class="d-flex align-items-center mb-2">
-
-        <form action="{{ route('projets.import') }}" method="post"
-            enctype="multipart/form-data" id="importForm">
+    <div class="d-flex align-items-center mb-2 ml-2 mt-2">
+        <form action="{{ route('projets.import') }}" method="post" class="mt-2" enctype="multipart/form-data"
+            id="importForm">
             @csrf
-            <label for="upload" class="btn btn-default btn-sm mb-0 font-weight-normal">
+            <label for="upload" class="btn btn-default btn-sm">
                 <i class="fa-solid fa-file-arrow-down"></i>
-                {{ __('IMPORTER') }}
+                IMPORTER
             </label>
-            <input type="file" id="upload" name="file" style="display:none;"
-                onchange="submitForm()" />
+            <input type="file" id="upload" name="file" style="display:none;" onchange="submitForm()" />
         </form>
         <form>
-            <a href="{{ route('projets.export') }}" class="btn  btn-default btn-sm mt-0 mx-2">
-                <i class="fa-solid fa-file-export"></i>
-                {{ __('EXPORTER') }}
-            </a>
+            <a href="{{ route('projets.export') }}" class="btn  btn-default btn-sm mt-0 mx-2 text-bold">
+            <i class="fa-solid fa-file-export"></i>
+            EXPORTER</a>
         </form>
-
-
+        
     </div>
-    <div class="mr-5" id="card-footer">
-        {!! $projectData->links() !!}
+    <div class="">
+        <ul class="pagination  m-0 float-right">
+            {{ $projectData->links() }}
+        </ul>
     </div>
 </div>

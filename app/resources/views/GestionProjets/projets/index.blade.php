@@ -92,4 +92,8 @@
         });
 
     });
+
+    function submitForm() {
+        document.getElementById("importForm").submit();
+    }
 </script>

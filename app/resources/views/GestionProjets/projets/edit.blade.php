@@ -8,9 +8,9 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <div class="card card-info">
+                    <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title"> <i class="nav-icon fas fa-table"></i>Modifier le Projet</h3>
+                            <h3 class="card-title">Modifier le Projet</h3>
                         </div>
                         @if (@session('success'))
                             <div class="ml-4 mt-2">
@@ -18,7 +18,7 @@
                             </div>
                         @endif
                         <!-- Obtenir le formulaire -->
-                        @include('GestionProjets.projets.form')
+                        @include('GestionProjets.projets.fields')
                     </div>
                 </div>
             </div>
