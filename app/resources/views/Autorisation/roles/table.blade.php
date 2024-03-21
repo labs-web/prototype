@@ -1,8 +1,8 @@
 <table class="table table-striped text-nowrap">
     <thead>
         <tr>
-            <th>Nom</th>
-            <th class="text-center">Actions</th>
+            <th>{{ __('Autorisation/roles/message.nom') }}</th>
+            <th class="text-center">{{ __('Autorisation/roles/message.actions') }}</th>
         </tr>
     </thead>
     <tbody id="role-table">
@@ -20,7 +20,7 @@
             </tr>
         @empty
             <tr>
-                <td colspan="2" class="text-center">Aucun roles trouvée</td>
+                <td colspan="2" class="text-center">{{ __('Autorisation/roles/message.rolesTrouvé') }}</td>
             </tr>
         @endforelse
     </tbody>

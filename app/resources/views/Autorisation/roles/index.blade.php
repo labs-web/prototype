@@ -6,13 +6,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Les Roles</h1>
+                            <h1>{{ __('Autorisation/roles/message.roles') }}</h1>
                         </div>
                         <div class="col-sm-6">
 
                             <div class="float-sm-right mr-2">
                                 <a href="{{ route('roles.create') }}" class="btn btn-info">
-                                    <i class="fas fa-plus"></i> {{ __('GestionProjets/task/message.add') }}
+                                    <i class="fas fa-plus"></i> {{ __('Autorisation/roles/message.ajouter') }}
                                 </a>
                             </div>
 

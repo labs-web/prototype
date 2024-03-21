@@ -8,7 +8,7 @@
 
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title"> <i class="far fa-user-circle nav-icon"></i> Ajouter un Role</h3>
+                            <h3 class="card-title"> <i class="far fa-user-circle nav-icon"></i> {{ __('Autorisation/roles/message.ajouterRole') }}</h3>
                         </div>
                         <div class="card-body">
                             {{-- get form --}}
