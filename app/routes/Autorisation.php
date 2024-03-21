@@ -15,4 +15,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function (
     Route::post('/downloadSeeder', [GestionControllersController::class, 'downloadSeeder'])->name('controllers.download');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
+
