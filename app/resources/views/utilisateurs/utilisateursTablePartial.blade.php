@@ -3,9 +3,9 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>{{ __('utilisateurs/messages.Utilisateur Name') }}</th>
-                    <th>{{ __('utilisateurs/messages.Utilisateur Last Name') }}</th>
-                    <th>{{ __('utilisateurs/messages.Utilisateur Email') }}</th>             
+                    <th>{{ __('utilisateurs/message.User Name') }}</th>
+                    <th>{{ __('utilisateurs/message.User Lastname') }}</th>
+                    <th>{{ __('utilisateurs/message.User Email') }}</th>             
                    <th class="text-center" >Actions</th>
 
                 </tr>
@@ -59,7 +59,7 @@
                 @method("DELETE")
 
                 <div class="modal-header">
-                    <h3 class="modal-title fs-5" id="exampleModalLabel">{{ __('utilisateurs/messages.Are you sure you want to delete this utilisateur?') }}</h3>
+                    <h3 class="modal-title fs-5" id="exampleModalLabel">{{ __('utilisateurs/message.Are you sure you want to delete this utilisateur?') }}</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -125,13 +125,13 @@
         
          <div class="float-left d-flex">
             <a href="{{route('export.utilisateurs')}}" style="height: 32px;" class="btn btn-default btn-sm text-bold">
-                <i class="fa-solid fa-file-export"></i>  {{ __('utilisateurs/messages.Export') }}
+                <i class="fa-solid fa-file-export"></i>  {{ __('utilisateurs/message.Export') }}
             </a>
             
             <form action="{{ route('import.utilisateurs') }}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
                 @csrf 
                 <input type="file" name="utilisateurs" id="formFileInpututilisateurs" style="position: absolute; left: -9999px;">
-                <button type="button" id="fileButtonutilisateurs" class="btn btn-default btn-sm mt-0 mx-2 text-bold"><i class="fa-solid fa-file-arrow-down"></i> {{ __('utilisateurs/messages.Import') }} </button>
+                <button type="button" id="fileButtonutilisateurs" class="btn btn-default btn-sm mt-0 mx-2 text-bold"><i class="fa-solid fa-file-arrow-down"></i> {{ __('utilisateurs/message.Import') }} </button>
             </form>
 
             

@@ -10,7 +10,7 @@
             <!-- general form elements -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">{{ __('utilisateurs/messages.Add User') }}</h3>
+                <h3 class="card-title">{{ __('utilisateurs/message.Add User') }}</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -19,8 +19,8 @@
                 @method('PUT')
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="Name">{{ __('utilisateurs/messages.User Name') }}</label>
-                    <input type="text" class="form-control" value="{{ $utilisateur->name }}" name="name" id="Name" placeholder="{{ __('utilisateurs/messages.Enter User Name') }}">
+                    <label for="Name">{{ __('utilisateurs/message.User Name') }}</label>
+                    <input type="text" class="form-control" value="{{ $utilisateur->name }}" name="name" id="Name" placeholder="{{ __('utilisateurs/message.Enter User Name') }}">
                     <div style="color:red">
                         @error("name")
                         {{$message}}
@@ -29,8 +29,8 @@
                   </div>
               
                   <div class="form-group">
-                    <label for="Name">{{ __('utilisateurs/messages.User Lastname') }}</label>
-                    <input type="text" class="form-control" value="{{ $utilisateur->lastname }}"  name="lastname" id="Name" placeholder="{{ __('utilisateurs/messages.Enter User Lastname') }}">
+                    <label for="Name">{{ __('utilisateurs/message.User Lastname') }}</label>
+                    <input type="text" class="form-control" value="{{ $utilisateur->lastname }}"  name="lastname" id="Name" placeholder="{{ __('utilisateurs/message.Enter User Lastname') }}">
                     <div style="color:red">
                         @error("lastname")
                         {{$message}}
@@ -40,8 +40,8 @@
 
 
                   <div class="form-group">
-                    <label for="email">{{ __('utilisateurs/messages.User Email') }}</label>
-                    <input type="text" class="form-control" value="{{ $utilisateur->email }}" id="email" name="email" placeholder="{{ __('utilisateurs/messages.Enter User Email') }}">
+                    <label for="email">{{ __('utilisateurs/message.User Email') }}</label>
+                    <input type="text" class="form-control" value="{{ $utilisateur->email }}" id="email" name="email" placeholder="{{ __('utilisateurs/message.Enter User Email') }}">
                     <div style="color:red">
                         @error("email")
                         {{$message}}
@@ -52,8 +52,8 @@
                
 
               <div class="form-group">            
-                    <label for="password">{{ __('utilisateurs/messages.old Password') }}</label>
-                    <input type="password" name="old_password" id="password" class="form-control" placeholder="{{ __('utilisateurs/messages.Enter User old Password') }}" required autocomplete="new-password" />
+                    <label for="password">{{ __('utilisateurs/message.old Password') }}</label>
+                    <input type="password" name="old_password" id="password" class="form-control" placeholder="{{ __('utilisateurs/message.Enter User old Password') }}" required autocomplete="new-password" />
                     @if($errors->has('old_password'))
                      <div class="text-danger">
                         {{ $errors->first('old_password') }}
@@ -63,8 +63,8 @@
 
 
                   <div class="form-group">            
-                    <label for="password">{{ __('utilisateurs/messages.Password') }}</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('utilisateurs/messages.Enter User Password') }}" required autocomplete="new-password" />
+                    <label for="password">{{ __('utilisateurs/message.Password') }}</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('utilisateurs/message.Enter User Password') }}" required autocomplete="new-password" />
                     @if($errors->has('password'))
                      <div class="text-danger">
                         {{ $errors->first('password') }}
@@ -74,8 +74,8 @@
         
         
               <div class="form-group">                  
-                <label for="password_confirmation">{{ __('utilisateurs/messages.Confirm Password') }} </label>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('utilisateurs/messages.Confirm Password') }}" required autocomplete="new-password" />
+                <label for="password_confirmation">{{ __('utilisateurs/message.Confirm Password') }} </label>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('utilisateurs/message.Confirm Password') }}" required autocomplete="new-password" />
                 @if($errors->has('password_confirmation'))
                  <div class="text-danger">
                     {{ $errors->first('password_confirmation') }}
@@ -88,9 +88,9 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info">{{ __('utilisateurs/messages.Add User') }}</button>
+                  <button type="submit" class="btn btn-info">{{ __('utilisateurs/message.Add User') }}</button>
            
-                    <a href="{{route('utilisateurs.index')}}" type="submit" class="btn btn-secondary">{{ __('utilisateurs/messages.Cancel') }}</a>
+                    <a href="{{route('utilisateurs.index')}}" type="submit" class="btn btn-secondary">{{ __('utilisateurs/message.Cancel') }}</a>
   
                 </div>
               </form>

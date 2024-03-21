@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">{{ __('utilisateurs/messages.User Details') }}</h1>
+                    <h1 class="m-0">{{ __('utilisateurs/message.User Details') }}</h1>
                 </div><!-- /.col -->
 
             </div><!-- /.row -->
@@ -22,18 +22,18 @@
                   <div class="card">
                       <div class="card-body">
                           <div class="col-sm-12">
-                              <label for="nom">{{ __('utilisateurs/messages.User Name') }} :</label>
+                              <label for="nom">{{ __('utilisateurs/message.User Name') }} :</label>
                               <p>{{$utilisateur->name}}</p>
                           </div>
 
                           <div class="col-sm-12">
-                            <label for="lastname">{{ __('utilisateurs/messages.User Last Name') }} :</label>
+                            <label for="lastname">{{ __('utilisateurs/message.User Lastname') }} :</label>
                             <p>{{$utilisateur->name}}</p>
                         </div>
 
                           <!-- Description Field -->
                           <div class="col-sm-12">
-                              <label for="description">{{ __('utilisateurs/messages.User Email') }} :</label>
+                              <label for="description">{{ __('utilisateurs/message.User Email') }} :</label>
                               <p>{{$utilisateur->email}}</p>
 
                           </div>
