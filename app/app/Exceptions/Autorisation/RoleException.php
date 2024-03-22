@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Exceptions;
+namespace App\Exceptions\Autorisation;
 
-class RoleException extends \Exception
+use Exception;
+
+class RoleException extends Exception
 {
-
     public static function createRole()
     {
         return new self(__('Autorisation/roles/message.createRoleException'));
     }
 }
-

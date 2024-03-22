@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Autorisation;
 
-use App\Exceptions\RoleException;
+use App\Exceptions\Autorisation\RoleException;
 use App\Models\Autorisation\Role;
 use App\Repositories\BaseRepositorie;
 
