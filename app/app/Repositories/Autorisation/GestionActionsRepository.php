@@ -2,34 +2,39 @@
 
 namespace App\Repositories\Autorisation;
 
-use App\Models\Autorisation\Permission ;
+use App\Models\Autorisation\Action ;
+use App\Models\Autorisation\Controller ;
 use App\Repositories\BaseRepositorie; 
 use Illuminate\Support\Facades\Artisan; 
 use ReflectionClass;
 use ReflectionMethod;
 
-class GestionPermissionsRepository extends BaseRepositorie {
+class GestionActionsRepository extends BaseRepositorie {
     protected $model;
 
-    public function __construct(Permission $Permission){
-        $this->model = $Permission;
+    public function __construct(Action $Action){
+        $this->model = $Action;
     }
     
     public function search($searchableData, $perPage = 4)
     {
         return $this->model->where(function ($query) use ($searchableData) {
-            $query->where('name', 'like', '%' . $searchableData . '%');
+            $query->where('nom', 'like', '%' . $searchableData . '%')
+                ->orWhere('controller', 'like', '%' . $searchableData . '%');
         })->paginate($perPage);
     }
 
     public function filter()
     {
-       return Permission::all();
+    return Controller::all();
     }
-
-function extractControllerPermissions(string $basePath): array
+    public function filterByController($controllerName)
+    {
+        return $this->model->where('controller', $controllerName)->get();
+    }
+function extractControllerActions(string $basePath): array
 {
-    $permissions = [];
+    $actions = [];
 
     $files = glob($basePath . '/**/*.php', GLOB_BRACE);
 
@@ -43,13 +48,13 @@ function extractControllerPermissions(string $basePath): array
 
             foreach ($methods as $method) {
                 if ($method->getName() !== '__construct') {
-                    $permissions[] = $method->getName() . '-' . $className;
+                    $actions[] = $method->getName() . '-' . $className;
                 }
             }
         }
     }
 
-    return $permissions;
+    return $actions;
 }
 
 }
