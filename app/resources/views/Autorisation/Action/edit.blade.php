@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>{{__('Autorisation/Permission/message.editPermission')}} {{$permission->name}}</h1>
+                <h1>{{__('Autorisation/Action/message.editAction')}} {{$action->name}}</h1>
             </div>
         </div>
     </div>
@@ -25,18 +25,18 @@
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">{{__('Autorisation/Permission/message.edit')}}</h3>
+                    <h3 class="card-title">{{__('Autorisation/Action/message.edit')}}</h3>
                 </div>
-                <form action="{{ route('permission.update',$permission->id) }}" method="post">
+                <form action="{{ route('action.update',$action->id) }}" method="post">
                     @csrf
                     @method('put')
                     <div class="card-body">
-                        @include('Autorisation.Permission.fields')
+                        @include('Autorisation.Action.fields')
                     </div>
 
                     <div class="card-footer">
-                        <a href="{{ route('permission.index') }}" class="btn btn-default">{{__('Autorisation/Permission/message.cancel')}}</a>
-                        <button type="submit" class="btn btn-primary">{{__('Autorisation/Permission/message.edit')}}</button>
+                        <a href="{{ route('action.index') }}" class="btn btn-default">{{__('Autorisation/Action/message.cancel')}}</a>
+                        <button type="submit" class="btn btn-primary">{{__('Autorisation/Action/message.edit')}}</button>
                     </div>
                 </form>
             </div>

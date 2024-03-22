@@ -2,20 +2,20 @@
 <table class="table table-striped text-nowrap">
     <thead>
         <tr>
-            <th>{{__('Autorisation/Permission/message.name')}}</th>
-            <th>{{__('Autorisation/Permission/message.guard_name')}}</th>
+            <th>{{__('Autorisation/Action/message.name')}}</th>
+            <th>{{__('Autorisation/Action/message.guard_name')}}</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody id="task-table">
-        @forelse ($permission as $item)
+        @forelse ($action as $item)
         <tr>
             <td>{{$item->name}}</td>
             <td>{{$item->guard_name}}</td>
             <td class="d-flex justify-content-center">
-                <a href="{{ route('permission.edit', $item->id) }}" class="btn btn-sm btn-default"><i
+                <a href="{{ route('action.edit', $item->id) }}" class="btn btn-sm btn-default"><i
                         class="fa-solid fa-pen-to-square"></i></a>
-                        <form action="{{ route('permission.destroy', $item->id) }}" class="ml-2" method="post">
+                        <form action="{{ route('action.destroy', $item->id) }}" class="ml-2" method="post">
                             @csrf
                             @method('delete')
                             <button type="button" class="btn btn-sm btn-danger" onclick="confirmDelete(this.form)"><i
@@ -25,7 +25,7 @@
         </tr>
         @empty
             <tr><td>Aucun perimissions trouvée</td></tr>
-        @endforelse ($permissions as $item)
+        @endforelse ($actions as $item)
     </tbody>
 </table>
 </div>
@@ -33,7 +33,7 @@
    
         <div class="">
             <ul class="pagination  m-0 float-right">
-                {{$permission->links()}}
+                {{$action->links()}}
             </ul>
         </div>
     </div>
