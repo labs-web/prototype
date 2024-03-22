@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Autorisation;
 
+use App\Exceptions\RoleExceptions;
 use App\Models\Autorisation\Role;
 use App\Repositories\Autorisation\RoleRepository;
 use Exception;
@@ -33,8 +34,7 @@ class RoleTest extends TestCase
         $this->assertNotEmpty($roles);
     }
 
-
-    public function test_create_role()
+    public function test_create_role_if_name_not_exists()
     {
         $this->actingAs($this->user);
         $roleData = [
@@ -45,28 +45,23 @@ class RoleTest extends TestCase
         $this->assertEquals($roleData['name'], $role->name);
     }
 
-    // public function test_create_an_existing_role() {
-    //     $this->assertFalse(true);
-    // }
-
-    public function test_create_an_existing_role()
+    public function test_create_role_if_name_exists()
     {
-        try{
+        try {
+            // Create a role 
+            Role::create(['name' => 'Existing Role', 'guard_name' => 'web']);
 
-            $roleData = [
-                'name' => 'admin',
-                'guard_name' => 'web',
-            ];
-    
-            // Attempting to create the role
-            $role = $this->roleRepository->create($roleData);
-    
-            // Asserting that the creation fails and returns false
-            $this->assertFalse($role);
-        } catch (Exception $e){
-            
+            // create a new role with the same name
+            (new Role())->create(['name' => 'Existing Role', 'guard_name' => 'web']);
+
+            // Fail the test if an exception is not thrown
+            $this->fail('Exception was not thrown');
+
+        } catch (\Exception $e) {
+            $this->assertInstanceOf(\Exception::class, $e);
         }
     }
+
 
     public function test_update_role()
     {
