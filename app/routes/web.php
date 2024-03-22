@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    //     $userData = [
+    //     'name' => 'ProjectLeader',
+    //     'email' => 'Leader@gmail.com',
+    //         'password' => Hash::make('password')
+    // ];
+    
+    // $registerController = new User();
+    // $response = $registerController->create($userData);
     return redirect('/login');
 });
 
