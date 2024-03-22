@@ -3,11 +3,11 @@
 namespace Database\Seeders\Autorisation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Route;
-use App\Models\Autorisation\Permission ;
+use App\Models\Autorisation\Action ;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
-use App\Repositories\Autorisation\GestionPermissionsRepository ;
-class PermissionSeeder extends Seeder
+use App\Repositories\Autorisation\GestionActionsRepository ;
+class ActionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,12 +20,12 @@ class PermissionSeeder extends Seeder
         $basePath3 = app_path('Http/Controllers/');
         $basePaths = [$basePath1, $basePath2, $basePath3];
 
-        $permissions = app(GestionPermissionsRepository::class, [new Permission]); // Using dependency injection (optional)
+        $actions = app(GestionActionsRepository::class, [new Action]); // Using dependency injection (optional)
 
-        $extractedPermissions = $permissions->extractControllerPermissions($basePaths);
+        $extractedActions = $actions->extractControllerActions($basePaths);
 
-        foreach ($extractedPermissions as $permissionName) {
-            Permission::firstOrCreate(['name' => $permissionName]);
+        foreach ($extractedActions as $actionName) {
+            Action::firstOrCreate(['nom' => $actionName]);
         }
     }
 }
