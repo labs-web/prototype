@@ -15,23 +15,31 @@ class GestionActionsRepository extends BaseRepositorie {
     public function __construct(Action $Action){
         $this->model = $Action;
     }
-    
+    public function find($id){
+        return $this->model->with('controller')->find($id);
+    }
+
+    public function searchData($searchableData, $id, $perPage = 4)
+    {
+        return $this->model->where(function ($query) use ($searchableData, $id) {
+            $query->where('nom', 'like', '%' . $searchableData . '%')
+                  ->orWhere('description', 'like', '%' . $searchableData . '%');
+        })->where('controller_id', $id)->paginate($perPage);
+    }
+
     public function search($searchableData, $perPage = 4)
     {
         return $this->model->where(function ($query) use ($searchableData) {
             $query->where('nom', 'like', '%' . $searchableData . '%')
-                ->orWhere('controller', 'like', '%' . $searchableData . '%');
+                  ->orWhere('description', 'like', '%' . $searchableData . '%');
         })->paginate($perPage);
     }
-
+    
     public function filter()
     {
-    return Controller::all();
+       return Controller::all();
     }
-    public function filterByController($controllerName)
-    {
-        return $this->model->where('controller', $controllerName)->get();
-    }
+   
 function extractControllerActions(string $basePath): array
 {
     $actions = [];
