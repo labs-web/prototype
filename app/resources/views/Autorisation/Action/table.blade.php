@@ -13,9 +13,9 @@
             <td>{{$item->name}}</td>
             <td>{{$item->guard_name}}</td>
             <td class="d-flex justify-content-center">
-                <a href="{{ route('action.edit', $item->id) }}" class="btn btn-sm btn-default"><i
+                <a href="{{ route('actions.edit', $item->id) }}" class="btn btn-sm btn-default"><i
                         class="fa-solid fa-pen-to-square"></i></a>
-                        <form action="{{ route('action.destroy', $item->id) }}" class="ml-2" method="post">
+                        <form action="{{ route('actions.destroy', $item->id) }}" class="ml-2" method="post">
                             @csrf
                             @method('delete')
                             <button type="button" class="btn btn-sm btn-danger" onclick="confirmDelete(this.form)"><i

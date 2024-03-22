@@ -15,7 +15,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href="{{ route('action.create') }}" class="btn btn-info">{{__('Autorisation/Action/message.add')}}</a>
+                    <a href="{{ route('actions.create') }}" class="btn btn-info">{{__('Autorisation/Action/message.add')}}</a>
                 </div>
             </div>
         </div>
