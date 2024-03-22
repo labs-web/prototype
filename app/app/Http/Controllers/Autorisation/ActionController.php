@@ -38,13 +38,7 @@ class ActionController extends Controller
 
     public function store(ActionRequest $request)
     {
-        $controller = $request->get('controller'); // Assuming the controller input name is 'controller'
-        $action = $request->get('action'); // Assuming the action input name is 'action'
-        $combinedName = "$action-$controller";
-    
-        $data = $request->except(['controller', 'action']); // Exclude controller and action from data
-        $data['name'] = $combinedName; // Add combined name to data
-        $data['guard_name'] = 'web';
+        $data = $request->all();
     
         $action = $this->gestionActionsRepository->create($data);
     
