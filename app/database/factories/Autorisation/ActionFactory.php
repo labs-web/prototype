@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Autorisation\Controller>
  */
-class PermissionFactory extends Factory
+class ActionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class PermissionFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->text(7),
-            'guard_name' => 'web',
+            'nom' => fake()->text(4),
+            'controller' => fake()->text(7),
             'created_at' => fake()->dateTime(),
             'updated_at' => fake()->dateTime(),
         ];

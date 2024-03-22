@@ -11,11 +11,11 @@
 
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>{{__('Autorisation/Permission/message.Permission')}}
+                <h1>{{__('Autorisation/Action/message.Action')}}
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href="{{ route('permission.create') }}" class="btn btn-info">{{__('Autorisation/Permission/message.add')}}</a>
+                    <a href="{{ route('action.create') }}" class="btn btn-info">{{__('Autorisation/Action/message.add')}}</a>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
 
                             <div class=" p-0">
                                 <div class="input-group input-group-sm">
-                                    <input type="text" name="permission_search" id="permission_search" class="form-control" placeholder="Recherche">
+                                    <input type="text" name="action_search" id="action_search" class="form-control" placeholder="Recherche">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default">
                                             <i class="fas fa-search"></i>
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                    @include('Autorisation.Permission.table')
+                    @include('Autorisation.Action.table')
                 </div>
 
             </div>
@@ -57,14 +57,14 @@
 <script>
 $(document).ready(function() {
     function fetch_data(page, search) {
-        var url = '/permissions?page=' + page + '&searchPermission=' + search;
+        var url = '/actions?page=' + page + '&searchAction=' + search;
         
         $.ajax({
             url: url,
             success: function(data) {
                 var newData = $(data);
                 console.log(newData);
-                $('#permission-table').html(newData.find('#permission-table').html());
+                $('#action-table').html(newData.find('#action-table').html());
                 $('.card-footer').html(newData.find('.card-footer').html());
                 var paginationHtml = newData.find('.pagination').html();
                 if (paginationHtml) {
@@ -79,12 +79,12 @@ $(document).ready(function() {
     $('body').on('click', '.pagination a', function(param) {
         param.preventDefault();
         var page = $(this).attr('href').split('page=')[1];
-        var search = $('#permission_search').val();
+        var search = $('#action_search').val();
         fetch_data(page, search);
     });
 
-    $('body').on('keyup', '#permission_search', function() {
-        var search = $('#permission_search').val();
+    $('body').on('keyup', '#action_search', function() {
+        var search = $('#action_search').val();
         var page = 1;
         fetch_data(page, search);
     });
@@ -93,7 +93,7 @@ $(document).ready(function() {
 });
 
 function confirmDelete(form) {
-    if (confirm("Êtes-vous sûr de vouloir supprimer cette permission ?")) {
+    if (confirm("Êtes-vous sûr de vouloir supprimer cette action ?")) {
         form.submit();
     }
 }
