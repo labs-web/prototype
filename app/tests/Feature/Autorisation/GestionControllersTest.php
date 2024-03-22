@@ -2,6 +2,9 @@
 
 namespace Tests\Feature\Autorisation;
 
+
+use App\Exceptions\Autorisation\ControllerNotExistException;
+use App\Exceptions\Autorisation\ControllerAlreadyExistException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Repositories\Autorisation\GestionControllersRepository;
@@ -35,13 +38,17 @@ class GestionControllersTest extends TestCase
     {
         $this->actingAs($this->user);
         $data = [
-            'nom' => 'testController',
+            'nom' => 'HomeController',
         ];
         try {
             $this->ControllersRepository->create($data);
             $this->fail('Exception attendue non levée.');
+        } catch (ControllerNotExistException $e) {
+            $this->assertInstanceOf(ControllerNotExistException::class, $e);
+        } catch (ControllerAlreadyExistException $e) {
+            $this->assertInstanceOf(ControllerAlreadyExistException::class, $e);
         } catch (\Exception $e) {
-            $this->assertInstanceOf(\Exception::class, $e);
+            $this->fail('Une exception inattendue a été levée : ' . $e->getMessage());
         }
     }
 
@@ -55,8 +62,12 @@ class GestionControllersTest extends TestCase
         try {
             $this->ControllersRepository->update($controller->id, $Data);
             $this->fail('Exception attendue non levée.');
+        } catch (ControllerNotExistException $e) {
+            $this->assertInstanceOf(ControllerNotExistException::class, $e);
+        } catch (ControllerAlreadyExistException $e) {
+            $this->assertInstanceOf(ControllerAlreadyExistException::class, $e);
         } catch (\Exception $e) {
-            $this->assertInstanceOf(\Exception::class, $e);
+            $this->fail('Une exception inattendue a été levée : ' . $e->getMessage());
         }
     }
 

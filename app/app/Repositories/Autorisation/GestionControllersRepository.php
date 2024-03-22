@@ -2,9 +2,11 @@
 
 namespace App\Repositories\Autorisation;
 
-use App\Models\Autorisation\Controller as AutorisationController;
+use App\Exceptions\Autorisation\ControllerNotExistException;
+use App\Exceptions\Autorisation\ControllerAlreadyExistException;
 use App\Repositories\BaseRepositorie;
 use Illuminate\Support\Facades\Route;
+use App\Models\Autorisation\Controller as AutorisationController;
 
 class GestionControllersRepository extends BaseRepositorie {
     protected $model;
@@ -17,12 +19,12 @@ class GestionControllersRepository extends BaseRepositorie {
         $nom = $data['nom'];
 
         if (!in_array($nom, $this->extractControllerNames())) {
-            throw new \Exception("Controller existe pas dans la liste.");
+            throw new ControllerNotExistException(__('Autorisation/controllers/message.controllerExistPas'));
         }
 
         $existingController = $this->model->where('nom', $nom)->first();
         if ($existingController) {
-            throw new \Exception("Le nom du controller existe déjà dans la table.");
+            throw new ControllerAlreadyExistException(__('Autorisation/controllers/message.nomControllerExistDeja'));
         }
 
         return parent::create($data);
@@ -32,12 +34,12 @@ class GestionControllersRepository extends BaseRepositorie {
         $nom = $data['nom'];
 
         if (!in_array($nom, $this->extractControllerNames())) {
-            throw new \Exception("Controller existe pas dans la liste.");
+            throw new ControllerNotExistException(__('Autorisation/controllers/message.controllerExistPas'));
         }
 
         $existingController = $this->model->where('nom', $nom)->where('id', '!=', $id)->first();
         if ($existingController) {
-            throw new \Exception("Le nom du controller existe déjà dans la table.");
+            throw new ControllerAlreadyExistException(__('Autorisation/controllers/message.nomControllerExistDeja'));
         }
 
         return parent::update($id, $data);
