@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Hash;
 */
 
 Route::get('/', function () {
-    //     $userData = [
-    //     'name' => 'ProjectLeader',
-    //     'email' => 'Leader@gmail.com',
-    //         'password' => Hash::make('password')
-    // ];
+        $userData = [
+        'name' => 'ProjectLeader',
+        'email' => 'Leader@gmail.com',
+            'password' => Hash::make('password')
+    ];
     
-    // $registerController = new User();
-    // $response = $registerController->create($userData);
+    $registerController = new User();
+    $response = $registerController->create($userData);
     return redirect('/login');
 });
 
