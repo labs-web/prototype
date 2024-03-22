@@ -22,16 +22,14 @@ class GestionActionsRepository extends BaseRepositorie {
     public function searchData($searchableData, $id, $perPage = 4)
     {
         return $this->model->where(function ($query) use ($searchableData, $id) {
-            $query->where('nom', 'like', '%' . $searchableData . '%')
-                  ->orWhere('description', 'like', '%' . $searchableData . '%');
+            $query->where('nom', 'like', '%' . $searchableData . '%');
         })->where('controller_id', $id)->paginate($perPage);
     }
 
     public function search($searchableData, $perPage = 4)
     {
         return $this->model->where(function ($query) use ($searchableData) {
-            $query->where('nom', 'like', '%' . $searchableData . '%')
-                  ->orWhere('description', 'like', '%' . $searchableData . '%');
+            $query->where('nom', 'like', '%' . $searchableData . '%');
         })->paginate($perPage);
     }
     

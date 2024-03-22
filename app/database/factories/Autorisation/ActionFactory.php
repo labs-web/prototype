@@ -17,10 +17,9 @@ class ActionFactory extends Factory
     public function definition(): array
     {
         return [
-            'nom' => fake()->text(4),
-            'controller' => fake()->text(7),
-            'created_at' => fake()->dateTime(),
-            'updated_at' => fake()->dateTime(),
+            'nom' => fake()->text(7),
+            'controller_id' => fake()->randomDigitNotNull()
+      
         ];
     }
 }
