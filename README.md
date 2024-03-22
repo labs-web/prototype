@@ -9,10 +9,12 @@
 Le backlog est une liste ordonées des tâches 
 
 - **exposé** 
+  - [0.TDD .181.md](./Backlog/exposé/0.TDD .181.md) 
   - [2.exposé-name-space.15.md](./Backlog/exposé/2.exposé-name-space.15.md) 
   - [2.exposé-unit-test.16.md](./Backlog/exposé/2.exposé-unit-test.16.md) 
-  - [2.TDD.md](./Backlog/exposé/2.TDD.md) 
+  - [2.TDD.219.md](./Backlog/exposé/2.TDD.219.md) 
 - **feature** 
+  - [0.custom-css-rapport.172.md](./Backlog/feature/0.custom-css-rapport.172.md) 
   - [1.backlog.2.md](./Backlog/feature/1.backlog.2.md) 
   - [1.init-lab_réparation-css.14.md](./Backlog/feature/1.init-lab_réparation-css.14.md) 
   - [1.init-lab.1.md](./Backlog/feature/1.init-lab.1.md) 
@@ -31,7 +33,7 @@ Le backlog est une liste ordonées des tâches
   - [2.contexte-projet.7.md](./Backlog/feature/2.contexte-projet.7.md) 
   - [2.prérequis.6.md](./Backlog/feature/2.prérequis.6.md) 
   - [3.analyse.11.md](./Backlog/feature/3.analyse.11.md) 
-  - [3.conception.md](./Backlog/feature/3.conception.md) 
+  - [3.conception.131.md](./Backlog/feature/3.conception.131.md) 
   - [3.Diagramme de packages.75.md](./Backlog/feature/3.Diagramme de packages.75.md) 
   - [3.diagramme-classes.20.md](./Backlog/feature/3.diagramme-classes.20.md) 
   - [4.maquettes.12.md](./Backlog/feature/4.maquettes.12.md) 
@@ -39,8 +41,8 @@ Le backlog est une liste ordonées des tâches
   - [6.projets_backend.22.md](./Backlog/feature/6.projets_backend.22.md) 
   - [6.tasks-backend.42.md](./Backlog/feature/6.tasks-backend.42.md) 
   - [6.utilisateurs-backend.41.md](./Backlog/feature/6.utilisateurs-backend.41.md) 
+  - [8.GestionProjets_taskfrontend.84.md](./Backlog/feature/8.GestionProjets_taskfrontend.84.md) 
   - [8.projets_frontend.83.md](./Backlog/feature/8.projets_frontend.83.md) 
-  - [8.taches_frontend.84.md](./Backlog/feature/8.taches_frontend.84.md) 
   - [8.utilisateurs_frontend.85.md](./Backlog/feature/8.utilisateurs_frontend.85.md) 
 ## Livrables 
 
