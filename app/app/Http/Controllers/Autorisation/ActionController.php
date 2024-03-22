@@ -9,65 +9,76 @@ use App\Repositories\Autorisation\GestionControllersRepository;
 
 class ActionController extends Controller
 {
-    protected $gestionActionsRepository;
+    
+    protected $actionRepository;
+    protected $controllerRepisotorie;
 
-    public function __construct(GestionActionsRepository $gestionActionsRepository
+    public function __construct(GestionActionsRepository $actionRepository, GestionControllersRepository $controllerRepisotorie){
+        $this->actionRepository = $actionRepository;
+        $this->controllerRepisotorie = $controllerRepisotorie;
+    }
 
-    ){
-        $this->gestionActionsRepository = $gestionActionsRepository;
-}
     public function index(Request $request){
-        $action = $this->gestionActionsRepository->paginate();
+        $controllers = $this->actionRepository->filter();
+        $actions = $this->actionRepository->paginate();
         if($request->ajax()){
             $searchAction = $request->get('searchAction');
             $searchAction = str_replace(" ", "%", $searchAction);
-            $action = $this->gestionActionsRepository->search($searchAction);
-            return view('Autorisation.Action.index', compact('action'))->render();
+            $actions = $this->actionRepository->search($searchAction);
+            return view('Autorisation.action.index', compact('actions','controllers'))->render();
         }
-        return view('Autorisation.Action.index', compact('action'));
+        return view('Autorisation.action.index', compact('actions', 'controllers'));
     }
 
+    public function show(Request $request,$id){
+        $controller = $this->controllerRepisotorie->find($id);
+        $controllers = $this->actionRepository->filter();
+        $actions = $controller->actions()->paginate();
+        if($request->ajax()){
+            $searchAction = $request->get('searchAction');
+            $searchAction = str_replace(" ", "%", $searchAction);
+            $actions = $this->actionRepository->searchData($searchAction,$id);
+            return view('Autorisation.action.index', compact('actions','controllers','controller'))->render();
+        }
+        return view('Autorisation.action.index', compact('actions', 'controllers','controller'));
+    }
 
-
-
+    public function detail(Request $request, $id){
+        $action = $this->actionRepository->find($id);
+        return view('Autorisation.action.show', compact('action'));
+    }
 
     public function create(){
-        $controller = $this->gestionActionsRepository->filter();
-        return view('Autorisation.Action.create',compact('controller'));
+        $controllers = $this->actionRepository->filter();
+        return view('Autorisation.action.create',compact('controllers'));
     }
 
-    public function store(ActionRequest $request)
-    {
+    public function store(actionRequest $request){
         $data = $request->all();
-    
-        $action = $this->gestionActionsRepository->create($data);
-    
-        return back()->with('success', 'Action ajoutée avec succès.');
+        $actions = $this->actionRepository->create($data);
+        return back()->with('success','Action ajoutée avec succès.');
     }
-    
 
     public function edit($id){
-        $action = $this->gestionActionsRepository->find($id);
-        $controller = $this->gestionActionsRepository->filter();
-        return view('Autorisation.Action.edit',compact('action','controller'));
+        $action = $this->actionRepository->find($id);
+        $controllers = $this->actionRepository->filter();
+        return view('Autorisation.action.edit',compact('action','controllers'));
     }
 
-    public function update(Request $request,$Action_id){
+    public function update(Request $request,$action_id){
         $data = $request->all();
-        $Action = $this->gestionActionsRepository->update($Action_id,$data);
+        $action = $this->actionRepository->update($action_id,$data);
         return back()->with('success','Action mise à jour avec succès.');
     }
 
     
-    public function destroy($Action_id)
+    public function destroy($action_id)
     {
-        $result = $this->gestionActionsRepository->destroy($Action_id);
+        $result = $this->actionRepository->destroy($action_id);
         if ($result) {
-            return back()->with('success', 'La Action a été supprimée avec succès.');
+            return back()->with('success', 'L action a été supprimée avec succès.');
         } else {
-            return back()->with('error', 'Échec de la suppression de la Action. Veuillez réessayer.');
+            return back()->with('error', 'Échec de la suppression de l action. Veuillez réessayer.');
         }
     }
-
-
 }
