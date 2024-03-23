@@ -11,11 +11,11 @@ class ActionController extends Controller
 {
     
     protected $actionRepository;
-    protected $controllerRepisotorie;
+    protected $controllerRepository;
 
-    public function __construct(GestionActionsRepository $actionRepository, GestionControllersRepository $controllerRepisotorie){
+    public function __construct(GestionActionsRepository $actionRepository, GestionControllersRepository $controllerRepository){
         $this->actionRepository = $actionRepository;
-        $this->controllerRepisotorie = $controllerRepisotorie;
+        $this->controllerRepository = $controllerRepository;
     }
 
     public function index(Request $request){
@@ -31,7 +31,7 @@ class ActionController extends Controller
     }
 
     public function show(Request $request,$id){
-        $controller = $this->controllerRepisotorie->find($id);
+        $controller = $this->controllerRepository->find($id);
         $controllers = $this->actionRepository->filter();
         $actions = $controller->actions()->paginate();
         if($request->ajax()){
@@ -43,10 +43,7 @@ class ActionController extends Controller
         return view('Autorisation.action.index', compact('actions', 'controllers','controller'));
     }
 
-    public function detail(Request $request, $id){
-        $action = $this->actionRepository->find($id);
-        return view('Autorisation.action.show', compact('action'));
-    }
+
 
     public function create(){
         $controllers = $this->actionRepository->filter();

@@ -23,8 +23,8 @@ class ActionRequest extends FormRequest
     {
         return [
 
-            'controller' => 'required|string|max:255',
-            'nom' => 'required|string|max:255'
+            'nom' => 'required|string|max:255',
+            'controller_id' => 'required|integer',
         ];
     }
 }

@@ -27,7 +27,7 @@
                 <div class="card-header">
                     <h3 class="card-title">{{__('Autorisation/action/message.edit')}}</h3>
                 </div>
-                <form action="{{ route('action.update',$action->id) }}" method="post">
+                <form action="{{ route('actions.update',$action->id) }}" method="post">
                     @csrf
                     @method('put')
                     <div class="card-body">
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <a href="{{ route('action.index') }}" class="btn btn-default">{{__('Autorisation/action/message.cancel')}}</a>
+                        <a href="{{ route('actions.index') }}" class="btn btn-default">{{__('Autorisation/action/message.cancel')}}</a>
                         <button type="submit" class="btn btn-primary">{{__('Autorisation/action/message.edit')}}</button>
                     </div>
                 </form>
