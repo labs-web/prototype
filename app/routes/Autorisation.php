@@ -17,6 +17,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function (
     // Routes for managing actions
     Route::prefix('actions')->group(function () {
         Route::get('/', [ActionController::class, 'index'])->name('actions.index');
+        Route::get('controller/{id}/actions', [ActionController::class, 'show'])->name('actions.show');
         Route::get('/create', [ActionController::class, 'create'])->name('actions.create');
         Route::post('/', [ActionController::class, 'store'])->name('actions.store');
         Route::get('/{action}/edit', [ActionController::class, 'edit'])->name('actions.edit');
