@@ -15,46 +15,65 @@ class GestionActionsRepository extends BaseRepositorie {
     public function __construct(Action $Action){
         $this->model = $Action;
     }
-    
+    public function find($id){
+        return $this->model->with('controller')->find($id);
+    }
+
+    public function searchData($searchableData, $id, $perPage = 4)
+    {
+        return $this->model->where(function ($query) use ($searchableData, $id) {
+            $query->where('nom', 'like', '%' . $searchableData . '%');
+        })->where('controller_id', $id)->paginate($perPage);
+    }
+
     public function search($searchableData, $perPage = 4)
     {
         return $this->model->where(function ($query) use ($searchableData) {
-            $query->where('nom', 'like', '%' . $searchableData . '%')
-                ->orWhere('controller', 'like', '%' . $searchableData . '%');
+            $query->where('nom', 'like', '%' . $searchableData . '%');
         })->paginate($perPage);
     }
-
+    
     public function filter()
     {
-    return Controller::all();
+       return Controller::all();
     }
-    public function filterByController($controllerName)
+   
+ 
+    public function extractAndInsertControllerActions(string $basePath): void
     {
-        return $this->model->where('controller', $controllerName)->get();
-    }
-function extractControllerActions(string $basePath): array
-{
-    $actions = [];
+        $actions = [];
 
-    $files = glob($basePath . '/**/*.php', GLOB_BRACE);
+        $files = glob($basePath . '/**/*.php', GLOB_BRACE);
 
-    foreach ($files as $file) {
-        $className = basename($file, '.php');
+        foreach ($files as $file) {
+            $className = basename($file, '.php');
 
-        if (strpos($className, 'Controller') !== false) {
-            require_once $file;
-            $reflection = new ReflectionClass($className);
-            $methods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
+            if (strpos($className, 'Controller') !== false) {
+                require_once $file;
+                $reflection = new ReflectionClass($className);
+                $methods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
 
-            foreach ($methods as $method) {
-                if ($method->getName() !== '__construct') {
-                    $actions[] = $method->getName() . '-' . $className;
+                $controllerName = str_replace('Controller', '', $className);
+
+                // Insert controller into the controller table
+                $controller = Controller::create([
+                    'nom' => $controllerName,
+                ]);
+
+                foreach ($methods as $method) {
+                    if ($method->getName() !== '__construct') {
+                        $actionName = $method->getName();
+
+                        // Insert action into the action table
+                        $action = Action::create([
+                            'nom' => $actionName,
+                            'controller_id' => $controller->id,
+                        ]);
+                    }
                 }
             }
         }
     }
-
-    return $actions;
-}
+    
 
 }

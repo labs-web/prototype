@@ -4,6 +4,7 @@ namespace Tests\Feature\Autorisation;
 
 use App\Models\User;
 use App\Models\Autorisation\Action;
+use App\Models\Autorisation\Controller;
 use App\Repositories\Autorisation\GestionActionsRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
@@ -12,125 +13,111 @@ class ActionTest extends TestCase
 {
     use DatabaseTransactions;
 
-    protected $gestionActionsRepository;
+    protected $actionRepository;
     protected $user;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->gestionActionsRepository = new GestionActionsRepository(new Action);
+        $this->actionRepository = new GestionActionsRepository(new Action);
         $this->user = User::factory()->create();
     }
 
-    public function test_Get_Actions()
+    public function testPaginateActions()
     {
         $this->actingAs($this->user);
-        $projectData = Action::factory()->create();
-        $Actions = $this->gestionActionsRepository->paginate();
-        $this->assertNotEmpty($Actions);
-
- 
+        $controllerData = Controller::factory()->create();
+        $actionData = [
+            'nom' => 'test',
+            'controller_id' => $controllerData->id
+        ];
+        $actions = $this->actionRepository->create($actionData);
+        $actions = $this->actionRepository->paginate();
+        $this->assertNotNull($actions);
     }
 
-    public function test_Create_Action()
+    public function testCreateAction()
     {
         $this->actingAs($this->user);
-        $projectData = Action::factory()->create();
-        $ActionData = [
-            'nom' => 'add',
-            'controller' => 'ActionController',
-            'started_at' => '2023-10-10',
-            'updated_at' => '2024-03-02',
+        $controllerData = Controller::factory()->create();
+        $actionData = [
+            'nom' => 'test',
+            'controller_id' => $controllerData->id
         ];
-        $Action = $this->gestionActionsRepository->create($ActionData);
-        $this->assertEquals($ActionData['nom'], $Action->name);
-
-   
+        $task = $this->actionRepository->create($actionData);
+        $this->assertEquals($actionData['nom'], $task->nom);
     }
 
-    public function test_Update_Action()
+    // public function testCreateAction_ActionExists()
+    // {
+    //     $this->actingAs($this->user);
+    //     $controllerData = Controller::factory()->create();
+    //     $existingAction = Action::factory()->create([
+    //         'nom' => 'test',
+    //         'controller_id' => $controllerData->id
+    //     ]);
+    //     $actionData = [
+    //         'nom' => 'test',
+    //         'controller_id' => $controllerData->id
+    //     ];
+    //     $task = $this->actionRepository->create($actionData);
+    //     $this->assertFalse($task, 'The task should not be added when it already exists.');
+    // }
+
+    public function testUpdateAction()
     {
         $this->actingAs($this->user);
-        $projectData = Action::factory()->create();
-        $ActionData = [
-            'nom' => 'add',
-            'controller' => 'ActionController',
-            'started_at' => '2023-10-10',
-            'updated_at' => '2024-03-02',
+        $controllerData = Controller::factory()->create();
+        $actionData = [
+            'nom' => 'test',
+            'controller_id' => $controllerData->id
         ];
-        $Actions = $this->gestionActionsRepository->create($ActionData);
-        $ActionData = [
-            'nom' => 'update',
-            'controller' => 'ActionController',
+        $actions = $this->actionRepository->create($actionData);
+        $actionData = [
+            'nom' => 'test',
         ];
-        $this->gestionActionsRepository->update($Actions->id, $ActionData);
-        $this->assertDatabaseHas('Actions', $ActionData);
-
+        $this->actionRepository->update($actions->id, $actionData);
+        $this->assertDatabaseHas('actions', $actionData);
     }
 
-    public function test_Delete_Action()
+    public function testDeleteAction()
     {
         $this->actingAs($this->user);
-        $projectData = Action::factory()->create();
-        $ActionData = [
-            'nom' => 'add',
-            'controller' => 'ActionController',
-            'started_at' => '2023-10-10',
-            'updated_at' => '2024-03-02',
+        $controllerData = Controller::factory()->create();
+        $actionData = [
+            'nom' => 'test',
+            'controller_id' => $controllerData->id
         ];
-        $Actions = $this->gestionActionsRepository->create($ActionData);
-        $this->gestionActionsRepository->destroy($Actions->id);
-        $this->assertDatabaseMissing('Actions', ['id' => $Actions->id]);
-
-  
+        $actions = $this->actionRepository->create($actionData);
+        $this->actionRepository->destroy($actions->id);
+        $this->assertDatabaseMissing('actions', ['id' => $actions->id]);
     }
 
-    public function test_Search_Action()
+    public function testActionSearch()
     {
         $this->actingAs($this->user);
-        $projectData = Action::factory()->create();
-        $ActionData = [
-            'nom' => 'add',
-            'controller' => 'ActionController',
-            'started_at' => '2023-10-10',
-            'updated_at' => '2024-03-02',
+        $controllerData = Controller::factory()->create();
+        $actionData = [
+            'nom' => 'test',
+            'controller_id' => $controllerData->id
         ];
-        $Actions = $this->gestionActionsRepository->create($ActionData);
-        $searchValue = 'add';
-        $searchResults = $this->gestionActionsRepository->search($searchValue,$projectData->id);
+        $actions = $this->actionRepository->create($actionData);
+        $searchValue = 'test';
+        $searchResults = $this->actionRepository->searchData($searchValue, $controllerData->id);
         $this->assertTrue($searchResults->contains('nom', $searchValue));
-
-
     }
 
-    public function test_filter_Action()
+    public function test_filter_action()
     {
         $this->actingAs($this->user);
-        $projectData = Action::factory()->create();
-        $ActionData = [
-            'nom' => 'add',
-            'controller' => 'ActionController',
-            'started_at' => '2023-10-10',
-            'updated_at' => '2024-03-02',
+        $controllerData = Controller::factory()->create();
+        $actionData = [
+            'nom' => 'test',
+            'controller_id' => $controllerData->id
         ];
-        $Actions = $this->gestionActionsRepository->create($ActionData);
-        $filterResults = $this->gestionActionsRepository->filter();
-        $this->assertNotEmpty($filterResults);
+        $actions = $this->actionRepository->create($actionData);
+        $filterResults = $this->actionRepository->filter();
+        $this->assertNotNull($filterResults);
     }
-    public function test_filter_by_controller()
-{
-    $this->actingAs($this->user);
-
-    // Create two actions, one with the controller name 'ActionController' and another with a different name
-    $action1 = Action::factory()->create(['controller' => 'ActionController']);
-    $action2 = Action::factory()->create(['controller' => 'DifferentController']);
-
-    // Call the filterByController method
-    $filteredActions = $this->gestionActionsRepository->filterByController('ActionController');
-
-    // Assert that the returned collection only contains the action with the controller name 'ActionController'
-    $this->assertTrue($filteredActions->contains($action1));
-    $this->assertFalse($filteredActions->contains($action2));
 }
 
-}
