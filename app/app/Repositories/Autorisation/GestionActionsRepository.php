@@ -39,41 +39,8 @@ class GestionActionsRepository extends BaseRepositorie {
     }
    
  
-    public function extractAndInsertControllerActions(string $basePath): void
-    {
-        $actions = [];
 
-        $files = glob($basePath . '/**/*.php', GLOB_BRACE);
-
-        foreach ($files as $file) {
-            $className = basename($file, '.php');
-
-            if (strpos($className, 'Controller') !== false) {
-                require_once $file;
-                $reflection = new ReflectionClass($className);
-                $methods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
-
-                $controllerName = str_replace('Controller', '', $className);
-
-                // Insert controller into the controller table
-                $controller = Controller::create([
-                    'nom' => $controllerName,
-                ]);
-
-                foreach ($methods as $method) {
-                    if ($method->getName() !== '__construct') {
-                        $actionName = $method->getName();
-
-                        // Insert action into the action table
-                        $action = Action::create([
-                            'nom' => $actionName,
-                            'controller_id' => $controller->id,
-                        ]);
-                    }
-                }
-            }
-        }
-    }
+  
     
 
 }
