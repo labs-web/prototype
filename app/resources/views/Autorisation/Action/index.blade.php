@@ -17,6 +17,13 @@
                 @endisset</h1>
             </div>
             <div class="col-sm-6">
+                <form action="{{ route('actions.extract') }}" method="post">
+                    @csrf
+                    @method('post')
+                    <button type="submit" class="btn btn-secondary mx-2"> <i class="fas fa-download"></i>
+                        {{ __('Autorisation/Action/message.extractActions') }}
+                    </button>
+                </form>
                 <div class="float-sm-right">
                     <a href="{{ route('actions.create') }}" class="btn btn-info">{{__('Autorisation/action/message.add')}}</a>
                 </div>

@@ -25,4 +25,5 @@ return [
     'deleteAction' => "Supprimer l'action",
     'addAction'  => 'Ajouter une action',
     'nomAction' => "Nom de l'action",
+    'extractActions' => 'Télécharger les actions',
 ];
