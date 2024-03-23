@@ -27,7 +27,7 @@
                 <div class="card-header">
                     <h3 class="card-title">{{__('Autorisation/action/message.addAction')}}</h3>
                 </div>
-                <form action="{{ route('action.store') }}" method="POST">
+                <form action="{{ route('actions.store') }}" method="POST">
                     @csrf
                     @method('POST')
                     <div class="card-body">
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <a href="{{ route('action.index') }}" class="btn btn-default">{{__('Autorisation/action/message.cancel')}}</a>
+                        <a href="{{ route('actions.index') }}" class="btn btn-default">{{__('Autorisation/action/message.cancel')}}</a>
                         <button type="submit" class="btn btn-primary">{{__('Autorisation/action/message.add')}}</button>
                     </div>
                 </form>

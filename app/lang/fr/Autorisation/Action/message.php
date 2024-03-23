@@ -24,4 +24,5 @@ return [
     'editAction' => "Editer l'action",
     'deleteAction' => "Supprimer l'action",
     'addAction'  => 'Ajouter une action',
+    'nomAction' => "Nom de l'action",
 ];

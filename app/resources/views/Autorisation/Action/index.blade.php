@@ -18,7 +18,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href="{{ route('action.create') }}" class="btn btn-info">{{__('Autorisation/action/message.add')}}</a>
+                    <a href="{{ route('actions.create') }}" class="btn btn-info">{{__('Autorisation/action/message.add')}}</a>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     @foreach ($controllers as $item)
-                                    <a class="dropdown-item" href="/projet/{{$item->id}}/tâches">{{$item->nom}}</a>
+                                    <a class="dropdown-item" href="/Autorisations/actions/{{$item->id}}/actions">{{$item->nom}}</a>
                                     @endforeach
                                     
                                 </div>
@@ -76,9 +76,9 @@
         var url;
 
         if (controllerID) {
-            url = '/projet/' + controllerID + '/tâches?page=' + page + '&searchAction=' + search;
+            url = '/Autorisations/actions/' + controllerID + '/actions?page=' + page + '&searchAction=' + search;
         } else {
-            url = '/projets/tâches?page=' + page + '&searchAction=' + search;
+            url = '/Autorisations/actions?page=' + page + '&searchAction=' + search;
         }
 
         $.ajax({
@@ -120,9 +120,7 @@ function confirmDelete(form) {
         form.submit();
     }
 }
-function submitForm() {
-    document.getElementById("importForm").submit();
-}
+
 </script>
 
 @endsection
