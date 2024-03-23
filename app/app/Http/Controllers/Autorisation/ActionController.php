@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Autorisation;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\Autorisation\GestionActionsRepository; // Add this line to import the GestionActionsRepository class
 use App\Http\Requests\Autorisation\ActionRequest;
 use App\Repositories\Autorisation\GestionControllersRepository;
+use Illuminate\Support\Facades\Artisan;
 
 class ActionController extends Controller
 {
@@ -77,5 +79,10 @@ class ActionController extends Controller
         } else {
             return back()->with('error', 'Échec de la suppression de l action. Veuillez réessayer.');
         }
+    }
+    public function SyncControllersActions()
+    {
+        Artisan::call('sync:ControllersActions');
+        return redirect()->back()->with('success', 'Controllers and actions synced successfully.');
     }
 }
