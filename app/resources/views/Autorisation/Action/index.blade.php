@@ -11,11 +11,14 @@
 
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>{{__('Autorisation/Action/message.Action')}}
+                <h1>{{__('Autorisation/action/message.actions')}}
+                    @isset($controller)
+                    de {{$controller->nom}}<div id="controllerID" data-controllerid="{{ $controller->id }}"></div>
+                @endisset</h1>
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href="{{ route('actions.create') }}" class="btn btn-info">{{__('Autorisation/Action/message.add')}}</a>
+                    <a href="{{ route('action.create') }}" class="btn btn-info">{{__('Autorisation/action/message.add')}}</a>
                 </div>
             </div>
         </div>
@@ -30,7 +33,19 @@
                     <div class="card-header col-md-12">
                         <div class="d-flex justify-content-between">
 
-   
+                            <div class="dropdown input-group">
+                                <button class="btn btn-default mr-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa-solid fa-filter text-dark pr-2 border-right"></i>
+                                    {{__('Autorisation/action/message.choix')}}
+                                </button>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    @foreach ($controllers as $item)
+                                    <a class="dropdown-item" href="/projet/{{$item->id}}/tâches">{{$item->nom}}</a>
+                                    @endforeach
+                                    
+                                </div>
+                            </div>
 
                             <div class=" p-0">
                                 <div class="input-group input-group-sm">
@@ -44,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    @include('Autorisation.Action.table')
+                    @include('Autorisation.action.table')
                 </div>
 
             </div>
@@ -55,10 +70,17 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-$(document).ready(function() {
+   $(document).ready(function() {
     function fetch_data(page, search) {
-        var url = '/actions?page=' + page + '&searchAction=' + search;
-        
+        var controllerID = $('#controllerID').data('controllerid');
+        var url;
+
+        if (controllerID) {
+            url = '/projet/' + controllerID + '/tâches?page=' + page + '&searchAction=' + search;
+        } else {
+            url = '/projets/tâches?page=' + page + '&searchAction=' + search;
+        }
+
         $.ajax({
             url: url,
             success: function(data) {
@@ -92,14 +114,15 @@ $(document).ready(function() {
     fetch_data(1, '');
 });
 
+
 function confirmDelete(form) {
-    if (confirm("Êtes-vous sûr de vouloir supprimer cette action ?")) {
+    if (confirm("Êtes-vous sûr de vouloir supprimer cette tâche ?")) {
         form.submit();
     }
 }
-
-
-
+function submitForm() {
+    document.getElementById("importForm").submit();
+}
 </script>
 
 @endsection

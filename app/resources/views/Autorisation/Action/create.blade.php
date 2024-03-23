@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>{{__('Autorisation/Action/message.addAction')}}
+                <h1>{{__('Autorisation/action/message.addAction')}}
                 </h1>
             </div>
         </div>
@@ -25,18 +25,18 @@
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">{{__('Autorisation/Action/message.addAction')}}</h3>
+                    <h3 class="card-title">{{__('Autorisation/action/message.addAction')}}</h3>
                 </div>
-                <form action="{{ route('actions.store') }}" method="POST">
+                <form action="{{ route('action.store') }}" method="POST">
                     @csrf
                     @method('POST')
                     <div class="card-body">
-                        @include('Autorisation.Action.fields')
+                        @include('Autorisation.action.fields')
                     </div>
 
                     <div class="card-footer">
-                        <a href="{{ route('actions.index') }}" class="btn btn-default">{{__('Autorisation/Action/message.cancel')}}</a>
-                        <button type="submit" class="btn btn-primary">{{__('Autorisation/Action/message.add')}}</button>
+                        <a href="{{ route('action.index') }}" class="btn btn-default">{{__('Autorisation/action/message.cancel')}}</a>
+                        <button type="submit" class="btn btn-primary">{{__('Autorisation/action/message.add')}}</button>
                     </div>
                 </form>
             </div>
