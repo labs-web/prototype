@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Autorisation\GestionControllersController;
 use App\Http\Controllers\Autorisation\ActionController;
+use App\Console\Commands\Autorisation\SyncActions;
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function () {
     // Routes for managing controllers
@@ -22,7 +23,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function (
         Route::get('/{action}/edit', [ActionController::class, 'edit'])->name('actions.edit');
         Route::put('/{action}', [ActionController::class, 'update'])->name('actions.update');
         Route::delete('/{action}', [ActionController::class, 'destroy'])->name('actions.destroy');
-        Route::post('/downloadSeeder', [ActionController::class, 'downloadSeeder'])->name('actions.download'); 
+        Route::get('/sync-actions', [ActionController::class, 'SyncControllersActions'])->name('actions.sync');
     });
 });
 

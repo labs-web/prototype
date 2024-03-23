@@ -41,7 +41,7 @@ $current_route = $_SERVER['REQUEST_URI'];
         </a>
       </li>
       <li class="nav-item ">
-        <a href="" class="nav-link {{ Request::routeIs('') ? 'active' : '' }}">
+        <a href="{{ route('actions.index') }}" class="nav-link {{ Request::routeIs('actions.index') ? 'active' : '' }}">
           <i class="fas fa-cogs nav-icon"></i>
           <p>Actions</p>
         </a>
