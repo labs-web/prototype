@@ -25,7 +25,7 @@ class TaskRepository extends BaseRepositorie {
         $existingTask = Task::where('nom', $nom)->exists();
 
         if ($existingTask) {
-            throw TaskException::createRole();
+            throw TaskException::createTask();
         } else {
             return parent::create($data);
         }
