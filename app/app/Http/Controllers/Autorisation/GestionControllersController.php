@@ -4,17 +4,14 @@ namespace App\Http\Controllers\Autorisation;
 
 use App\Exceptions\Autorisation\ControllerNotExistException;
 use App\Exceptions\Autorisation\ControllerAlreadyExistException;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Repositories\Autorisation\GestionControllersRepository;
 use App\Models\Autorisation\Controller as AutorisationController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class GestionControllersController extends Controller
 {
-
-
     protected $controllersRepository;
 
     public function __construct(GestionControllersRepository $controllersRepository)
