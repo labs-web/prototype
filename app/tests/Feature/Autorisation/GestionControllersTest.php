@@ -38,8 +38,9 @@ class GestionControllersTest extends TestCase
     {
         $this->actingAs($this->user);
         $data = [
-            'nom' => 'HomeController',
+            'nom' => 'GestionControllersController',
         ];
+
         try {
             $this->ControllersRepository->create($data);
             $this->fail('Exception attendue non levée.');
@@ -57,7 +58,7 @@ class GestionControllersTest extends TestCase
         $this->actingAs($this->user);
         $controller = AutorisationController::factory()->create();
         $Data = [
-            'nom' => 'UpdateController',
+            'nom' => 'UpdatedController',
         ];
         try {
             $this->ControllersRepository->update($controller->id, $Data);
