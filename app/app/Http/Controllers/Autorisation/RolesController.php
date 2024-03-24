@@ -45,7 +45,7 @@ class RolesController extends Controller
         } catch (RoleException $e) {
             return back()->withInput()->withErrors(['role_exists' => __('Autorisation/roles/message.createTaskException')]); 
         } catch (\Exception $e) {
-            return back()->withInput()->withErrors(['unexpected_error' => __('Autorisation/roles/message.unexpected_error')]);
+            return back()->withInput()->withErrors(['unexpected_error' => __('Autorisation/roles/message.unexpectedError')]);
         }
     }
     
