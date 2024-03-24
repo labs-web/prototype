@@ -58,7 +58,7 @@ class ProjetController extends Controller
             return redirect()->route('projets.create')->with('success', 'Le projet a été ajouté avec succès.');
 
         } catch (ProjetException $e) {
-            return back()->withInput()->withErrors(['project_exists' => __('GestionProjets/projet/message.createProjectkException')]);
+            return back()->withInput()->withErrors(['project_exists' => __('GestionProjets/projet/message.createProjectException')]);
         } catch (\Exception $e) {
             return back()->withInput()->withErrors(['unexpected_error' => __('GestionProjets/projet/message.unexpected_error')]);
         }

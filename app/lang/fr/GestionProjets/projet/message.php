@@ -21,6 +21,6 @@ return [
     'import' => 'IMPORTER',
     'title' => 'Titre',
     'action' => 'Actions',
-    'createProjectkException' => 'Projet est déja existe',
+    'createProjectException' => 'Projet est déja existe',
     'unexpected_error' => 'Une erreur inattendue s\'est produite. Veuillez réessayer.'
 ];

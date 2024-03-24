@@ -60,7 +60,7 @@ class projetTest extends TestCase
             $this->fail('Expected ProjectException was not thrown');
         } catch (ProjetException $e) {
             $this->assertEquals(__('GestionProjets/projet/message.createProjectException'), $e->getMessage());
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->fail('Unexpected exception was thrown: ' . $e->getMessage());
         }
     }
