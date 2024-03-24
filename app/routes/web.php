@@ -1,5 +1,6 @@
 <?php
 
+use App\Repositories\Autorisation\RoleRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
