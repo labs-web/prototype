@@ -85,6 +85,26 @@ class TaskTest extends TestCase
             $this->fail('Unexpected exception was thrown: ' . $e->getMessage());
         }
     }
+
+    public function testUpdateTask()
+    {
+        $this->actingAs($this->user);
+        $projectData = Projet::factory()->create();
+        $taskData = [
+            'nom' => 'test1',
+            'description' => 'test',
+            'date_debut' => '2023-10-10',
+            'date_de_fin' => '2024-03-02',
+            'project_id' => $projectData->id
+        ];
+        $tasks = $this->taskRepository->create($taskData);
+        $taskData = [
+            'nom' => 'test1',
+            'description' => 'test',
+        ];
+        $this->taskRepository->update($tasks->id, $taskData);
+        $this->assertDatabaseHas('tasks', $taskData);
+    }
     
     
 
