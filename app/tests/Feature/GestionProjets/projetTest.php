@@ -9,6 +9,7 @@ use App\Models\GestionProjets\Projet;
 use League\CommonMark\Extension\DescriptionList\Node\Description;
 use Tests\TestCase;
 use App\Exceptions\GestionProjets\ProjetException;
+use Exception;
 
 class projetTest extends TestCase
 {
