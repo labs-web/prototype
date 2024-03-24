@@ -8,6 +8,7 @@ use App\Repositories\GestionProjets\ProjetRepository;
 use App\Models\GestionProjets\Projet;
 use League\CommonMark\Extension\DescriptionList\Node\Description;
 use Tests\TestCase;
+use App\Exceptions\GestionProjets\ProjetException;
 
 class projetTest extends TestCase
 {
@@ -42,8 +43,15 @@ class projetTest extends TestCase
             'date_debut' => '2023-10-10 16:22:14',
             'date_de_fin' => '2024-03-02 16:22:14',
         ];
-        $project = $this->projectRepository->create($projectData);
-        $this->assertEquals($projectData['nom'], $project->nom);
+        
+        try {
+            $project = $this->projectRepository->create($projectData);
+            $this->fail('Expected ProjectException was not thrown');
+        } catch (ProjetException $e) {
+            $this->assertEquals(__('GestionProjets/projet/message.createProjectException'), $e->getMessage());
+        } catch (\Exception $e) {
+            $this->fail('Unexpected exception was thrown: ' . $e->getMessage());
+        }
     }
 
 
