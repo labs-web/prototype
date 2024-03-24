@@ -9,7 +9,6 @@ use App\Models\GestionProjets\Projet;
 use League\CommonMark\Extension\DescriptionList\Node\Description;
 use Tests\TestCase;
 use App\Exceptions\GestionProjets\ProjetException;
-use Exception;
 
 class projetTest extends TestCase
 {
@@ -61,7 +60,7 @@ class projetTest extends TestCase
             $this->fail('Expected ProjectException was not thrown');
         } catch (ProjetException $e) {
             $this->assertEquals(__('GestionProjets/projet/message.createProjectException'), $e->getMessage());
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->fail('Unexpected exception was thrown: ' . $e->getMessage());
         }
     }
