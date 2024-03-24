@@ -42,14 +42,16 @@ class projetTest extends TestCase
             'date_de_fin' => '2024-03-02 16:22:14',
         ];
         $project = $this->projectRepository->create($projectData);
-        $this->assertEquals($project['nom'] , $project->nom);
+        $this->assertEquals($project['nom'], $project->nom);
     }
 
     public function test_create_project_already_exist()
     {
         $this->actingAs($this->user);
+
+        $project = Projet::factory()->create();
         $projectData = [
-            'nom' => 'project create test',
+            'nom' => $project->nom,
             'description' => 'project create test',
             'date_debut' => '2023-10-10 16:22:14',
             'date_de_fin' => '2024-03-02 16:22:14',
@@ -60,7 +62,7 @@ class projetTest extends TestCase
             $this->fail('Expected ProjectException was not thrown');
         } catch (ProjetException $e) {
             $this->assertEquals(__('GestionProjets/projet/message.createProjectException'), $e->getMessage());
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->fail('Unexpected exception was thrown: ' . $e->getMessage());
         }
     }
