@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Autorisation;
 
+use App\Exceptions\Autorisation\RoleException;
 use App\Exports\Autorisation\RolesExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Autorisation\RoleRequest;
@@ -37,9 +38,15 @@ class RolesController extends Controller
 
     // store
     public function store(RoleRequest $request){
-        $data = $request->validated();
-        $this->roleRepository->create($data);
-        return to_route('roles.index')->with('success','Role ajoutée avec succès.');
+        try {
+            $data = $request->validated();
+            $this->roleRepository->create($data);
+            return to_route('roles.index')->with('success', __('Autorisation/roles/message.AjouterRole'));
+        } catch (RoleException $e) {
+            return back()->withInput()->withErrors(['role_exists' => __('Autorisation/roles/message.createTaskException')]); 
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['unexpected_error' => __('Autorisation/roles/message.unexpected_error')]);
+        }
     }
     
     // Edit
@@ -52,7 +59,7 @@ class RolesController extends Controller
     public function update(RoleRequest $request,$task_id){
         $data = $request->validated();
         $task = $this->roleRepository->update($task_id,$data);
-        return to_route('roles.index')->with('success','Role mise à jour avec succès.');
+        return to_route('roles.index')->with('success',__('Autorisation/roles/message.ModiferRole'));
     }
 
     // Delete
@@ -60,9 +67,9 @@ class RolesController extends Controller
     {
         $result = $this->roleRepository->destroy($id);
         if ($result) {
-            return to_route('roles.index')->with('success', 'La Role a été supprimée avec succès.');
+            return to_route('roles.index')->with('success', __('Autorisation/roles/message.suprimeRole'));
         } else {
-            return to_route('roles.index')->with('error', 'Échec de la suppression de la Role. Veuillez réessayer.');
+            return to_route('roles.index')->with('error', __('Autorisation/roles/message.echecSuprimeRole'));
         }
     }
     
