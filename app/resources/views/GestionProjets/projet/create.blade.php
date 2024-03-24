@@ -10,12 +10,25 @@
 
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title"> <i class="nav-icon fas fa-table"></i>{{__('GestionProjets/projet/message.addProject')}}</h3>
+                            <h3 class="card-title"> <i
+                                    class="nav-icon fas fa-table"></i>{{ __('GestionProjets/projet/message.addProject') }}
+                            </h3>
                         </div>
                         @if (@session('success'))
                             <div class="ml-4 mt-2">
                                 <span class="font-medium text-success">{{ session('success') }}</span>
                             </div>
+                        @endif
+                        @if ($errors->has('project_exists'))
+                            <div class="alert alert-danger">
+                                {{ $errors->first('task_exists') }}
+                            </div>
+                        @else
+                            @if ($errors->has('unexpected_error'))
+                                <div class="alert alert-danger">
+                                    {{ $errors->first('unexpected_error') }}
+                                </div>
+                            @endif
                         @endif
                         <!-- Obtenir le formulaire -->
                         @include('GestionProjets.projet.fields')

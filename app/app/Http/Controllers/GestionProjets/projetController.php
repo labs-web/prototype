@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\GestionProjets;
 
+use App\Exceptions\GestionProjets\ProjetException;
 use App\Http\Controllers\Controller;
 use App\Imports\GestionProjets\ProjetImport;
 use App\Models\GestionProjets\projet;
@@ -27,12 +28,12 @@ class ProjetController extends Controller
         $projectData = $this->projectRepository->paginate();
         if ($request->ajax()) {
             $searchValue = $request->get('searchValue');
-            if($searchValue !== ''){
+            if ($searchValue !== '') {
                 $searchQuery = str_replace(' ', '%', $searchValue);
-            $projectData = $this->projectRepository->searchData($searchQuery);
-            return view('GestionProjets.projet.index', compact('projectData'))->render();
+                $projectData = $this->projectRepository->searchData($searchQuery);
+                return view('GestionProjets.projet.index', compact('projectData'))->render();
             }
-            
+
         }
         return view('GestionProjets.projet.index', compact('projectData'));
     }
@@ -50,9 +51,17 @@ class ProjetController extends Controller
      */
     public function store(projetRequest $request)
     {
-        $validatedData = $request->validated();
-        $this->projectRepository->create($validatedData);
-        return redirect()->route('projets.create')->with('success', 'Le projet a été ajouté avec succès.');
+
+        try {
+            $validatedData = $request->validated();
+            $project = $this->projectRepository->create($validatedData);
+            return redirect()->route('projets.create')->with('success', 'Le projet a été ajouté avec succès.');
+
+        } catch (ProjetException $e) {
+            return back()->withInput()->withErrors(['project_exists' => __('GestionProjets/projet/message.createProjectkException')]);
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['unexpected_error' => __('GestionProjets/projet/message.unexpected_error')]);
+        }
     }
 
     /**
