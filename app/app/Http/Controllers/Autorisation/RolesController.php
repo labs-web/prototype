@@ -37,9 +37,9 @@ class RolesController extends Controller
     }
 
     // store
-    public function store(Request $request){
+    public function store(RoleRequest $request){
         try {
-            $data = $request->validated();
+            $data = $request->all();
             $this->roleRepository->create($data);
             return to_route('roles.index')->with('success', __('Autorisation/roles/message.AjouterRole'));
         } catch (RoleException $e) {

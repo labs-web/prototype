@@ -13,7 +13,7 @@ class RolesImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         $rules = [
-            'name' => 'required|string|max:25',
+            'nom' => 'required|string|max:25',
         ];
 
         $validator = Validator::make($row, $rules);
@@ -22,14 +22,14 @@ class RolesImport implements ToModel, WithHeadingRow
             return null;
         }
 
-        $existingRole = Role::where('name', $row['name'])->exists();
+        $existingRole = Role::where('name', $row['nom'])->exists();
 
         if ($existingRole) {
             return null;
         }
 
         return new Role([
-            'name' => $row['name'],
+            'name' => $row['nom'],
             'guard_name' => 'web'
         ]);
     }

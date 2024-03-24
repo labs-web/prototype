@@ -69,7 +69,7 @@
                 var projectID = $('#projectID').data('projectid');
                 var url;
 
-                    url = '/Autorisation/roles?page=' + page + '&searchRole=' + search;
+                url = '/Autorisations/roles?page=' + page + '&searchRole=' + search;
 
                 $.ajax({
                     url: url,

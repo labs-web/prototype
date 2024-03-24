@@ -5,8 +5,6 @@ namespace App\Exports\Autorisation;
 use App\Models\Autorisation\Role;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
-use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 
@@ -20,12 +18,12 @@ class RolesExport implements FromCollection
             return $item->only(['name']);
         });
     }
-    
+
 
     public function headings(): array
     {
         return [
-            'name',
+            'nom',
         ];
     }
 
