@@ -37,7 +37,7 @@ class RolesController extends Controller
     }
 
     // store
-    public function store(RoleRequest $request){
+    public function store(Request $request){
         try {
             $data = $request->validated();
             $this->roleRepository->create($data);
