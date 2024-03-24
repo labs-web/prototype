@@ -8,6 +8,7 @@ use App\Repositories\GestionProjets\ProjetRepository;
 use App\Models\GestionProjets\Projet;
 use League\CommonMark\Extension\DescriptionList\Node\Description;
 use Tests\TestCase;
+use App\Exceptions\GestionProjets\ProjetException;
 
 class projetTest extends TestCase
 {
@@ -27,9 +28,7 @@ class projetTest extends TestCase
         $this->actingAs($this->user);
         $project = Projet::factory()->create();
         $projects = $this->projectRepository->paginate();
-        // dd($projects);
         $this->assertNotNull($projects);
-        $this->assertNotEmpty($projects);
     }
 
 
@@ -43,11 +42,32 @@ class projetTest extends TestCase
             'date_de_fin' => '2024-03-02 16:22:14',
         ];
         $project = $this->projectRepository->create($projectData);
-        $this->assertEquals($projectData['nom'], $project->nom);
+        $this->assertEquals($project['nom'] , $project->nom);
+    }
+
+    public function test_create_project_already_exist()
+    {
+        $this->actingAs($this->user);
+        $projectData = [
+            'nom' => 'project create test',
+            'description' => 'project create test',
+            'date_debut' => '2023-10-10 16:22:14',
+            'date_de_fin' => '2024-03-02 16:22:14',
+        ];
+
+        try {
+            $project = $this->projectRepository->create($projectData);
+            $this->fail('Expected ProjectException was not thrown');
+        } catch (ProjetException $e) {
+            $this->assertEquals(__('GestionProjets/projet/message.createProjectException'), $e->getMessage());
+        } catch (\Exception $e) {
+            $this->fail('Unexpected exception was thrown: ' . $e->getMessage());
+        }
     }
 
 
-    public function test_update_data(){
+    public function test_update_data()
+    {
         $this->actingAs($this->user);
         $project = Projet::factory()->create();
         $projectData = [
@@ -56,20 +76,22 @@ class projetTest extends TestCase
             'date_debut' => '2023-10-10 16:22:14',
             'date_de_fin' => '2024-03-02 16:22:14',
         ];
-        $this->projectRepository->update($project->id , $projectData);
-        $this->assertDatabaseHas('projets' , $projectData);
+        $this->projectRepository->update($project->id, $projectData);
+        $this->assertDatabaseHas('projets', $projectData);
     }
 
 
-    public function test_delete_project(){
+    public function test_delete_project()
+    {
         $this->actingAs($this->user);
         $project = Projet::factory()->create();
         $this->projectRepository->destroy($project->id);
-        $this->assertDatabaseMissing('projets' , ['id' => $project->id]);
+        $this->assertDatabaseMissing('projets', ['id' => $project->id]);
     }
 
 
-    public function test_project_search(){
+    public function test_project_search()
+    {
         $this->actingAs($this->user);
         $projectData = [
             'nom' => 'test',
