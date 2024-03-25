@@ -73,6 +73,17 @@
                 "app/"
             ]
         },
+
+        {
+            "Titre":"Autorisation",
+            "Description":"modification de file User.php",
+            "IsValidaionAvecFormateur":true,
+            "IsUseUnique":true,
+            "Chemins":[
+                "app/Models/User.php"
+            ]
+        },
+
         {
             "Titre":"custom-css-rapport",
             "Description":"Curstom css rapport et présentation",
