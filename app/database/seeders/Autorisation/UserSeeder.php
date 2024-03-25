@@ -11,7 +11,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 class UserSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the databaase seeds.
      */
     public function run(): void
     {
