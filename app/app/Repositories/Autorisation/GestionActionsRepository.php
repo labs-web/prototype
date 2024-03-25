@@ -34,6 +34,19 @@ class GestionActionsRepository extends BaseRepositorie {
         })->paginate($perPage);
     }
     
+
+    public function create($data)
+    {
+        $existingAction = $this->model->where('nom', $data['nom'])
+                                     ->where('controller_id', $data['controller_id'])
+                                     ->first();
+
+        if ($existingAction) {
+            throw new ActionException('Action with the same nom and controller_id already exists.');
+        }
+        return $this->model->create($data);
+    }
+
     public function filter()
     {
        return Controller::all();
