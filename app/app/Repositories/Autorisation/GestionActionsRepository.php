@@ -39,7 +39,8 @@ class GestionActionsRepository extends BaseRepositorie {
        return Controller::all();
     }
    
-
+   
+  
     
 
 }
