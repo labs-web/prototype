@@ -8,6 +8,7 @@ use App\Repositories\BaseRepositorie;
 use Illuminate\Support\Facades\Artisan; 
 use ReflectionClass;
 use ReflectionMethod;
+use App\Exceptions\Autorisation\ActionException;
 
 class GestionActionsRepository extends BaseRepositorie {
     protected $model;
@@ -38,29 +39,21 @@ class GestionActionsRepository extends BaseRepositorie {
        return Controller::all();
     }
    
-function extractControllerActions(string $basePath): array
-{
-    $actions = [];
+    public function create(array $actionData)
+    {
+        // Check for duplicate action before creating
+        $existingAction = $this->model->where('nom', $actionData['nom'])
+            ->where('controller_id', $actionData['controller_id'])
+            ->first();
 
-    $files = glob($basePath . '/**/*.php', GLOB_BRACE);
-
-    foreach ($files as $file) {
-        $className = basename($file, '.php');
-
-        if (strpos($className, 'Controller') !== false) {
-            require_once $file;
-            $reflection = new ReflectionClass($className);
-            $methods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
-
-            foreach ($methods as $method) {
-                if ($method->getName() !== '__construct') {
-                    $actions[] = $method->getName() . '-' . $className;
-                }
-            }
+        if ($existingAction) {
+            throw new ActionException(__('Autorisation/action/message.createActionException'));
         }
+
+        return $this->model->create($actionData);
     }
 
-    return $actions;
-}
+  
+    
 
 }

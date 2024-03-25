@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Autorisation;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\Autorisation\GestionActionsRepository; // Add this line to import the GestionActionsRepository class
 use App\Http\Requests\Autorisation\ActionRequest;
 use App\Repositories\Autorisation\GestionControllersRepository;
+use Illuminate\Support\Facades\Artisan;
+use App\Exceptions\Autorisation\ActionException; // Add this line to import the ActionException class
 
 class ActionController extends Controller
 {
@@ -51,9 +54,15 @@ class ActionController extends Controller
     }
 
     public function store(actionRequest $request){
-        $data = $request->all();
-        $actions = $this->actionRepository->create($data);
-        return back()->with('success','Action ajoutée avec succès.');
+        try {
+            $data = $request->all();
+            $actions = $this->actionRepository->create($data);
+            return back()->with('success', __('Autorisation/Action/message.ActionAdded'));
+            } catch (ActionException $e) {
+            return back()->withInput()->withErrors(['Action_exists' => __('Autorisation/Action/message.createActionException')]); 
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['unexpected_error' => __('Autorisation/Action/message.unexpected_error')]);
+        }
     }
 
     public function edit($id){
@@ -63,9 +72,15 @@ class ActionController extends Controller
     }
 
     public function update(Request $request,$action_id){
-        $data = $request->all();
-        $action = $this->actionRepository->update($action_id,$data);
-        return back()->with('success','Action mise à jour avec succès.');
+        try {
+            $data = $request->all();
+            $action = $this->actionRepository->update($action_id,$data);
+            return back()->with('success',__('Autorisation/Action/message.ActionUpdated'));
+        } catch (ActionException $e) {
+            return back()->withInput()->withErrors(['Action_exists' => __('Autorisation/Action/message.updateActionException')]); 
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['unexpected_error' => __('Autorisation/Action/message.unexpected_error')]);
+        }
     }
 
     
@@ -77,5 +92,10 @@ class ActionController extends Controller
         } else {
             return back()->with('error', 'Échec de la suppression de l action. Veuillez réessayer.');
         }
+    }
+    public function SyncControllersActions()
+    {
+        Artisan::call('sync:ControllersActions');
+        return redirect()->back()->with('success', 'Controllers and actions synced successfully.');
     }
 }
