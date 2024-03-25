@@ -13,4 +13,6 @@ return [
     'edit' => 'Editer',
     'update' => 'Mise à jour',
     'cancel' => 'Quitter',
+    'controllerExistPas' => "Controller n'exist pas",
+    'nomControllerExistDeja' => "Le nom du controller existe déjà dans la table.",
 ];
