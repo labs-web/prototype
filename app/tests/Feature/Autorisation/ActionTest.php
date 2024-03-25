@@ -8,6 +8,9 @@ use App\Models\Autorisation\Controller;
 use App\Repositories\Autorisation\GestionActionsRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
+use Illuminate\Support\Facades\Lang;
+use App\Exceptions\Autorisation\ActionException;
+
 
 class ActionTest extends TestCase
 {
@@ -48,21 +51,28 @@ class ActionTest extends TestCase
         $this->assertEquals($actionData['nom'], $task->nom);
     }
 
-    // public function testCreateAction_ActionExists()
-    // {
-    //     $this->actingAs($this->user);
-    //     $controllerData = Controller::factory()->create();
-    //     $existingAction = Action::factory()->create([
-    //         'nom' => 'test',
-    //         'controller_id' => $controllerData->id
-    //     ]);
-    //     $actionData = [
-    //         'nom' => 'test',
-    //         'controller_id' => $controllerData->id
-    //     ];
-    //     $task = $this->actionRepository->create($actionData);
-    //     $this->assertFalse($task, 'The task should not be added when it already exists.');
-    // }
+    public function testCreateAction_ActionExists()
+    {
+      $this->actingAs($this->user);
+      $controllerData = Controller::factory()->create();
+      Action::factory()->create([
+          'nom' => 'test',
+          'controller_id' => $controllerData->id
+      ]);
+      $actionData = [
+          'nom' => 'test',
+          'controller_id' => $controllerData->id
+      ];
+    
+      try {
+          $this->actionRepository->create($actionData);
+          $this->fail(Lang::get('exception.action_error')); // Assuming a translation key
+      } catch (ActionException $e) {
+          $this->assertStringContainsString('Action already exists', $e->getMessage());
+      }
+    }
+    
+    
 
     public function testUpdateAction()
     {
