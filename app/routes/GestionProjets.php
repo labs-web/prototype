@@ -17,4 +17,5 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/tâches/import',[TaskController::class,'import'])->name('task.import');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
+
