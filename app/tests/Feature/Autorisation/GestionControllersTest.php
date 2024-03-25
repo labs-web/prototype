@@ -58,7 +58,6 @@ class GestionControllersTest extends TestCase
         if (count($existingControllers) == count($controllerNames)) {
             $controllerToRemove = array_pop($existingControllers); // Remove one controller name
             $this->ControllersRepository->getModel()::where('nom', $controllerToRemove)->delete(); // Remove it from the database
-            dd($controllerToRemove);
             // Create the removed controller
             $data = ['nom' => $controllerToRemove];
             $this->ControllersRepository->create($data);
@@ -114,7 +113,7 @@ class GestionControllersTest extends TestCase
             // Randomly select a controller to update
             $controllerToUpdate = $existingControllers[array_rand($existingControllers)];
             $controllerId = $this->ControllersRepository->getModel()->where('nom', $controllerToUpdate)->value('id');            // Update the selected controller
-            $updatedData = ['nom' => "GestionControllersController"];
+            $updatedData = ['nom' => $controllerToUpdate];
 
             $this->ControllersRepository->update($controllerId, $updatedData);
 
@@ -122,12 +121,12 @@ class GestionControllersTest extends TestCase
         } else {
             // No existing controllers found to update, so create a new one and then update it
             $newControllerName = $controllerNames[array_rand($controllerNames)];
-
+            $controllerId = $this->ControllersRepository->getModel()->where('nom', $newControllerName)->value('id');            // Update the selected controller
             $data = ['nom' => $newControllerName];
             $this->ControllersRepository->create($data);
 
             $updatedData = ['nom' => $newControllerName];
-            $this->ControllersRepository->update($updatedData, $newControllerName);
+            $this->ControllersRepository->update($controllerId, $updatedData);
 
             $this->assertDatabaseHas('controllers', ['nom' => $updatedData['nom']]);
         }
