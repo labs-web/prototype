@@ -54,7 +54,6 @@ class RoleTest extends TestCase
             'guard_name' => 'web',
         ];
     
-    
         try {
             $task = $this->roleRepository->create($roleData);
             $this->fail('Expected TaskException was not thrown');
