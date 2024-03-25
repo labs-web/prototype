@@ -5,7 +5,7 @@ namespace App\Repositories\GestionProjets;
 use App\Models\GestionProjets\Projet;
 use App\Repositories\BaseRepositorie;
 use Illuminate\Database\Eloquent\Model;
-use App\Exceptions\GestionProjets\ProjetException;
+use App\Exceptions\GestionProjets\ProjectAlreadyExistException;
 
 class ProjetRepository extends BaseRepositorie
 {
@@ -22,7 +22,7 @@ class ProjetRepository extends BaseRepositorie
         $existingProject = Projet::where('nom', $nom)->exists();
 
         if ($existingProject) {
-            throw ProjetException::createProject();
+            throw ProjectAlreadyExistException::createProject();
         } else {
             return parent::create($data);
         }
