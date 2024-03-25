@@ -43,7 +43,7 @@ class RolesController extends Controller
             $this->roleRepository->create($data);
             return to_route('roles.index')->with('success', __('Autorisation/roles/message.AjouterRole'));
         } catch (RoleException $e) {
-            return back()->withInput()->withErrors(['role_exists' => __('Autorisation/roles/message.createTaskException')]); 
+            return back()->withInput()->withErrors(['role_exists' => __('Autorisation/roles/message.createRoleException')]); 
         } catch (\Exception $e) {
             return back()->withInput()->withErrors(['unexpected_error' => __('Autorisation/roles/message.unexpectedError')]);
         }
