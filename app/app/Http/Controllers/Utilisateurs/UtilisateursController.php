@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Utilisateurs;
 
 use App\Models\User;
-use App\Imports\Autorisation\UsersImport;
+use App\Imports\utilisateurs\UsersImport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\Autorisation\UsersExport;
+use App\Exports\utilisateurs\UsersExport;
 use Illuminate\Validation\Rules\Password;
 use App\Repositories\Autorisation\UtilisateursRepository;
-use App\Http\Requests\Autorisation\CreateUtilisateursRequest;
+use App\Http\Requests\utilisateurs\CreateUtilisateursRequest;
 
 
 
@@ -63,8 +63,8 @@ public function create()
        $validatedData = $request->validated();
 
         $utilisateurs = $this->utilisateursRepository->create([
-            'name' => $request->name,
-            'lastname' => $request->lastname,
+            'prenom' => $request->prenom,
+            'nom' => $request->nom,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
@@ -122,8 +122,8 @@ public function update(Request $request, $id)
     }
 
     $validatedData = $request->validate([
-        'name' => ['required', 'string', 'max:25'],
-        'lastname' => ['required', 'string', 'max:25'],
+        'prenom' => ['required', 'string', 'max:25'],
+        'nom' => ['required', 'string', 'max:25'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$id],
         'old_password' => ['required', 'string'],
         'password' => ['required', 'string', 'confirmed', Password::defaults()],

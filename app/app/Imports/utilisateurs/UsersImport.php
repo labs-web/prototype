@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Imports\Autorisation;
+namespace App\Imports\utilisateurs;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\Autorisation;
+namespace App\Exports\utilisateurs;
 
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
