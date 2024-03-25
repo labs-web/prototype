@@ -6,7 +6,7 @@ use App\Models\GestionProjets\Task;
 use App\Models\GestionProjets\Projet;
 use App\Repositories\BaseRepositorie;
 use Illuminate\Database\Eloquent\Model;
-use App\Exceptions\GestionProjets\TaskException;
+use App\Exceptions\GestionProjets\TaskExisteException;
 
 class TaskRepository extends BaseRepositorie {
     protected $model;
@@ -25,7 +25,7 @@ class TaskRepository extends BaseRepositorie {
         $existingTask = Task::where('nom', $nom)->exists();
 
         if ($existingTask) {
-            throw TaskException::createTask();
+            throw TaskExisteException::createTask();
         } else {
             return parent::create($data);
         }
