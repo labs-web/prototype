@@ -20,7 +20,9 @@
         "{{directory_code}}/database/seeders/{{package_name}}",
         "{{directory_code}}/tests/Feature/{{package_name}}",
         "{{directory_code}}/tests/Unit/{{package_name}}",
-        "{{directory_code}}/lang/fr/{{package_name}}"
+        "{{directory_code}}/lang/fr/{{package_name}}",
+        "{{directory_code}}/app/Exceptions/{{package_name}}",
+        "{{directory_code}}/app/Console/Commands/{{package_name}}"
     ],
     "Packages" : [
         {

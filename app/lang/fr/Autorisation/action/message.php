@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'add' => 'Ajouter',
+    'actions' => 'Les actions',
+    'edit' => 'Editer',
+    'Delete' => 'Supprimer',
+    'cancel' => 'Quitter',
+    'filtre' => 'Filter par  controller',
+    'choix' => 'Choisir un controller',
+    'controller' => 'Controller',
+    'action' => 'Action',
+    'create' => 'Créer',
+    'update' => 'Mettre à jour',
+    'delete' => 'Supprimer',
+    'search' => 'Rechercher',
+    'searchAction' => 'Rechercher une action',
+    'success' => 'Succès',
+    'error' => 'Erreur',
+    'name' => 'Nom',
+    'back' => 'Retour',
+    'guard_name' => 'Guard du nom',
+    'Action' => 'Action',
+    'editAction' => "Editer l'action",
+    'deleteAction' => "Supprimer l'action",
+    'addAction'  => 'Ajouter une action',
+    'nomAction' => "Nom de l'action",
+    'extractActions' => 'Télécharger les actions',
+    'createActionException' => "Creation d'une action qui existe deja ",
+    'ActionAdded' => 'Action ajoutée avec succès.',
+    'unexpected_error' => ' Erreur inattendue ',
+    'ActionUpdated' => 'Action mise à jour avec succès.'
+];

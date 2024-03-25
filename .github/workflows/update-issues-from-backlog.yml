@@ -15,7 +15,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2 # inclure l'history de deux commit
+          fetch-depth: 2 # inclure l'history de deux commits
           submodules: true
       - name: run update-issues-from-backlog.ps1.ps1
         shell: pwsh

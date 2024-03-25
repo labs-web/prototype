@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Repositories\Autorisation\UtilisateursRepository;
+use App\Exceptions\Autorisation\UserAlreadyExistsException;
 
 class UsersTest extends TestCase
 {
@@ -28,22 +29,20 @@ class UsersTest extends TestCase
 
 
 // ======== TEST CREATE FUNCTION ==============
-public function test_create_user()
+public function test_create_a_user_that_does_not_exist()
 {
     // Generate fake user data
     $password = 'password123';
     $confiramtion_password = 'password123';
 
     $userData = [
-        'name' => 'ahmed',
-        'lastname' => 'achaou', 
+        'prenom' => 'ahmed',
+        'nom' => 'achaou', 
         'email' => 'ahmedachoua@gmail.com',
         'password' => $password,
-        'password_confirmation' => $confiramtion_password,
     ];
 
-    $this->assertEquals($userData['password_confirmation'], $userData['password']);
-    unset($userData['password_confirmation']);
+    $this->assertEquals($confiramtion_password, $userData['password']);
     $userData['password'] = Hash::make($userData['password']);
 
     // Create the user
@@ -52,6 +51,37 @@ public function test_create_user()
     $this->assertDatabaseHas('users', ['email' => $userData['email']]);
 }
 
+
+// ===== TEST CREATE USER THAT EXIST
+
+public function test_create_a_user_that_already_exists()
+{
+    // Generate fake user data
+    $existingUser = [
+        'prenom' => 'John',
+        'nom' => 'Doe', 
+        'email' => 'johndoe@example.com',
+        'password' => Hash::make('existingPassword'),
+    ];
+
+    // Insert the existing user into the database
+    User::create($existingUser);
+
+    // Attempt to create a user with the same email
+    $userData = [
+        'prenom' => 'Jane',
+        'nom' => 'Doe', 
+        'email' => 'johndoe@example.com', // Already existing email
+        'password' => Hash::make('newPassword'),
+    ];
+
+    try {
+        $this->utilisateursRepository->create($userData);
+        $this->fail('Expected UserAlreadyExistsException was not thrown');
+    } catch (UserAlreadyExistsException $exception) {
+        $this->assertEquals('Authorization/users/message.creating_user_that_already_exists', $exception->getMessage());
+    }
+}
 
 
 // ======== TEST UPDATE FUNCTION ==============
@@ -64,16 +94,16 @@ public function test_update_user()
 
     // Create a user that is going to be updated
     $user = User::create([ 
-        'name' => 'hamid',
-        'lastname' => 'achaou', 
+        'prenom' => 'hamid',
+        'nom' => 'achaou', 
         'email' => 'hamidachaou@example.com',
         'password' => Hash::make('password123'), // Hash the password
     ]);
 
     // Generate updated data for the user
     $updatedData = [
-        'name' => 'Adnan',
-        'lastname' => 'ben nassar', 
+        'prenom' => 'Adnan',
+        'nom' => 'ben nassar', 
         'email' => 'AdnanBennasare@example.com',
         'old_password' => $old_password,
         'password' => $new_password,
@@ -82,7 +112,6 @@ public function test_update_user()
 
   
     $this->assertTrue(Hash::check($updatedData['old_password'], $user->password));
-
     $this->assertEquals($updatedData['password'], $updatedData['password_confirmation']);
 
     // Remove unused keys
@@ -97,7 +126,7 @@ public function test_update_user()
     // Retrieve the updated user from the database
     $updatedUser = User::find($user->id);
 
-    $this->assertEquals($updatedData['name'], $updatedUser->name);
+    $this->assertEquals($updatedData['prenom'], $updatedUser->prenom);
     $this->assertEquals($updatedData['email'], $updatedUser->email);
     $this->assertTrue(Hash::check($new_password, $updatedUser->password));
 }
@@ -156,15 +185,14 @@ public function test_find_user()
 }
 
 
-// ============ get Users ==============
-
+// ============ GET ALL USERS ==============
 
 
 public function test_get_users()
 {
     // Create 5 users with names containing 'John'
-    User::factory()->create(['name' => 'ahmed mohamed']);
-    User::factory()->create(['name' => 'hamid']);
+    User::factory()->create(['prenom' => 'ahmed mohamed']);
+    User::factory()->create(['prenom' => 'hamid']);
 
     // Call the getUsers method with the query 'John'
     $pagination = $this->utilisateursRepository->getUsers('ahmed');
