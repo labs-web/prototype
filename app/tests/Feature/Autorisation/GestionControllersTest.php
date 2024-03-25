@@ -38,9 +38,9 @@ class GestionControllersTest extends TestCase
     {
         $this->actingAs($this->user);
         $data = [
-            'nom' => 'GestionControllersController',
+            'nom' => 'TestController',
         ];
-
+        // TaskController
         try {
             $this->ControllersRepository->create($data);
             $this->fail('Exception attendue non levée.');
