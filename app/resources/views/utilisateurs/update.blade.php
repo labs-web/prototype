@@ -19,20 +19,20 @@
                 @method('PUT')
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="Name">{{ __('utilisateurs/message.User Name') }}</label>
-                    <input type="text" class="form-control" value="{{ $utilisateur->name }}" name="name" id="Name" placeholder="{{ __('utilisateurs/message.Enter User Name') }}">
+                    <label for="prenom">{{ __('utilisateurs/message.User Name') }}</label>
+                    <input type="text" class="form-control" value="{{ $utilisateur->prenom }}" name="prenom" id="prenom" placeholder="{{ __('utilisateurs/message.Enter User Name') }}">
                     <div style="color:red">
-                        @error("name")
+                        @error("prenom")
                         {{$message}}
                         @enderror
                         </div>
                   </div>
               
                   <div class="form-group">
-                    <label for="Name">{{ __('utilisateurs/message.User Lastname') }}</label>
-                    <input type="text" class="form-control" value="{{ $utilisateur->lastname }}"  name="lastname" id="Name" placeholder="{{ __('utilisateurs/message.Enter User Lastname') }}">
+                    <label for="nom">{{ __('utilisateurs/message.User Lastname') }}</label>
+                    <input type="text" class="form-control" value="{{ $utilisateur->lastname }}"  name="nom" id="nom" placeholder="{{ __('utilisateurs/message.Enter User Lastname') }}">
                     <div style="color:red">
-                        @error("lastname")
+                        @error("nom")
                         {{$message}}
                         @enderror
                         </div>

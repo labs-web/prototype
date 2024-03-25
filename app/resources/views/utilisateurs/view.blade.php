@@ -23,12 +23,12 @@
                       <div class="card-body">
                           <div class="col-sm-12">
                               <label for="nom">{{ __('utilisateurs/message.User Name') }} :</label>
-                              <p>{{$utilisateur->name}}</p>
+                              <p>{{$utilisateur->prenom}}</p>
                           </div>
 
                           <div class="col-sm-12">
                             <label for="lastname">{{ __('utilisateurs/message.User Lastname') }} :</label>
-                            <p>{{$utilisateur->name}}</p>
+                            <p>{{$utilisateur->nom}}</p>
                         </div>
 
                           <!-- Description Field -->

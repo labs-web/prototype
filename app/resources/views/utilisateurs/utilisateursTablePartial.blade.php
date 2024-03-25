@@ -17,8 +17,8 @@
                 @foreach($utilisateurs as $utilisateur)
 
                     <tr>
-                        <td>{{ $utilisateur->name }}</td>
-                        <td>{{ $utilisateur->lastname }}</td>
+                        <td>{{ $utilisateur->prenom }}</td>
+                        <td>{{ $utilisateur->nom }}</td>
                         <td>{{ $utilisateur->email }}</td>
 
             

@@ -25,8 +25,8 @@ class CreateUtilisateursRequest extends FormRequest
     public function rules(): array
     {
         return  [
-             'name' => ['required', 'string', 'max:25'],
-             'lastname' => ['required', 'string', 'max:25'],
+             'prenom' => ['required', 'string', 'max:25'],
+             'nom' => ['required', 'string', 'max:25'],
              'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users'],
              'password' => ['required', 'confirmed', Password::defaults()],
      ];   
