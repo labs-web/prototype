@@ -36,8 +36,8 @@ public function test_create_a_user_that_does_not_exist()
     $confiramtion_password = 'password123';
 
     $userData = [
-        'name' => 'ahmed',
-        'lastname' => 'achaou', 
+        'prenom' => 'ahmed',
+        'nom' => 'achaou', 
         'email' => 'ahmedachoua@gmail.com',
         'password' => $password,
     ];
@@ -58,8 +58,8 @@ public function test_create_a_user_that_already_exists()
 {
     // Generate fake user data
     $existingUser = [
-        'name' => 'John',
-        'lastname' => 'Doe', 
+        'prenom' => 'John',
+        'nom' => 'Doe', 
         'email' => 'johndoe@example.com',
         'password' => Hash::make('existingPassword'),
     ];
@@ -69,8 +69,8 @@ public function test_create_a_user_that_already_exists()
 
     // Attempt to create a user with the same email
     $userData = [
-        'name' => 'Jane',
-        'lastname' => 'Doe', 
+        'prenom' => 'Jane',
+        'nom' => 'Doe', 
         'email' => 'johndoe@example.com', // Already existing email
         'password' => Hash::make('newPassword'),
     ];
@@ -94,16 +94,16 @@ public function test_update_user()
 
     // Create a user that is going to be updated
     $user = User::create([ 
-        'name' => 'hamid',
-        'lastname' => 'achaou', 
+        'prenom' => 'hamid',
+        'nom' => 'achaou', 
         'email' => 'hamidachaou@example.com',
         'password' => Hash::make('password123'), // Hash the password
     ]);
 
     // Generate updated data for the user
     $updatedData = [
-        'name' => 'Adnan',
-        'lastname' => 'ben nassar', 
+        'prenom' => 'Adnan',
+        'nom' => 'ben nassar', 
         'email' => 'AdnanBennasare@example.com',
         'old_password' => $old_password,
         'password' => $new_password,
@@ -112,7 +112,6 @@ public function test_update_user()
 
   
     $this->assertTrue(Hash::check($updatedData['old_password'], $user->password));
-
     $this->assertEquals($updatedData['password'], $updatedData['password_confirmation']);
 
     // Remove unused keys
@@ -127,7 +126,7 @@ public function test_update_user()
     // Retrieve the updated user from the database
     $updatedUser = User::find($user->id);
 
-    $this->assertEquals($updatedData['name'], $updatedUser->name);
+    $this->assertEquals($updatedData['prenom'], $updatedUser->prenom);
     $this->assertEquals($updatedData['email'], $updatedUser->email);
     $this->assertTrue(Hash::check($new_password, $updatedUser->password));
 }
@@ -186,15 +185,14 @@ public function test_find_user()
 }
 
 
-// ============ get Users ==============
-
+// ============ GET ALL USERS ==============
 
 
 public function test_get_users()
 {
     // Create 5 users with names containing 'John'
-    User::factory()->create(['name' => 'ahmed mohamed']);
-    User::factory()->create(['name' => 'hamid']);
+    User::factory()->create(['prenom' => 'ahmed mohamed']);
+    User::factory()->create(['prenom' => 'hamid']);
 
     // Call the getUsers method with the query 'John'
     $pagination = $this->utilisateursRepository->getUsers('ahmed');

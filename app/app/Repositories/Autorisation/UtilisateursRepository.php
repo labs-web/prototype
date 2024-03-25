@@ -17,7 +17,7 @@ class UtilisateursRepository extends BaseRepositorie {
 
     public function getUsers($query){
         return User::where(function($queryBuilder) use ($query) {
-                 $queryBuilder->where('name', 'like', '%' . $query . '%');
+                 $queryBuilder->where('prenom', 'like', '%' . $query . '%');
              })->paginate(4); 
     }
 
