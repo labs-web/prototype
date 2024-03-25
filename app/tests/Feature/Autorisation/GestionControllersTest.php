@@ -25,6 +25,7 @@ class GestionControllersTest extends TestCase
         $this->user = User::factory()->create();
     }
 
+
     public function test_paginate_controllers()
     {
         $this->actingAs($this->user);
@@ -33,6 +34,57 @@ class GestionControllersTest extends TestCase
         $this->assertNotNull($controllers);
         $this->assertNotEmpty($controllers);
     }
+
+    // public function test_create_controller(){
+    //     $this->actingAs($this->user);
+
+    //     $data = [
+    //         'nom' => 'TaskController',
+    //     ];
+
+    //     $this->ControllersRepository->create($data);
+
+    //     $this->assertDatabaseHas('controllers', [
+    //         'nom' => 'TaskController',
+    //     ]);
+    // }
+
+
+    public function test_create_controller()
+    {
+        $this->actingAs($this->user);
+        $controllerNames = $this->ControllersRepository->extractControllerNames();
+        $existingControllers = $this->ControllersRepository->getModel()::whereIn('nom', $controllerNames)->pluck('nom')->toArray();
+        if (count($existingControllers) == count($controllerNames)) {
+            $controllerToRemove = array_pop($existingControllers); // Remove one controller name
+            $this->ControllersRepository->getModel()::where('nom', $controllerToRemove)->delete(); // Remove it from the database
+            dd($controllerToRemove);
+            // Create the removed controller
+            $data = ['nom' => $controllerToRemove];
+            $this->ControllersRepository->create($data);
+            $this->assertTrue(true);
+            $this->assertDatabaseHas('controllers', ['nom' => $controllerToRemove]);
+        } else {
+            // At least one controller name is not in the database, so create it
+            $nonExistingController = array_diff($controllerNames, $existingControllers);
+            $firstNonExistingController = null;
+            foreach ($nonExistingController as $controller) {
+                $firstNonExistingController = $controller;
+                break; // Exit the loop after finding the first non-existing controller
+            }
+            if ($firstNonExistingController !== null) {
+                // Create the controller that is not in the database
+                $data = ['nom' => $firstNonExistingController];
+                $this->ControllersRepository->create($data);
+                $this->assertTrue(true);
+                $this->assertDatabaseHas('controllers', ['nom' => $nonExistingController]);
+            }
+        }
+    }
+
+
+
+
 
     public function test_create_controller_not_exist()
     {
@@ -48,8 +100,36 @@ class GestionControllersTest extends TestCase
             $this->assertInstanceOf(ControllerNotExistException::class, $e);
         } catch (ControllerAlreadyExistException $e) {
             $this->assertInstanceOf(ControllerAlreadyExistException::class, $e);
-        } catch (\Exception $e) {
-            $this->fail('Une exception inattendue a été levée : ' . $e->getMessage());
+        }
+    }
+
+    public function test_update_controller()
+    {
+        $this->actingAs($this->user);
+
+        $controllerNames = $this->ControllersRepository->extractControllerNames();
+        $existingControllers = $this->ControllersRepository->getModel()::whereIn('nom', $controllerNames)->pluck('nom')->toArray();
+
+        if (!empty($existingControllers)) {
+            // Randomly select a controller to update
+            $controllerToUpdate = $existingControllers[array_rand($existingControllers)];
+            $controllerId = $this->ControllersRepository->getModel()->where('nom', $controllerToUpdate)->value('id');            // Update the selected controller
+            $updatedData = ['nom' => "GestionControllersController"];
+
+            $this->ControllersRepository->update($controllerId, $updatedData);
+
+            $this->assertDatabaseHas('controllers', ['nom' => $updatedData['nom']]);
+        } else {
+            // No existing controllers found to update, so create a new one and then update it
+            $newControllerName = $controllerNames[array_rand($controllerNames)];
+
+            $data = ['nom' => $newControllerName];
+            $this->ControllersRepository->create($data);
+
+            $updatedData = ['nom' => $newControllerName];
+            $this->ControllersRepository->update($updatedData, $newControllerName);
+
+            $this->assertDatabaseHas('controllers', ['nom' => $updatedData['nom']]);
         }
     }
 
@@ -67,8 +147,6 @@ class GestionControllersTest extends TestCase
             $this->assertInstanceOf(ControllerNotExistException::class, $e);
         } catch (ControllerAlreadyExistException $e) {
             $this->assertInstanceOf(ControllerAlreadyExistException::class, $e);
-        } catch (\Exception $e) {
-            $this->fail('Une exception inattendue a été levée : ' . $e->getMessage());
         }
     }
 

@@ -15,6 +15,10 @@ class GestionControllersRepository extends BaseRepositorie {
         $this->model = $Controller;
     }
 
+    public function getModel() {
+        return $this->model;
+    }
+
     public function create(array $data) {
         $nom = $data['nom'];
 
