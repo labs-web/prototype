@@ -126,7 +126,7 @@ class GestionControllersTest extends TestCase
             $this->ControllersRepository->create($data);
 
             $updatedData = ['nom' => $newControllerName];
-            $this->ControllersRepository->update($controllerId, $newControllerName);
+            $this->ControllersRepository->update($controllerId, $updatedData);
 
             $this->assertDatabaseHas('controllers', ['nom' => $updatedData['nom']]);
         }
