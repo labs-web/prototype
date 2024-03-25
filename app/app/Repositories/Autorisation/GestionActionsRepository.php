@@ -8,6 +8,7 @@ use App\Repositories\BaseRepositorie;
 use Illuminate\Support\Facades\Artisan; 
 use ReflectionClass;
 use ReflectionMethod;
+use App\Exceptions\Autorisation\ActionException;
 
 class GestionActionsRepository extends BaseRepositorie {
     protected $model;
@@ -38,7 +39,19 @@ class GestionActionsRepository extends BaseRepositorie {
        return Controller::all();
     }
    
- 
+    public function create(array $actionData)
+    {
+        // Check for duplicate action before creating
+        $existingAction = $this->model->where('nom', $actionData['nom'])
+            ->where('controller_id', $actionData['controller_id'])
+            ->first();
+
+        if ($existingAction) {
+            throw new ActionException(__('Autorisation/action/message.createActionException'));
+        }
+
+        return $this->model->create($actionData);
+    }
 
   
     

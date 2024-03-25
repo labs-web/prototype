@@ -8,6 +8,10 @@ use App\Models\Autorisation\Controller;
 use App\Repositories\Autorisation\GestionActionsRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
+use Illuminate\Support\Facades\Lang;
+use App\Exceptions\Autorisation\ActionException;
+use Exception;
+
 
 class ActionTest extends TestCase
 {
@@ -44,25 +48,35 @@ class ActionTest extends TestCase
             'nom' => 'test',
             'controller_id' => $controllerData->id
         ];
-        $task = $this->actionRepository->create($actionData);
-        $this->assertEquals($actionData['nom'], $task->nom);
+        $action = $this->actionRepository->create($actionData);
+        $this->assertEquals($actionData['nom'], $action->nom);
     }
 
-    // public function testCreateAction_ActionExists()
-    // {
-    //     $this->actingAs($this->user);
-    //     $controllerData = Controller::factory()->create();
-    //     $existingAction = Action::factory()->create([
-    //         'nom' => 'test',
-    //         'controller_id' => $controllerData->id
-    //     ]);
-    //     $actionData = [
-    //         'nom' => 'test',
-    //         'controller_id' => $controllerData->id
-    //     ];
-    //     $task = $this->actionRepository->create($actionData);
-    //     $this->assertFalse($task, 'The task should not be added when it already exists.');
-    // }
+    public function testCreateAction_ActionExists()
+    {
+      $this->actingAs($this->user);
+      $controllerData = Controller::factory()->create();
+      Action::factory()->create([
+          'nom' => 'test',
+          'controller_id' => $controllerData->id
+      ]);
+      $actionData = [
+          'nom' => 'test',
+          'controller_id' => $controllerData->id
+      ];
+    
+      try {
+        $action = $this->actionRepository->create($actionData);
+        $this->fail('Expected ActionException was not thrown');
+    } catch (ActionException $e) {
+        $this->assertEquals(__('Autorisation/action/message.createActionException'), $e->getMessage());
+    } catch (\Exception $e) {
+        $this->fail('Unexpected exception was thrown: ' . $e->getMessage());
+    }
+  
+    }
+    
+    
 
     public function testUpdateAction()
     {
