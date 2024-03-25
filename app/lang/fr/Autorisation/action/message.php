@@ -26,8 +26,4 @@ return [
     'addAction'  => 'Ajouter une action',
     'nomAction' => "Nom de l'action",
     'extractActions' => 'Télécharger les actions',
-    'createActionException' => "Creation d'une action qui existe deja ",
-    'ActionAdded' => 'Action ajoutée avec succès.',
-    'unexpected_error' => ' Erreur inattendue ',
-    'ActionUpdated' => 'Action mise à jour avec succès.'
 ];
