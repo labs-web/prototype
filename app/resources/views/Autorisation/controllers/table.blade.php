@@ -16,7 +16,8 @@
                     <form action="{{ route('controllers.destroy', $controller) }}" class="ml-2" method="post">
                         @csrf
                         @method('delete')
-                        <button type="button" class="btn btn-sm btn-danger" onclick="confirmDelete(this.form)"><i
+                        <button type="button" class="btn btn-sm btn-danger"
+                            onclick="confirmDelete(this.form, `{{ __('Autorisation/controllers/message.ConfirmDeleteController') }}`)"><i
                                 class="fa-solid fa-trash"></i></button>
                     </form>
                 </td>
