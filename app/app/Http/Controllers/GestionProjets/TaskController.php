@@ -11,7 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\GestionProjets\TaskExport;
 use App\Imports\GestionProjets\ImportTask;
 use App\Http\Controllers\Controller;
-use App\Exceptions\GestionProjets\TaskException;
+use App\Exceptions\GestionProjets\TaskExisteException;
 
 
 class TaskController extends Controller
@@ -65,7 +65,7 @@ class TaskController extends Controller
             $data = $request->all();
             $task = $this->taskRepository->create($data);
             return back()->with('success', __('GestionProjets/task/message.taskAdded'));
-        } catch (TaskException $e) {
+        } catch (TaskExisteException $e) {
             return back()->withInput()->withErrors(['task_exists' => __('GestionProjets/task/message.createTaskException')]); 
         } catch (\Exception $e) {
             return back()->withInput()->withErrors(['unexpected_error' => __('GestionProjets/task/message.unexpected_error')]);
