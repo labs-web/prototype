@@ -26,6 +26,7 @@ return [
     'old Password' => 'ancien mot de passe',
     'Enter User old Password' => 'Saisir l’ancien mot de passe de l’utilisateur',
     'User Details' => 'détails de le utilisateur',
+    'Are you sure you want to delete this utilisateur?' => "Etes-vous sûr de vouloir supprimer cet utilisateur ?"
 
    
   

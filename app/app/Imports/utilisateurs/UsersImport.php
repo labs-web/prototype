@@ -19,16 +19,16 @@ class UsersImport implements ToModel
     {
 
       // Check if 'name' and 'email' columns are not empty in the Excel file
-      $prenom = !empty($row[0]) ? $row[0] : 'Default Name';
-      $nom = !empty($row[1]) ? $row[1] : 'xample.com';
-      $email = !empty($row[2]) ? $row[2] : 'example@example.com';
+      $prenom = !empty($row[1]) ? $row[1] : 'Default Name';
+      $nom = !empty($row[2]) ? $row[2] : 'xample.com';
+      $email = !empty($row[3]) ? $row[3] : 'example@example.com';
 
 
       return new User([
           'prenom' => $prenom,
           'nom' => $nom,
           'email' => $email,
-          'password' => Hash::make($row[3] ?? 'password'),
+          'password' => Hash::make($row[4] ?? 'password'),
       ]);
     }
     

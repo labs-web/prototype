@@ -31,7 +31,7 @@
                             <a href="{{route('utilisateurs.edit', $utilisateur->id)}}" class="btn btn-sm btn-default"><i class="fa-solid fa-pen-to-square"></i></a>
 
                    
-                            <button type="button" class="btn btn-sm btn-danger delete-utilisateur" data-toggle="modal" data-target="#modal-default" data-utilisateur-id="{{ $utilisateur->id }}" data-utilisateur-name="{{ $utilisateur->name }}">
+                            <button type="button" class="btn btn-sm btn-danger delete-utilisateur" data-toggle="modal" data-target="#modal-default" data-utilisateur-id="{{ $utilisateur->id }}" data-utilisateur-name="{{ $utilisateur->prenom }}">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
                         </td>
