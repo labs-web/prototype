@@ -106,8 +106,6 @@ class TaskTest extends TestCase
         $this->assertDatabaseHas('tasks', $taskData);
     }
     
-    
-
     public function testDeleteTask()
     {
         $this->actingAs($this->user);
