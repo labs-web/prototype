@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Repositories\Autorisation\UtilisateursRepository;
+use App\Exceptions\Autorisation\UserAlreadyExistsException;
 
 class UsersTest extends TestCase
 {
@@ -28,7 +29,7 @@ class UsersTest extends TestCase
 
 
 // ======== TEST CREATE FUNCTION ==============
-public function test_create_user()
+public function test_create_a_user_that_does_not_exist()
 {
     // Generate fake user data
     $password = 'password123';
@@ -39,11 +40,9 @@ public function test_create_user()
         'lastname' => 'achaou', 
         'email' => 'ahmedachoua@gmail.com',
         'password' => $password,
-        'password_confirmation' => $confiramtion_password,
     ];
 
-    $this->assertEquals($userData['password_confirmation'], $userData['password']);
-    unset($userData['password_confirmation']);
+    $this->assertEquals($confiramtion_password, $userData['password']);
     $userData['password'] = Hash::make($userData['password']);
 
     // Create the user
@@ -52,6 +51,37 @@ public function test_create_user()
     $this->assertDatabaseHas('users', ['email' => $userData['email']]);
 }
 
+
+// ===== TEST CREATE USER THAT EXIST
+
+public function test_create_a_user_that_already_exists()
+{
+    // Generate fake user data
+    $existingUser = [
+        'name' => 'John',
+        'lastname' => 'Doe', 
+        'email' => 'johndoe@example.com',
+        'password' => Hash::make('existingPassword'),
+    ];
+
+    // Insert the existing user into the database
+    User::create($existingUser);
+
+    // Attempt to create a user with the same email
+    $userData = [
+        'name' => 'Jane',
+        'lastname' => 'Doe', 
+        'email' => 'johndoe@example.com', // Already existing email
+        'password' => Hash::make('newPassword'),
+    ];
+
+    try {
+        $this->utilisateursRepository->create($userData);
+        $this->fail('Expected UserAlreadyExistsException was not thrown');
+    } catch (UserAlreadyExistsException $exception) {
+        $this->assertEquals('Authorization/users/message.creating_user_that_already_exists', $exception->getMessage());
+    }
+}
 
 
 // ======== TEST UPDATE FUNCTION ==============
