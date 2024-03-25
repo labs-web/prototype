@@ -15,4 +15,9 @@ class Action extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function controller()
+    {
+        return $this->belongsTo(Controller::class,'controller_id');
+    }
 }
