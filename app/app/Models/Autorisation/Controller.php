@@ -12,4 +12,8 @@ class Controller extends Model
     protected $fillable = [
         'nom',
     ];
+
+    public function actions(){
+        return $this->hasMany(Action::class,'controller_id');
+    }
 }

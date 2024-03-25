@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Autorisation\Controller>
  */
-class PermissionFactory extends Factory
+class ActionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,9 @@ class PermissionFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->text(7),
+            'nom' => fake()->text(7),
+            'controller_id' => fake()->randomDigitNotNull()
+      
         ];
     }
 }
