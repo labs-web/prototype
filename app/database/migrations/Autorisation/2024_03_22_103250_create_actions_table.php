@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('actions', function (Blueprint $table) {
             $table->id();
-            $table->string('nom')->unique();
+            $table->string('nom');
             $table->unsignedBigInteger('controller_id'); 
             $table->foreign('controller_id')->references('id')->on('controllers')->onDelete('cascade');
             $table->timestamps();
