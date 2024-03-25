@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use Database\Seeders\Autorisation\UserSeeder;
 use Illuminate\Database\Seeder;
 use Symfony\Component\Uid\NilUuid;
 
@@ -13,18 +14,14 @@ use Database\Seeders\GestionProjets\{
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         $classes = [];
         $classes = array_merge(
-            GestionProjets::Classes()
+            GestionProjets::Classes(),
+            AutorisationSeeder::Classes()
         );
         $this->call($classes);
-
-
-       
+        $this->call(UserSeeder::class);
     }
 }

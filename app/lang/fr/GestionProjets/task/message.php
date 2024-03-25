@@ -4,6 +4,7 @@ return [
     'add' => 'Ajouter',
     'tasks' => 'Les tâches',
     'edit' => 'Editer',
+    'taskAdded' => 'Tâche ajoutée avec succès.',
     'Delete' => 'Supprimer',
     'cancel' => 'Quitter',
     'choix' => 'Choisir un projet',
@@ -15,5 +16,7 @@ return [
     'startDate' => 'Date de début',
     'endDate' => 'Date de fin',
     'back' => 'Retour',
-    'detail' => 'Detail de tâche'
+    'detail' => 'Detail de tâche',
+    'createTaskException' => 'Tâche est deja existe',
+    'unexpected_error' => 'Une erreur inattendue s\'est produite. Veuillez réessayer.'
 ];

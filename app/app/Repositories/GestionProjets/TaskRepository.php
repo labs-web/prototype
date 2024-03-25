@@ -6,6 +6,7 @@ use App\Models\GestionProjets\Task;
 use App\Models\GestionProjets\Projet;
 use App\Repositories\BaseRepositorie;
 use Illuminate\Database\Eloquent\Model;
+use App\Exceptions\GestionProjets\TaskExisteException;
 
 class TaskRepository extends BaseRepositorie {
     protected $model;
@@ -16,6 +17,18 @@ class TaskRepository extends BaseRepositorie {
 
     public function find($id){
         return $this->model->with('project')->find($id);
+    }
+
+    public function create(array $data){
+        $nom = $data['nom'];
+
+        $existingTask = Task::where('nom', $nom)->exists();
+
+        if ($existingTask) {
+            throw TaskExisteException::createTask();
+        } else {
+            return parent::create($data);
+        }
     }
 
     public function searchData($searchableData, $id, $perPage = 4)
