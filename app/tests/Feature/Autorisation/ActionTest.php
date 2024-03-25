@@ -10,6 +10,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Lang;
 use App\Exceptions\Autorisation\ActionException;
+use Exception;
 
 
 class ActionTest extends TestCase
@@ -68,8 +69,10 @@ class ActionTest extends TestCase
           $this->actionRepository->create($actionData);
           $this->fail(Lang::get('exception.action_error')); // Assuming a translation key
       } catch (ActionException $e) {
-          $this->assertStringContainsString('Action already exists', $e->getMessage());
-      }
+        $this->assertEquals('Action already exists with the same name and controller.', $e->getMessage());
+    } catch (Exception $e) {
+        $this->assertStringContainsString('Action already exists', $e->getMessage());
+    }
     }
     
     

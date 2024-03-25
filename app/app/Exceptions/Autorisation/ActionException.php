@@ -11,8 +11,7 @@ class ActionException extends Exception
 {
     public function render(Request $request)
     {
-        $translatedMessage = Lang::get('exception.action_error'); 
-        $message = $translatedMessage ? $translatedMessage : $this->getMessage();
+        $message = $this->getMessage();
 
         return response()->json([
             'message' => $message,
