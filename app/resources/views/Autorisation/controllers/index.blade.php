@@ -69,8 +69,8 @@
     </section>
 
     <script>
-        function confirmDelete(form, message) {
-            if (confirm(message)) {
+        function confirmDelete(form) {
+            if (confirm("Êtes-vous sûr de vouloir supprimer cette Controller ?")) {
                 form.submit();
             }
         }

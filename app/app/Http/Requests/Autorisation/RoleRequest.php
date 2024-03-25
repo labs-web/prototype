@@ -4,7 +4,7 @@ namespace App\Http\Requests\Autorisation;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ActionRequest extends FormRequest
+class RoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,8 @@ class ActionRequest extends FormRequest
     public function rules(): array
     {
         return [
-
-            'nom' => 'required|string|max:255',
-            'controller_id' => 'required|integer',
+            'name' => 'required|max:14',
+            'guard_name' => 'required|max:14',
         ];
     }
 }
