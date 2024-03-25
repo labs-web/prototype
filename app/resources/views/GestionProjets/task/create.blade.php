@@ -8,6 +8,19 @@
         {{ session('success') }}.
     </div>
     @endif
+    @if($errors->has('task_exists'))
+        <div class="alert alert-danger">
+            {{ $errors->first('task_exists') }}
+        </div>
+    @else
+        @if($errors->has('unexpected_error'))
+            <div class="alert alert-danger">
+                {{ $errors->first('unexpected_error') }}
+            </div>
+        @endif
+    @endif
+
+
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
