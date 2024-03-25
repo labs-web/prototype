@@ -57,9 +57,15 @@ class RolesController extends Controller
 
     // Update
     public function update(RoleRequest $request,$task_id){
-        $data = $request->validated();
-        $task = $this->roleRepository->update($task_id,$data);
-        return to_route('roles.index')->with('success',__('Autorisation/roles/message.ModiferRole'));
+        try {
+            $data = $request->all();
+            $task = $this->roleRepository->update($task_id,$data);
+            return to_route('roles.index')->with('success', __('Autorisation/roles/message.ModiferRole'));
+        } catch (RoleException $e) {
+            return back()->withInput()->withErrors(['role_exists' => __('Autorisation/roles/message.createRoleException')]); 
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['unexpected_error' => __('Autorisation/roles/message.unexpectedError')]);
+        }
     }
 
     // Delete
