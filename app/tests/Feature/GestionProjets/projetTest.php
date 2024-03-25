@@ -8,7 +8,7 @@ use App\Repositories\GestionProjets\ProjetRepository;
 use App\Models\GestionProjets\Projet;
 use League\CommonMark\Extension\DescriptionList\Node\Description;
 use Tests\TestCase;
-use App\Exceptions\GestionProjets\ProjetException;
+use App\Exceptions\GestionProjets\ProjectAlreadyExistException;
 
 class projetTest extends TestCase
 {
@@ -60,7 +60,7 @@ class projetTest extends TestCase
         try {
             $project = $this->projectRepository->create($projectData);
             $this->fail('Expected ProjectException was not thrown');
-        } catch (ProjetException $e) {
+        } catch (ProjectAlreadyExistException $e) {
             $this->assertEquals(__('GestionProjets/projet/message.createProjectException'), $e->getMessage());
         } catch (\Exception $e) {
             $this->fail('Unexpected exception was thrown: ' . $e->getMessage());

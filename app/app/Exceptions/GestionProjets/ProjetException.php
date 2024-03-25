@@ -4,7 +4,7 @@ namespace App\Exceptions\GestionProjets;
 
 use Exception;
 
-class ProjetException extends Exception
+class ProjectAlreadyExistException extends Exception
 {
     public static function createProject()
     {
