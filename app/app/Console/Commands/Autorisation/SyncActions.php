@@ -32,6 +32,12 @@ class SyncActions extends Command
 
                 // Get controller methods
                 $methods = [];
+                /**
+                 * Retrieves the public methods of a given class using reflection.
+                 *
+                 * @param string $class The fully qualified class name.
+                 * @return array An array containing the names of the public methods.
+                 */
                 $reflector = new ReflectionClass($class);
                 foreach ($reflector->getMethods(ReflectionMethod::IS_PUBLIC) as $method) {
                     if ($method->class === $class && !$method->isConstructor()) {
