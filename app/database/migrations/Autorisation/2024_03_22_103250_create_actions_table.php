@@ -1,24 +1,22 @@
 <?php
-
-namespace App\Database\Migrations\GestionProjets;
-
+namespace App\Database\Migrations\Autorisation;
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('projets', function (Blueprint $table) {
+        Schema::create('actions', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('description');
-            $table->datetime('date_debut');
-            $table->datetime('date_de_fin');
+            $table->unsignedBigInteger('controller_id'); 
+            $table->foreign('controller_id')->references('id')->on('controllers')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('projets');
+        Schema::dropIfExists('actions');
     }
 };
