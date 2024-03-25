@@ -21,4 +21,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('import', [ProjetController::class, 'import'])->name('projets.import');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
+
