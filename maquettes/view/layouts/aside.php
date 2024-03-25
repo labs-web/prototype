@@ -64,7 +64,7 @@ $current_route = $_SERVER['REQUEST_URI'];
               </a>
             </li>
             <li class="nav-item">
-              <a href="/view/autorisation/Roles/index.php" class="nav-link <?php echo (strpos($current_route, 'Roles') !== false) ? 'active' : ''; ?>">
+              <a href="{{"rooute('roles.index)"}}" class="nav-link {{ Request::routeIs('roles.inedx') ? 'active' : '' }}">
                 <i class="far fa-user-circle nav-icon"></i>
                 <p>Rôle</p>
               </a>
