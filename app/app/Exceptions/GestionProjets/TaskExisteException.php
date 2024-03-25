@@ -4,7 +4,7 @@ namespace App\Exceptions\GestionProjets;
 
 use Exception;
 
-class TaskException extends Exception
+class TaskExisteException extends Exception
 {
     public static function createTask()
     {

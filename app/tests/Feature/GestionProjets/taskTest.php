@@ -8,7 +8,7 @@ use App\Models\GestionProjets\Projet;
 use App\Repositories\GestionProjets\TaskRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
-use App\Exceptions\GestionProjets\TaskException;
+use App\Exceptions\GestionProjets\TaskExisteException;
 
 
 class TaskTest extends TestCase
@@ -79,7 +79,7 @@ class TaskTest extends TestCase
         try {
             $task = $this->taskRepository->create($taskData);
             $this->fail('Expected TaskException was not thrown');
-        } catch (TaskException $e) {
+        } catch (TaskExisteException $e) {
             $this->assertEquals(__('GestionProjets/task/message.createTaskException'), $e->getMessage());
         } catch (\Exception $e) {
             $this->fail('Unexpected exception was thrown: ' . $e->getMessage());
