@@ -62,12 +62,15 @@ public function create()
     //   dd($request);
        $validatedData = $request->validated();
 
+       
+
         $utilisateurs = $this->utilisateursRepository->create([
             'prenom' => $request->prenom,
             'nom' => $request->nom,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        
 
         // Return a redirect response with a success message and the name of the user added
         return redirect()->route('utilisateurs.index')->with('success', 'Utilisateur ajouté avec succès');
