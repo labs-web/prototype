@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Autorisation;
 
+use App\Exceptions\Autorisation\RoleException;
 use App\Exceptions\RoleExceptions;
 use App\Models\Autorisation\Role;
 use App\Repositories\Autorisation\RoleRepository;
@@ -47,21 +48,22 @@ class RoleTest extends TestCase
 
     public function test_create_role_if_name_exists()
     {
+        $this->actingAs($this->user);
+        $roleData = [
+            'name' => 'test',
+            'guard_name' => 'web',
+        ];
+    
+    
         try {
-            // Create a role 
-            Role::create(['name' => 'Existing Role', 'guard_name' => 'web']);
-
-            // create a new role with the same name
-            (new Role())->create(['name' => 'Existing Role', 'guard_name' => 'web']);
-
-            // Fail the test if an exception is not thrown
-            $this->fail('Exception was not thrown');
-
+            $task = $this->roleRepository->create($roleData);
+            $this->fail('Expected TaskException was not thrown');
+        } catch (RoleException $e) {
+            $this->assertEquals(__('GestionProjets/roles/message.createRoleException'), $e->getMessage());
         } catch (\Exception $e) {
-            $this->assertInstanceOf(\Exception::class, $e);
+            $this->fail('Unexpected exception was thrown: ' . $e->getMessage());
         }
     }
-
 
     public function test_update_role()
     {
