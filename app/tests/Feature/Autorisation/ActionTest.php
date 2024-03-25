@@ -48,8 +48,8 @@ class ActionTest extends TestCase
             'nom' => 'test',
             'controller_id' => $controllerData->id
         ];
-        $task = $this->actionRepository->create($actionData);
-        $this->assertEquals($actionData['nom'], $task->nom);
+        $action = $this->actionRepository->create($actionData);
+        $this->assertEquals($actionData['nom'], $action->nom);
     }
 
     public function testCreateAction_ActionExists()
@@ -66,13 +66,14 @@ class ActionTest extends TestCase
       ];
     
       try {
-          $this->actionRepository->create($actionData);
-          $this->fail(Lang::get('exception.action_error')); // Assuming a translation key
-      } catch (ActionException $e) {
-        $this->assertEquals('Action already exists with the same name and controller.', $e->getMessage());
-    } catch (Exception $e) {
-        $this->assertStringContainsString('Action already exists', $e->getMessage());
+        $action = $this->actionRepository->create($actionData);
+        $this->fail('Expected ActionException was not thrown');
+    } catch (ActionException $e) {
+        $this->assertEquals(__('Autorisation/action/message.createActionException'), $e->getMessage());
+    } catch (\Exception $e) {
+        $this->fail('Unexpected exception was thrown: ' . $e->getMessage());
     }
+  
     }
     
     

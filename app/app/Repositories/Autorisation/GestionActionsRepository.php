@@ -47,7 +47,7 @@ class GestionActionsRepository extends BaseRepositorie {
             ->first();
 
         if ($existingAction) {
-            throw new ActionException('Action already exists with the same name and controller.');
+            throw new ActionException(__('Autorisation/action/message.createActionException'));
         }
 
         return $this->model->create($actionData);
