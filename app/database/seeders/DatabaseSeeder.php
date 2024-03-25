@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use Database\Seeders\Autorisation\UserSeeder;
 use Illuminate\Database\Seeder;
 use Symfony\Component\Uid\NilUuid;
 
@@ -21,5 +22,6 @@ class DatabaseSeeder extends Seeder
             AutorisationSeeder::Classes()
         );
         $this->call($classes);
+        $this->call(UserSeeder::class);
     }
 }
