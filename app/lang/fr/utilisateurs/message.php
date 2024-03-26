@@ -5,11 +5,11 @@ return [
     'Users list' => 'les des utlisateurs',
     'Create a User' => 'creé un utlisateur',
     'Delete' => 'Supprimer',
-    'Cancel' => 'Quitter',
+    'Cancel' => 'Annuler',
     'Search' => 'Rechercher',
     'if you are sure you want to delete this utilisateur' => 'si vous êtes sûr de vouloir supprimer cet utilisateur',
     'Click the Delete button to continue' => 'Cliquez sur le bouton Supprimer pour continuer',
-    // create page 
+    // create page
     'Add User' => 'Ajouter le utilisateur',
     'User Name' => 'Prénom',
     'User Lastname' => 'Nom',
@@ -34,14 +34,14 @@ return [
     'file imported succefully' => 'fichier importé avec succès',
     "there's no new data that being imported" => 'Pas de nouvelles données à importer.',
     'an error has been acourd check the syntax' => "une erreur a été acourd vérifier la syntaxe",
-     
 
 
 
 
-   
-  
-   
-    
-    
+
+
+
+
+
+
 ];

@@ -6,7 +6,7 @@ return [
     'edit' => 'Editer',
     'taskAdded' => 'Tâche ajoutée avec succès.',
     'Delete' => 'Supprimer',
-    'cancel' => 'Quitter',
+    'cancel' => 'Annuler',
     'choix' => 'Choisir un projet',
     'addTask' => 'Ajouter une tâche',
     'editTask' => 'Editer la tâche',
