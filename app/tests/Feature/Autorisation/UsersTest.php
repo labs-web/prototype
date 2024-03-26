@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Repositories\Autorisation\UtilisateursRepository;
 use App\Exceptions\Autorisation\UserAlreadyExistsException;
+use App\Exceptions\Autorisation\UserDoesNotExist;
+
 
 class UsersTest extends TestCase
 {
@@ -79,7 +81,7 @@ public function test_create_a_user_that_already_exists()
         $this->utilisateursRepository->create($userData);
         $this->fail('Expected UserAlreadyExistsException was not thrown');
     } catch (UserAlreadyExistsException $exception) {
-        $this->assertEquals('Authorization/users/message.creating_user_that_already_exists', $exception->getMessage());
+        $this->assertEquals('Authorization/users/message.A User with this Email already exist', $exception->getMessage());
     }
 }
 
@@ -96,7 +98,7 @@ public function test_update_user()
     $user = User::create([ 
         'prenom' => 'hamid',
         'nom' => 'achaou', 
-        'email' => 'hamidachaou@example.com',
+        'email' => 'johndoe@example.com',
         'password' => Hash::make('password123'), // Hash the password
     ]);
 
@@ -130,6 +132,38 @@ public function test_update_user()
     $this->assertEquals($updatedData['email'], $updatedUser->email);
     $this->assertTrue(Hash::check($new_password, $updatedUser->password));
 }
+
+
+// ======== TEST UPDATE User that doesnot ==============
+
+public function test_update_a_user_that_does_not_exist()
+{
+    // Generate data for updating the user
+    $updatedData = [
+        'prenom' => 'Adnano',
+        'nom' => 'ben nassar', 
+        'email' => 'AdnanBennasare12@example.com',
+        'old_password' => 'old_password123',
+        'password' => 'new_password123',
+        'password_confirmation' => 'new_password123',
+    ];
+
+    // Attempt to update a non-existing user
+    $nonExistingUserId = 9999; // Assuming this ID does not exist
+
+    try {
+        $this->utilisateursRepository->update($nonExistingUserId, $updatedData);
+        $this->fail('Expected UserDoesNotExist was not thrown');
+    } catch (UserDoesNotExist $exception) {
+        $this->assertEquals("Authorization/users/message.The user you're trying to update doesn't exist", $exception->getMessage());
+    }
+
+}
+
+
+
+
+
 
 
 // ============== Pagiante function =========
