@@ -5,6 +5,25 @@
 
     <!-- Main content -->
     <section class="content mt-5">
+
+      @if (session('success'))
+      <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          {{ session('success') }}.
+      </div>
+      @endif
+      @if($errors->has('User_exist'))
+          <div class="alert alert-danger">
+              {{ $errors->first('User_exist') }}
+          </div>
+      @else
+          @if($errors->has('unexpected_error'))
+              <div class="alert alert-danger">
+                  {{ $errors->first('unexpected_error') }}
+              </div>
+          @endif
+      @endif
+
       <div class="container-fluid">
         <div class="">
             <!-- general form elements -->

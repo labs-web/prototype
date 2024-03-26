@@ -27,8 +27,9 @@ class CreateUtilisateursRequest extends FormRequest
         return  [
              'prenom' => ['required', 'string', 'max:25'],
              'nom' => ['required', 'string', 'max:25'],
-             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users'],
+             'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
              'password' => ['required', 'confirmed', Password::defaults()],
      ];   
     }
+
 }

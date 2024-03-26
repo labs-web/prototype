@@ -26,7 +26,18 @@ return [
     'old Password' => 'ancien mot de passe',
     'Enter User old Password' => 'Saisir l’ancien mot de passe de l’utilisateur',
     'User Details' => 'détails de le utilisateur',
-    'Are you sure you want to delete this utilisateur?' => "Etes-vous sûr de vouloir supprimer cet utilisateur ?"
+    'Are you sure you want to delete this utilisateur?' => "Etes-vous sûr de vouloir supprimer cet utilisateur ?",
+    'User Created Successfully' => 'Utilisateur ajouté avec succès',
+    'A User with this Email already exist' => 'Un utilisateur avec cet email existe déjà',
+    'An unexpected error has occurred.' => 'Une erreur est survenue.',
+    'User Deleted Succesfully' => 'Utilisateur supprimé avec succès',
+    'file imported succefully' => 'fichier importé avec succès',
+    "there's no new data that being imported" => 'Pas de nouvelles données à importer.',
+    'an error has been acourd check the syntax' => "une erreur a été acourd vérifier la syntaxe",
+     
+
+
+
 
    
   
