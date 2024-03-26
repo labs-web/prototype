@@ -65,9 +65,9 @@ npm run dev
 ## Login
 
 - Email
-  - user@gmail.com
+  - `user@gmail.com`
 - Password
-  - useruser
+  - `useruser`
 
 ## Extra commande
 - On a créé cette commande pour automatiser la configuration ou l'initialisation des actions au sein d'une application Laravel.
