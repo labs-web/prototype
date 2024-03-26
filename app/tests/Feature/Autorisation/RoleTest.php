@@ -49,16 +49,18 @@ class RoleTest extends TestCase
     public function test_create_role_if_name_exists()
     {
         $this->actingAs($this->user);
+        $existingRole = Role::factory()->create(); // Create an existing role
+
         $roleData = [
-            'name' => 'test',
+            'name' => $existingRole->name, // Use the name of the existing role
             'guard_name' => 'web',
         ];
-    
+
         try {
-            $task = $this->roleRepository->create($roleData);
-            $this->fail('Expected TaskException was not thrown');
+            $this->roleRepository->create($roleData); // Attempt to create a role with duplicate name
+            $this->fail('Expected RoleException was not thrown');
         } catch (RoleException $e) {
-            $this->assertEquals(__('GestionProjets/roles/message.createRoleException'), $e->getMessage());
+            $this->assertEquals(__('Autorisation/roles/message.createRoleException'), $e->getMessage());
         } catch (\Exception $e) {
             $this->fail('Unexpected exception was thrown: ' . $e->getMessage());
         }
