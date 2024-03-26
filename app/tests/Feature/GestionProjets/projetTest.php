@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Repositories\GestionProjets\ProjetRepository;
 use App\Models\GestionProjets\Projet;
-use League\CommonMark\Extension\DescriptionList\Node\Description;
 use Tests\TestCase;
 use App\Exceptions\GestionProjets\ProjectAlreadyExistException;
 
