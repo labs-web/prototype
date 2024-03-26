@@ -4,8 +4,9 @@ namespace App\Repositories\Autorisation;
 
 use App\Models\User;
 use App\Repositories\BaseRepositorie;
-use Illuminate\Database\Eloquent\Model;
+use App\Exceptions\Autorisation\UserDoesNotExist;
 use App\Exceptions\Autorisation\UserAlreadyExistsException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class UtilisateursRepository extends BaseRepositorie {
     protected $model;
@@ -31,4 +32,16 @@ class UtilisateursRepository extends BaseRepositorie {
     }
     
 
+
+    public function update($id, array $data)
+    {
+        try {
+            $record = $this->model->findOrFail($id);
+            $record->update($data);
+            return true;
+        } catch (ModelNotFoundException $exception) {
+            throw UserDoesNotExist::UpdateUserThatDoesNotExist();
+        }
+    }
+    
 }
