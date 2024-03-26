@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Repositories\GestionProjets\ProjetRepository;
 use App\Models\GestionProjets\Projet;
-use League\CommonMark\Extension\DescriptionList\Node\Description;
 use Tests\TestCase;
 use App\Exceptions\GestionProjets\ProjectAlreadyExistException;
 
@@ -42,7 +41,7 @@ class projetTest extends TestCase
             'date_de_fin' => '2024-03-02 16:22:14',
         ];
         $project = $this->projectRepository->create($projectData);
-        $this->assertEquals($project['nom'], $project->nom);
+        $this->assertEquals($projectData['nom'], $project->nom);
     }
 
     public function test_create_project_already_exist()
