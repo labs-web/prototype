@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Autorisation\GestionControllersController;
 use App\Http\Controllers\Autorisation\ActionController;
 use App\Console\Commands\Autorisation\SyncActions;
+use App\Http\Controllers\Autorisation\RolesController;
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function () {
     // Routes for managing controllers
@@ -25,6 +26,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function (
         Route::delete('/{action}', [ActionController::class, 'destroy'])->name('actions.destroy');
         Route::get('/sync-actions', [ActionController::class, 'SyncControllersActions'])->name('actions.sync');
     });
+
+    // Routes for managing Roles
+    Route::resource('/roles', RolesController::class);
+    Route::get('/export', [RolesController::class, 'export'])->name('role.export');
+    Route::post('/import', [RolesController::class, 'import'])->name('roles.import');
 });
 
 Auth::routes();
