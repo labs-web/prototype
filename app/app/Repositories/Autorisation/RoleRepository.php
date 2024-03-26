@@ -34,4 +34,18 @@ class RoleRepository extends BaseRepositorie
             return parent::create($data);
         }
     }
+
+    // update
+    public function update($id, array $data)
+    {
+        $name = $data['name'];
+        // Check if the name exists in the database
+        $existingRecord = Role::where('name', $name)->exists();
+
+        if ($existingRecord) {
+            throw RoleException::updateRoleifNameNotExiste();
+        } else {
+            return parent::update($id, $data);
+        }   
+    }
 }
