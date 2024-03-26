@@ -30,7 +30,7 @@
               
                   <div class="form-group">
                     <label for="nom">{{ __('utilisateurs/message.User Lastname') }}</label>
-                    <input type="text" class="form-control" value="{{ $utilisateur->lastname }}"  name="nom" id="nom" placeholder="{{ __('utilisateurs/message.Enter User Lastname') }}">
+                    <input type="text" class="form-control" value="{{ $utilisateur->nom }}"  name="nom" id="nom" placeholder="{{ __('utilisateurs/message.Enter User Lastname') }}">
                     <div style="color:red">
                         @error("nom")
                         {{$message}}

@@ -87,7 +87,7 @@
         
             <div class="float-right">
             <div id="paginationContainer">                 
-                @if ($utilisateurs->count() > 0)
+                @if ($utilisateurs->lastPage() > 1)
                 <ul class="pagination m-0">
                     @if ($utilisateurs->onFirstPage())
                         <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
