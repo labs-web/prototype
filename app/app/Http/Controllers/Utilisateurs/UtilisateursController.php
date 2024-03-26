@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Utilisateurs;
 
 use App\Models\User;
-use App\Imports\utilisateurs\UsersImport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\utilisateurs\UsersExport;
+use App\Imports\utilisateurs\UsersImport;
 use Illuminate\Validation\Rules\Password;
 use App\Repositories\Autorisation\UtilisateursRepository;
+use App\Exceptions\Autorisation\UserAlreadyExistsException;
 use App\Http\Requests\utilisateurs\CreateUtilisateursRequest;
 
 
@@ -58,20 +59,21 @@ public function create()
 
     public function store(CreateUtilisateursRequest $request)
     {
-
-    //   dd($request);
        $validatedData = $request->validated();
+        try {
+            $utilisateurs = $this->utilisateursRepository->create([
+                'prenom' => $request->prenom,
+                'nom' => $request->nom,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+            return redirect()->route('utilisateurs.index')->with('success', __('utilisateurs/message.User Created Successfully'));
 
-        $utilisateurs = $this->utilisateursRepository->create([
-            'prenom' => $request->prenom,
-            'nom' => $request->nom,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        // Return a redirect response with a success message and the name of the user added
-        return redirect()->route('utilisateurs.index')->with('success', 'Utilisateur ajouté avec succès');
- 
+        } catch (UserAlreadyExistsException $e) {
+            return back()->withInput()->withErrors(['User_exist' => __('utilisateurs/message.A User with this Email already exist')]); 
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['unexpected_error' => __('utilisateurs/message.An unexpected error has occurred.')]);
+        }
     }
     
     
@@ -82,7 +84,7 @@ public function create()
     public function destroy($id)
 {
     $utilisateurs = $this->utilisateursRepository->destroy($id);
-    return redirect()->route('utilisateurs.index')->with('success', 'ce utilisateurs deleted successfully');
+    return redirect()->route('utilisateurs.index')->with('success', __('utilisateurs/message.User Deleted Succesfully'));
 } 
 
 
@@ -165,15 +167,14 @@ public function importUtilisateurs(Request $request)
         $importedRows = Excel::import($import, $request->file('utilisateurs'));
     
         if($importedRows) {
-      
-            $successMessage = 'Fichier importé avec succès.';
+            $successMessage = __('utilisateurs/message.file imported succefully');
         } else {
-            $successMessage = 'Pas de nouvelles données à importer.';
+            $successMessage =  __("utilisateurs/message.there's no new data that being imported");
         }
-
+        
         return redirect('/utilisateurs')->with('success', $successMessage);
     } catch (\Exception $e) {
-        return redirect('/utilisateurs')->with('error', 'une erreur a été acourd vérifier la syntaxe');
+        return redirect('/utilisateurs')->with('error', __("utilisateurs/message.an error has been acourd check the syntax"));
        
         
     }
