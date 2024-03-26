@@ -10,14 +10,9 @@ order: 21
 
 <!-- new slide -->
 
-## Diagramme de class   
-![Introduction](/prototype/conception/images/diagramme-classes.png){:width="70%"}*figure: diagramme de class*
-<!-- new slide -->
-## Diagramme de class   
-![Introduction](/prototype/conception/images/diagramme-classes1.png){:width="50%"}*figure: diagramme de class*
-<!-- new slide -->
-## Diagramme de class   
-![Introduction](/prototype/conception/images/DiagrammeClass.PNG){:width="70%"}*figure: diagramme de class*
+## Diagramme de class
+![Introduction](./images/diagramme-classes.png){:width="900px"}*figure: diagramme de class*
+
 <!-- note -->
 
 download file diagramme classes :
@@ -26,7 +21,7 @@ download file diagramme classes :
 <!-- new slide -->
 
 ## Diagramme de packages
-![Diagramme de packages](/prototype/conception/images//Diagramme-des-paquetages.png){:width="900px"}*figure: Diagramme de packages*
+![Diagramme de packages](./images/Diagramme-des-paquetages.png){:width="900px"}*figure: Diagramme de packages*
 
 <!-- note -->
 
