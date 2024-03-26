@@ -106,7 +106,13 @@ public function show($id){
   public function edit($id){
 
     $utilisateur = $this->utilisateursRepository->find($id);
-    return view('utilisateurs.update', compact('utilisateur'));
+    if($utilisateur) {
+
+        return view('utilisateurs.update', compact('utilisateur'));
+
+     } else {
+        abort(404);
+     }
 
  }
 
