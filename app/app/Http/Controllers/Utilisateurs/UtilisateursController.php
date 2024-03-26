@@ -64,12 +64,23 @@ public function create()
 
        
 
-        $utilisateurs = $this->utilisateursRepository->create([
-            'prenom' => $request->prenom,
-            'nom' => $request->nom,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+      
+
+        try {
+            $utilisateurs = $this->utilisateursRepository->create([
+                'prenom' => $request->prenom,
+                'nom' => $request->nom,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+            return back()->with('success', __('utilisateurs/message.User Created Succesfully'));
+        } catch (TaskExisteException $e) {
+            return back()->withInput()->withErrors(['task_exists' => __('Authorization/users/message.creating_user_that_already_exists')]); 
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['unexpected_error' => __('GestionProjets/task/message.unexpected_error')]);
+        }
+
+
         
 
         // Return a redirect response with a success message and the name of the user added
