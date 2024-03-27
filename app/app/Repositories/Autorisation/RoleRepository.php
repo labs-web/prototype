@@ -43,7 +43,7 @@ class RoleRepository extends BaseRepositorie
         $existingRecord = Role::where('name', $name)->exists();
 
         if ($existingRecord) {
-            throw RoleException::updateRoleifNameNotExiste();
+            throw RoleException::createRole();
         } else {
             return parent::update($id, $data);
         }   
