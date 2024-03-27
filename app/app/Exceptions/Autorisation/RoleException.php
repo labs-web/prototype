@@ -13,6 +13,6 @@ class RoleException extends Exception
 
     public static function updateRoleifNameNotExiste()
     {
-        return new self(__('Autorisation/roles/message.updateRoleifNameNotExiste'));
+        return new self(__('Autorisation/roles/message.createRoleException'));
     }
 }
