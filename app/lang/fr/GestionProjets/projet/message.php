@@ -6,7 +6,7 @@ return [
     'task' => 'Les tâches',
     'edit' => 'Editer',
     'Delete' => 'Supprimer',
-    'cancel' => 'Quitter',
+    'cancel' => 'Annuler',
     'addProjet' => 'Ajouter un projet',
     'editProjet' => 'Editer le projet',
     'project' => 'Projet',

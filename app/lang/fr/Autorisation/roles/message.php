@@ -5,7 +5,7 @@ return [
     'roles' => 'Les roles',
     'edit' => 'Editer',
     'Delete' => 'Supprimer',
-    'cancel' => 'Quitter',
+    'cancel' => 'Annuler',
     'ajouterRole' => 'Ajouter une role',
     'editRole' => 'Editer le role',
     'nom' => 'Nom',

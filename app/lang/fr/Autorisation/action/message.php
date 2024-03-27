@@ -5,7 +5,7 @@ return [
     'actions' => 'Les actions',
     'edit' => 'Editer',
     'Delete' => 'Supprimer',
-    'cancel' => 'Quitter',
+    'cancel' => 'Annuler',
     'filtre' => 'Filter par  controller',
     'choix' => 'Choisir un controller',
     'controller' => 'Controller',

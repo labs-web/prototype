@@ -13,7 +13,7 @@ return [
     'Delete' => 'Supprimer',
     'edit' => 'Editer',
     'update' => 'Mise à jour',
-    'cancel' => 'Quitter',
+    'cancel' => 'Annuler',
     'controllerExistPas' => "Controller n'exist pas",
     'nomControllerExistDeja' => "Le nom du controller existe déjà dans la table.",
     'CreatedController' => "Controller a été créée avec succès.",
