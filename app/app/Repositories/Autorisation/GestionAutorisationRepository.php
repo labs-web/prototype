@@ -2,14 +2,14 @@
 
 namespace App\Repositories\Autorisation;
 
-use App\Models\User;
+use App\Models\Autorisation\Autorisation;
 use App\Repositories\BaseRepositorie;
 
 
-class UtilisateursRepository extends BaseRepositorie {
+class GestionAutorisationRepository extends BaseRepositorie {
     protected $model;
 
-    public function __construct(User $user){
+    public function __construct(Autorisation $user){
         $this->model = $user;
     }
 

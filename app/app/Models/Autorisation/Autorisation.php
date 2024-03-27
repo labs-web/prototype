@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Autoristion;
+namespace App\Models\Autorisation;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,9 +10,9 @@ class Autorisation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'role' ,
-        'controller',
-        'action'
+        'roles' ,
+        'controllers',
+        'actions'
     ];
 
 
