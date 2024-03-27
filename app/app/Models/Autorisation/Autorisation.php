@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Autorisation extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'role' ,
+        'controller',
+        'action'
+    ];
+
+
 }
