@@ -15,7 +15,6 @@ php artisan make:model Competence -m
 php artisan make:model CategorieTechnologie -m
 php artisan make:model Technologie -m
 
-
 ````
 
 ### add description nom to competences table
