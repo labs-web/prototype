@@ -11,14 +11,6 @@ order:  650
 ````bash
 
 php artisan make:seeder FormationDataSeeder
-
-````
-
-### Étape 2: Installer la Bibliothèque CSV
-
-````bash
-
-composer require league/csv
 php artisan db:seed 
-
 ````
+
