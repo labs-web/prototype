@@ -15,3 +15,4 @@ php artisan make:model NatureLivrable -m
 php artisan make:model Message -m
 
 ````
+
