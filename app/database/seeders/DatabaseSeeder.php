@@ -17,9 +17,6 @@ use Database\Seeders\{
     ProjetsSeeder,
     RealisationProjetSeeder,
     PostsSeeder,
-
-  
-  
 };
 
 
@@ -40,7 +37,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RealisationProjetSeeder::class);
         $this->call(PostsSeeder::class);
        
-      
     
        
     }
