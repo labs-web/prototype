@@ -17,3 +17,27 @@ php artisan make:model Technologie -m
 
 
 ````
+
+### add description nom to competences table
+
+
+````bash
+
+php artisan make:migration add_description_nom_to_competences_table --table=competences
+
+````
+
+### Migrate
+
+
+````bash
+
+php artisan migrate:fresh
+
+````
+
+````bash
+
+php artisan migrate:fresh --seed 
+
+````
