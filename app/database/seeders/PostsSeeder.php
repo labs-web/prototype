@@ -9,7 +9,8 @@ use Symfony\Component\Uid\NilUuid;
 
 use Database\Seeders\pkg_posts\{
     TagsSeeder,
-    PostSeeder
+    PostSeeder,
+    PostTagSeeder
 };
 
 
@@ -26,6 +27,7 @@ class PostsSeeder extends Seeder
         return [
             TagsSeeder::class,
             PostSeeder::class,
+            PostTagSeeder::class,
         ];
     }
 }

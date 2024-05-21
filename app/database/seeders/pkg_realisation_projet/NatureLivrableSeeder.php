@@ -16,12 +16,14 @@ class NatureLivrableSeeder extends Seeder
 {
     public function run(): void
     {
+        $AdminRole = User::ADMIN;
+        $MembreRole = User::APPRENANT;
 
         Schema::disableForeignKeyConstraints();
         NatureLivrable::truncate();
         Schema::enableForeignKeyConstraints();
 
-        $csvFile = fopen(base_path("database/data/pkg_realisation_projet/NatureLivrable.csv"), "r");
+        $csvFile = fopen(base_path("database/data/pkg_realisation_projet/nature-livrable.csv"), "r");
         $firstline = true;
         $i = 0;
         while (($data = fgetcsv($csvFile)) !== FALSE) {
