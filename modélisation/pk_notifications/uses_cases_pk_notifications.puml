@@ -1,0 +1,16 @@
+@startuml uses_cases_pk_notifications
+
+left to right direction
+
+actor Formateur as formateur
+
+package pk_notifications {
+
+  formateur -->  (Cas d'utilisation) 
+
+
+}  
+
+' note right of admin : "note 1"
+
+@enduml

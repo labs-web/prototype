@@ -1,0 +1,66 @@
+{
+    "folders": [
+        {
+            "path": "./app/app/Models/pkg_autorisations",
+            "name":"Models"
+        },   
+        {
+            "path": "./app/resources/views/pkg_autorisations",
+            "name":"Views"
+        },
+        {
+            "path": "./app/app/Http/Controllers/pkg_autorisations",
+            "name":"Controllers"
+        },
+      
+       
+        {
+            "path": "./app/app/Repositories/pkg_autorisations",
+            "name":"Repositories"
+        },
+        {
+            "path": "./app/app/Http/Requests/pkg_autorisations",
+            "name":"requests"
+        },
+        {
+            "path": "./app/database/seeders/pkg_autorisations",
+            "name":"seeders"
+        },
+        {
+            "path": "./app/database/migrations/pkg_autorisations",
+            "name":"migrations"
+        },
+        {
+            "path": "./docs/pkg_autorisations",
+            "name":"docs"
+        },
+        {
+            "path": "./docs/diagrammes/pkg_autorisations",
+            "name":"docs/diagrammes"
+        },
+        {
+            "path": "./modélisation/pkg_autorisations",
+            "name":"modélisation"
+        },   
+      
+        {
+            "path": "./maquettes/view/pkg_autorisations",
+            "name": "maquettes"
+        },
+        {
+            "path": "./collaboration",
+            "name": "collaboration"
+        }
+    ],
+    "settings": {
+
+        // TODO ide-2 : configuration de todo-tree à documenter dans /réalisation/ide
+        "todo-tree.general.showActivityBarBadge": true,
+        "todo-tree.general.periodicRefreshInterval": 1,
+        "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+        "todo-tree.general.statusBar": "tags",
+        "workbench.startupEditor": "readme",
+        "plantuml.diagramsRoot": "./",
+		"plantuml.exportOutDir": "./"
+    }
+}

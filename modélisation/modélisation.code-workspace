@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../docs/diagrammes"
+
+		}
+	],
+	"settings": {
+		// TODO ide-2 : à documenter dans la configuration de l'extentions PlantUML dans le fichier - realisation\ide\config_plantuml.md 
+		// Voir aussi la configuration dans les autres fichiers workspace
+		"plantuml.diagramsRoot": "",
+		"plantuml.exportOutDir": "../docs/diagrammes/",
+		"mermaid-editor.generate.outputPath": "../docs/diagrammes/",
+		"mermaid-editor.generate.useCurrentPath" : false
+	}
+}

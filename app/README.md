@@ -1,12 +1,25 @@
-# Installation Laravel
+# Prototype 
+
+<!-- TODO rédaction-2 : 
+
+- Introduction 
+- Objectif de prototype 
+-->
+
+## L'environnement de développement 
+
+- PHP
+  - [lab-php](https://github.com/labs-web/lab-php)
+    - Installation de PHP 8.2
+    - Installation de xdebug
+    - Configuration de PHP pour laravel
+- VS code
+  - [lab-vscode](https://github.com/labs-web/lab-vscode)
+    - Installation des extension pour travailler avec PHP
+    - Installation des extentions pour traviller avec Laravel
 
 
-## Installation de PHP
-
-
-PHP 8.2.11 (cli) (construit le 1er octobre 2021 à 15h00) ou une version plus récente est requise.
-
-## Guide de Démarrage pour Lab CRUD
+# Installation de Laravel
 
 1. Ouvrez votre terminal.
 2. Accédez au répertoire app
@@ -16,11 +29,12 @@ cd app
 ```
 3. Installer les dépendances Composer :
 
+Consulter  la documentation pour avoir une idée détaillée des packages installés dans ce prototype.
+
 ```bash
 composer install
 npm install
 ```
-
 
 4. Créer un fichier .env en copiant .env.example :
    
@@ -56,16 +70,47 @@ php artisan db:seed
 
 9. Installer les dépendances npm :
 
+
+## Exécution de projet 
+
+
 ```bash
 php artisan serve
 ```
 
-- Compiler les assets avec npm : après la modification des scripts 
+L'exécution de projet nécessite la présence des fichiers 
 
+- public\build\assets
+  - app.css
+  - app.js
+
+Ces deux fichier sont générer par 
 
 ```bash
 npm run build
 ```
 
-<!-- TODO :Loin and password   -->
+ou 
+
+```bash
+npm run dev
+```
+
+
 ## Loin and password 
+
+### admin
+
+login : admin@solicode.co
+password : admin
+
+### apprenant
+
+login : apprenant@solicode.co
+password : apprenant
+
+
+## Collaboration 
+
+La contribution à ce projet se fait par la création d'un fork, suivi d'une pull request conforme aux exigences du nom du package.
+- [lab-collaboration](https://github.com/labs-web/lab-collaboration)

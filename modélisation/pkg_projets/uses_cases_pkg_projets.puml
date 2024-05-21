@@ -1,0 +1,28 @@
+@startuml 
+
+left to right direction
+
+
+actor Formateur as formateur
+actor Apprenant as apprenant
+
+
+package pkg_projets {
+
+  formateur --  (Gestion des projets) 
+  formateur --  (Gestion des tâches)
+  (Gestion des tâches)  <. (Modifier tâche)
+  (Modifier tâche)  <.. (valider la tâche)
+
+  apprenant -- (Consulter ses tâches)
+  formateur -- (valider la tâche)
+ 
+
+  (Gestion des tâches) <. (Consulter ses tâches)
+  (Consulter ses tâches) <.. (Affichage en diagramme de gantt)
+  (Consulter ses tâches) <.. (Affichage Kanban)
+}  
+
+' note right of admin : "note 1"
+
+@enduml

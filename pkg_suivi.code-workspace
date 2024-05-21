@@ -1,0 +1,64 @@
+{
+    "folders": [
+        {
+            "path": "./app/app/Models/pkg_suivi",
+            "name":"Models"
+        },   
+        {
+            "path": "./app/resources/views/pkg_suivi",
+            "name":"Views"
+        },
+        {
+            "path": "./app/app/Http/Controllers/pkg_suivi",
+            "name":"Controllers"
+        },
+      
+       
+        {
+            "path": "./app/app/Repositories/pkg_suivi",
+            "name":"Repositories"
+        },
+        {
+            "path": "./app/app/Http/Requests/pkg_suivi",
+            "name":"requests"
+        },
+        {
+            "path": "./app/database/seeders/pkg_suivi",
+            "name":"seeders"
+        },
+        {
+            "path": "./app/database/migrations/pkg_suivi",
+            "name":"migrations"
+        },
+        {
+            "path": "./docs/pkg_suivi",
+            "name":"docs"
+        },
+        {
+            "path": "./docs/diagrammes/pkg_suivi",
+            "name":"docs/diagrammes"
+        },
+        {
+            "path": "./modélisation/pkg_suivi",
+            "name":"modélisation"
+        },   
+      
+        {
+            "path": "./maquettes/view/pkg_suivi",
+            "name": "maquettes"
+        },
+        {
+            "path": "./collaboration",
+            "name": "collaboration"
+        }
+    ],
+    "settings": {
+        "todo-tree.general.showActivityBarBadge": true,
+        "todo-tree.general.periodicRefreshInterval": 1,
+        "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+        "todo-tree.general.statusBar": "tags",
+        "workbench.startupEditor": "readme",
+        "plantuml.diagramsRoot": "./",
+		"plantuml.exportOutDir": "./"
+    }
+}

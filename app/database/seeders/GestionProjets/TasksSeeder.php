@@ -25,8 +25,7 @@ class TasksSeeder extends Seeder
         Task::truncate();
         Schema::enableForeignKeyConstraints();
 
-        // TODO : Organisation de code , espaces 
-        // get data from csv file
+
         $csvFile = fopen(base_path("database/data/tasks.csv"), "r");
         $firstline = true;
         $i = 0;

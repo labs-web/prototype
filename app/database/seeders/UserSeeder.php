@@ -23,16 +23,16 @@ class UserSeeder extends Seeder
         $membreRole = User::MEMBRE;
 
         User::create([
-            'name' => 'membre',
-            'email' => 'membre@gmail.com',
-            'password' => Hash::make('membre'),
+            'name' => 'apprenant',
+            'email' => 'apprenant@solicode.co',
+            'password' => Hash::make('apprenant'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ])->assignRole($membreRole);
 
         User::create([
             'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'admin@solicode.co',
             'password' => Hash::make('admin'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

@@ -44,6 +44,7 @@
 
 <div class="d-md-flex justify-content-between align-items-center p-2">
     <div class="d-flex align-items-center mb-2 ml-2 mt-2">
+        <!-- TODO css-2 : Importer et exporter ne doit pas s'afficher dans la version mobile  -->
         @can('import-ProjetController')
             <form action="{{ route('projets.import') }}" method="post" class="mt-2" enctype="multipart/form-data"
                 id="importForm">

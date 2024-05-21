@@ -1,0 +1,28 @@
+@startuml 
+
+left to right direction
+
+
+actor Formateur as formateur
+actor Apprenant as apprenant
+
+package "pkg_projets.gestion-tâches.consultation" {
+
+
+  formateur -->  (Gestion des tâches) 
+  apprenant --> (Consulter ses tâches)
+  (Gestion des tâches)  <. (Consulter ses tâches)
+  (Consulter ses tâches) <.. (filtrer par projet)
+  (Consulter ses tâches) <.. (filtrer tâche par équipe)
+  (Consulter ses tâches) <.. (Affichage en diagramme de gantt)
+  (Consulter ses tâches) <.. (Affichage Kanban)
+  (Affichage en diagramme de gantt) <.. (Affichage par phase de projet)
+  (Affichage en diagramme de gantt) <.. (les tâches sont cliquable)
+  
+  (Affichage Kanban) <.. (Modifier le status de la tâche)
+
+}  
+
+' note right of admin : "note 1"
+
+@enduml

@@ -1,1 +1,19 @@
-﻿{"folders": [{"path": "."}],"settings": {}}
+{
+    "folders": [{"path": "."}],
+    "settings": {
+
+        // TODO ide-2 : configuration de todo-tree à documenter dans /réalisation/ide
+        "todo-tree.general.showActivityBarBadge": true,
+        "todo-tree.general.periodicRefreshInterval": 1,
+        "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+        "todo-tree.general.statusBar": "tags",
+        "workbench.startupEditor": "readme",
+        "plantuml.diagramsRoot": "modélisation",
+		"plantuml.exportOutDir": "docs/diagrammes/",
+
+
+       
+
+       
+    }
+}

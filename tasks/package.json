@@ -1,0 +1,11 @@
+{
+  "name": "totos_manager",
+  "version": "0.0.1",
+  "description": "Gestion des todo d'une application laravel",
+  "main": "todo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

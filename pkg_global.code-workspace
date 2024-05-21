@@ -1,0 +1,63 @@
+{
+    "folders": [
+        {
+            "name": "Models",
+            "path": "app/app/Models/pkg_global"
+        },
+        {
+            "name": "Views",
+            "path": "app/resources/views/pkg_global"
+        },
+        {
+            "name": "Controllers",
+            "path": "app/app/Http/Controllers/pkg_global"
+        },
+        {
+            "name": "Repositories",
+            "path": "app/app/Repositories/pkg_global"
+        },
+        {
+            "name": "requests",
+            "path": "app/app/Http/Requests/pkg_global"
+        },
+        {
+            "name": "seeders",
+            "path": "app/database/seeders/pkg_global"
+        },
+        {
+            "name": "migrations",
+            "path": "app/database/migrations/pkg_global"
+        },
+        {
+            "name": "docs",
+            "path": "docs/pkg_global"
+        },
+        {
+            "name": "docs/diagrammes",
+            "path": "docs/diagrammes/pkg_global"
+        },
+        {
+            "name": "modélisation",
+            "path": "modélisation/pkg_global"
+        },
+        {
+            "name": "maquettes",
+            "path": "maquettes/view/pkg_global"
+        },
+        {
+            "name": "collaboration",
+            "path": "collaboration"
+        }
+    ],
+    "settings": {
+
+        // TODO ide-2 : configuration de todo-tree à documenter dans /réalisation/ide
+        "todo-tree.general.showActivityBarBadge": true,
+        "todo-tree.general.periodicRefreshInterval": 1,
+        "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+        "todo-tree.general.statusBar": "tags",
+        "workbench.startupEditor": "readme",
+        "plantuml.diagramsRoot": "./",
+		"plantuml.exportOutDir": "./"
+    }
+}

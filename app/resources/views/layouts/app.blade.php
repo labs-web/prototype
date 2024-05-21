@@ -1,19 +1,15 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
+    <!-- TODO Madani : à expliquer dans /docs/réalisation/layout.md -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>@yield('title')</title>
-
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <!-- Main Header -->
@@ -25,7 +21,6 @@
                             class="fas fa-bars"></i></a>
                 </li>
             </ul>
-
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown user-menu">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
@@ -58,15 +53,12 @@
                 </li>
             </ul>
         </nav>
-
         <!-- Left side column. contains the logo and sidebar -->
         @include('layouts.sidebar')
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             @yield('content')
         </div>
-
         <!-- Main Footer -->
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
@@ -76,8 +68,5 @@
             réservés.
         </footer>
     </div>
-
-
 </body>
-
 </html>

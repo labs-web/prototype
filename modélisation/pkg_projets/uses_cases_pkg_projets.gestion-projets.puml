@@ -1,0 +1,23 @@
+@startuml 
+
+left to right direction
+
+
+actor Formateur as formateur
+actor Apprenant as apprenant
+
+package "pkg_projets.gestion-projets" {
+
+  formateur --  (Gestion des projets) 
+  (Gestion des projets) <.. (Ajouter projet) 
+  (Ajouter projet) <. (Affectation de projet aux apprenants) 
+  (Affectation de projet aux apprenants) <. (filtrer par équipe)
+
+  (Gestion des projets) <. (Consulter projet) 
+  (Consulter projet)  <.. (Gestion livrable)
+   apprenant -- (Gestion livrable) 
+}  
+
+' note right of admin : "note 1"
+
+@enduml

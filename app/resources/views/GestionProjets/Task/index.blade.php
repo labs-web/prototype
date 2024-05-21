@@ -2,9 +2,6 @@
 @section('title', __('GestionTasks/task/message.titre'))
 
 @section('content')
-<!-- TODO : Upload Ajax de façon global dans app.js -->
-<!-- TODO : Pagination en mide responsive web design -->
-
 
     <div class="content-header">
         @if (session('success'))

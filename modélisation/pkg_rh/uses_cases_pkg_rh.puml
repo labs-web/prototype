@@ -1,0 +1,28 @@
+@startuml uses_cases_pkg_rh
+ 
+left to right direction
+
+actor Formateur as formateur
+actor Admin as admin
+
+package pkg_rh {
+
+  (gestion des formateurs)  ..> (gestion des personnes) 
+  (gestion des apprenants)  ..> (gestion des personnes) 
+  (gestion des apprenants) <.. (filtrer par groupe)
+  formateur --  (gestion des apprenants) 
+  admin --  (gestion des formateurs) 
+
+  formateur --  (gestion des groupes) 
+  (gestion des groupes)  <.. (ajouter groupe)
+  (Affectation des apprenants) ..> (ajouter groupe)
+  (gestion des groupes)  <.. (supprimer groupe)
+
+  (Intialiser le mot de passe) ..> (gestion des personnes)
+
+  note right of "gestion des groupes" : "Modifier"
+}  
+
+
+
+@enduml

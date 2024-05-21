@@ -1,0 +1,25 @@
+@startuml uses_cases_pkg_notifications
+
+left to right direction
+
+
+actor Formateur as formateur
+actor Apprenant as apprenant
+package pkg_notifications {
+
+  formateur -- (Envoyer notification)  
+  (Envoyer notification) <.. (à un apprenant)  
+  (Envoyer notification) <.. (au membres d'une équipe) 
+  (Envoyer notification) <.. (à un group)
+
+  apprenant -- (Consulter les notifications)
+  (Consulter les notifications)  <.. (Consulter une notification)
+  (Consulter une notification) <. (marqué comme vue)
+  (Consulter une notification) <.. (marqué comme n'est pas vue)
+}  
+
+
+
+' note right of admin : "note 1"
+
+@enduml

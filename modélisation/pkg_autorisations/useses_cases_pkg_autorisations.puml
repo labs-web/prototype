@@ -1,0 +1,24 @@
+@startuml 
+
+left to right direction
+' top to bottom direction
+
+actor Admin as admin
+
+package pkg_autorisations {
+
+  admin -->  (Gestion des controller)
+
+  admin -->  (Gestion des autorisation) 
+  (Gestion des autorisation)  <. (ajouter autorisation)  : <<extend>>
+
+  admin -->  (Gestion des actions) 
+  (Gestion des actions)  <.  (ajouter action) : <<extend>>
+  (ajouter action) <.. (Choisir les actions permises avec lui) : <<extend>>
+
+  (Gestion des controller) <.. (Insertion automatique des actions)   : <<extend>>
+ }  
+
+' note right of admin : "note 1"
+
+@enduml

@@ -1,3 +1,4 @@
+<!-- todo_layout : La page login doit aussi utilise - app.blade.php -->
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -16,26 +17,25 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-
 <body>
-
-
     <div class="hold-transition login-page">
         <div class="login-box">
             <div class="login-logo">
-                <img src="{{ asset('images/logo.png') }}" alt="" srcset="" width="90px">
-                <h4>Lab CRUD</h4>
-            </div>
-            <!-- /.login-logo -->
 
-            <!-- /.login-box-body -->
+                <!-- TODO css-2 : 
+                - remplacer style par class dans le fichier de package : authentification.css 
+                - ajouter la configuration de l'icon de l'application dans le fichier de configuration .env
+                -->
+                <i class="fas fa-home" style="font-size: 50px;"></i>
+
+                <!-- TODO config-2 : à lire depuis le fichier de configuration de Laravel-->
+                <h4>Prototype</h4>
+            </div>
             <div class="card">
                 <div class="card-body login-card-body">
                     <p class="login-box-msg">Connectez-vous pour commencer votre session</p>
-
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
                         <div class="input-group mb-3">
                             <input id="email" type="email"
                                 class="form-control @error('email') is-invalid @enderror" name="email"
@@ -49,7 +49,6 @@
                                 </span>
                             @enderror
                         </div>
-
                         <div class="input-group mb-3">
                             <input type="password" name="password" placeholder="Mot de passe"
                                 class="form-control @error('password') is-invalid @enderror">
@@ -64,7 +63,6 @@
                                 </span>
                             @enderror
                         </div>
-
                         <div class="row">
                             <div class="col-7">
                                 <div class="icheck-primary">
@@ -76,19 +74,12 @@
                             <div class="col-5">
                                 <button type="submit" class="btn btn-info btn-block">Se connecter</button>
                             </div>
-
                         </div>
                     </form>
                 </div>
-                <!-- /.login-card-body -->
             </div>
 
         </div>
-        <!-- /.login-box -->
     </div>
-
-
-
 </body>
-
 </html>

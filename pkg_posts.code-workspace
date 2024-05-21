@@ -1,0 +1,64 @@
+{
+    "folders": [
+        {
+            "path": "./app/app/Models/GestionProjets",
+            "name":"Models"
+        },   
+        {
+            "path": "./app/resources/views/GestionProjets",
+            "name":"Views"
+        },
+        {
+            "path": "./app/app/Http/Controllers/GestionProjets",
+            "name":"Controllers"
+        },
+      
+       
+        {
+            "path": "./app/app/Repositories/GestionProjets",
+            "name":"Repositories"
+        },
+        {
+            "path": "./app/app/Http/Requests/GestionProjets",
+            "name":"requests"
+        },
+        {
+            "path": "./app/database/seeders/GestionProjets",
+            "name":"seeders"
+        },
+        {
+            "path": "./app/database/migrations/GestionProjets",
+            "name":"migrations"
+        },
+        {
+            "path": "./docs/pkg_posts",
+            "name":"docs"
+        },
+        {
+            "path": "./docs/diagrammes/pkg_posts",
+            "name":"docs/diagrammes"
+        },
+        {
+            "path": "./modélisation/pkg_posts",
+            "name":"modélisation"
+        },   
+      
+        {
+            "path": "./maquettes/view/GestionProjets",
+            "name": "maquettes"
+        },
+        {
+            "path": "./collaboration",
+            "name": "collaboration"
+        }
+    ],
+    "settings": {
+        "todo-tree.general.showActivityBarBadge": true,
+        "todo-tree.general.periodicRefreshInterval": 1,
+        "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+        "todo-tree.general.statusBar": "tags",
+        "workbench.startupEditor": "readme",
+        "plantuml.diagramsRoot": "./",
+		"plantuml.exportOutDir": "./"
+    }
+}

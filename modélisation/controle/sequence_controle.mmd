@@ -1,0 +1,12 @@
+sequenceDiagram
+
+actor Admin
+Admin->>Système: use case : Ajouter autorisation
+Admin->>Système: Saisie de formulaire
+Admin->>+Système: Enregistrer
+
+Système -->>Système: "Traitement"
+note over Système : message note
+
+Système-->>-Admin: message de confirmation
+

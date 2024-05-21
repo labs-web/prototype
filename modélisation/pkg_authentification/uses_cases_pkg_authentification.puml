@@ -1,0 +1,32 @@
+@startuml use_case_pk_authentification
+
+left to right direction
+
+
+actor Utilisateur as utilisateur
+actor Formateur as formateur
+actor Apprenant as apprenant
+actor Admin as admin
+
+formateur --|> utilisateur
+apprenant --|> utilisateur
+admin --|> utilisateur
+ 
+package pk_authentification {
+
+  utilisateur -down-> (Authentifier)
+
+  utilisateur -->  (Afficher profil) 
+  utilisateur -->  (Modifier profil)
+  (Modifier profil) <.down. (Changer le mot de passe) : <<extend>>
+
+  admin -> (Initialiser le mot de passe)
+   
+  (Afficher profil)  ..> (Authentifier) : <<include>>
+  (Modifier profil)  ..> (Authentifier) : <<include>>
+  (Initialiser le mot de passe) ..> (Authentifier) : <<include>>
+}  
+
+' note right of admin : "note 1"
+
+@enduml

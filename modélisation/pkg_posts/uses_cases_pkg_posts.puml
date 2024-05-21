@@ -1,0 +1,16 @@
+@startuml uses_cases_pkg_posts
+
+left to right direction
+
+
+actor Admin as admin
+
+package pkg_posts {
+
+  admin -->  (gestion des articles)
+  admin -->  (gestion des tags)
+}  
+
+' note right of admin : "note 1"
+
+@enduml

@@ -1,0 +1,20 @@
+classDiagram
+
+direction RL
+
+namespace pkg_posts {
+
+class Posts {
+  id : int
+  nom : String
+  description : Text
+}
+
+class Tags {
+  id : int
+  nom : String
+  description : String
+}
+}
+
+Posts "*" --> "*" Tags

@@ -1,6 +1,6 @@
 <?php
 
-// TODO : à simplifier
+
 return [
     'titre' => 'Task',
     'detail' => 'Detail de task',

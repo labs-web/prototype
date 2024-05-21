@@ -1,0 +1,71 @@
+{
+    "settings": {
+
+        "todo-tree.general.showActivityBarBadge": true,
+        "todo-tree.general.periodicRefreshInterval": 1,
+        "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+        "todo-tree.general.statusBar": "tags",
+        "workbench.startupEditor": "readme",
+        "plantuml.diagramsRoot": "./",
+		"plantuml.exportOutDir": "./",
+
+  
+ 
+
+    },
+    "folders": [
+        {
+            "path": "./app/app/Models/pkg_realisation_projet",
+            "name":"Models"
+        },   
+        {
+            "path": "./app/resources/views/pkg_realisation_projet",
+            "name":"Views"
+        },
+        {
+            "path": "./app/app/Http/Controllers/pkg_realisation_projet",
+            "name":"Controllers"
+        },
+      
+       
+        {
+            "path": "./app/app/Repositories/pkg_realisation_projet",
+            "name":"Repositories"
+        },
+        {
+            "path": "./app/app/Http/Requests/pkg_realisation_projet",
+            "name":"requests"
+        },
+        {
+            "path": "./app/database/seeders/pkg_realisation_projet",
+            "name":"seeders"
+        },
+        {
+            "path": "./app/database/migrations/pkg_realisation_projet",
+            "name":"migrations"
+        },
+        {
+            "path": "./docs/pkg_realisation_projet",
+            "name":"docs"
+        },
+        {
+            "path": "./docs/diagrammes/pkg_realisation_projet",
+            "name":"docs/diagrammes"
+        },
+        {
+            "path": "./modélisation/pkg_realisation_projet",
+            "name":"modélisation"
+        },   
+      
+        {
+            "path": "./maquettes/view/pkg_realisation_projet",
+            "name": "maquettes"
+        },
+        {
+            "path": "./collaboration",
+            "name": "collaboration"
+        }
+        
+    ]
+  
+}

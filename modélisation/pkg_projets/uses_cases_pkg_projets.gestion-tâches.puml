@@ -1,0 +1,27 @@
+@startuml 
+
+left to right direction
+
+
+actor Formateur as formateur
+actor Apprenant as apprenant
+
+package "pkg_projets.gestion-tâches" {
+
+apprenant -- (Modifier Statut ) 
+apprenant -- (Modifier Date de fin ) 
+formateur --  (Gestion des tâches) 
+
+(Gestion des tâches) <.. (Ajouter tâche) 
+(Ajouter tâche) <.. (Affectation de la tâche à un apprenant) 
+(Affectation de la tâche à un apprenant) <. (Envoyer notification) 
+
+(Gestion des tâches) <.. (Modifier tâche) 
+(Modifier tâche) <.. (Modifier Statut ) 
+(Modifier tâche) <.. (Modifier Date de fin ) 
+
+}  
+
+' note right of admin : "note 1"
+
+@enduml

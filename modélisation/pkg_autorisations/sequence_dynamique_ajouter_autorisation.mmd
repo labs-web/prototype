@@ -1,0 +1,13 @@
+sequenceDiagram
+
+actor Admin
+Admin->>AutorisationController: use case : Ajouter autorisation
+AutorisationController-->>Admin: Formulaire d'insertion
+Admin->>+AutorisationController: Create(actions,role)
+AutorisationController ->> AutorisationRepository : Create(actions,role)
+activate AutorisationRepository
+AutorisationRepository -->>PermissionRepository: Create(role,permission)
+deactivate AutorisationRepository
+note over AutorisationRepository : une action est en relation avec une permission
+AutorisationController-->>-Admin: message de confirmation
+

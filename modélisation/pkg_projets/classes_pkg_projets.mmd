@@ -1,0 +1,67 @@
+classDiagram
+
+direction RL
+
+namespace gestion_rh{
+class Apprenant
+class Formateur 
+class  Groupe 
+}
+Groupe "1" --> "*" Apprenant
+Formateur "*" --> "1" Groupe
+
+
+namespace gestion_competences {
+class NiveauCompetence
+class Competence
+class Technologie 
+}
+Competence "*" -- "*" Technologie
+
+
+
+namespace pk_projets {
+
+
+  class Projet {
+    id: int
+    nom: string
+    description: text
+    objectifs: string
+    dateDebut: date
+    dateEcheance: date
+    CalculerStatutProjet()
+  }
+
+  class Tache {
+    id: int
+    nom: string
+    description: text
+    priorité: string
+    dateÉchéance: date
+  }
+
+ 
+  class StatutTache{
+    id: int
+    nom: string
+    description: text
+  }
+
+  class Equipe {
+    id: int
+    nom: string
+    description: text
+  }
+}
+
+
+Formateur "1" --> "*" Projet 
+Projet "1" --> "*" Tache
+Projet "*" --> "*" Competence  
+Tache "*" --> "1" Apprenant : 1
+Tache "*" --> "1" NiveauCompetence
+Tache "*" --> "*" Technologie
+Tache "*" --> "1" StatutTache 
+Equipe "*" --> "1" Projet
+Equipe   "*" --> "*"  Apprenant  : *

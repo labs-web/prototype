@@ -1,0 +1,17 @@
+@startuml uses_cases_pkg_suivi
+
+left to right direction
+
+
+actor Formateur as formateur
+
+package pkg_suivi {
+
+  formateur -->  (suivi de l'avancement des projets) 
+  formateur -->  (suivi de de veloppement des compétences des apprenants) 
+
+}  
+
+' note right of admin : "note 1"
+
+@enduml

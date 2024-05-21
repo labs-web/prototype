@@ -1,8 +1,19 @@
 # Prototype
 
+## Workspaces 
 
-- [Rapport](https://labs-web.github.io/lab_crud/documentation/) 
-- [Présentation](https://labs-web.github.io/lab_crud/documentation/presentation.html#/) 
-- Gestion des Projet
-    - [Rapport Gestion des Projet](https://labs-web.github.io/lab_crud/documentation/Gestion-projets/)
-    - [Présentation Gestion des Projet](https://labs-web.github.io/lab_crud/documentation/Gestion-projets/presentation.html#/)
+- [Documentation](./docs/prototype.docs.code-workspace)
+- [Conception](./modélisation/modélisation.code-workspace)
+- [Application](./app/prototype.app.code-workspace)
+
+## Exécution des rapports 
+
+```bash
+cd docs 
+./serve.ps1
+```
+
+
+## Rapport et présentation global 
+
+- [Rapport](https://labs-web.github.io/prototype) 

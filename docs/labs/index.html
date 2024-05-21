@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple PlantUML-JS</title>
+
+    <script src="https://raw.githubusercontent.com/plantuml/plantuml-js/master/dist/plantuml-js.min.js"></script>
+
+    <style>
+        .plantuml-diagram {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="diagram-container" class="plantuml-diagram"></div>
+
+    <script>
+        var diagram = PlantUML.render("@startuml\n" +
+            "Alice -> Bob: message\n" +
+            "Bob -> Alice: reply\n" +
+            "@enduml");
+
+        document.getElementById('diagram-container').appendChild(diagram);
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+classDiagram
+
+namespace gestion_authentifications {
+
+class User {
+    + id : int
+    + login: string 
+    + password: string 
+
+}
+
+class Role{
+    + id : int
+    + name: string 
+    + description: text 
+}
+
+}
+
+User "*" --> "1" Role
+
+
