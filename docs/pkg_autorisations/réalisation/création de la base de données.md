@@ -13,4 +13,7 @@ order: 620
 php artisan make:model Action -m
 php artisan make:model Controller -m
 php artisan make:model Autorisation -m
+
+ php artisan make:migration add_nom_and_controller_id_to_actions_table --table=actions
+ php artisan migrate 
 ````

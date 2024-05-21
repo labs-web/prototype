@@ -2,6 +2,7 @@
 
 namespace App\Models\pkg_realisation_projet;
 
+use App\Models\Livrable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,4 +13,12 @@ class NatureLivrable extends Model
     protected $table = 'nature_livrables';
 
     protected $fillable = ['nom', 'description'];
+
+    public function Livrable()
+{
+    return $this->hasMany(Livrable::class);
 }
+
+}
+
+
