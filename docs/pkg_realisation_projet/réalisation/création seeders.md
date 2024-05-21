@@ -19,6 +19,6 @@ php artisan make:seeder FormationDataSeeder
 ````bash
 
 composer require league/csv
-php artisan db:seed --class=FormationDataSeeder
+php artisan db:seed 
 
 ````
