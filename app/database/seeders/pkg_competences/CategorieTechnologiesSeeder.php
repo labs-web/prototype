@@ -20,8 +20,8 @@ class CategorieTechnologiesSeeder extends Seeder
         while (($data = fgetcsv($csvFile)) !== FALSE) {
             if (!$firstline) {
                 CategorieTechnologie::create([
-                    "nom"=>$data['0'],
-                    "description"=>$data['1'],
+                    "nom" => $data['0'],
+                    "description" => $data['1'],
                     'updated_at' => Carbon::now(),
                     'created_at' => Carbon::now()
                 ]);

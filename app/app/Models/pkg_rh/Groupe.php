@@ -19,10 +19,6 @@ class Groupe extends Model
         return $this->hasMany(Apprenant::class);
     }
 
-    public function projets()
-    {
-        return $this->hasMany(Projet::class);
-    }
 
     public function formateurs()
     {
