@@ -9,35 +9,61 @@ order: 625
 
 #### Requêtes
 
-1. Donnez les apprenants qui ont validé la compétence C2
+1. Donnez les projets qui ont plus des tâches non réalisé
 
 ```bash
-SELECT p.id AS id_projet, p.nom AS nom_projet, COUNT(t.id) AS nb_taches_non_realisees
-FROM projet p
-JOIN taches t ON p.id = t.id_projet
-JOIN statut_taches st ON t.id = st.id_tache
-WHERE st.nom = 'afaire'
-GROUP BY p.id, p.nom;
+SELECT
+    p.id,
+    p.nom,
+    COUNT(t.id) AS NonRealiseTaches
+FROM
+    Projet p
+JOIN
+    Tache t ON p.id = t.projet_id
+JOIN
+    StatutTache st ON t.statut_tache_id = st.id
+WHERE
+    st.nom = 'afaire'
+GROUP BY
+    p.id, p.nom
+HAVING
+    COUNT(t.id) > 0;
 
 ```
 
-2. Donnez les tâches qui ont des livrables sans github
+2. Donnez les projets qui ont des livrables sans github
 
 ```bash
-SELECT p.id AS id_projet, p.nom AS nom_projet
-FROM projet p
-JOIN livrables l ON p.id = l.id_projet
-WHERE l.github_link IS NULL;
+SELECT
+    p.id,
+    p.nom AS nom_projet,
+    d.id AS id_livrable,
+    d.nom AS nom_livrable
+FROM
+    Projet p
+JOIN
+    Livrable d ON p.id = d.projet_id
+LEFT JOIN
+    GitHub g ON d.id = g.livrable_id
+WHERE
+    g.livrable_id IS NULL;
 
 ```
 
-3. Donnez les tâches les plus lentes à réaliser
+3. Donnez les projets les plus lents à réalisé
 
 ```bash
-SELECT p.id AS id_projet, p.nom AS nom_projet, p.completion_time
-FROM projet p
-ORDER BY p.completion_time DESC
-LIMIT 10;
-
+SELECT
+    p.id,
+    p.nom AS nom_projet,
+    DATEDIFF(MAX(t.dateEcheance), MIN(t.dateDebut)) AS duree_totale
+FROM
+    Projet p
+JOIN
+    Tache t ON p.id = t.projet_id
+GROUP BY
+    p.id, p.nom
+ORDER BY
+    duree_totale DESC
+LIMIT 1;
 ```
-
