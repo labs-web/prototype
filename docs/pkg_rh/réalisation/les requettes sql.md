@@ -1,15 +1,25 @@
+---
+layout: default
+chapitre : true
+package: gestion_rh
+order:  629
+---
 
 
 
 
+## pkg_rh
+
+### Variant 3 : class - Personne avec héritage
+
+#### Requêtes SQL :
+- Donnez la liste des formateurs
+- Donnez la liste des apprenants
+- Donnez les apprenants qui n’ont pas des tâches à faire
 
 
 
-
-
-
-
-
+#### Reponse 
 - Donnez la liste des formateurs
 
 ```bash
