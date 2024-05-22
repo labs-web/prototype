@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\pkg_autorisations;
 
-use App\Models\Autorisation\Permission;
+use App\Models\pkg_autorisations\Permission;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Traits\HasPermissions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

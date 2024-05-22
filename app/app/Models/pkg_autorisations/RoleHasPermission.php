@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\Autorisation;
+namespace App\Models\pkg_autorisations;
 
-use App\Models\Role;
+use App\Models\pkg_autorisations\Role;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
