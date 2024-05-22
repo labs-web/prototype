@@ -15,7 +15,8 @@ return new class extends Migration
             $table->string('nom');
             $table->unsignedBigInteger('controller_id');
             $table->foreign('controller_id')->references('id')->on('controllers')->onDelete('cascade');
-       
+            // TODO : Il manque la relation avec la table Persmission 
+            // Il manque la relation avec lui
         });
     }
 

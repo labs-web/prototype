@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('categorie_technologies', function (Blueprint $table) {
+        Schema::table('niveau_competences', function (Blueprint $table) {
             $table->string('nom');
             $table->string('description');
-            
         });
     }
 
@@ -23,9 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('categorie_technologies', function (Blueprint $table) {
-            $table->dropColumn('nom');
-            $table->dropColumn('description');
+        Schema::table('niveau_competences', function (Blueprint $table) {
+            //
         });
     }
 };

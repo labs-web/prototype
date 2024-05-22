@@ -6,7 +6,8 @@ use Illuminate\Database\Seeder;
 use Symfony\Component\Uid\NilUuid;
 
 use Database\Seeders\pkg_realisation_projet\{
-    NatureLivrableSeeder
+    NatureLivrableSeeder,
+    MessageSeeder
 };
 
 
@@ -22,6 +23,7 @@ class RealisationProjetSeeder extends Seeder
     {
         return [
             NatureLivrableSeeder::class,
+            MessageSeeder::class,
         ];
     }
 }
