@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('categorie_technologies', function (Blueprint $table) {
-            $table->string('nom');
-            $table->string('description');
-            
+        Schema::table('projets', function (Blueprint $table) {
+            $table->string('objectifs')->nullable();
+            $table->date('date_debut')->nullable();
+            $table->date('date_echeance')->nullable();
         });
     }
 
@@ -23,9 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('categorie_technologies', function (Blueprint $table) {
-            $table->dropColumn('nom');
-            $table->dropColumn('description');
+        Schema::table('projets_table', function (Blueprint $table) {
+            //
         });
     }
 };
