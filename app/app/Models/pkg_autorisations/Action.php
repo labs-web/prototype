@@ -25,7 +25,7 @@ class Action extends Model
       return $this->belongsTo(Controller::class, 'controller_id');
     }
       public function permissions(){
-     return $this->hasOne(Permission::class, 'permissions');
+     return $this->hasOne(Permission::class, 'permission_id');
     }
     // Define the self-referential relationship for nested permissions
     public function parentActions()
