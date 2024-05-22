@@ -26,8 +26,6 @@ class CompetenceSeeder extends Seeder
                 Competence::create([
                     "nom" => $data[0],
                     "description" => $data[1],
-                    'created_at' => $data[2],
-                    'updated_at' => $data[3],
                 ]);
             }
             $firstline = false;
