@@ -8,12 +8,11 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     */  
+     */
     public function up(): void
     {
         Schema::table('personnes', function (Blueprint $table) {
-            $table->string('nom')->after('id');
-            $table->string('prenom')->after('nom');
+            $table->string('type')->after('prenom');
         });
     }
 
@@ -23,8 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('personnes', function (Blueprint $table) {
-            $table->dropColumn('nom');
-            $table->dropColumn('prenom');
+            $table->dropColumn('type');
         });
     }
 };

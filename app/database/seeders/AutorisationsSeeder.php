@@ -27,8 +27,8 @@ class AutorisationsSeeder extends Seeder
     {
         return [
             RoleSeeder::class,
-            ActionSeeder::class,
             ControllerSeeder::class,
+            ActionSeeder::class,
             
 
         ];

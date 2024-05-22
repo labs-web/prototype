@@ -6,8 +6,8 @@ use Illuminate\Database\Seeder;
 use Symfony\Component\Uid\NilUuid;
 
 use Database\Seeders\pkg_competences\{
-    CompetenceSeeder ,
     NiveauCompetencesSeeder,
+    CompetenceSeeder ,
     CategorieTechnologiesSeeder ,
 };
 
@@ -23,8 +23,8 @@ class CompetencesSeeder extends Seeder
     public static function Classes(): array
     {
         return [
-            CompetenceSeeder::class,
             NiveauCompetencesSeeder::class,
+            CompetenceSeeder::class,
             CategorieTechnologiesSeeder::class,
         ];
     }
