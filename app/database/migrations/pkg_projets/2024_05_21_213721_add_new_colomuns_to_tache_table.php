@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('competences', function (Blueprint $table) {
+        Schema::table('taches', function (Blueprint $table) {
             $table->string('nom');
             $table->text('description');
+            $table->string('priorité');
+            $table->Date('dateEchéance');
+            $table->unsignedBigInteger('apprenant_id')->nullable();
+            $table->foreign('apprenant_id')->references('id')->on('personnes')->onDelete('cascade');
         });
     }
 
@@ -22,9 +26,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('competences', function (Blueprint $table) {
+        Schema::table('taches', function (Blueprint $table) {
             $table->dropColumn('nom');
             $table->dropColumn('description');
+            $table->dropColumn('priorité');
+            $table->dropColumn('dateEchéance');
+            $table->dropColumn('apprenant_id');
         });
     }
 };
