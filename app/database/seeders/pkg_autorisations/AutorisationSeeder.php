@@ -20,6 +20,7 @@ class AutorisationSeeder extends Seeder
 
 
 
+
         Schema::disableForeignKeyConstraints();
         Autorisation::truncate();
         Schema::enableForeignKeyConstraints();
