@@ -16,8 +16,11 @@ return new class extends Migration
             $table->text('description');
             $table->string('priorité');
             $table->Date('dateEchéance');
-            $table->unsignedBigInteger('apprenant_id')->nullable();
-            $table->foreign('apprenant_id')->references('id')->on('personnes')->onDelete('cascade');
+            $table->unsignedBigInteger('personne_id')->nullable();
+            $table->unsignedBigInteger('projets_id')->nullable();
+
+            $table->foreign('personne_id')->references('id')->on('personnes')->onDelete('cascade');
+            $table->foreign('projets_id')->references('id')->on('projets')->onDelete('cascade');
         });
     }
 
@@ -31,7 +34,8 @@ return new class extends Migration
             $table->dropColumn('description');
             $table->dropColumn('priorité');
             $table->dropColumn('dateEchéance');
-            $table->dropColumn('apprenant_id');
+            $table->dropColumn('personne_id');
+            $table->dropColumn('projets_id');
         });
     }
 };
