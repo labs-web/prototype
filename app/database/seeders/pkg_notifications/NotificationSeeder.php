@@ -33,27 +33,27 @@ class NotificationSeeder extends Seeder
         // ]);
         // //
 
-        // Schema::disableForeignKeyConstraints();
-        // Notification::truncate();
-        // Schema::enableForeignKeyConstraints();
+        Schema::disableForeignKeyConstraints();
+        Notification::truncate();
+        Schema::enableForeignKeyConstraints();
 
-        // $csvFile = fopen(base_path("database/data/pkg_notifications/notifications.csv"), "r");
-        // $firstline = true;
-        // $i = 0;
-        // while (($data = fgetcsv($csvFile)) !== FALSE) {
-        //     if (!$firstline) {
-        //         $isVue = filter_var($data['2'], FILTER_VALIDATE_BOOLEAN);
+        $csvFile = fopen(base_path("database/data/pkg_notifications/notifications.csv"), "r");
+        $firstline = true;
+        $i = 0;
+        while (($data = fgetcsv($csvFile)) !== FALSE) {
+            if (!$firstline) {
+                $isVue = filter_var($data['2'], FILTER_VALIDATE_BOOLEAN);
 
-        //         Notification::create([
-        //             "title" => $data['0'],
-        //             "message" => $data['1'],
-        //             "isVue" => $isVue,
-        //             "apprenant_id" => $data['3'],
-        //         ]);
-        //     }
-        //     $firstline = false;
-        // }
+                Notification::create([
+                    "title" => $data['0'],
+                    "message" => $data['1'],
+                    "isVue" => $isVue,
+                    "apprenant_id" => $data['3'],
+                ]);
+            }
+            $firstline = false;
+        }
 
-        // fclose($csvFile);
+        fclose($csvFile);
     }
 }
