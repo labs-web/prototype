@@ -1,5 +1,5 @@
 <li class="nav-item has-treeview">
-    <a href="#" class="nav-link {{ Request::is('nature-livrables*') ? 'active' : '' }}">
+    <a href="#" class="nav-link {{ Request::is('Competences*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-leaf"></i>
         <p>
             Gestion des Competences
