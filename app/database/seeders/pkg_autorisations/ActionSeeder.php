@@ -33,17 +33,20 @@ class ActionSeeder extends Seeder
             if (!$firstline) {
                 Action::create([
 
-                    
-                        "id"=>$data[0],
-                    
-                        "nom"=>$data[1],
-                    
-                        "controller_id"=>$data[2],
-                                        
-                        "created_at"=>$data[3],
-                    
-                        "updated_at"=>$data[4],
-                    
+
+                    "id" => $data[0],
+
+                    "nom" => $data[1],
+
+                    "controller_id" => $data[2],
+
+                    "permission_id" => $data[3],
+
+                    "parent_action_id" => $data[4],
+
+                    "created_at" => $data[5],
+
+                    "updated_at" => $data[6]
                 ]);
             }
             $firstline = false;
