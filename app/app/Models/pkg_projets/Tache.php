@@ -15,6 +15,7 @@ class Tache extends Model
         'personne_id',
         'dateEchéance',
         'priorité',
+        'date_debut',
         'description',
         'nom',
         'created_at',
@@ -29,6 +30,6 @@ class Tache extends Model
     }
 
     public function StatutTache(){
-        return $this->hasMany(StatutTache::class);
+        return $this->belongsTo(StatutTache::class);
     }
 }
