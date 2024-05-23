@@ -20,35 +20,35 @@ class AutorisationSeeder extends Seeder
 
 
 
-        // Schema::disableForeignKeyConstraints();
-        // Autorisation::truncate();
-        // Schema::enableForeignKeyConstraints();
+        Schema::disableForeignKeyConstraints();
+        Autorisation::truncate();
+        Schema::enableForeignKeyConstraints();
 
-        // $csvFile = fopen(base_path("database/data/pkg_autorisations/Autorisations.csv"), "r");
-        // $firstline = true;
-        // $i = 0;
-        // while (($data = fgetcsv($csvFile)) !== FALSE) {
+        $csvFile = fopen(base_path("database/data/pkg_autorisations/Autorisations.csv"), "r");
+        $firstline = true;
+        $i = 0;
+        while (($data = fgetcsv($csvFile)) !== FALSE) {
 
 
-        //     if (!$firstline) {
-        //         Autorisation::create([
+            if (!$firstline) {
+                Autorisation::create([
 
                     
-        //                 "id"=>$data[0],
+                        "id"=>$data[0],
                                         
-        //                 "action_id"=>$data[1],
+                        "action_id"=>$data[1],
 
-        //                 "role_id"=>$data[2],
+                        "role_id"=>$data[2],
                                         
-        //                 "created_at"=>$data[3],
+                        "created_at"=>$data[3],
                     
-        //                 "updated_at" => $data[4],                    
-        //         ]);
-        //     }
-        //     $firstline = false;
-        // }
+                        "updated_at" => $data[4],                    
+                ]);
+            }
+            $firstline = false;
+        }
 
-        // fclose($csvFile);
+        fclose($csvFile);
 
     }
 }
