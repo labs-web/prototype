@@ -24,9 +24,8 @@ class NiveauCompetencesSeeder extends Seeder
         while (($data = fgetcsv($csvFile)) !== FALSE) {
             if (!$firstline) {
                 NiveauCompetence::create([
-                    "competence_id,"=>$data['0'],
-                    "nom"=>$data['1'],
-                    "description" =>$data['2']
+                    "nom"=>$data['0'],
+                    "description" =>$data['1']
                 ]);
             }
             $firstline = false;

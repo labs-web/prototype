@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::table('niveau_competences', function (Blueprint $table) {
             $table->string('nom');
             $table->string('description');
-            $table->unsignedBigInteger('competence_id');
-            $table->foreign('competence_id')->references('id')->on('competences')->onDelete('cascade');
-        });
+     });
     }
 
     /**
