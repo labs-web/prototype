@@ -24,10 +24,10 @@ class ProjetsSeeder extends Seeder
     public static function Classes(): array
     {
         return [
-            StatutTacheSeeder::class,
-            TachesSeeder::class,
             EquipeSeeder::class,
             ProjetSeeder::class,
+            TachesSeeder::class,
+            StatutTacheSeeder::class,
         ];
     }
 }
