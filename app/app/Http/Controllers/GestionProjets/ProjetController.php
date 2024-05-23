@@ -93,13 +93,6 @@ class ProjetController extends AppBaseController
         return redirect()->route('projets.index')->with('success', 'Le projet a été supprimer avec succés.');
     }
 
-    // digrame degant
-    public function indexGantt(TaskRepository $tacheRepository)
-    {
-        $taches = $tacheRepository->all();
-        return view('GestionProjets.projet.index-gantt', compact('taches'));
-    }
-
     public function export()
     {
         $projects = projet::all();
