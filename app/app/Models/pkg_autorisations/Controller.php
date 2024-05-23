@@ -14,6 +14,7 @@ class Controller extends Model
         'nom',
     ];
 
+    // TODO : relation hasMany non valide, il doit être relié avec action_id
     public function actions(){
         return $this->hasMany(Action::class,'controller_id');
     }

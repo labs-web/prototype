@@ -10,6 +10,7 @@ class Personne extends Model
 {
     use HasFactory;
 
+    // TODO : relation non valide
     public function notification()
     {
         return $this->hasMany(Notification::class, 'apprenant_id');

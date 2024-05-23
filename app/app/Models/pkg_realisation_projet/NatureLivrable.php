@@ -10,14 +10,12 @@ class NatureLivrable extends Model
 {
     use HasFactory;
 
-    protected $table = 'nature_livrables';
-
     protected $fillable = ['nom', 'description'];
 
     public function Livrable()
-{
-    return $this->hasMany(Livrable::class);
-}
+    {
+        return $this->hasMany(Livrable::class);
+    }
 
 }
 

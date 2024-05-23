@@ -1,6 +1,7 @@
-nom, description
-Développement Front-End, Se concentre sur le côté client des applications web, impliquant des technologies telles que HTML, CSS et JavaScript pour créer l'interface utilisateur et l'expérience utilisateur.
-Développement Back-End, Traite des opérations côté serveur, des bases de données et de la logique de l'application. Les technologies couramment utilisées incluent les langages côté serveur tels que Python, Ruby, PHP et Java, ainsi que des bases de données comme MySQL et MongoDB.
-Développement Full-Stack,  Implique à la fois le développement front-end et back-end. Les développeurs full-stack sont compétents dans toutes les étapes du développement web, de l'interface utilisateur à la gestion du serveur et à la manipulation de la base de données.
-Conception Réactive, Une approche de conception web qui garantit que les sites Web fonctionnent bien sur différents appareils et tailles d'écran. Cela implique l'utilisation de grilles flexibles, de mises en page et de requêtes multimédias dans CSS.
-Systèmes de Gestion de Contenu (CMS), Plateformes qui permettent aux utilisateurs de créer, gérer et modifier du contenu numérique sans avoir besoin de connaissances techniques spécialisées. Des exemples populaires incluent WordPress, Joomla et Drupal.
+nom,description
+Front-end Development,"Se concentre sur le côté client des applications web, impliquant des technologies telles que HTML, CSS et JavaScript pour créer l'interface utilisateur et l'expérience utilisateur."
+"Back-end Development","Traite des opérations côté serveur, des bases de données et de la logique de l'application. Les technologies couramment utilisées incluent les langages côté serveur tels que Python, Ruby, PHP et Java, ainsi que des bases de données comme MySQL et MongoDB."
+"Database Management","Implique la création, la gestion et la manipulation des bases de données pour les applications web. Utilise MySQL comme système de gestion de bases de données et SQL comme langage de requête."
+"Cross-platform Development","Réfère au développement d'applications fonctionnant sur plusieurs plateformes avec une seule base de code. Utilise le langage Kotlin pour le développement Android, serveur, web et multiplateforme."
+Conception Réactive,"Une approche de conception web qui garantit que les sites Web fonctionnent bien sur différents appareils et tailles d'écran. Cela implique l'utilisation de grilles flexibles, de mises en page et de requêtes multimédias dans CSS."
+Systèmes de Gestion de Contenu (CMS),"Plateformes qui permettent aux utilisateurs de créer, gérer et modifier du contenu numérique sans avoir besoin de connaissances techniques spécialisées. Des exemples populaires incluent WordPress, Joomla et Drupal."
