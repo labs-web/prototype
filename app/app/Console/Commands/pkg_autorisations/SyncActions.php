@@ -53,6 +53,7 @@ class SyncActions extends Command
         // Insert data into the database
         foreach ($controllers as $controllerName => $methods) {
             $controller = Controller::firstOrCreate(['nom' => $controllerName]);
+            $previousAction = null;
 
             foreach ($methods as $methodName) {
                 // Create or get the action
@@ -68,8 +69,12 @@ class SyncActions extends Command
                     'guard_name' => 'web'
                 ]);
 
-                // Update the action with the permission ID
-                $action->update(['permission_id' => $permission->id]);
+                // Update the action with the permission ID and parent_action_id
+                $action->update([
+                    'permission_id' => $permission->id,
+                ]);
+
+                $previousAction = $action;
             }
         }
 
