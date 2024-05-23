@@ -10,8 +10,7 @@ use Database\Seeders\pkg_autorisations\{
     RoleSeeder,
     ControllerSeeder,
     ActionSeeder,
-
-
+    AutorisationSeeder,
 };
 
 
@@ -27,10 +26,9 @@ class AutorisationsSeeder extends Seeder
     {
         return [
             RoleSeeder::class,
-            ActionSeeder::class,
             ControllerSeeder::class,
-            
-
+            ActionSeeder::class,
+            AutorisationSeeder::class
         ];
     }
 }

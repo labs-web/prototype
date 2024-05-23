@@ -8,12 +8,12 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     */
+     */  
     public function up(): void
     {
         Schema::table('personnes', function (Blueprint $table) {
-            $table->string('nom');
-            $table->string('prenom');
+            $table->string('nom')->after('id');
+            $table->string('prenom')->after('nom');
         });
     }
 

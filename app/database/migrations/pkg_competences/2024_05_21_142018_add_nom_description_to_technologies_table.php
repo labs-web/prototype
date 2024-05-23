@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->text('description')->nullable()->after('nom');
             $table->unsignedBigInteger('categorie_technologies_id')->after('description');
             $table->foreign('categorie_technologies_id')->references('id')->on('categorie_technologies')->onDelete('cascade');
+            $table->unsignedBigInteger('competence_id')->after('categorie_technologies_id');
+            $table->foreign('competence_id')->references('id')->on('competences')->onDelete('cascade');
         });
     }
 
