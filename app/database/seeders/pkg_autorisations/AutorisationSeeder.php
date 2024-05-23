@@ -17,8 +17,8 @@ class AutorisationSeeder extends Seeder
      */
     public function run(): void
     {
-        $AdminRole = User::ADMIN;
-        $MembreRole = User::APPRENANT;
+
+
 
         Schema::disableForeignKeyConstraints();
         Autorisation::truncate();
