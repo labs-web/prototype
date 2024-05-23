@@ -20,4 +20,3 @@ class TacheController extends AppBaseController
         return view('pkg_projets.kanban', compact('tachesData'));
     }
 }
-    

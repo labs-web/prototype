@@ -8,6 +8,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <!-- Scripts -->
+    <link rel="stylesheet" href="{{ asset('dist/jkanban.min.css') }}" />
+
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -68,5 +71,9 @@
             réservés.
         </footer>
     </div>
+
+
+    <script src="{{ asset('dist/jkanban.js') }}"></script>
+
 </body>
 </html>

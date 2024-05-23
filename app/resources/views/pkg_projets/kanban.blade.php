@@ -1,5 +1,7 @@
-{{-- <h1>Hello am kanban</h1>
+{{--
+<h1>Hello am kanban</h1>
 @dd($tachesData) --}}
+
 
 @extends('layouts.app')
 @section('title', __('GestionProjets/tache.singular'))
@@ -17,7 +19,6 @@
                 <div class="col-sm-6">
                     <h1>
                         @php
-                            // Generate the title using the title function
                             use App\helpers\TranslationHelper;
                             $lang = Config::get('app.locale');
                             $translatedName = TranslationHelper::getTitle(__('GestionProjets/tache.singular'), $lang);
@@ -59,8 +60,19 @@
 
                             </div>
                         </div>
-                        {{-- @include('GestionProjets.projet.table') --}}
                     </div>
+                    <div id="myKanban"></div>
+                        <button id="addDefault">Add "Default" board</button>
+
+                        <br />
+                        <button id="addToDo">Add element in "To Do" Board</button>
+                        <br />
+                        <button id="addToDoAtPosition">Add element in "To Do" Board at position 2</button>
+                        <br />
+                        <button id="removeBoard">Remove "Done" Board</button>
+                        <br />
+                        <button id="removeElement">Remove "My Task Test"</button>
+                </div>
                 </div>
             </div>
         </div>

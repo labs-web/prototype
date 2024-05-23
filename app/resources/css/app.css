@@ -9,6 +9,8 @@
 @import 'admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css';
 @import 'admin-lte/plugins/daterangepicker/daterangepicker.css';
 @import 'admin-lte/plugins/summernote/summernote-bs4.min.css';
+/* import kanban css */
+@import './pkg_projets/kanban.css';
 
 * {
     font-family: "Nunito", sans-serif;

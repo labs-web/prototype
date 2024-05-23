@@ -10,5 +10,8 @@ Route::middleware('auth')->group(function () {
     //     Route::get('tasks/export', [TaskController::class, 'export'])->name('tasks.export');
     //     Route::post('tasks/import', [TaskController::class, 'import'])->name('tasks.import');
     // });
-    Route::get('/kanban', [TacheController::class, 'index']);
+    // Route::get('/kanban', [TacheController::class, 'index']);
+    Route::get('/kanban', function (){
+        return view('pkg_projets.kanban');
+    });
 });
