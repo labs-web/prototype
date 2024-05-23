@@ -9,6 +9,7 @@ use Symfony\Component\Uid\NilUuid;
 use Database\Seeders\pkg_autorisations\{
     RoleSeeder,
     ControllerSeeder,
+    PermissionSeeder,
     ActionSeeder,
     AutorisationSeeder,
 };
@@ -27,6 +28,7 @@ class AutorisationsSeeder extends Seeder
         return [
             RoleSeeder::class,
             ControllerSeeder::class,
+            PermissionSeeder::class,
             ActionSeeder::class,
             AutorisationSeeder::class
         ];
