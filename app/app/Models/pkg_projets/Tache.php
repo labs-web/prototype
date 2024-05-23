@@ -10,7 +10,7 @@ class Tache extends Model
 {
     use HasFactory;
 
-    protected $filleable = [
+    protected $fillable = [
         'created_at',
         'updated_at',
         'nom',
@@ -19,7 +19,7 @@ class Tache extends Model
         'dateDebut',
         'dateEchéance',
         'personne_id',
-        'status_tache_id ',
+        'status_tache_id',
         'projets_id',
     ];
     public function Personne(){
