@@ -12,7 +12,7 @@ order: 1200
 ```bash
 
 SELECT *
-INTO OUTFILE 'C:/backup'
+INTO OUTFILE 'C:\backup'
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
