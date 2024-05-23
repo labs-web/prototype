@@ -9,5 +9,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('projets', ProjetController::class);
         Route::get('projets/export', [ProjetController::class, 'export'])->name('projets.export');
         Route::post('projets/import', [ProjetController::class, 'import'])->name('projets.import');
+        // digrame degant
+        Route::get('projetskkkkkk/diagramme-de-Gantt', [ProjetController::class, 'indexGantt'])->name('projets.gantt');
     });
 });
