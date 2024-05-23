@@ -25,8 +25,10 @@ $(document).ready(function () {
 
     // Fonction pour récupérer les données avec AJAX
     function fetchData(page, searchValue) {
+        var neededUrl = window.location.pathname;
+        console.log(neededUrl);
         $.ajax({
-            url: "/projets/?page=" + page + "&searchValue=" + searchValue,
+            url: neededUrl+"/?page=" + page + "&searchValue=" + searchValue,
             success: function (data) {
                 var newData = $(data);
 

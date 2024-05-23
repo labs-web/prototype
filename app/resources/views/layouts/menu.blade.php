@@ -8,3 +8,4 @@
 </li>
 
 @include('layouts.GestionProjets.GestionProjetsMenu')
+@include('layouts.pkg_competences.niveauxCompetences')
