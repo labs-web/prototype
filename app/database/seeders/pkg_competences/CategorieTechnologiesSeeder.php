@@ -6,6 +6,8 @@ use App\Models\pkg_competences\CategorieTechnologie;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
+
 
 class CategorieTechnologiesSeeder extends Seeder
 {
@@ -14,6 +16,10 @@ class CategorieTechnologiesSeeder extends Seeder
      */
     public function run(): void
     {
+        Schema::disableForeignKeyConstraints();
+        CategorieTechnologie::truncate();
+        Schema::enableForeignKeyConstraints();
+
         $csvFile = fopen(base_path("database/data/pkg_competences/CategorieTechnologie.csv"), "r");
         $firstline = true;
         $i = 0;
@@ -22,8 +28,6 @@ class CategorieTechnologiesSeeder extends Seeder
                 CategorieTechnologie::create([
                     "nom" => $data['0'],
                     "description" => $data['1'],
-                    'updated_at' => Carbon::now(),
-                    'created_at' => Carbon::now()
                 ]);
             }
             $firstline = false;

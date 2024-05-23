@@ -3,84 +3,97 @@ import "https://code.jquery.com/jquery-3.6.0.min.js";
 
 $(document).ready(function () {
     // Fonction pour mettre à jour un paramètre dans l'URL
-    function updateURLParameter(param, paramVal) {
-        var url = window.location.href;
-        var hash = location.hash;
-        url = url.replace(hash, "");
-        if (url.indexOf(param + "=") >= 0) {
-            var prefix = url.substring(0, url.indexOf(param + "="));
-            var suffix = url.substring(url.indexOf(param + "="));
-            suffix = suffix.substring(suffix.indexOf("=") + 1);
-            suffix =
-                suffix.indexOf("&") >= 0
-                    ? suffix.substring(suffix.indexOf("&"))
-                    : "";
-            url = prefix + param + "=" + paramVal + suffix;
-        } else {
-            if (url.indexOf("?") < 0) url += "?" + param + "=" + paramVal;
-            else url += "&" + param + "=" + paramVal;
-        }
-        window.history.replaceState({ path: url }, "", url + hash);
+   /**
+ * Function to update or add a query parameter in the current URL without reloading the page.
+ * @param {string} param - The parameter name to update or add.
+ * @param {string} paramVal - The value of the parameter to set.
+ */
+function updateURLParameter(param, paramVal) {
+    var url = window.location.href;
+    var hash = location.hash;
+
+    // Remove hash from the URL
+    url = url.replace(hash, "");
+
+    // Check if the parameter already exists in the URL
+    if (url.indexOf(param + "=") >= 0) {
+        var prefix = url.substring(0, url.indexOf(param + "="));
+        var suffix = url.substring(url.indexOf(param + "="));
+        suffix = suffix.substring(suffix.indexOf("=") + 1);
+        suffix = suffix.indexOf("&") >= 0 ? suffix.substring(suffix.indexOf("&")) : "";
+        url = prefix + param + "=" + paramVal + suffix;
+    } else {
+        // If parameter doesn't exist, append it to the URL
+        if (url.indexOf("?") < 0) 
+            url += "?" + param + "=" + paramVal;
+        else 
+            url += "&" + param + "=" + paramVal;
     }
+
+    // Update the URL in the browser history
+    window.history.replaceState({ path: url }, "", url + hash);
+}
 
     // Fonction pour récupérer les données avec AJAX
     function fetchData(page, searchValue) {
+<<<<<<< HEAD
         var neededUrl = window.location.pathname;
         console.log(neededUrl);
         $.ajax({
             url: neededUrl+"/?page=" + page + "&searchValue=" + searchValue,
+=======
+        var url = "";
+        if (window.location.pathname.includes("projets")) {
+            url = "/projets";
+        } else if (window.location.pathname.includes("Apprenant")) {
+            url = "/Apprenant";
+        }
+
+        $.ajax({
+            url: url + "/?page=" + page + "&searchValue=" + searchValue,
+>>>>>>> develop
             success: function (data) {
                 var newData = $(data);
-
-                $("tbody").html(newData.find("tbody").html());
+                if (url === "/projets") {
+                    $("tbody").html(newData.find("tbody").html());
+                } else if (url === "/Apprenant") {
+                    $("#table-personne").html(newData.find("#table-personne").html());
+                }
                 $("#card-footer").html(newData.find("#card-footer").html());
                 var paginationHtml = newData.find(".pagination").html();
-                if (paginationHtml) {
-                    $(".pagination").html(paginationHtml);
-                } else {
-                    $(".pagination").html("");
-                }
+                $(".pagination").html(paginationHtml || "");
             },
         });
+
         if (page !== null && searchValue !== null) {
             updateURLParameter("page", page);
             updateURLParameter("searchValue", searchValue);
         } else {
-            window.history.replaceState(
-                {},
-                document.title,
-                window.location.pathname
-            );
+            window.history.replaceState({}, document.title, window.location.pathname);
         }
     }
 
-    // Function to get URL parameter value by name
-    function getUrlParameter(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
-        var results = regex.exec(location.search);
-        return results === null
-            ? ""
-            : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
+    // Get initial page value
+    var initialPage = getUrlParameter("page");
 
-    var searchValueFromUrl = getUrlParameter("searchValue");
-    if (searchValueFromUrl) {
+    // Trigger initial data fetch if page is defined
+    if (initialPage) {
+        var searchValueFromUrl = getUrlParameter("searchValue");
         $("#table_search").val(searchValueFromUrl);
-        fetchData($("#page").val(), searchValueFromUrl);
+        fetchData(initialPage, searchValueFromUrl);
     }
 
-    // Gestion de l'événement de clic sur la pagination
-    $("body").on("click", ".pagination a", function (param) {
-        param.preventDefault();
+    // Handle pagination click event
+    $(document).on("click", ".pagination a", function (event) {
+        event.preventDefault();
         var page = $(this).attr("href").split("page=")[1];
         var searchValue = $("#table_search").val();
         fetchData(page, searchValue);
     });
 
-    // Gestion de l'événement de saisie dans la barre de recherche
+    // Handle search input event
     $("body").on("keyup", "#table_search", function () {
-        var page = $("#page").val();
+        var page = initialPage || 1; // Set a default page value if undefined
         var searchValue = $(this).val();
         fetchData(page, searchValue);
     });
@@ -91,7 +104,5 @@ $(document).ready(function () {
     }
 
     // Activation des dropdowns Bootstrap
-    $(document).ready(function () {
-        $(".dropdown-toggle").dropdown();
-    });
+    $(".dropdown-toggle").dropdown();
 });

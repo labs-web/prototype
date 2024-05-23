@@ -18,6 +18,7 @@ class AutorisationSeeder extends Seeder
     public function run(): void
     {
 
+
         // SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`prtotype`.`autorisations`, CONSTRAINT `autorisations_action_id_foreign` FOREIGN KEY (`action_id`) REFERENCES `actions` (`id`)) (Connection: mysql, SQL: insert into `autorisations` (`id`, `action_id`, `role_id`, `created_at`, `updated_at`) values (1, 1, 1, 2023-01-15 08:30:00, 2023-01-15 08:30:00))
 
 
