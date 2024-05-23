@@ -8,7 +8,6 @@ use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\pkg_projets\TaskRequest;
 use App\Imports\pkg_projets\TaskImport;
 use App\Exports\pkg_projets\TaskExport;
-use App\Models\pkg_projets\Task;
 use App\Repositories\pkg_projets\TaskRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -87,10 +86,17 @@ class TaskController extends AppBaseController
         return view('pkg_projets.task.index', compact('projectData'))->with('succes', 'Le task a été supprimer avec succés.');
     }
 
+        // digrame degant
+        public function indexGantt(TaskRepository $tacheRepository)
+        {
+            $taches = $tacheRepository->all();
+            return view('pkg_projets.projet.index-gantt', compact('taches'));
+        }
+    
     public function export()
     {
-        $projects = $this->taskRepository::all();
-        return Excel::download(new TaskExport($projects), 'task_export.xlsx');
+        $tasks = $this->taskRepository::all();
+        return Excel::download(new TaskExport($tasks), 'task_export.xlsx');
     }
 
     public function import(Request $request)
