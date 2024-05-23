@@ -1,33 +1,31 @@
 <?php
 
-namespace App\Repositories\Autorisation;
+namespace App\Repositories\pkg_autorisations;
 
-use App\Models\pkg_autorisations\Autorisation\Action;
-use App\Models\pkg_autorisations\Autorisation\Controller;
-use App\Repositories\BaseRepositorie;
+use App\Models\pkg_autorisations\Action;
+use App\Repositories\BaseRepository;
 use Illuminate\Support\Facades\Artisan;
 use ReflectionClass;
 use ReflectionMethod;
-use App\Exceptions\Autorisation\ActionException;
+use App\Exceptions\pkg_autorisations\ActionException;
+use App\Models\pkg_autorisations\Controller;
 
-class GestionActionsRepository extends BaseRepositorie {
+class GestionActionsRepository extends BaseRepository {
     protected $model;
 
     public function __construct(Action $Action){
         $this->model = $Action;
     }
 
-    public function find($id){
-        return $this->model->with('controller')->find($id);
+    public function find(int $id, array $columns = ['*']){
+        return $this->model->find($id, $columns);
     }
 
-    public function searchData($searchableData, $id)
-    {
-        return $this->model->where(function ($query) use ($searchableData, $id) {
-            $query->where('nom', 'like', '%' . $searchableData . '%');
-        })->where('controller_id', $id)->paginate(4);
+    public function searchData($searchableData, $perPage = 0)
+    {   
+        if ($perPage == 0) { $perPage = $this->paginationLimit;}
+        $query =  $this->allQuery($searchableData);
     }
-
     public function search($searchableData)
     {
         return $this->model->where(function ($query) use ($searchableData) {
@@ -35,20 +33,36 @@ class GestionActionsRepository extends BaseRepositorie {
         })->paginate(4);
     }
 
-    public function create($data)
-    {
-        $existingAction = $this->model->where('nom', $data['nom'])
-                                     ->where('controller_id', $data['controller_id'])
-                                     ->first();
-
-        if ($existingAction) {
-            throw new ActionException('Autorisation/action/message.createActionException');
-        }
+    public function create(array $data){
         return $this->model->create($data);
+    }
+
+    public function update($id, array $data)
+    {
+        $record = $this->model->find($id);
+
+        if (!$record) {
+            return false;
+        }
+
+        return $record->update($data);
     }
 
     public function filter()
     {
         return Controller::all();
     }
+
+    public function getFieldsSearchable(): array
+    {
+        // Define the fields that are searchable in your model
+        return [
+            'nom',
+            'controller_id',
+            'permission_id',
+            'parent_action_id'
+        ];
+    }
 }
+
+
