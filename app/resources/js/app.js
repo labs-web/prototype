@@ -6,7 +6,8 @@ import "admin-lte/dist/js/adminlte";
 import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle';
 import 'admin-lte/dist/js/adminlte';
 import './app.recherche';
-
+// digrame degan
+import 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js';
 // Importation de CKEditor
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
@@ -52,3 +53,9 @@ $(document).ready(function () {
 $(document).ready(function() {
     $('.select2').select2();
 });
+
+// digrame degant
+mermaid.initialize({
+    startOnLoad: true,
+});
+

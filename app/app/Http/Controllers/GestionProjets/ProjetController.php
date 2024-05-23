@@ -13,6 +13,7 @@ use App\Http\Controllers\AppBaseController;
 use Carbon\Carbon;
 use App\Exports\GestionProjets\projetExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Repositories\GestionProjets\TaskRepository;
 
 class ProjetController extends AppBaseController
 {
@@ -92,6 +93,12 @@ class ProjetController extends AppBaseController
         return redirect()->route('projets.index')->with('success', 'Le projet a été supprimer avec succés.');
     }
 
+    // digrame degant
+    public function indexGantt(TaskRepository $tacheRepository)
+    {
+        $taches = $tacheRepository->all();
+        return view('GestionProjets.projet.index-gantt', compact('taches'));
+    }
 
     public function export()
     {
