@@ -1,5 +1,6 @@
-<li class="nav-item has-treeview">
-    <a href="#" class="nav-link {{ Request::is('nature-livrables*') ? 'active' : '' }}">
+<ul class="nav nav-treeview">
+    <li class="nav-item ">
+        <a href="#" class="nav-link {{ Request::is('nature-livrables*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-leaf"></i>
         <p>
             Gestion des niveux
@@ -7,6 +8,5 @@
         </p>
     </a>
 
-    
-
 </li>
+</ul>
