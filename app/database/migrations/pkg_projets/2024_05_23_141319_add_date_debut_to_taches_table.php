@@ -8,14 +8,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('taches', function (Blueprint $table) {
-            $table->date('date_debut')->nullable()->after('priorité');
+            $table->date('dateDebut')->nullable()->after('priorité');
         });
     }
 
     public function down(): void
     {
         Schema::table('taches', function (Blueprint $table) {
-            $table->dropColumn('date_debut');
+            $table->dropColumn('dateDebut');
         });
     }
 };
