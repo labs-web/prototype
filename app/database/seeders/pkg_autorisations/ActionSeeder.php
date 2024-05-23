@@ -17,9 +17,6 @@ class ActionSeeder extends Seeder
      */
     public function run(): void
     {
-        $AdminRole = User::ADMIN;
-        $MembreRole = User::APPRENANT;
-
         Schema::disableForeignKeyConstraints();
         Action::truncate();
         Schema::enableForeignKeyConstraints();
@@ -53,34 +50,5 @@ class ActionSeeder extends Seeder
         }
 
         fclose($csvFile);
-        $actions = ['index', 'show', 'create', 'store', 'edit', 'update', 'destroy', 'export', 'import'];
-        foreach ($actions as $action) {
-            $permissionName = $action . '-' . "TachesController";
-            Permission::create(['name' => $permissionName, 'guard_name' => 'web']);
-        }
-
-        $tachesManagerRolePermissions = [
-            'index-TachesController',
-            'show-TachesController',
-            'create-TachesController',
-            'store-TachesController',
-            'edit-TachesController',
-            'update-TachesController',
-            'destroy-TachesController',
-            'export-TachesController',
-            'import-TachesController'
-        ];
-
-        $tachesMembreRolePermissions = [
-            'index-TachesController',
-            'show-TachesController',
-        ];
-
-        $admin = Role::where('name', $AdminRole)->first();
-        $membre = Role::where('name', $MembreRole)->first();
-
-        $admin->givePermissionTo($tachesManagerRolePermissions);
-        $membre->givePermissionTo($tachesMembreRolePermissions);
-
     }
 }

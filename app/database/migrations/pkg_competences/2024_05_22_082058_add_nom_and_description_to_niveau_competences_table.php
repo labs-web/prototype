@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('apprenants', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        Schema::table('niveau_competences', function (Blueprint $table) {
+            $table->string('nom');
+            $table->string('description');
+     });
+
     }
 
     /**
@@ -22,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('apprenants');
+        Schema::table('niveau_competences', function (Blueprint $table) {
+            //
+        });
     }
 };
