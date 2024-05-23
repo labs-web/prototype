@@ -1,3 +1,31 @@
+const boardsData = [
+    {
+        id: "_a-faire",
+        title: "A faire",
+        class: "default",
+        items: [{ title: "Tache a faire!" }],
+    },
+    {
+        id: "_encours",
+        title: "En cours",
+        class: "success",
+        items: [{ title: "Tache a en cours!" }],
+    },
+    {
+        id: "_envalidation",
+        title: "En validation",
+        class: "warning",
+        items: [{ title: "Tache en validation" }],
+    },
+    {
+        id: "_terminer",
+        title: "Terminer",
+        class: "info",
+        items: [{ title: "Tache terminer!" }],
+    },
+];
+
+/*
 var KanbanTest = new jKanban({
     element: "#myKanban",
     gutter: "10px",
@@ -5,126 +33,152 @@ var KanbanTest = new jKanban({
     itemHandleOptions: {
         enabled: true,
     },
-    click: function (el) {
-        console.log("Trigger on all items click!");
-    },
-    context: function (el, e) {
-        console.log("Trigger on all items right-click!");
-    },
-    dropEl: function (el, target, source, sibling) {
-        console.log(target.parentElement.getAttribute("data-id"));
-        console.log(el, target, source, sibling);
-    },
-    buttonClick: function (el, boardId) {
-        console.log(el);
-        console.log(boardId);
-        // create a form to enter element
-        var formItem = document.createElement("form");
-        formItem.setAttribute("class", "itemform");
-        formItem.innerHTML =
-            '<div class="form-group"><textarea class="form-control" rows="2" autofocus></textarea></div><div class="form-group"><button type="submit" class="btn btn-primary btn-xs pull-right">Submit</button><button type="button" id="CancelBtn" class="btn btn-default btn-xs pull-right">Cancel</button></div>';
+    // click: function (el) {
+    //     console.log("Trigger on all items click!");
+    // },
+    // context: function (el, e) {
+    //     console.log("Trigger on all items right-click!");
+    // },
+    // dropEl: function (el, target, source, sibling) {
+    //     console.log(target.parentElement.getAttribute("data-id"));
+    //     console.log(el, target, source, sibling);
+    // },
+    // buttonClick: function (el, boardId) {
+    //     console.log(el);
+    //     console.log(boardId);
+    //     // create a form to enter element
+    //     var formItem = document.createElement("form");
+    //     formItem.setAttribute("class", "itemform");
+    //     formItem.innerHTML =
+    //         '<div class="form-group"><textarea class="form-control" rows="2" autofocus></textarea></div><div class="form-group"><button type="submit" class="btn btn-primary btn-xs pull-right">Submit</button><button type="button" id="CancelBtn" class="btn btn-default btn-xs pull-right">Cancel</button></div>';
 
-        KanbanTest.addForm(boardId, formItem);
-        formItem.addEventListener("submit", function (e) {
-            e.preventDefault();
-            var text = e.target[0].value;
-            KanbanTest.addElement(boardId, {
-                title: text,
-            });
-            formItem.parentNode.removeChild(formItem);
-        });
-        document.getElementById("CancelBtn").onclick = function () {
-            formItem.parentNode.removeChild(formItem);
-        };
-    },
-    itemAddOptions: {
-        enabled: true,
-        content: "+ Add New Card",
-        class: "custom-button",
-        footer: true,
-    },
-    boards: [
-        {
-            id: "_a-faire",
-            title: "A faire",
-            class: "default,good",
-            // dragTo: ["_working"],
-            item: [
-                {
-                    id: "_test_delete",
-                    title: "Try drag this (Look the console)",
-                    drag: function (el, source) {
-                        console.log("START DRAG: " + el.dataset.eid);
-                    },
-                    dragend: function (el) {
-                        console.log("END DRAG: " + el.dataset.eid);
-                    },
-                    drop: function (el) {
-                        console.log("DROPPED: " + el.dataset.eid);
-                    },
-                },
-                {
-                    title: "Try Click This!",
-                    click: function (el) {
-                        alert("click");
-                    },
-                    context: function (el, e) {
-                        alert(
-                            "right-click at (" +
-                                `${e.pageX}` +
-                                "," +
-                                `${e.pageX}` +
-                                ")"
-                        );
-                    },
-                    class: ["peppe", "bello"],
-                },
-            ],
-        },
-        {
-            id: "_encours",
-            title: "En cours",
-            class: "success",
-            item: [
-                {
-                    title: "Do Something!",
-                },
-                {
-                    title: "Run?",
-                },
-            ],
-        },
-        {
-            id: "_envalidation",
-            title: "En validation",
-            class: "warning",
-            // dragTo: ["_working"],
-            item: [
-                {
-                    title: "All right",
-                },
-                {
-                    title: "Ok!",
-                },
-            ],
-        },
-        {
-            id: "_terminer",
-            title: "Terminer",
-            class: "info",
-            // dragTo: ["_working"],
-            item: [
-                {
-                    title: "All right",
-                },
-                {
-                    title: "Ok!",
-                },
-            ],
-        },
-    ],
+    //     KanbanTest.addForm(boardId, formItem);
+    //     formItem.addEventListener("submit", function (e) {
+    //         e.preventDefault();
+    //         var text = e.target[0].value;
+    //         KanbanTest.addElement(boardId, {
+    //             title: text,
+    //         });
+    //         formItem.parentNode.removeChild(formItem);
+    //     });
+    //     document.getElementById("CancelBtn").onclick = function () {
+    //         formItem.parentNode.removeChild(formItem);
+    //     };
+    // },
+    // itemAddOptions: {
+    //     enabled: true,
+    //     content: "+ Add New Card",
+    //     class: "custom-button",
+    //     footer: true,
+    // },
+
+    boards: boardsData.map((board) => ({
+        id: board.id,
+        title: board.title,
+        class: board.class,
+        item: board.items.map((item) => ({
+            title: item.title,
+        })),
+    })),
+
+    // boards: [
+    //     {
+    //         id: "_a-faire",
+    //         title: "A faire",
+    //         class: "default,good",
+    //         item: [
+    //             {
+    //                 title: "Try Click This!",
+    //             },
+    //         ],
+    //     },
+    //     {
+    //         id: "_encours",
+    //         title: "En cours",
+    //         class: "success",
+    //         item: [
+    //             {
+    //                 title: "Do Something!",
+    //             },
+    //             {
+    //                 title: "Run?",
+    //             },
+    //         ],
+    //     },
+    //     {
+    //         id: "_envalidation",
+    //         title: "En validation",
+    //         class: "warning",
+    //         // dragTo: ["_working"],
+    //         item: [
+    //             {
+    //                 title: "All right",
+    //             },
+    //             {
+    //                 title: "Ok!",
+    //             },
+    //         ],
+    //     },
+    //     {
+    //         id: "_terminer",
+    //         title: "Terminer",
+    //         class: "info",
+    //         // dragTo: ["_working"],
+    //         item: [
+    //             {
+    //                 title: "All right",
+    //             },
+    //             {
+    //                 title: "Ok!",
+    //             },
+    //         ],
+    //     },
+    // ],
 });
+*/
 
+async function fetchTasks() {
+    try {
+        const response = await fetch("/fetch-tasks");
+        if (!response.ok) {
+            throw new Error(
+                "Network response was not ok" + response.statusText
+            );
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        throw error;
+    }
+}
+let KanbanTest;
+// Fetch tasks and initialize Kanban board
+fetchTasks()
+    .then((data) => {
+        console.log(data);
+        // Initialize the Kanban board after fetching data
+        KanbanTest = new jKanban({
+            element: "#myKanban",
+            gutter: "10px",
+            widthBoard: "400px",
+            itemHandleOptions: {
+                enabled: true,
+            },
+            boards: data.map((board) => ({
+                id: board.id,
+                title: board.title,
+                class: board.class,
+                item: board.items.map((item) => ({
+                    title: item.title,
+                })),
+            })),
+        });
+    })
+    .catch((error) => {
+        console.error("Error fetching data:", error);
+    });
+/*
 var toDoButton = document.getElementById("addToDo");
 toDoButton.addEventListener("click", function () {
     KanbanTest.addElement("_a-faire", {
@@ -178,3 +232,4 @@ var allEle = KanbanTest.getBoardElements("_a-faire");
 allEle.forEach(function (item, index) {
     //console.log(item);
 });
+*/

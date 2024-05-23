@@ -20,15 +20,18 @@ class Tache extends Model
         'created_at',
         'updated_at'
     ];
-    public function Personne(){
+    public function Personne()
+    {
         return $this->belongsTo(Personne::class);
     }
 
-    public function Projet(){
+    public function Projet()
+    {
         return $this->belongsTo(Projet::class);
     }
 
-    public function StatutTache(){
-        return $this->belongsTo(StatutTache::class);
+    public function statut_taches()
+    {
+        return $this->belongsTo(StatutTache::class, 'status_tache_id');
     }
 }

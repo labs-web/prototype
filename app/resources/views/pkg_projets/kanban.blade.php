@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div id="myKanban"></div>
-                        <button id="addDefault">Add "Default" board</button>
+                    {{-- <button id="addDefault">Add "Default" board</button>
 
                         <br />
                         <button id="addToDo">Add element in "To Do" Board</button>
@@ -71,10 +71,10 @@
                         <br />
                         <button id="removeBoard">Remove "Done" Board</button>
                         <br />
-                        <button id="removeElement">Remove "My Task Test"</button>
-                </div>
+                        <button id="removeElement">Remove "My Task Test"</button> --}}
                 </div>
             </div>
+        </div>
         </div>
         <input type="hidden" id='page' value="1">
     </section>
