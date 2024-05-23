@@ -15,6 +15,7 @@ class Tache extends Model
         'personne_id',
         'dateEchéance',
         'priorité',
+        'date_debut',
         'description',
         'nom',
         'created_at',
