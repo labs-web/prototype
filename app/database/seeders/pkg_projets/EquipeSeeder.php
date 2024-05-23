@@ -2,10 +2,12 @@
 
 namespace Database\Seeders\pkg_projets;
 
-use App\Models\pkg_projets\Equipe;
+use Log;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\pkg_projets\Equipe;
+use App\Models\pkg_projets\Projet;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 
 class EquipeSeeder extends Seeder
@@ -15,32 +17,40 @@ class EquipeSeeder extends Seeder
      */
     public function run(): void
     {
-
-
-        // SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`prtotype`.`equipes`, CONSTRAINT `equipes_projet_id_foreign` FOREIGN KEY (`projet_id`) REFERENCES `projets` (`id`) ON DELETE CASCADE) (Connection: mysql, SQL: insert into `equipes` (`nom`, `description`, `projet_id`, `created_at`, `updated_at`) values (equipe 1, mission d'equipe 1, 1, 2022-01-01 00:00:00, 2022-01-01 00:00:00))
-
-
-
-        // Schema::disableForeignKeyConstraints();
-        // Equipe::truncate();
-        // Schema::enableForeignKeyConstraints();
-
-        // $csvFile = fopen(base_path("database/data/pkg_projets/equipes.csv"), "r");
-        // $firstline = true;
-
-        // while (($data = fgetcsv($csvFile)) !== FALSE) {
-        //     if (!$firstline) {
-        //         Equipe::create([
-        //             'nom' => $data[0],
-        //             'description' => $data[1],
-        //             'projet_id' => $data[2],
-        //             'created_at' => $data[3],
-        //             'updated_at' => $data[4],
-        //         ]);
-        //     }
-        //     $firstline = false;
+        Schema::disableForeignKeyConstraints();
+        Equipe::truncate();
+        Schema::enableForeignKeyConstraints();
+        
+        // if (Projet::count() == 0) {
+        //     // Create a default projet with id 1
+        //     Projet::create([
+        //         'id' => 1,
+        //         'nom' => 'Default Project',
+        //         'description' => 'Default Project',
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ]);
         // }
 
-        // fclose($csvFile);
+        $csvFile = fopen(base_path("database/data/pkg_projets/equipes.csv"), "r");
+        $firstline = true;
+
+        while (($data = fgetcsv($csvFile)) !== FALSE) {
+            if (!$firstline) {
+                // Check if the projet_id exists in the projets table
+                if (Projet::find($data[2])) {
+                    Equipe::create([
+                        'nom' => $data[0],
+                        'description' => $data[1],
+                        'projet_id' => $data[2],
+                        'created_at' => $data[3],
+                        'updated_at' => $data[4],
+                    ]);
+                }
+            }
+            $firstline = false;
+        }
+        fclose($csvFile);
+        
     }
 }

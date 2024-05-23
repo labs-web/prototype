@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(CompetencesSeeder::class);
         $this->call(NotificationsSeeder::class);
-        $this->call(RHSeeder::class);
         $this->call(ProjetsSeeder::class);
         $this->call(RealisationProjetSeeder::class);
         $this->call(PostsSeeder::class);

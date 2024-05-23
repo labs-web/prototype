@@ -6,10 +6,11 @@ use Illuminate\Database\Seeder;
 use Symfony\Component\Uid\NilUuid;
 
 use Database\Seeders\pkg_projets\{
-    StatutTacheSeeder,
+    ProjetSeeder,
     EquipeSeeder,
     TachesSeeder,
-    ProjetSeeder
+    StatutTacheSeeder,
+    ApprenantEquipeSeeder,
 };
 
 
@@ -24,10 +25,12 @@ class ProjetsSeeder extends Seeder
     public static function Classes(): array
     {
         return [
-            EquipeSeeder::class,
             ProjetSeeder::class,
-            TachesSeeder::class,
+            EquipeSeeder::class,
             StatutTacheSeeder::class,
+            TachesSeeder::class,
+            ApprenantEquipeSeeder::class,
+
         ];
     }
 }
