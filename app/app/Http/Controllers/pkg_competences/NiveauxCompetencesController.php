@@ -14,7 +14,7 @@ use App\Http\Controllers\AppBaseController;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 
-class niveauxCompetencesController extends AppBaseController
+class NiveauxCompetencesController extends AppBaseController
 {
     protected $niveauxCompetencesRepository;
     public function __construct(niveauxCompetencesRepository $niveauxCompetencesRepository)

@@ -7,7 +7,7 @@
                 <div class="col-sm-6">
                     <h1>{{ __('app.detail') }}</h1>
                 </div>
-                @can('edit-niveauxCompetencesController')
+                @can('edit-NiveauxCompetencesController')
                     <div class="col-sm-6">
                         <a href="{{ route('niveauxCompetences.edit', $fetchedData->id) }}" class="btn btn-default float-right">
                             <i class="far fa-edit"></i>

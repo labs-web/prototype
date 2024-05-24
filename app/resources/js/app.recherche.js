@@ -36,22 +36,11 @@ function updateURLParameter(param, paramVal) {
 
     // Fonction pour récupérer les données avec AJAX
     function fetchData(page, searchValue) {
-<<<<<<< HEAD
         var neededUrl = window.location.pathname;
         console.log(neededUrl);
         $.ajax({
             url: neededUrl+"/?page=" + page + "&searchValue=" + searchValue,
-=======
-        var url = "";
-        if (window.location.pathname.includes("projets")) {
-            url = "/projets";
-        } else if (window.location.pathname.includes("Apprenant")) {
-            url = "/Apprenant";
-        }
 
-        $.ajax({
-            url: url + "/?page=" + page + "&searchValue=" + searchValue,
->>>>>>> develop
             success: function (data) {
                 var newData = $(data);
                 if (url === "/projets") {
