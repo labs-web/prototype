@@ -4,7 +4,6 @@ namespace Database\Seeders\pkg_rh;
 
 use App\Models\pkg_rh\Personne;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Models\Role;
@@ -20,41 +19,45 @@ class PersonneSeeder extends Seeder
         Personne::truncate();
         Schema::enableForeignKeyConstraints();
 
-        $csvFile = fopen(base_path("database/data/pkg_rh/Personnes.csv"), "r");
+        $csvFilePath = base_path("database/data/pkg_rh/Personnes.csv");
+        $csvFile = fopen($csvFilePath, "r");
 
-        $firstline = true;
-        while (($data = fgetcsv($csvFile)) !== FALSE) {
-            if ($firstline) {
-                $firstline = false;
-                continue;
+        if (!$csvFile) {
+            throw new \Exception("Failed to open CSV file: $csvFilePath");
+        }
+
+        $firstLine = true;
+        while (($data = fgetcsv($csvFile)) !== false) {
+            if ($firstLine) {
+                $firstLine = false;
+                continue; // Skip the header row
             }
 
-            if (count($data) < 6) {
-                continue;
+            // Validate data
+            if (count($data) < 4) {
+                continue; 
             }
 
-            $existingPersonne = Personne::where('nom', $data[0])
-                ->where('prenom', $data[1])
-                ->where('type', $data[2])
-                ->where('created_at', $data[3])
-                ->where('updated_at', $data[4])
-                ->where('groupe_id', $data[5])
-                ->first();
 
+            // Map CSV data to database fields
+            $personneData = [
+                "nom" => $data[0],
+                "prenom" => $data[1],
+                "type" => $data[2],
+                "groupe_id" => $data[3],
+            ];
+
+            // Check if Personne already exists
+            $existingPersonne = Personne::where($personneData)->first();
             if (!$existingPersonne) {
-                Personne::create([
-                    "nom" => $data[0],
-                    "prenom" => $data[1],
-                    "type" => $data[2],
-                    "created_at" => $data[3],
-                    "updated_at" => $data[4],
-                    "groupe_id" => $data[5],
-                ]);
+                // Create new Personne if not exists
+                Personne::create($personneData);
             }
         }
 
         fclose($csvFile);
 
+        // Seed permissions
         $permissions = $this->readPermissionsFromCSV();
         foreach ($permissions as $permissionName) {
             $existingPermission = Permission::where('name', $permissionName)->first();
@@ -73,11 +76,16 @@ class PersonneSeeder extends Seeder
     {
         $permissionsArray = [];
 
-        $csvFilePermissions = fopen(base_path("database/data/pkg_rh/Permissions.csv"), "r");
+        $csvFilePath = base_path("database/data/pkg_rh/Permissions.csv");
+        $csvFilePermissions = fopen($csvFilePath, "r");
 
-        fgetcsv($csvFilePermissions);
+        if (!$csvFilePermissions) {
+            throw new \Exception("Failed to open CSV file: $csvFilePath");
+        }
 
-        while (($data = fgetcsv($csvFilePermissions)) !== FALSE) {
+        fgetcsv($csvFilePermissions); // Skip the header row
+
+        while (($data = fgetcsv($csvFilePermissions)) !== false) {
             $permissionsArray[] = $data[0];
         }
 
