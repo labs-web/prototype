@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Models\pkg_rh;
-use App\Models\pkg_rh\Personne;
+namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\MorphType; 
 
-class Formateur extends Personne
+class Formateur extends Model
 {
-    use HasFactory, MorphType; 
+    use HasFactory;
 }

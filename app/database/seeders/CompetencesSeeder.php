@@ -24,8 +24,8 @@ class CompetencesSeeder extends Seeder
     public static function Classes(): array
     {
         return [
-            NiveauCompetencesSeeder::class,
             CompetenceSeeder::class,
+            NiveauCompetencesSeeder::class,
             CategorieTechnologiesSeeder::class,
             TechnologiesSeeder::class,
         ];

@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::table('categorie_technologies', function (Blueprint $table) {
             $table->string('nom');
             $table->string('description');
-            
         });
     }
 

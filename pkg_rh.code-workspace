@@ -50,14 +50,6 @@
         {
             "path": "./collaboration",
             "name": "collaboration"
-        },
-        {
-            "path": "./app/resources/lang/fr/pkg_competences",
-            "name": "Multilang"
-        },
-        {
-            "path": "./app/database/data/pkg_competences",
-            "name": "Data"
         }
     ],
     "settings": {

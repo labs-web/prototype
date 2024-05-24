@@ -11,9 +11,14 @@ class Competence extends Model
 
     protected $fillable = [
         'nom',
-        'description'
+        'description',
+        'niveau_competences_id',
     ];
 
+    public function NiveauCompetence()
+    {
+        return $this->belongsTo(NiveauCompetence::class);
+    }
 
     public function Technologie()
     {

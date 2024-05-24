@@ -2,6 +2,7 @@
 
 namespace App\Models\pkg_competences;
 
+use App\Models\Technologie;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,10 +13,11 @@ class CategorieTechnologie extends Model
     protected $fillable = [
         'nom',
         'description',
+        'updated_at',
+        'created_at',
     ];
 
-    public function technologie()
-    {
-        return $this->hasMany(Technologie::class, 'categorie_technologies_id');
+    public function Technologie(){
+        $this->belongsTo(Technologie::class);
     }
 }

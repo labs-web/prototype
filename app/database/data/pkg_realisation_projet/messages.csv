@@ -1,6 +1,0 @@
-titre,description,projet_id,tach_id,isLue
-Intégration des Projets dans le Portfolio,"Ajouter des sections dédiées à chaque projet dans le portfolio. Inclure des descriptions détaillées des images et des liens vers les projets en ligne",1,1,true
-Rédaction des Contenus,"Rediger des textes engageants pour les différentes sections du portfolio y compris la biographie les descriptions de projets et les temoignages clients",1,2,false
-Introduction au Projet Arbre des compétences,"créeration une application pour évaluer des compétences",2,1,false
-Conception de la Base de Données,"Conçois une base de données pour les compétences.",2,2,false
-CNMH - Diagramme de cas d'utilisation,"Crée un diagramme de cas d'utilisation pour l'application de gestion des patients du centre CNMH",3,1,true

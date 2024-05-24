@@ -1,8 +1,8 @@
-nom,description
-Maquetter une application mobile,"Cette compétence vous permettra de concevoir des maquettes d\'applications mobiles, aidant ainsi à visualiser et à planifier l\'interface utilisateur"
-Manipuler une base de données - perfectionnement,"Cette compétence vous permettra de maîtriser la manipulation avancée des bases de données, ce qui est essentiel pour stocker et gérer des informations"
-Développer la partie back-end d\'une application web ou web mobile - perfectionnement,Cette compétence vous permettra de créer et de gérer la logique côté serveur d\'applications web et mobiles avancées
-Collaborer à la gestion d\'un projet informatique et à l\'organisation de l\'environnement de développement - perfectionnement,Cette compétence vous préparera à jouer un rôle essentiel dans la gestion de projets informatiques et l\'optimisation de l\'environnement de développement
-"Développer une application mobile native, avec Android et React Native",Cette compétence vous permettra de créer des applications mobiles performantes pour les plateformes Android et React Native
-Préparer et exécuter les plans de tests d\'une application,Cette compétence vous aidera à élaborer des stratégies de test efficaces pour garantir la qualité des applications
-Préparer et exécuter le déploiement d\'une application web et mobile - perfectionnement,Cette compétence vous permettra de maîtriser le processus de déploiement d\'applications web et mobiles avancées
+nom,description,niveau_competences_id
+Maquetter une application mobile,"Cette compétence vous permettra de concevoir des maquettes d\'applications mobiles, aidant ainsi à visualiser et à planifier l\'interface utilisateur",1
+Manipuler une base de données - perfectionnement,"Cette compétence vous permettra de maîtriser la manipulation avancée des bases de données, ce qui est essentiel pour stocker et gérer des informations",2
+Développer la partie back-end d\'une application web ou web mobile - perfectionnement,Cette compétence vous permettra de créer et de gérer la logique côté serveur d\'applications web et mobiles avancées,1
+Collaborer à la gestion d\'un projet informatique et à l\'organisation de l\'environnement de développement - perfectionnement,Cette compétence vous préparera à jouer un rôle essentiel dans la gestion de projets informatiques et l\'optimisation de l\'environnement de développement,1
+"Développer une application mobile native, avec Android et React Native",Cette compétence vous permettra de créer des applications mobiles performantes pour les plateformes Android et React Native,1
+Préparer et exécuter les plans de tests d\'une application,Cette compétence vous aidera à élaborer des stratégies de test efficaces pour garantir la qualité des applications,2
+Préparer et exécuter le déploiement d\'une application web et mobile - perfectionnement,Cette compétence vous permettra de maîtriser le processus de déploiement d\'applications web et mobiles avancées,1

@@ -109,10 +109,6 @@ password : admin
 login : apprenant@solicode.co
 password : apprenant
 
-### formateur
-
-login : formateur@solicode.co
-password : formateur
 
 ## Collaboration 
 
