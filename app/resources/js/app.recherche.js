@@ -27,7 +27,7 @@ $(document).ready(function () {
         var neededUrl = window.location.pathname;
         console.log(neededUrl);
         $.ajax({
-            url: neededUrl + "/?page=" + page + "&searchValue=" + searchValue,
+            url: neededUrl+"/?page=" + page + "&searchValue=" + searchValue,
             success: function (data) {
                 var newData = $(data);
 
