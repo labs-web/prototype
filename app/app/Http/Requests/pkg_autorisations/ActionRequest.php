@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\pkg_autorisation;
+namespace App\Http\Requests\pkg_autorisations;
 
 use Illuminate\Foundation\Http\FormRequest;
 

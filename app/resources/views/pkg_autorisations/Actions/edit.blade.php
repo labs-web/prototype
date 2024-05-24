@@ -1,65 +1,48 @@
-<!DOCTYPE html>
-<html lang="fr">
+@extends('layouts.app')
+@section('content')
 
-<!-- Inclure l'en-tête -->
-<?php include_once "../../layouts/heade.php" ?>
+<div class="content-header">
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            {{ session('success') }}.
+        </div>
+    @endif
 
-<body class="sidebar-mini" style="height: auto;">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>{{__('Autorisation/action/message.editAction')}} {{$action->nom}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="content">
 
-    <div class="wrapper">
-        <!-- Navigation -->
-        <?php include_once "../../layouts/nav.php" ?>
-        <!-- Barre latérale -->
-        <?php include_once "../../layouts/aside.php" ?>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 p-4">
 
-        <div class="content-wrapper" style="min-height: 1302.4px;">
-
-            <div class="content-header">
+            <div class="card card-info">
+                <div class="card-header">
+                    <h3 class="card-title">{{__('Autorisation/action/message.edit')}}</h3>
+                </div>
+                <form action="{{ route('actions.update',$action->id) }}" method="post">
+                    @csrf
+                    @method('put')
+                    <div class="card-body">
+                        @include('pkg_autorisations.Actions.fields')
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ route('actions.index') }}" class="btn btn-default">{{__('Autorisation/action/message.cancel')}}</a>
+                        <button type="submit" class="btn btn-info">{{__('Autorisation/action/message.edit')}}</button>
+                    </div>
+                </form>
             </div>
 
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <h1>Editer l'action ajoute</h1>
-                        <div class="col-md-12">
-
-                            <div class="card card-card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Editer</h3>
-                                </div>
-                                <div class="card-body">
-                                    <!-- Obtenir le formulaire -->
-                                    <div class="form-group">
-                                        <label for="rActionName"> Controller </label>
-                                        <select class="form-control" id="rActionName">
-                                        <option selected>Projects Controller</option>
-                                        <option value="1">Tache Controller</option>
-                                        <option value="2">Action Controller</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="rActionName"> Nom </label>
-                                        <input type="text" class="form-control" id="rActionName" placeholder="Entrez le nom de l'action" value="create">
-                                    </div>
-                                    <div class="card-footer">
-                                        <button href="index.php" type="submit" class="btn btn-default">Cancel</button>
-                                        <button type="submit" class="btn btn-primary">Ajouter</button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
         </div>
-
-        <!-- Inclure le pied de page -->
-        <?php include_once "../../layouts/footer.php" ?>
-        <!-- Inclure le script -->
-        <?php include_once "../../layouts/script-link.php" ?>
     </div>
-</body>
+</div>
+</section>
 
-</html>
+@endsection

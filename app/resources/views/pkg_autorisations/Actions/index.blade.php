@@ -7,6 +7,17 @@
 @section('content')
 
 <body class="sidebar-mini" style="height: auto;">
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
 
   <div class="wrapper">
     <!-- Navigation -->
@@ -30,7 +41,7 @@
                   <a href="#" class="btn btn-secondary mx-5 ">
                     <i class="fas fa-download"></i> Télécharger les Actions
                   </a>
-                  <a href={{route('actions.create')}} class="btn btn-info">
+                  <a href="{{route('actions.create')}}" class="btn btn-info">
                     <i class="fas fa-plus"></i> Ajouter
                   </a>
                 </div>
@@ -56,6 +67,15 @@
                       </div>
                     </div>
                   </div>
+                  <div class="form-group form-group-sm col-md-4">
+                    <label for="controllerSelect">{{ __('Autorisation/GestionAutorisation/message.Controller') }}</label>
+                      <select class="form-control" id="controllerSelect">
+                        <option value="">All Controllers</option>
+                          @foreach ($controllers as $controller)
+                            <option value="{{$controller->nom}}">{{$controller->nom}}</option>
+                          @endforeach
+                       </select>
+                  </div>
                 </div>
                 <!-- /.card-header -->
 
@@ -65,52 +85,37 @@
                       <th>Nom de l'action</th>
                       <th>Controller</th>
                       <th class="action-column" style="width: 150px;">Action </th>
-
                     </tr>
-
                   </thead>
                   <tbody>
+                  @foreach($actions as $action)
                     <tr>
-                      <td>create-ProjectsController</td>
-                      <td>ProjectsController</td>
+                    <td>{{ $action->nom }}</td>
+                    <td>{{ $action->controller->nom }}</td>
                       <td>
-                        <a href="./edit.php" class="btn btn-sm btn-default"><i class="fas fa-edit"></i></a>
-                        <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+                      <a href="{{ route('actions.edit', $action->id) }}" class="btn btn-sm btn-default">
+                        <i class="fas fa-edit"></i>
+                   </a>
+                       <form action="{{ route('actions.destroy', $action->id) }}" method="POST" style="display:inline;">
+                         @csrf
+                        @method('DELETE')
+                          <button type="submit" class="btn btn-sm btn-danger">
+                               <i class="fas fa-trash-alt"></i>
+                          </button>
+                        </form>
                       </td>
                     </tr>
-                    <tr>
-                      <td>edit-ProjectsController</td>
-                      <td>ProjectsController</td>
-                      <td>
-                        <a href="./edit.php" class="btn btn-sm btn-default"><i class="fas fa-edit"></i></a>
-                        <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>delete-TasksController</td>
-                      <td>TasksController</td>
-                      <td>
-                        <a href="./edit.php" class="btn btn-sm btn-end"><i class="fas fa-edit"></i></a>
-                        <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
-                      </td>
-                    </tr>
+                    @endforeach
                     <!-- Add more rows for other actions -->
                   </tbody>
                   <tfoot>
-                    <tr>
-                      <td colspan="2">
+                  <tr>
+                    <td colspan="3">
                         <ul class="pagination justify-content-end">
-                          <li class="page-item"><a class="page-link text-secondary" href="#"><</a></li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item active">
-                            <a class="page-link" href="#">2 </a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">4</a></li>
-                          <li class="page-item"><a class="page-link text-secondary" href="#">></a></li>
+                         {{ $actions->links() }}
                         </ul>
-                      </td>
-                    </tr>
+                     </td>
+                  </tr>
                   </tfoot>
                 </table>
               </div>

@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         $admin = User::ADMIN;
         $apprenant = User::APPRENANT;
         $formateur = User::FORMATEUR;
-
+    
         User::create([
             'name' => 'apprenant',
             'email' => 'apprenant@solicode.co',

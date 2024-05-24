@@ -38,5 +38,9 @@ class Action extends Model
       // Laravel convention: model name + _id (plural) for foreign key
       return $this->belongsTo(self::class, 'parent_action_id');
     }
+    public function autorisations()
+    {
+        return $this->hasMany(Autorisation::class, 'action_id');
+    }
 
 }

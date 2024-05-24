@@ -4,7 +4,7 @@ namespace App\Http\Controllers\pkg_autorisations;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\pkg_autorisations\GestionActionsRepository; // Add this line to import the GestionActionsRepository class
-use App\Http\Requests\pkg_autorisation\ActionRequest;
+use App\Http\Requests\pkg_autorisations\ActionRequest;
 use App\Repositories\pkg_autorisations\GestionControllersRepository;
 use Illuminate\Support\Facades\Artisan;
 use App\Exceptions\pkg_autorisations\ActionException; // Add this line to import the ActionException class
@@ -34,6 +34,7 @@ class ActionController extends Controller
             $actions = $this->actionRepository->search($searchAction);
             return view('pkg_autorisations.Actions.index', compact('actions', 'controllers'))->render();
         }
+        
         return view('pkg_autorisations.Actions.index', compact('actions', 'controllers'));
     }
 
@@ -64,21 +65,20 @@ class ActionController extends Controller
         try {
             $data = $request->all();
             $this->actionRepository->create($data);
-            // dd($actions);
-            return back()->with('success', __('pkg_autorisations.actions.success'));
+            return redirect()->route('actions.index')->with('success', __('pkg_autorisations.actions.success'));
         } catch (ActionException $e) {
-            return back()->with('error',  __('pkg_autorisations.actions.error'));
-        }
-        catch (\Exception $e) {
+            return redirect()->route('actions.create')->with('error', __('pkg_autorisations.actions.error'));
+        } catch (\Exception $e) {
             return abort(500);
         }
     }
+    
 
     public function edit($id)
     {
         $action = $this->actionRepository->find($id);
         $controllers = $this->actionRepository->filter();
-        return view('pkg_autorisations.actions.editAction', compact('action', 'controllers'));
+        return view('pkg_autorisations.actions.edit', compact('action', 'controllers'));
     }
 
     public function update(Request $request, $action_id)
