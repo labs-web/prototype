@@ -65,9 +65,9 @@ class ActionController extends Controller
             $data = $request->all();
             $this->actionRepository->create($data);
             // dd($actions);
-            return back()->with('success', __('Autorisation/Action/message.ActionAdded'));
+            return back()->with('success', __('pkg_autorisations.actions.success'));
         } catch (ActionException $e) {
-            return back()->with('error',  __('Autorisation/Action/message.createActionException'));
+            return back()->with('error',  __('pkg_autorisations.actions.error'));
         }
         catch (\Exception $e) {
             return abort(500);
@@ -78,7 +78,7 @@ class ActionController extends Controller
     {
         $action = $this->actionRepository->find($id);
         $controllers = $this->actionRepository->filter();
-        return view('Autorisation.action.edit', compact('action', 'controllers'));
+        return view('pkg_autorisations.actions.editAction', compact('action', 'controllers'));
     }
 
     public function update(Request $request, $action_id)
@@ -86,7 +86,7 @@ class ActionController extends Controller
         try {
             $data = $request->all();
             $action = $this->actionRepository->update($action_id, $data);
-            return back()->with('success', __('Autorisation/Action/message.ActionUpdated'));
+            return back()->with('success', __('pkg_autorisations.actions.update'));
         } catch (ActionException $e) {
             return back()->withInput()->withErrors(['Action_exists' => __('Autorisation/Action/message.updateActionException')]);
         } catch (\Exception $e) {
