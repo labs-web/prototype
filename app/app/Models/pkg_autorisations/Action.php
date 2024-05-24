@@ -14,7 +14,7 @@ class Action extends Model
     protected $fillable = [
         'nom' ,
         'controller_id',
-        'permission_id',
+        // 'permission_id',
         'parent_action_id',
         'created_at',
         'updated_at',
