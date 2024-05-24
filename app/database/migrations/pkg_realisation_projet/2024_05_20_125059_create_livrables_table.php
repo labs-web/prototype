@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('livrables', function (Blueprint $table) {
             $table->id();
+            $table->string('titre');
+            $table->string('lien');
+            $table->text('description')->nullable();
             $table->timestamps();
+
         });
     }
 

@@ -8,3 +8,6 @@
 </li>
 
 @include('layouts.GestionProjets.GestionProjetsMenu')
+@include('layouts.pkg_competences.CompetencesMenu')
+@include('layouts.pkg_rh.pkg_rhMenu')
+@include('layouts.pkg_realisation_projet.GestionLivrable')

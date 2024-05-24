@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Models\pkg_competences\Competence;
 use App\Models\pkg_competences\NiveauCompetence;
+use Illuminate\Support\Facades\Schema;
+
 
 class CompetenceSeeder extends Seeder
 {
@@ -15,12 +17,10 @@ class CompetenceSeeder extends Seeder
      */
     public function run(): void
     {
-        NiveauCompetence::create([
-            'id' => '1',
-        ]);
-        NiveauCompetence::create([
-            'id' => '2',
-        ]);
+
+        Schema::disableForeignKeyConstraints();
+        Competence::truncate();
+        Schema::enableForeignKeyConstraints();
 
         $csvFile = fopen(base_path("database/data/pkg_competences/Competences.csv"), "r");
         if ($csvFile === false) {
@@ -33,9 +33,6 @@ class CompetenceSeeder extends Seeder
                 Competence::create([
                     "nom" => $data[0],
                     "description" => $data[1],
-                    "niveau_competences_id" => $data[2],
-                    'updated_at' => Carbon::now(),
-                    'created_at' => Carbon::now()
                 ]);
             }
             $firstline = false;

@@ -17,67 +17,38 @@ class ActionSeeder extends Seeder
      */
     public function run(): void
     {
-        $AdminRole = User::ADMIN;
-        $MembreRole = User::APPRENANT;
+        // Schema::disableForeignKeyConstraints();
+        // Action::truncate();
+        // Schema::enableForeignKeyConstraints();
 
-        Schema::disableForeignKeyConstraints();
-        Action::truncate();
-        Schema::enableForeignKeyConstraints();
-
-        $csvFile = fopen(base_path("database/data/pkg_autorisations/Actions.csv"), "r");
-        $firstline = true;
-        $i = 0;
-        while (($data = fgetcsv($csvFile)) !== FALSE) {
+        // $csvFile = fopen(base_path("database/data/pkg_autorisations/Actions.csv"), "r");
+        // $firstline = true;
+        // $i = 0;
+        // while (($data = fgetcsv($csvFile)) !== FALSE) {
 
 
-            if (!$firstline) {
-                Action::create([
+        //     if (!$firstline) {
+        //         Action::create([
 
-                    
-                        "id"=>$data[0],
-                    
-                        "nom"=>$data[1],
-                    
-                        "controller_id"=>$data[2],
-                                        
-                        "created_at"=>$data[3],
-                    
-                        "updated_at"=>$data[4],
-                    
-                ]);
-            }
-            $firstline = false;
-        }
 
-        fclose($csvFile);
-        $actions = ['index', 'show', 'create', 'store', 'edit', 'update', 'destroy', 'export', 'import'];
-        foreach ($actions as $action) {
-            $permissionName = $action . '-' . "TachesController";
-            Permission::create(['name' => $permissionName, 'guard_name' => 'web']);
-        }
+        //             "id" => $data[0],
 
-        $tachesManagerRolePermissions = [
-            'index-TachesController',
-            'show-TachesController',
-            'create-TachesController',
-            'store-TachesController',
-            'edit-TachesController',
-            'update-TachesController',
-            'destroy-TachesController',
-            'export-TachesController',
-            'import-TachesController'
-        ];
+        //             "nom" => $data[1],
 
-        $tachesMembreRolePermissions = [
-            'index-TachesController',
-            'show-TachesController',
-        ];
+        //             "controller_id" => $data[2],
 
-        $admin = Role::where('name', $AdminRole)->first();
-        $membre = Role::where('name', $MembreRole)->first();
+        //             "permission_id" => $data[3],
 
-        $admin->givePermissionTo($tachesManagerRolePermissions);
-        $membre->givePermissionTo($tachesMembreRolePermissions);
+        //             "parent_action_id" => $data[4],
 
+        //             "created_at" => $data[5],
+
+        //             "updated_at" => $data[6]
+        //         ]);
+        //     }
+        //     $firstline = false;
+        // }
+
+        // fclose($csvFile);
     }
 }

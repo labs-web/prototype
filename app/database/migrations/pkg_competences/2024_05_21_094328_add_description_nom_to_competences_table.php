@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::table('competences', function (Blueprint $table) {
             $table->string('nom');
             $table->text('description');
-            $table->unsignedBigInteger('niveau_competences_id');
-            $table->foreign('niveau_competences_id')->references('id')->on('niveau_competences')->onDelete('cascade');
         });
     }
 
@@ -25,8 +23,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('competences', function (Blueprint $table) {
-            $table->dropForeign(['niveau_competences_id']); 
-            $table->dropColumn('niveau_competences_id');
             $table->dropColumn('nom');
             $table->dropColumn('description');
         });

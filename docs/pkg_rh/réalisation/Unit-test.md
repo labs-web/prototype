@@ -11,8 +11,12 @@ order:  627
 ````bash
 
 php artisan make:test  pkg_rh/GroupeTest
+php artisan make:test  pkg_rh/PersonneTest
+
 
 php artisan test --filter=GroupeTest
+php artisan test --filter=PersonneTest
+
 
 ````
 
