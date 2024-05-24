@@ -9,7 +9,5 @@ Route::middleware('auth')->group(function () {
         Route::resource('tasks', TaskController::class);
         Route::get('tasks/export', [TaskController::class, 'export'])->name('tasks.export');
         Route::post('tasks/import', [TaskController::class, 'import'])->name('tasks.import');
-        // digrame degant
-        Route::get('tasks/diagramme-de-Gantt', [TaskController::class, 'indexGantt'])->name('tasks.gantt');
     });
 });
