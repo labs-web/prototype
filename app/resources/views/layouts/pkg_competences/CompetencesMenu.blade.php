@@ -8,29 +8,29 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item ">
-            <a href="{{ route('technologie.index') }}"
-                class="nav-link nav-link {{ Route::is('technologie.index'.'*') ? 'active' : '' }}">
+            <a href="{{ route('technologies.index') }}"
+                class="nav-link nav-link {{ Route::is('technologies.index' . '*') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-table"></i>
                 <p>Technologies</p>
             </a>
         </li>
         <li class="nav-item ">
             <a href="{{ route('niveauxCompetences.index') }}"
-                class="nav-link nav-link {{ Route::is('niveauxCompetences.index'.'*') ? 'active' : '' }}">
+                class="nav-link nav-link {{ Route::is('niveauxCompetences.index' . '*') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-table"></i>
                 <p>Niveaux competences</p>
             </a>
         </li>
         <li class="nav-item ">
             <a href="{{ route('competence.index') }}"
-                class="nav-link nav-link {{ Route::is('competence.index'.'*') ? 'active' : '' }}">
+                class="nav-link nav-link {{ Route::is('competence.index' . '*') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-table"></i>
                 <p>Gestion Competences</p>
             </a>
         </li>
         <li class="nav-item ">
             <a href="{{ route('CategorieTechnologie.index') }}"
-                class="nav-link nav-link {{ Route::is('CategorieTechnologie.index'.'*') ? 'active' : '' }}">
+                class="nav-link nav-link {{ Route::is('CategorieTechnologie.index' . '*') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-table"></i>
                 <p>Categorie technologie</p>
             </a>
