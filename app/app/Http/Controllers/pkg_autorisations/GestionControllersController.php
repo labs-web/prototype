@@ -33,9 +33,7 @@ class GestionControllersController extends AppBaseController
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nom' => 'required|max:255'
-        ], );
+        $validatedData = $request->validate;
 
         try {
             $this->controllersRepository->create($validatedData);
