@@ -56,7 +56,7 @@ class ActionController extends Controller
     public function create()
     {
         $controllers = $this->actionRepository->filter();
-        return view('Autorisation.action.create', compact('controllers'));
+        return view('pkg_autorisations.actions.create', compact('controllers'));
     }
 
     public function store(ActionRequest $request)

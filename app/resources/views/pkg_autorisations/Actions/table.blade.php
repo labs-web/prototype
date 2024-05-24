@@ -1,49 +1,41 @@
-<div class="card-body table-responsive p-0">
-    <table class="table table-striped text-nowrap">
-        <thead>
-            <tr>
-                <th>{{ __('Autorisation/action/message.nomAction') }}</th>
-                <th>{{ __('Autorisation/action/message.controller') }}</th>
-                <th style="text-align: center;">Actions</th>
-            </tr>
-        </thead>
-        <tbody id="action-table">
-            @forelse ($actions as $item)
-                <tr>
-                    <td>{{ $item->nom }}</td>
-                    <td>{{ $item->controller->nom }}</td>
-                    <td class="d-flex justify-content-center">
-                        @can('edit-ActionController')
-                            <a href="{{ route('actions.edit', $item->id) }}" class="btn btn-sm btn-default"><i
-                                    class="fa-solid fa-pen-to-square"></i>
-                            </a>
-                        @endcan
-                        @can('destroy-ActionController')
-                            <form action="{{ route('actions.destroy', $item->id) }}" class="ml-2" method="post">
+!DOCTYPE html>
+<html lang="fr">
 
-                                @csrf
-                                @method('delete')
-                                <button type="button" class="btn btn-sm btn-danger" onclick="confirmDelete(this.form)"><i
-                                        class="fa-solid fa-trash"></i>
-                                </button>
+<!-- Inclure l'en-tête -->
+@extends('layouts.app')
+@section('title', ('app.add') . ' ' . ('pkg_autoristions/actions.singular'))
+@section('content')
 
-                            </form>
-                        @endcan
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td>Aucun action trouvée</td>
-                </tr>
-            @endforelse ($actions as $item)
-        </tbody>
-    </table>
-</div>
-<div class="d-flex justify-content-end align-items-end p-2">
+<body class="sidebar-mini" style="height: auto;">
 
-    <div class="">
-        <ul class="pagination  m-0 float-right">
-            {{ $actions->links() }}
-        </ul>
+    <div class="wrapper">
+        <!-- Navigation -->
+        <div class="content-wrapper" style="min-height: 1302.4px;">
+
+            <div class="content-header">
+            </div>
+
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-info">
+                                <div class="card-header">
+                                    <h3 class="card-title"> <i class="fas fa-cogs nav-icon"></i> Ajouter un Action</h3>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Obtenir le formulaire -->
+                                    @include('pkg_autorisations/actions.form')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>            
+        </div>
+        
+        <!-- Inclure le pied de page -->
+        <!-- Inclure le script -->
     </div>
-</div>
+@endsection
