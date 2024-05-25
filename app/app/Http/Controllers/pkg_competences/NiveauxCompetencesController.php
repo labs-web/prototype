@@ -51,7 +51,7 @@ class NiveauxCompetencesController extends AppBaseController
         try {
             $validatedData = $request->validated();
             $this->niveauxCompetencesRepository->create($validatedData);
-            return redirect()->route('pkg_competences.niveauxCompetencess.index')->with('success',__('pkg_competences/niveauxCompetence.singular').' '.__('app.addSucées'));
+            return redirect()->route('niveauxCompetences.index')->with('success',__('pkg_competences/niveauxCompetence.singular').' '.__('app.addSucées'));
 
         } catch (NiveauxCompetencesAlreadyExistException $e) {
             return back()->withInput()->withErrors(['project_exists' =>'Niveau competence already existe']);

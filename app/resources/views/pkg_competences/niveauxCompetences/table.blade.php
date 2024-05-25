@@ -56,13 +56,13 @@
                 <input type="file" id="upload" name="file" style="display:none;" />
             </form>
         @endcan
-        @can('export-NiveauxCompetencesController')
+        {{-- @can('export-NiveauxCompetencesController') --}}
             <form class="">
                 <a href="{{ route('niveauxCompetences.export') }}" class="btn btn-default btn-sm mt-0 mx-2">
                     <i class="fas fa-file-export"></i>
                     {{ __('app.export') }}</a>
             </form>
-        @endcan
+        {{-- @endcan --}}
     </div>
     
     <ul class="pagination  m-0 float-right">
