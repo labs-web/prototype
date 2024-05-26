@@ -64,6 +64,14 @@ class GestionActionsRepository extends BaseRepository {
      {
         return Controller::all();
      }
+     public function filterByController($controllerName)
+    {
+    return $this->model->whereHas('controller', function($q) use ($controllerName) {
+        $q->where('nom', $controllerName);
+    })->paginate();
+    }
+
+
 
 
 

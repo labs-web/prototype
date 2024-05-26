@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\pkg_autorisations;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\pkg_autorisations\Action;
 use App\Repositories\pkg_autorisations\GestionActionsRepository; // Add this line to import the GestionActionsRepository class
 use App\Http\Requests\pkg_autorisations\ActionRequest;
 use App\Repositories\pkg_autorisations\GestionControllersRepository;
@@ -25,18 +26,29 @@ class ActionController extends Controller
 
 
     public function index(Request $request)
-    {
-        $controllers = $this->actionRepository->filter();
-        $actions = $this->actionRepository->paginate();
-        if ($request->ajax()) {
-            $searchAction = $request->get('searchAction');
-            $searchAction = str_replace(" ", "%", $searchAction);
-            $actions = $this->actionRepository->search($searchAction);
-            return view('pkg_autorisations.Actions.index', compact('actions', 'controllers'))->render();
-        }
-        
-        return view('pkg_autorisations.Actions.index', compact('actions', 'controllers'));
+{
+    $controllers = $this->controllerRepository->all();
+    $controllerFilter = $request->get('controller');
+    $searchAction = $request->get('searchAction');
+
+    $actions = $this->actionRepository->paginate();
+
+    if ($controllerFilter) {
+        $actions = $this->actionRepository->filterByController($controllerFilter);
     }
+
+    if ($searchAction) {
+        $actions = $this->actionRepository->search($searchAction);
+    }
+
+    if ($request->ajax()) {
+        return view('pkg_autorisations.Actions.index', compact('actions', 'controllers'))->render();
+    }
+    
+    return view('pkg_autorisations.Actions.index', compact('actions', 'controllers'));
+}
+
+    
 
     public function show(Request $request, $id)
     {

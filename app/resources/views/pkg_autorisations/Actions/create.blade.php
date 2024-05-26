@@ -3,7 +3,7 @@
 
 <!-- Inclure l'en-tête -->
 @extends('layouts.app')
-@section('title', ('app.add') . ' ' . ('pkg_autoristions/actions.singular'))
+@section('title', ('app.add') . ' ' . ('pkg_autorisations/actions.singular'))
 @section('content')
 
 <body class="sidebar-mini" style="height: auto;">
