@@ -24,15 +24,23 @@ class ActionTest extends TestCase
      */
     public function test_paginate_actions(): void
     {
-        // Create sample actions for pagination test
-        $this->model->create(['nom' => 'Action1', 'controller_id' => 1]);
-        $this->model->create(['nom' => 'Action2', 'controller_id' => 1]);
-        $this->model->create(['nom' => 'Action3', 'controller_id' => 1]);
-
-        $actions = $this->model->paginate(2);
+        // Create a sample controller
+        $controller = Controller::factory()->create();
+    
+        // Create sample actions associated with the controller for pagination test
+        $controllerId = $controller->id; // Get the ID of the created controller
+        Action::factory()->create(['nom' => 'Action1', 'controller_id' => $controllerId]);
+        Action::factory()->create(['nom' => 'Action2', 'controller_id' => $controllerId]);
+        Action::factory()->create(['nom' => 'Action3', 'controller_id' => $controllerId]);
+    
+        // Paginate actions associated with the controller
+        $actions = $controller->actions()->paginate(2);
+    
+        // Assertions
         $this->assertNotNull($actions);
         $this->assertNotEmpty($actions);
     }
+    
 
     /**
      * Test the creation of a new action.
@@ -40,12 +48,13 @@ class ActionTest extends TestCase
     public function test_create_action(): void
     {
         // Create a sample controller for the action
-        $controller = Controller::create(['nom' => 'TestController']);
+        $controller = Controller::factory()->create(['nom' => 'TestController']);
         $data = ['nom' => "TestAction", 'controller_id' => $controller->id];
 
         $this->model->create($data);
         $this->assertDatabaseHas('actions', ['nom' => $data['nom']]);
     }
+
 
     /**
      * Test the update of an existing action.

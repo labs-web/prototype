@@ -30,6 +30,7 @@ class UserSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ])->assignRole($apprenant);
+        
 
         User::create([
             'name' => 'admin',

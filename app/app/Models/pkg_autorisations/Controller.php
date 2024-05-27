@@ -2,7 +2,7 @@
 
 namespace App\Models\pkg_autorisations;
 
-use App\Models\Action;
+use App\Models\pkg_autorisations\Action;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
