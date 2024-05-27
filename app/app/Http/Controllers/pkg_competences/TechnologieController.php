@@ -61,10 +61,10 @@ class TechnologieController extends AppBaseController
             $validatedData = $request->validated();
             // dd($validatedData);
             $this->TechnologieRepository->create($validatedData);
-            return redirect()->route('technologies.index')->with('success', __('Pkg_competences.Technologie.singular') . ' ' . __('app.addSucées'));
+            return redirect()->route('technologies.index')->with('success', __('messages.create_success'));
 
         } catch (TechnologieAlreadyExistException $e) {
-            return back()->withInput()->withErrors(['technologie_exists' => __('Pkg_competences.Technologie/message.createProjectException')]);
+            return back()->withInput()->withErrors(['technologie_exists' => 'Technologie est déjà existant']);
         } catch (\Exception $e) {
             return abort(500);
         }
@@ -91,14 +91,14 @@ class TechnologieController extends AppBaseController
     {
         $validatedData = $request->validated();
         $this->TechnologieRepository->update($id, $validatedData);
-        return redirect()->route('technologies.index', $id)->with('success', __('Pkg_competences.technologie.singular') . ' ' . __('app.updateSucées'));
+        return redirect()->route('technologies.index', $id)->with('success', __('messages.update_success'));
     }
 
 
     public function destroy(string $id)
     {
         $this->TechnologieRepository->destroy($id);
-        return redirect()->route('technologies.index')->with('success', __('pkg_competences.technologie.singular') . ' ' . __('app.deleteSucées'));
+        return redirect()->route('technologies.index')->with('success', __('messages.delete_success'));
     }
 
 
