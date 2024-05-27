@@ -9,7 +9,7 @@ use App\Http\Requests\pkg_autorisations\ActionRequest;
 use App\Repositories\pkg_autorisations\GestionControllersRepository;
 use Illuminate\Support\Facades\Artisan;
 use App\Exceptions\pkg_autorisations\ActionException; // Add this line to import the ActionException class
-
+use auth;
 class ActionController extends Controller
 {
 
@@ -28,6 +28,7 @@ class ActionController extends Controller
 
     public function index(Request $request)
 {
+    
     $controllers = $this->controllerRepository->all();
     $controllerFilter = $request->get('controller');
     $searchAction = $request->get('searchAction');
