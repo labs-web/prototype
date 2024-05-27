@@ -45,33 +45,38 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <!-- Filtre par contrôleur -->
-                            <form method="GET" action="{{ route('actions.index') }}" class="d-flex">
-                                <div class="form-group mb-0 mr-2">
-                                    <label for="controllerSelect">{{ __('pkg_autorisations/actions.all controllers') }}</label>
-                                    <select class="form-control" id="controllerSelect" name="controller">
-                                        <option value="">Tous les Contrôleurs</option>
-                                        @foreach ($controllers as $controller)
-                                            <option value="{{ $controller->nom }}">{{ $controller->nom }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group mb-0 align-self-end">
-                                    <button type="submit" class="btn btn-primary">Filtrer</button>
-                                </div>
-                            </form>
+         <form method="GET" action="{{ route('actions.index') }}" class="d-flex">
+          <div class="form-group mb-0 d-flex align-items-center position-relative">
+         <div class="input-group">
+            <div class="input-group-prepend">
+                <button type="submit" class="btn btn-default">
+                    <i class="fa-solid fa-filter"></i>
+                </button>
+            </div>
+            <select class="form-control" id="controllerSelect" name="controller" aria-label="Filter Select">
+                <option value="">Choisir un contrôleur</option>
+                @foreach ($controllers as $controller)
+                    <option value="{{ $controller->nom }}">{{ $controller->nom }}</option>
+                @endforeach
+            </select>
+        </div>
+       </div>
+   </form>
+
 
                             <!-- Recherche par nom d'action -->
                             <form method="GET" action="{{ route('actions.index') }}" class="d-flex">
-                                <div class="form-group mb-0 mr-2">
-                                    <label for="searchAction">{{ __('pkg_autorisations/actions.search') }}</label>
-                                    <input type="text" class="form-control" id="searchAction" name="searchAction" placeholder="Rechercher une action">
-                                </div>
-                                <div class="form-group mb-0 align-self-end">
-                                    <button type="submit" class="btn btn-primary">Rechercher</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                         <div class="input-group">
+                       <input type="text" name="searchAction" id="searchAction" class="form-control" placeholder="Recherche">
+                    <div class="input-group-append">
+                    <button type="submit" class="btn btn-default">
+                  <i class="fas fa-search"></i>
+               </button>
+            </div>
+         </div>
+        </form>
+            </div>
+        </div>
 
                     <!-- Affichage des actions -->
                     <div class="card">

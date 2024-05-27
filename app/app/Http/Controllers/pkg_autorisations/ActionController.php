@@ -23,7 +23,8 @@ class ActionController extends Controller
         $this->actionRepository = $actionRepository;
         $this->controllerRepository = $controllerRepository;
     }
-
+  
+   
 
     public function index(Request $request)
 {
@@ -42,13 +43,13 @@ class ActionController extends Controller
     }
 
     if ($request->ajax()) {
-        return view('pkg_autorisations.Actions.index', compact('actions', 'controllers'))->render();
+        return view('pkg_autorisations.actions.index', compact('actions', 'controllers'))->render();
     }
     
-    return view('pkg_autorisations.Actions.index', compact('actions', 'controllers'));
+    return view('pkg_autorisations.actions.index', compact('actions', 'controllers'));
 }
 
-    
+ 
 
     public function show(Request $request, $id)
     {
@@ -77,9 +78,9 @@ class ActionController extends Controller
         try {
             $data = $request->all();
             $this->actionRepository->create($data);
-            return redirect()->route('actions.index')->with('success', __('pkg_autorisations.actions.success'));
+            return redirect()->route('actions.index')->with('success', __('pkg_autorisations/actions.success'));
         } catch (ActionException $e) {
-            return redirect()->route('actions.create')->with('error', __('pkg_autorisations.actions.error'));
+            return redirect()->route('actions.create')->with('error', __('pkg_autorisations/actions.error'));
         } catch (\Exception $e) {
             return abort(500);
         }
@@ -98,7 +99,7 @@ class ActionController extends Controller
         try {
             $data = $request->all();
             $action = $this->actionRepository->update($action_id, $data);
-            return back()->with('success', __('pkg_autorisations.actions.update'));
+            return back()->with('success', __('pkg_autorisations/actions.update'));
         } catch (ActionException $e) {
             return back()->withInput()->withErrors(['Action_exists' => __('Autorisation/Action/message.updateActionException')]);
         } catch (\Exception $e) {
