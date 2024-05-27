@@ -15,5 +15,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function (
         Route::get('/sync-actions', [ActionController::class, 'SyncControllersActions'])->name('actions.sync');
     });
    
-
+    Auth::routes();
 });
