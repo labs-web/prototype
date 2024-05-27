@@ -9,6 +9,10 @@
             "name":"Views"
         },
         {
+            "path": "./app/lang/fr/pkg_competences",
+            "name":"Lang"
+        },
+        {
             "path": "./app/app/Http/Controllers/pkg_competences",
             "name":"Controllers"
         },
