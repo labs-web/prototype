@@ -17,38 +17,38 @@ class ActionSeeder extends Seeder
      */
     public function run(): void
     {
-        Schema::disableForeignKeyConstraints();
-        Action::truncate();
-        Schema::enableForeignKeyConstraints();
+        // Schema::disableForeignKeyConstraints();
+        // Action::truncate();
+        // Schema::enableForeignKeyConstraints();
 
-        $csvFile = fopen(base_path("database/data/pkg_autorisations/Actions.csv"), "r");
-        $firstline = true;
-        $i = 0;
-        while (($data = fgetcsv($csvFile)) !== FALSE) {
-
-
-            if (!$firstline) {
-                Action::create([
+        // $csvFile = fopen(base_path("database/data/pkg_autorisations/Actions.csv"), "r");
+        // $firstline = true;
+        // $i = 0;
+        // while (($data = fgetcsv($csvFile)) !== FALSE) {
 
 
-                    "id" => $data[0],
+        //     if (!$firstline) {
+        //         Action::create([
 
-                    "nom" => $data[1],
 
-                    "controller_id" => $data[2],
+        //             "id" => $data[0],
 
-                    "permission_id" => $data[3],
+        //             "nom" => $data[1],
 
-                    "parent_action_id" => $data[4],
+        //             "controller_id" => $data[2],
 
-                    "created_at" => $data[5],
+        //             "permission_id" => $data[3],
 
-                    "updated_at" => $data[6]
-                ]);
-            }
-            $firstline = false;
-        }
+        //             "parent_action_id" => $data[4],
 
-        fclose($csvFile);
+        //             "created_at" => $data[5],
+
+        //             "updated_at" => $data[6]
+        //         ]);
+        //     }
+        //     $firstline = false;
+        // }
+
+        // fclose($csvFile);
     }
 }
