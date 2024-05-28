@@ -87,14 +87,13 @@ class TaskController extends AppBaseController
         return view('pkg_projets.task.index', compact('projectData'))->with('succes', 'Le task a été supprimer avec succés.');
     }
 
-    public function indexGantt()
-    {
-        $taches = $this->taskRepository->paginate();
+    public function indexGantt($project_id)
+    {   
+        $taches = $this->taskRepository->find($project_id);
         $taches->load('Projet', 'StatutTache');
 
         return view('pkg_projets.task.index-gantt', compact('taches'));
     }
-    
 
 
     public function export()

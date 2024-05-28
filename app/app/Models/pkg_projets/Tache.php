@@ -14,7 +14,7 @@ class Tache extends Model
         'created_at',
         'updated_at',
         'nom',
-        'description',
+        'description',  
         'priorité',
         'dateDebut',
         'dateEchéance',

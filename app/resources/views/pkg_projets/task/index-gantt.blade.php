@@ -3,15 +3,21 @@
 
 @section('content')
     <section class="content">
-        <div class="mermaid">
-            gantt
-            dateFormat YYYY-MM-DD
-            @foreach ($taches as $tache)
-            title {{ $tache->Projet->nom }}
+        @if ($taches->isEmpty())
+            <div class="alert alert-warning mt-3">
+                <strong>{{ __('No tasks available.') }}</strong>
+            </div>
+        @else
+            <div class="mermaid">
+                gantt
+                dateFormat YYYY-MM-DD
+                title {{ $taches->first()->Projet->nom }}
 
-                section {{ $tache->nom }}
-                {{ $tache->StatutTache->nom }} :{{ $tache->StatutTache->nom }}, {{ $tache->dateDebut }}, {{ $tache->dateEchéance }}
-            @endforeach
-        </div>
+                @foreach ($taches as $tache)
+                    section {{ $tache->nom }}
+                    {{ $tache->StatutTache->nom }} :{{ $tache->StatutTache->nom }}, {{ $tache->dateDebut }}, {{ $tache->dateEchéance }}
+                @endforeach
+            </div>
+        @endif
     </section>
 @endsection
