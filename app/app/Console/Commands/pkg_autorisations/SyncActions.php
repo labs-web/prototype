@@ -27,6 +27,7 @@ class SyncActions extends Command
     public function handle()
     {
         $this->actionRepo->syncActions();
-        $this->info('Controllers and actions synced successfully.');
+        $this->info('Contrôleurs, actions et permissions synchronisés avec succès.');
     }
+
 }
