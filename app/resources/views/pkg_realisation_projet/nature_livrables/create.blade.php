@@ -29,11 +29,11 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="nom">Name:</label>
+                                    <label for="nom">{{ __('add.name') }}:</label>
                                     <input type="text" class="form-control" id="nom" name="nom" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Description:</label>
+                                    <label for="description">{{ __('add.description') }}</label>
                                     <textarea class="form-control" id="description" name="description"></textarea>
                                 </div>
                             </div>
