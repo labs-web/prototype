@@ -1,29 +1,32 @@
-const boardsData = [
-    {
+const boardsData = {
+    "a-faire": {
         id: "_a-faire",
         title: "A faire",
         class: "default",
-        items: [{ title: "Tache a faire!" }],
+        items: [],
     },
-    {
-        id: "_encours",
-        title: "En cours",
-        class: "success",
-        items: [{ title: "Tache a en cours!" }],
-    },
-    {
+    encours: { id: "_encours", title: "En cours", class: "success", items: [] },
+    envalidation: {
         id: "_envalidation",
         title: "En validation",
         class: "warning",
-        items: [{ title: "Tache en validation" }],
+        items: [],
     },
-    {
-        id: "_terminer",
-        title: "Terminer",
-        class: "info",
-        items: [{ title: "Tache terminer!" }],
+    terminer: { id: "_terminer", title: "Terminer", class: "info", items: [] },
+    enattente: {
+        id: "_enattente",
+        title: "En attente",
+        class: "default",
+        items: [],
     },
-];
+    reportee: {
+        id: "_reportee",
+        title: "Reportée",
+        class: "default",
+        items: [],
+    },
+    annulee: { id: "_annulee", title: "Annulée", class: "default", items: [] },
+};
 
 /*
 var KanbanTest = new jKanban({
@@ -137,26 +140,120 @@ var KanbanTest = new jKanban({
 });
 */
 
+// async function fetchTasks() {
+//     try {
+//         const response = await fetch("/fetch-tasks");
+//         if (!response.ok) {
+//             throw new Error(
+//                 "Network response was not ok" + response.statusText
+//             );
+//         }
+//         const data = await response.json();
+//         return data;
+//     } catch (error) {
+//         console.error("Error fetching data:", error);
+//         throw error;
+//     }
+// }
+
+// let KanbanTest;
+// // Fetch tasks and initialize Kanban board
+// fetchTasks()
+//     .then((data) => {
+//         console.log(data);
+//         // Initialize the Kanban board after fetching data
+//         KanbanTest = new jKanban({
+//             element: "#myKanban",
+//             gutter: "10px",
+//             widthBoard: "400px",
+//             itemHandleOptions: {
+//                 enabled: true,
+//             },
+//             boards: data.map((board) => ({
+//                 id: board.id,
+//                 title: board.title,
+//                 class: board.class,
+//                 item: board.items.map((item) => ({
+//                     title: item.title,
+//                 })),
+//             })),
+//         });
+//     })
+//     .catch((error) => {
+//         console.error("Error fetching data:", error);
+//     });
+
 async function fetchTasks() {
     try {
         const response = await fetch("/fetch-tasks");
         if (!response.ok) {
             throw new Error(
-                "Network response was not ok" + response.statusText
+                "Network response was not ok: " + response.statusText
             );
         }
-        const data = await response.json();
-        return data;
+        const tasks = await response.json();
+        categorizeTasks(tasks);
     } catch (error) {
         console.error("Error fetching data:", error);
-        throw error;
     }
 }
+
+function categorizeTasks(tasks) {
+    tasks.forEach((task) => {
+        if (task.statut_taches) {
+            switch (task.statut_taches.nom) {
+                case "A faire":
+                    boardsData["a-faire"].items.push({
+                        id: task.id,
+                        title: task.nom,
+                    });
+                    break;
+                case "En cours":
+                    boardsData["encours"].items.push({
+                        id: task.id,
+                        title: task.nom,
+                    });
+                    break;
+                case "En validation":
+                    boardsData["envalidation"].items.push({
+                        id: task.id,
+                        title: task.nom,
+                    });
+                    break;
+                case "Terminer":
+                    boardsData["terminer"].items.push({
+                        id: task.id,
+                        title: task.nom,
+                    });
+                    break;
+                case "En attente":
+                    boardsData["enattente"].items.push({
+                        id: task.id,
+                        title: task.nom,
+                    });
+                    break;
+                case "Reportée":
+                    boardsData["reportee"].items.push({
+                        id: task.id,
+                        title: task.nom,
+                    });
+                    break;
+                case "Annulée":
+                    boardsData["annulee"].items.push({
+                        id: task.id,
+                        title: task.nom,
+                    });
+                    break;
+            }
+        }
+    });
+}
+
 let KanbanTest;
+
 // Fetch tasks and initialize Kanban board
 fetchTasks()
-    .then((data) => {
-        console.log(data);
+    .then(() => {
         // Initialize the Kanban board after fetching data
         KanbanTest = new jKanban({
             element: "#myKanban",
@@ -165,12 +262,31 @@ fetchTasks()
             itemHandleOptions: {
                 enabled: true,
             },
-            boards: data.map((board) => ({
+            dropEl: function (el, target, source, sibling) {
+                const newStatus = target.parentElement.getAttribute("data-id");
+                const taskId = el.getAttribute("data-eid");
+                console.log("newStatus : ", newStatus);
+                console.log("taskId : ", taskId);
+                updateStatus(taskId, newStatus);
+            },
+            boards: Object.values(boardsData).map((board) => ({
                 id: board.id,
                 title: board.title,
                 class: board.class,
                 item: board.items.map((item) => ({
+                    id: item.id,
                     title: item.title,
+                    // drag: function (el, source) {
+                    //     console.log("START DRAG: " + el.dataset.eid);
+                    // },
+                    // dragend: function (el) {
+                    //     console.log("END DRAG: " + el.dataset.eid);
+                    // },
+                    // drop: function (el) {
+                    //     console.log("DROPPED: " + el.dataset.eid);
+                    //     console.log("el: " + el);
+                    //     // alert('change status to : ')
+                    // },
                 })),
             })),
         });
@@ -178,6 +294,29 @@ fetchTasks()
     .catch((error) => {
         console.error("Error fetching data:", error);
     });
+
+
+
+function updateStatus(taskId, newStatus) {
+    // Send the request to update the task status
+    fetch(`/update-task-status/${taskId}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": document
+                .querySelector('meta[name="csrf-token"]')
+                .getAttribute("content"),
+        },
+        body: JSON.stringify({ status: newStatus }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("Success:", data);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
 /*
 var toDoButton = document.getElementById("addToDo");
 toDoButton.addEventListener("click", function () {
