@@ -50,7 +50,7 @@
          <div class="input-group">
             <div class="input-group-prepend">
                 <button type="submit" class="btn btn-default">
-                    <i class="fa-solid fa-filter"></i>
+                    <i class="fas fa-solid fa-filter"></i>
                 </button>
             </div>
             <select class="form-control" id="controllerSelect" name="controller" aria-label="Filter Select">
