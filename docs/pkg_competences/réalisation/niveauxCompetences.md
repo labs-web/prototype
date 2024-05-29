@@ -7,18 +7,14 @@ order:  624
 
 ### Création de la base de données 
 
-
 ````bash
 
 php artisan make:model pkgNiveauCompetence -m
 php artisan make:seeder pkgNiveauCompetencesSeeder -m
 php artisan make:factory pkg_competences/NiveauCompetencesFactory -m
 
-
 ````
-
 ### add description nom to competences table
-
 
 ````bash
 
@@ -26,7 +22,6 @@ php artisan make:factory pkg_competences/NiveauCompetencesFactory -m
 
 ````
 ### Migrate
-
 
 ````bash
 

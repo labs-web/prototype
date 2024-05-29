@@ -1,0 +1,647 @@
+[33m623f0ef[m[33m ([m[1;36mHEAD -> [m[1;32m232-pkg_competences__v8-cc1-backend-q1-niveaux-compétences[m[33m, [m[1;31morigin/2-init-app-1[m[33m, [m[1;32m2-init-app-1[m[33m)[m menu updated
+[33mab171e5[m save
+[33m7281538[m menu updated
+[33me283304[m Merge branch '2-init-app-1' of https://github.com/labs-web/prototype into 2-init-app-1
+[33m49f2588[m menu updated
+[33m30460a5[m Merge branch '2-init-app-1' of https://github.com/labs-web/prototype into 2-init-app-1
+[33m89a6143[m save
+[33m9b175e9[m menu updated
+[33m818f114[m savve
+[33m3106418[m Merge pull request #286 from labs-web/2-init-app-1
+[33mc578916[m Merge pull request #287 from zaani12/initapp-pkg_realisation_projet
+[33md50ba09[m Merge branch 'develop' into initapp-pkg_realisation_projet
+[33m9e2beaf[m Merge pull request #280 from zaani12/pkg_realisation_projet__v10-cc-backend-NatureLivrable1
+[33m420f53d[m adjust workspace
+[33mc74c51e[m save
+[33ma89fc27[m Merge branch 'develop' into pkg_realisation_projet__v10-cc-backend-NatureLivrable1
+[33mc88ad79[m add lang
+[33md330230[m fix error import and super admin
+[33mebf7b0c[m Merge pull request #279 from labs-web/246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33m64207b8[m save
+[33mc4a5a89[m save
+[33mdc39a2e[m save
+[33m02f794e[m save
+[33m383e7c1[m Merge branch 'pkg_realisation_projet__v10-cc-backend-NatureLivrable2' into pkg_realisation_projet__v10-cc-backend-NatureLivrable1
+[33m891ff66[m save
+[33m9d2c94f[m save
+[33mdb5e45f[m Merge branch 'develop' into pkg_realisation_projet__v10-cc-backend-NatureLivrable1
+[33m814d041[m save
+[33mcec7884[m save
+[33md9a5661[m save
+[33m3f48a86[m  "save"
+[33m710b603[m Revert "save"
+[33ma748ad8[m save
+[33m2bbadd2[m[33m ([m[1;31morigin/246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage[m[33m)[m Merge branch '246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage' of https://github.com/labs-web/prototype into 246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33m34a95dc[m update seeders
+[33maf1e942[m save
+[33mc1b6192[m Merge branch 'develop' into 246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33m5f93430[m fix search globale
+[33m90f596a[m Merge branch 'develop' into pkg_realisation_projet__v10-cc-backend-NatureLivrable2
+[33m676d3b4[m save
+[33mae17de1[m save
+[33m95eb20e[m Merge branch 'pkg_realisation_projet__v10-cc2-backend-NatureLivrable' of https://github.com/zaani12/prototype into pkg_realisation_projet__v10-cc2-backend-NatureLivrable
+[33ma09709d[m save
+[33m0ac8262[m Merge pull request #274 from labs-web/246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33me89014b[m Merge branch 'develop' into 246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33m79b1d2b[m Merge branch '246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage' of https://github.com/labs-web/prototype into 246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33mcdb7739[m add work
+[33m93df2c7[m save
+[33m4880422[m Merge branch 'develop' of https://github.com/labs-web/prototype into develop
+[33meb43786[m save
+[33m4c096e9[m Merge pull request #267 from labs-web/246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33mc796dfc[m Merge branch 'develop' into pkg_realisation_projet__v10-cc2-backend-NatureLivrable
+[33me75be2e[m Merge branch 'develop' into 246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33m2f5c68d[m Merge branch 'develop' of https://github.com/labs-web/prototype into develop
+[33me80148e[m save
+[33ma1f0101[m Merge branch 'develop' into 246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33m378c8c1[m update work
+[33m8aa2a60[m Merge pull request #269 from labs-web/222-pkg_global__v2-cc1-backend
+[33m75cd1d3[m Merge branch 'develop' into pkg_realisation_projet__v10-cc2-backend-NatureLivrable
+[33m21dde0b[m update work
+[33mdd314a5[m[33m ([m[1;31morigin/222-pkg_global__v2-cc1-backend[m[33m)[m Merge branch 'develop' into 222-pkg_global__v2-cc1-backend
+[33m9063cfa[m Merge branch 'develop' into 246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33ma0e1521[m save
+[33m80d22fc[m save
+[33mebcda39[m Merge pull request #268 from Yasmine-daifane/init-app-fix-menu
+[33m8d46208[m Merge branch 'develop' into init-app-fix-menu
+[33mfe71fc3[m update
+[33m1144f0a[m update work
+[33m99d8379[m Merge pull request #227 from labs-web/218-pkg__global-v3-cc1-backend-search-ajax
+[33m3c58148[m update work
+[33m38e2863[m Merge branch 'develop' into 246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33mf3326e2[m update work
+[33m1d3af6d[m Merge pull request #234 from labs-web/178-pkg_competences__v2-cc1-backend-q1-technologies
+[33me0a3f9e[m Merge branch 'develop' into 178-pkg_competences__v2-cc1-backend-q1-technologies
+[33m5f7a021[m Merge branch 'develop' of https://github.com/labs-web/prototype into develop
+[33m645eba6[m save
+[33md96297c[m Merge pull request #240 from labs-web/232-pkg_competences__v8-cc1-backend-q1-niveaux-compétences
+[33m88dfe1e[m Merge branch 'develop' into 178-pkg_competences__v2-cc1-backend-q1-technologies
+[33mf1d67bf[m Merge pull request #241 from hamidAchaou/220-pkg_global__v1-cc1-backend-Installer_Pckage
+[33m3dcef7f[m save
+[33m8f9639c[m save
+[33mb909533[m save
+[33mea04fba[m[33m ([m[1;31morigin/cc2_database[m[33m)[m Merge pull request #261 from grain03/pkg_projets__v5-cc2-db-q2-Tache
+[33m982c41a[m Merge branch 'develop' into pkg_projets__v5-cc2-db-q2-Tache
+[33m514894d[m Merge pull request #255 from aminaassaid1/152-pkg_realisation_projet__v6-cc2-db-q3-message
+[33mcaede12[m fix
+[33m8a305f3[m Merge pull request #260 from husseinbouik/pkg_competences__v1-cc1-db-q2-NiveauCompetences
+[33m60c2933[m Merge pull request #259 from husseinbouik/pkg_autorisations__v1-cc1-db-q3-Action
+[33m5e725f4[m Merge branch '178-pkg_competences__v2-cc1-backend-q1-technologies' of https://github.com/labs-web/prototype into 178-pkg_competences__v2-cc1-backend-q1-technologies
+[33ma60ce40[m save
+[33m06f8716[m Merge pull request #257 from husseinbouik/pkg_autorisations__v1-cc2-db-q2-Autorisation
+[33mdd791e4[m Merge branch 'develop' into pkg_autorisations__v1-cc2-db-q2-Autorisation
+[33m54d0cb6[m Merge branch 'develop' into pkg_competences__v1-cc1-db-q2-NiveauCompetences
+[33m555af8c[m Merge pull request #237 from grain03/pkg_projets__v5-cc2-db-q2-Tache
+[33m828c02a[m Merge branch 'develop' into pkg_projets__v5-cc2-db-q2-Tache
+[33mcdb706b[m Merge branch 'pkg_competences__v1-cc1-db-q1-NiveauCompetences' into pkg_competences__v1-cc1-db-q2-NiveauCompetences
+[33m6865dc2[m Merge branch 'develop' into pkg_competences__v1-cc1-db-q2-NiveauCompetences
+[33m6026b4f[m Merge pull request #238 from aminaassaid1/43-pkg_competences__v4-cc1-db-q3-competence-1
+[33mdbf188d[m Merge pull request #247 from labs-web/194-pkg_projets__v9-cc1-db-q2-equipe
+[33m195a062[m save
+[33m72cf1f4[m Merge branch 'develop' into pkg_projets__v5-cc2-db-q2-Tache
+[33mde8f64d[m Merge pull request #258 from Yasmine-daifane/112-pkg_rh__v3-cc2-db-q2-Personne
+[33ma5452c4[m update
+[33mb21f166[m update
+[33m1f45dea[m Refactor AutorisationSeeder to remove unused variables
+[33m39acf64[m Merge branch 'develop' into 178-pkg_competences__v2-cc1-backend-q1-technologies
+[33m1c5352b[m create front end
+[33m6459a24[m feat: Add PermissionSeeder to populate permissions from CSV file
+[33m54014b1[m save
+[33m136f0e4[m Merge branch 'develop' into 246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33m99e9269[m Update ActionSeeder to include new columns in actions table
+[33mf92eb8a[m save work
+[33m50fbb54[m Update ActionSeeder to include new columns in actions table
+[33me6403f2[m Merge branch 'develop' into 246-pkg_rh__v3-cc3-backend-gestion-des-formateurs-et-apprenants-en-utilisant-lhéritage
+[33m563a5db[m Merge branch 'develop' into pkg_autorisations__v1-cc1-db-q2-Action
+[33me3a0be5[m Merge branch 'develop' into 152-pkg_realisation_projet__v6-cc2-db-q3-message
+[33m3e9a2b8[m Merge branch 'develop' into 194-pkg_projets__v9-cc1-db-q2-equipe
+[33mfe45efb[m feat: Update ActionSeeder to include new columns in actions table
+[33m0156eb6[m[33m ([m[1;31morigin/256-pkg_projets__fix-database[m[33m)[m Merge pull request #253 from husseinbouik/init-app-2
+[33md081f73[m chore: Reorder seeders in ProjetsSeeder and RealisationProjetSeeder
+[33m19d76ec[m chore: Add PermissionSeeder to AutorisationsSeeder
+[33m7220743[m save work
+[33m444586a[m update
+[33m3d85174[m Merge branch 'develop' into pkg_projets__v5-cc2-db-q2-Tache
+[33m85d605d[m Merge pull request #159 from Safaa1faiz/pkg_realisation_projet__v10-cc2-db-q3-Livrable
+[33m2eb09fd[m Merge pull request #149 from Safaa1faiz/pkg_realisation_projet__v10-cc2-db-q1-Livrable
+[33m0f40a9a[m Merge branch 'develop' into pkg_realisation_projet__v10-cc2-db-q1-Livrable
+[33m5d1ca10[m Merge pull request #188 from labs-web/pkg_autorisations__v1-cc2-db-q3-Autorisation
+[33ma33cda3[m Merge pull request #182 from Yasmine-daifane/117-pkg_rh__v3-cc2-db-q3-personne-1
+[33m11989b1[m Merge branch 'develop' into 117-pkg_rh__v3-cc2-db-q3-personne-1
+[33meacb9f6[m save
+[33m794f57e[m Merge pull request #191 from Yasmine-daifane/102-pkg_rh__v3-cc2-db-q1-personne-1
+[33me9bdbca[m Merge pull request #199 from grain03/pkg_projets__v5-cc2-db-q3-Tache
+[33mcd020bf[m Merge branch 'develop' into pkg_projets__v5-cc2-db-q3-Tache
+[33mbd2686e[m Merge pull request #235 from grain03/pkg_projets__v5-cc2-db-q1-Tache
+[33mcdb7fa5[m Merge branch 'develop' into 152-pkg_realisation_projet__v6-cc2-db-q3-message
+[33m8b6fe2b[m Merge pull request #230 from labs-web/193-pkg_projets__v9-cc1-db-q1-equipe
+[33m8bd6468[m[33m ([m[1;31morigin/194-pkg_projets__v9-cc1-db-q2-equipe[m[33m)[m Merge branch '194-pkg_projets__v9-cc1-db-q2-equipe' of https://github.com/labs-web/prototype into 194-pkg_projets__v9-cc1-db-q2-equipe
+[33m5fd894b[m save
+[33m4e4ddf5[m save
+[33m229a5ed[m Merge branch 'develop' into 194-pkg_projets__v9-cc1-db-q2-equipe
+[33m77d1500[m Merge branch '220-pkg_global__v1-cc1-backend-Installer_Pckage' of https://github.com/hamidAchaou/prototype into 220-pkg_global__v1-cc1-backend-Installer_Pckage
+[33m8ce8993[m fix
+[33macfa107[m Merge branch 'develop' into 178-pkg_competences__v2-cc1-backend-q1-technologies
+[33m96b1f1a[m save
+[33mb4467e4[m Update data csv
+[33m904c2af[m Merge pull request #226 from labs-web/2-init-app
+[33m9a6d367[m[33m ([m[1;31morigin/2-init-app[m[33m)[m save
+[33m5b15978[m Merge branch 'develop' into 2-init-app
+[33m77b6863[m save
+[33m6195c12[m[33m ([m[1;31morigin/193-pkg_projets__v9-cc1-db-q1-equipe[m[33m)[m Merge branch 'develop' into 193-pkg_projets__v9-cc1-db-q1-equipe
+[33mab45642[m update seeders
+[33md482d32[m Merge pull request #219 from Yasmine-daifane/init-app-personne
+[33m3f3c1c5[m save
+[33m04cebee[m Merge branch 'develop' into 220-pkg_global__v1-cc1-backend-Installer_Pckage
+[33m9dcf632[m save
+[33m5067615[m fix
+[33m4b23e0a[m Merge branch 'develop' into 232-pkg_competences__v8-cc1-backend-q1-niveaux-compétences
+[33m0cc8eaa[m first commit
+[33m6b996a1[m Merge branch 'develop' into pkg_competences__v1-cc1-db-q2-NiveauCompetences
+[33m2d37d20[m feat: Remove 'competence_id' column from 'NiveauCompetences' table
+[33meb98449[m Merge branch 'develop' into pkg_projets__v5-cc2-db-q2-Tache
+[33m227dc80[m fix database competence
+[33m4a6a371[m Merge branch 'develop' into pkg_projets__v5-cc2-db-q1-Tache
+[33ma8f910b[m Merge pull request #225 from husseinbouik/pkg_competences__v1-cc1-db-q3-NiveauCompetences
+[33m02da32b[m Merge branch 'develop' into pkg_competences__v1-cc1-db-q3-NiveauCompetences
+[33m5da0763[m fix error seeder
+[33m70fa795[m Merge pull request #224 from husseinbouik/pkg_competences__v1-cc1-db-q1-NiveauCompetences
+[33me9be18d[m Merge branch 'develop' into pkg_competences__v1-cc1-db-q2-NiveauCompetences
+[33m7941498[m save
+[33m01b7bfb[m save
+[33m9f08988[m Merge branch '193-pkg_projets__v9-cc1-db-q1-equipe' into 194-pkg_projets__v9-cc1-db-q2-equipe
+[33mf0a9330[m[33m ([m[1;31morigin/218-pkg__global-v3-cc1-backend-search-ajax[m[33m)[m ajouter recherche ajax
+[33ma183f41[m Merge branch 'init-app-personne' of https://github.com/Yasmine-daifane/prototype into init-app-personne
+[33mc0266b3[m comments
+[33m70377fb[m Merge branch 'develop' into 193-pkg_projets__v9-cc1-db-q1-equipe
+[33m8c39f68[m save
+[33m12e275c[m Merge branch 'develop' into pkg_competences__v1-cc1-db-q3-NiveauCompetences
+[33me881d59[m ajouter recherche ajax
+[33mcc0cdad[m fix error seeder pkg_rh and pkg_notification
+[33mbce2309[m Merge branch 'develop' into pkg_competences__v1-cc1-db-q1-NiveauCompetences
+[33m42954f1[m Merge branch 'develop' into pkg_projets__v5-cc2-db-q3-Tache
+[33m4d0b9ac[m Merge branch 'develop' into init-app-personne
+[33m90a7190[m add traits and personne class
+[33m65c6118[m refactor: Remove 'competence_id' column from 'NiveauCompetences.csv' and 'NiveauCompetencesSeeder.php'
+[33mcc48471[m Merge branch 'pkg_competences__v1-cc1-db-q2-NiveauCompetences' into pkg_competences__v1-cc1-db-q3-NiveauCompetences
+[33m0fa084e[m refactor: Remove 'competence_id' column from 'NiveauCompetences.csv' and 'NiveauCompetencesSeeder.php'
+[33m75864cc[m Merge branch 'pkg_competences__v1-cc1-db-q1-NiveauCompetences' into pkg_competences__v1-cc1-db-q2-NiveauCompetences
+[33mf513880[m feat: Add 'nom' and 'description' columns to 'niveau_competences' table
+[33m7bc2609[m save
+[33madc72f5[m Merge pull request #205 from husseinbouik/pkg_autorisations__v1-cc1-db-q3-Action
+[33m69eebdf[m Merge branch 'develop' into pkg_autorisations__v1-cc1-db-q3-Action
+[33m254e87e[m Merge pull request #203 from husseinbouik/pkg_autorisations__v1-cc1-db-q1-Action
+[33m290a581[m Merge branch 'develop' into pkg_autorisations__v1-cc1-db-q1-Action
+[33m39bbe8e[m Merge pull request #215 from labs-web/195-pkg_projets__v9-cc1-db-q3-equipe
+[33m9f711a2[m Merge pull request #214 from labs-web/194-pkg_projets__v9-cc1-db-q2-equipe
+[33m4ada148[m Merge pull request #212 from labs-web/193-pkg_projets__v9-cc1-db-q1-equipe
+[33m8c15650[m[33m ([m[1;31morigin/195-pkg_projets__v9-cc1-db-q3-equipe[m[33m)[m models
+[33mb341de7[m SAVE
+[33mb189757[m save
+[33md6aeb69[m fix seeders
+[33mbee3d34[m equipe bd cc1
+[33m9fb189c[m Merge branch 'develop' into 152-pkg_realisation_projet__v6-cc2-db-q3-message
+[33md0a34c7[m u
+[33mff3c561[m update
+[33mea1ffe2[m U
+[33m9814e17[m update
+[33mb8a6834[m Merge branch '112-pkg_rh__v3-cc2-db-q2-Personne' into 117-pkg_rh__v3-cc2-db-q3-personne-1
+[33m9468ee9[m update
+[33mc6ab2bb[m Merge branch '152-pkg_realisation_projet__v6-cc2-db-q3-message' of https://github.com/aminaassaid1/prototype into 152-pkg_realisation_projet__v6-cc2-db-q3-message
+[33mbdc5328[m fix seeders
+[33m1a829c2[m update
+[33m0f0547a[m update
+[33mbc31b85[m feat: Refactor 'actions' table schema and add foreign key constraints
+[33mde4d6ad[m feat: Add 'permission_id' column to actions table migration
+[33ma6bcb46[m Add 'nom' and 'controller_id' columns to actions table
+[33m2295ae2[m feat: Update actions table migration with nullable permission_id
+[33mb01e0a2[m feat: Add 'nom' column to controllers table and update actions table migration
+[33mdd4f24c[m Merge branch 'develop' into pkg_autorisations__v1-cc1-db-q3-Action
+[33me68ddbf[m feat: Refactor 'actions' table schema and add foreign key constraints
+[33ma956b19[m Merge branch 'pkg_autorisations__v1-cc1-db-q2-Action' into pkg_autorisations__v1-cc1-db-q3-Action
+[33mb8eedfd[m update
+[33md2f75f0[m Merge branch '117-pkg_rh__v3-cc2-db-q3-personne-1' of https://github.com/Yasmine-daifane/prototype into 117-pkg_rh__v3-cc2-db-q3-personne-1
+[33mc036ea2[m Merge branch '112-pkg_rh__v3-cc2-db-q2-Personne' into 117-pkg_rh__v3-cc2-db-q3-personne-1
+[33m6ad5376[m update
+[33mbc3d288[m Définir des modèles Laravel pour interagir avec la base de données.
+[33mae215c9[m Merge branch '102-pkg_rh__v3-cc2-db-q1-personne-1' into 112-pkg_rh__v3-cc2-db-q2-Personne
+[33m8f6557c[m Merge branch '112-pkg_rh__v3-cc2-db-q2-Personne' of https://github.com/Yasmine-daifane/prototype into 112-pkg_rh__v3-cc2-db-q2-Personne
+[33m44dce12[m up
+[33m267c76b[m Refactor 'actions' table schema and add foreign key constraints
+[33m202b141[m feat: Add 'nom', 'controller_id', 'permission_id', and 'parent_action_id' columns to actions table
+[33m025ebf7[m feat: Add nullable foreign keys and self-referential relationship to actions table migration
+[33m613987a[m Merge branch 'develop' into pkg_projets__v5-cc2-db-q2-Tache
+[33m3ccf907[m u
+[33mdaabd4e[m feat: Add unique constraint and foreign keys to actions table migration
+[33m883758f[m Refactor namespace for Action model and add controller relationship
+[33mf7e75a8[m Merge branch '102-pkg_rh__v3-cc2-db-q1-personne-1' of https://github.com/Yasmine-daifane/prototype into 102-pkg_rh__v3-cc2-db-q1-personne-1
+[33m14ed7d6[m update
+[33me9b8784[m Merge branch 'develop' into 102-pkg_rh__v3-cc2-db-q1-personne-1
+[33mf303d3a[m Merge branch '102-pkg_rh__v3-cc2-db-q1-personne-1' of https://github.com/Yasmine-daifane/prototype into 102-pkg_rh__v3-cc2-db-q1-personne-1
+[33m80095e6[m delete tables
+[33m2b4b4a8[m Refactor Autorisation model to include fillable fields
+[33m52ddaf0[m Refactor Autorisation model to include fillable fields
+[33m87e5441[m save
+[33m7468e2a[m save
+[33m8cf4cea[m Merge branch 'develop' into 117-pkg_rh__v3-cc2-db-q3-personne-1
+[33md9f6ab0[m save
+[33m447f4ab[m Merge branch 'develop' into 117-pkg_rh__v3-cc2-db-q3-personne-1
+[33m57e7e6e[m update
+[33m1187001[m Merge branch 'develop' into 112-pkg_rh__v3-cc2-db-q2-Personne
+[33m62a3261[m add seeders
+[33m19884bf[m Merge branch 'pkg_realisation_projet__v10-cc2-db-q3-Livrable' of https://github.com/Safaa1faiz/prototype into pkg_realisation_projet__v10-cc2-db-q3-Livrable
+[33m818b2ba[m Merge branch 'pkg_realisation_projet__v10-cc2-db-q2-Livrable' into pkg_realisation_projet__v10-cc2-db-q3-Livrable
+[33m07b371f[m Merge branch 'develop' into pkg_realisation_projet__v10-cc2-db-q3-Livrable
+[33m4721bc8[m Merge branch 'pkg_realisation_projet__v10-cc2-db-q1-Livrable' into pkg_realisation_projet__v10-cc2-db-q2-Livrable
+[33m11ab188[m Merge branch 'develop' into pkg_realisation_projet__v10-cc2-db-q2-Livrable
+[33m97e9bca[m save
+[33m86d5412[m Merge branch 'develop' into pkg_realisation_projet__v10-cc2-db-q1-Livrable
+[33m4de3121[m fix pkg_autorisation
+[33mdd16e8b[m fix pk_competences
+[33m13fa545[m Supression de relation entre compétence et niveau de compétence
+[33md3322c3[m save
+[33mffddcc1[m fix seeders
+[33mcb99e8b[m Merge pull request #173 from aminaassaid1/163-pkg_realisation_projet__v6-cc2-db-q4-message
+[33mb93471a[m Merge branch 'develop' into 163-pkg_realisation_projet__v6-cc2-db-q4-message
+[33m3adc324[m Merge pull request #148 from grain03/pkg_projets__v5-cc2-db-q2-Tache
+[33m6264336[m Merge pull request #129 from husseinbouik/pkg_autorisations__v1-cc2-db-q2-Autorisation
+[33m2f85956[m Merge branch 'develop' into pkg_projets__v5-cc2-db-q2-Tache
+[33m26944cb[m Merge branch 'develop' into pkg_autorisations__v1-cc2-db-q2-Autorisation
+[33m2abe769[m Merge pull request #126 from husseinbouik/pkg_autorisations__v1-cc2-db-q1-Autorisation
+[33m039d10d[m Merge pull request #128 from labs-web/18-pkg_notifications__v6-cc1-db-q2-notification-1
+[33m43bb757[m Merge pull request #142 from grain03/pkg_projets__v5-cc2-db-q1-Tache
+[33m4ceb958[m Merge pull request #155 from labs-web/154-pkg_competences__v2-cc2-db-q4-technologies
+[33m63cb116[m Merge branch 'develop' into pkg_autorisations__v1-cc2-db-q1-Autorisation
+[33m291e4aa[m[33m ([m[1;31morigin/18-pkg_notifications__v6-cc1-db-q2-notification-1[m[33m)[m Merge branch 'develop' into 18-pkg_notifications__v6-cc1-db-q2-notification-1
+[33m3fea612[m Merge branch 'develop' into pkg_projets__v5-cc2-db-q1-Tache
+[33md2ef9b9[m Merge branch 'develop' into 154-pkg_competences__v2-cc2-db-q4-technologies
+[33m19cefb9[m Merge pull request #170 from zaani12/pkg_projets__v9-cc2-db-q3-Projet
+[33mde4cd56[m Merge branch 'develop' into pkg_projets__v9-cc2-db-q3-Projet
+[33m0eb4507[m Merge pull request #176 from aminaassaid1/git-checkout-175-pkg_realisation_projet__v6-cc2-db-q5-message
+[33m1bd0941[m Merge branch 'develop' into git-checkout-175-pkg_realisation_projet__v6-cc2-db-q5-message
+[33ma8c149f[m Merge pull request #153 from labs-web/151-pkg_competences__v2-cc2-db-q3-technologies
+[33m1c8dc65[m[33m ([m[1;31morigin/151-pkg_competences__v2-cc2-db-q3-technologies[m[33m)[m Merge branch 'develop' into 151-pkg_competences__v2-cc2-db-q3-technologies
+[33md85f6b1[m Merge branch 'develop' into pkg_realisation_projet__v10-cc2-db-q3-Livrable
+[33m000b427[m Merge pull request #162 from aminaassaid1/152-pkg_realisation_projet__v6-cc2-db-q3-message
+[33m7924457[m Merge branch 'develop' into pkg_realisation_projet__v10-cc2-db-q1-Livrable
+[33m550fce7[m Merge branch 'develop' into pkg_realisation_projet__v10-cc2-db-q2-Livrable
+[33ma684840[m Merge branch 'develop' into pkg_realisation_projet__v10-cc2-db-q3-Livrable
+[33m9ef9ad2[m Merge branch 'develop' into 152-pkg_realisation_projet__v6-cc2-db-q3-message
+[33m0606fd0[m Merge branch 'develop' into pkg_projets__v9-cc2-db-q3-Projet
+[33m24b9524[m Merge branch 'develop' into 163-pkg_realisation_projet__v6-cc2-db-q4-message
+[33m634efa4[m Merge branch 'develop' into git-checkout-175-pkg_realisation_projet__v6-cc2-db-q5-message
+[33m5769efb[m fix gh_rh classes
+[33m6dbf819[m Merge pull request #177 from Yasmine-daifane/102-pkg_rh__v3-cc2-db-q1-personne-1
+[33m7a4befb[m Merge branch 'develop' into 102-pkg_rh__v3-cc2-db-q1-personne-1
+[33mdce4971[m Merge pull request #180 from husseinbouik/pkg_competences__v1-cc1-db-q4-NiveauCompetences
+[33me9ec228[m Merge branch 'develop' into pkg_competences__v1-cc1-db-q4-NiveauCompetences
+[33m143cdd6[m save
+[33m4f4cc3d[m Merge branch 'develop' into pkg_competences__v1-cc1-db-q4-NiveauCompetences
+[33mcfe8d35[m save
+[33mc81c811[m Merge branch 'develop' into pkg_competences__v1-cc1-db-q4-NiveauCompetences
+[33mfbdbc0e[m Merge branch 'develop' of https://github.com/labs-web/prototype_app into develop
+[33mdbd15f0[m save
+[33m35330a9[m feat: Update 'NiveauCompetence' model to use 'competence_id' as foreign key
+[33m2d3fae5[m Merge branch 'pkg_competences__v1-cc1-db-q2-NiveauCompetences' into pkg_competences__v1-cc1-db-q3-NiveauCompetences
+[33mb90b975[m feat: Add 'competence_id' column to 'NiveauCompetences.csv' and 'NiveauCompetencesSeeder.php'
+[33mb08b667[m Merge branch 'pkg_competences__v1-cc1-db-q1-NiveauCompetences' into pkg_competences__v1-cc1-db-q2-NiveauCompetences
+[33mff87266[m feat: Add 'nom' and 'description' columns to 'niveau_competences' table
+[33mf364848[m Merge branch 'develop' into 102-pkg_rh__v3-cc2-db-q1-personne-1
+[33mb414036[m feat: Add 'nom' and 'description' columns to 'niveau_competences' table
+[33m24423d1[m Merge pull request #135 from labs-web/6-pkg_autorisations__v2-cc1-db-q1-controller
+[33m4b62a21[m Merge pull request #124 from labs-web/122-pkg_competences__v4-cc1-db-q5-competence
+[33m451c8ad[m[33m ([m[1;31morigin/6-pkg_autorisations__v2-cc1-db-q1-controller[m[33m)[m Merge branch 'develop' into 6-pkg_autorisations__v2-cc1-db-q1-controller
+[33mf1dc42d[m Merge pull request #146 from labs-web/92-pkg_competences__v2-cc2-db-q1-technologies-1
+[33m0c63ff6[m[33m ([m[1;31morigin/92-pkg_competences__v2-cc2-db-q1-technologies-1[m[33m)[m Update 2024_05_20_122756_create_niveau_competences_table.php
+[33mb363b34[m Merge branch 'develop' into 92-pkg_competences__v2-cc2-db-q1-technologies-1
+[33m9ddfc4c[m Update 2024_05_20_122756_create_niveau_competences_table.php
+[33m4b88f90[m création de model mysql
+[33m3d612f4[m add migration for personnes
+[33ma94c2d8[m feat: Update seeders for Autorisations, Competences, and DatabaseSeeder
+[33m46309e2[m feat: Add 'nom' and 'description' columns to 'niveau_competences' table
+[33m0a27d77[m Valider les actions CRUD à l’aide de tests unitaires.
+[33md321727[m feat: Add 'nom' and 'description' columns to 'niveau_competences' table
+[33m59eb75a[m feat: Add 'nom' and 'description' columns to 'niveau_competences' table
+[33m4002067[m Valider les actions CRUD à l’aide de tests unitaires.
+[33ma93144d[m save
+[33m596e163[m Merge branch 'develop' into 122-pkg_competences__v4-cc1-db-q5-competence
+[33m26f1074[m save
+[33m4ed9a9f[m Définir des modèles Laravel pour interagir avec la base de données
+[33mb46cd17[m save
+[33m31b9608[m save
+[33m532ea16[m save
+[33m58da184[m creation the unit test for table Technologies
+[33m680f375[m add fillable and forinkay
+[33m257c7c1[m save
+[33mb23d2c8[m save
+[33m4fae8b6[m u
+[33m52775e3[m update
+[33mab2fe92[m Merge branch '92-pkg_competences__v2-cc2-db-q1-technologies-1' into 113-pkg_competences__v2-cc2-db-q2-technologies
+[33md328dc6[m add competence_id
+[33m053ac31[m save
+[33m06c2bda[m save
+[33mad7b027[m save
+[33ma17c693[m Seeders
+[33m15a48f5[m u
+[33m8f77c0f[m update
+[33ma96777e[m save
+[33mc439e67[m save
+[33m02dd2da[m save
+[33me4e2a31[m feat: Refactor AutorisationSeeder to update column names and permissions
+[33m1126b6d[m Merge branch 'develop' into pkg_realisation_projet__v10-cc2-db-q1-Livrable
+[33m5c90476[m feat: Remove unused index action in Actions.csv
+[33m119d9c6[m save
+[33m4f9976d[m Refactor AutorisationsSeeder to remove unnecessary imports
+[33m2ac69ab[m chore: Update seeders to include AutorisationSeeder
+[33m841d688[m feat: Update names in Autorisations.csv file
+[33mba8ceac[m Refactor namespace in Autorisation model and seeder
+[33mbfe8c3d[m Refactor namespace in Autorisation model and seeder
+[33m2bcfe8f[m save
+[33m0050fa8[m save
+[33mc4e71fc[m save
+[33m70cfeeb[m Merge branch 'develop' into 113-pkg_competences__v2-cc2-db-q2-technologies
+[33m36e1839[m Merge branch 'develop' into pkg_projets__v8-cc2-db-q1-Projet
+[33m357bc39[m chore: Rename migration file and update table name in documentation
+[33mb641259[m save
+[33maa443f3[m Merge branch 'labs-web:develop' into pkg_autorisations__v1-cc2-db-q1-Autorisation
+[33m6aeb426[m[33m ([m[1;31morigin/175-pkg_realisation_projet__v6-cc2-db-q5-message[m[33m, [m[1;31morigin/163-pkg_realisation_projet__v6-cc2-db-q4-message[m[33m, [m[1;31morigin/152-pkg_realisation_projet__v6-cc2-db-q3-message[m[33m, [m[1;31morigin/139-pkg_realisation_projet__v6-cc2-db-q2-message[m[33m, [m[1;31morigin/127-pkg_realisation_projet__v6-cc2-db-q1-message[m[33m)[m save
+[33mf672f2a[m feat: Add role_id and action_id columns to actions table
+[33m7ade084[m Merge pull request #123 from aminaassaid1/develop
+[33m43fe8ce[m save
+[33m0b076d6[m save
+[33me14d818[m Merge branch 'develop' into pkg_projets__v8-cc2-db-q1-Projet
+[33m42b950b[m Merge pull request #114 from labs-web/28-pkg_competences__v4-cc1-db-competence
+[33m6ba4284[m[33m ([m[1;31morigin/28-pkg_competences__v4-cc1-db-competence[m[33m)[m Merge branch 'develop' of https://github.com/aminaassaid1/prototype into develop
+[33m76db710[m Merge branch 'pkg_projets__v8-cc2-db-q1-Projet' of https://github.com/zaani12/prototype into pkg_projets__v8-cc2-db-q1-Projet
+[33m81db598[m save
+[33m2e1899f[m Merge branch 'pkg_projets__v8-cc1-db-q1-ClassStatutTache' into pkg_projets__v8-cc2-db-q1-Projet
+[33mb231b8b[m Merge pull request #32 from grain03/pkg_competences__v5-cc1-db-q3-categorietechnologie
+[33mfddccfe[m Merge pull request #42 from hamidAchaou/29-pkg_posts__v11-cc1-db-q2-posts
+[33m3f48595[m Merge pull request #68 from husseinbouik/pkg_autorisations__v1-cc1-db-q2-Action
+[33m630d769[m Merge pull request #83 from hamidAchaou/53-pkg_posts__v11-cc1-db-q4-Posts
+[33ma480031[m Merge branch 'develop' into pkg_autorisations__v1-cc1-db-q2-Action
+[33mdbad0a0[m Merge branch 'develop' into 29-pkg_posts__v11-cc1-db-q2-posts
+[33mf43fd3b[m Merge branch 'develop' into 53-pkg_posts__v11-cc1-db-q4-Posts
+[33m7dba0cf[m Merge branch 'develop' into pkg_competences__v5-cc1-db-q3-categorietechnologie
+[33ma8bfd85[m Merge pull request #109 from labs-web/102-pkg_rh__v3-cc2-db-q1-personne
+[33md197f39[m Merge pull request #23 from grain03/7-pkg_competences__v5-cc1-db-q2-categorietechnologie
+[33mfdcf11f[m[33m ([m[1;31morigin/102-pkg_rh__v3-cc2-db-q1-personne[m[33m)[m save
+[33mfeea822[m Merge pull request #41 from hamidAchaou/35-pkg_posts__v11-cc1-db-q3-Posts
+[33m0d407cc[m Merge pull request #64 from Yasmine-daifane/pkg_rh__v7-cc1-db-q2-Group
+[33mcdc3e19[m Merge pull request #74 from labs-web/61-pkg_autorisations__v2-cc1-db-q4-controller
+[33mcf58458[m save
+[33m0eab31b[m Merge pull request #108 from labs-web/92-pkg_competences__v6-cc2-db-q1-technologies
+[33m2772803[m Merge branch 'develop' into pkg_rh__v7-cc1-db-q2-Group
+[33mb4e4205[m Merge pull request #75 from Safaa1faiz/pkg_realisation_projet__v10-cc1-db-q4-NatureLivrable
+[33mfd81bbf[m[33m ([m[1;31morigin/92-pkg_competences__v6-cc2-db-q1-technologies[m[33m)[m save
+[33m451dfad[m Merge pull request #78 from zaani12/pkg_projets__v8-cc1-db-q4-ClassStatutTache
+[33mfb182d1[m Merge pull request #82 from grain03/7-pkg_competences__v5-cc1-db-q4-categorietechnologie
+[33mc1b7685[m Merge pull request #84 from labs-web/62-pkg_notifications__v6-cc1-db-q4-notification
+[33mc81de77[m Merge pull request #86 from husseinbouik/pkg_autorisations__v1-cc1-db-q4-Action
+[33m704f23d[m Merge branch 'develop' into 7-pkg_competences__v5-cc1-db-q2-categorietechnologie
+[33m6ecf800[m Merge pull request #87 from Yasmine-daifane/73-pkg_rh__v7-cc1-db-q4-group
+[33mcfee3a5[m Merge pull request #103 from labs-web/92-pkg_competences__v6-cc2-db-q1-technologies
+[33m092ff67[m realisation q1
+[33m4726fc1[m test
+[33m1bd8d68[m test compétence
+[33ma0ae4a9[m save
+[33m12403b0[m save
+[33m1f868cf[m done
+[33m0d2342e[m update
+[33me6c6165[m save
+[33me743493[m chore: Refactor ActionTest and add pagination test
+[33m476bdd8[m add seeder post-tag
+[33m1f954dc[m Merge pull request #2 from LamchatabAmine/develop
+[33m7d3402f[m chore: Refactor ActionTest and add pagination test
+[33mdadbb7b[m fix migration
+[33m144e9d3[m[33m ([m[1;31morigin/62-pkg_notifications__v6-cc1-db-q4-notification[m[33m)[m save
+[33mcd5d9be[m create unit test Notifications
+[33m52bf0ff[m Merge branch 'develop' into 7-pkg_competences__v5-cc1-db-q2-categorietechnologie
+[33m03dbd6d[m fix
+[33md04513c[m fix
+[33m6d6686f[m add compte rendu
+[33m79efbfc[m Merge branch 'develop' into pkg_projets__v8-cc1-db-q4-ClassStatutTache
+[33m105949e[m feat: Add unit test for pkg_autorisations/ActionTest
+[33m12bdc21[m add unite test
+[33ma2c22ba[m[33m ([m[1;31morigin/61-pkg_autorisations__v2-cc1-db-q4-controller[m[33m)[m Merge branch 'develop' into 61-pkg_autorisations__v2-cc1-db-q4-controller
+[33m97296c7[m test
+[33m4a85c63[m[33m ([m[1;31morigin/96-pkg_realisation_projet__v6-cc2-db-q1-message[m[33m, [m[1;31morigin/73-pkg_rh__v7-cc1-db-q4-group[m[33m, [m[1;31morigin/55-pkg_competences__v4-cc1-db-q4-competence[m[33m)[m Merge pull request #31 from LamchatabAmine/develop
+[33maae6d44[m Merge pull request #37 from labs-web/4-v4-cc1-db-competences
+[33mb8be863[m done
+[33me0fc415[m Merge pull request #33 from labs-web/5-pkg_notifications__v6-cc1-db-q1-notification-1
+[33mf0fb173[m Merge pull request #20 from hamidAchaou/10-pkg_posts__v11-cc1-db-q1-Tags
+[33m0d16187[m save
+[33m4cc333b[m Merge branch 'pkg_autorisations__v1-cc1-db-q3-Action' into pkg_autorisations__v1-cc1-db-q4-Action
+[33m0cad496[m save
+[33m6a9ab6a[m Refactor namespace for Action model and add controller relationship
+[33m61ab6b3[m Merge branch 'labs-web:develop' into pkg_autorisations__v1-cc1-db-q2-Action
+[33md988c47[m Merge pull request #15 from zaani12/pkg_projets__v8-cc1-db-q1-ClassStatutTache
+[33m673dd9d[m Merge branch 'labs-web:develop' into pkg_autorisations__v1-cc1-db-q3-Action
+[33m94b8890[m Merge branch 'labs-web:develop' into pkg_autorisations__v1-cc1-db-q4-Action
+[33mea34356[m Merge pull request #44 from husseinbouik/pkg_autorisations__v1-cc1-db-q1-Action
+[33mf0b4344[m[33m ([m[1;31morigin/5-pkg_notifications__v6-cc1-db-q1-notification-1[m[33m)[m Merge branch 'develop' into 5-pkg_notifications__v6-cc1-db-q1-notification-1
+[33m8d07668[m Merge pull request #48 from Yasmine-daifane/3-pkg_rh__v7-cc1-db-q1-group
+[33mc904430[m Refactor namespace for Action model and add controller relationship
+[33mdfe8c45[m Merge pull request #12 from grain03/7-pkg_competences__v5-cc1-db-q1-categorietechnologie
+[33m2e68669[m Merge branch '7-pkg_competences__v5-cc1-db-q1-categorietechnologie' into 7-pkg_competences__v5-cc1-db-q4-categorietechnologie
+[33m2e78255[m add relations to the modal
+[33m6ce35ab[m Merge branch '7-pkg_competences__v5-cc1-db-q2-categorietechnologie' into 7-pkg_competences__v5-cc1-db-q4-categorietechnologie
+[33m3637aba[m Refactor namespace for Autorisation models to pkg_autorisations
+[33mfa4ddb5[m save
+[33m5bcbcaa[m Refactor namespace for Autorisation models to pkg_autorisations
+[33m6d71e90[m Refactor namespace for Autorisation models to pkg_autorisations
+[33m56fa0ab[m update
+[33mb61ac8a[m save
+[33m7ca6242[m save
+[33m3a74db3[m update
+[33m6e4b0e0[m feat: Add documentation for generating test data with seeders
+[33m10b0e41[m Merge branch 'pkg_rh__v7-cc1-db-q2-Group' of https://github.com/Yasmine-daifane/prototype into pkg_rh__v7-cc1-db-q2-Group
+[33me3ab9da[m add docs
+[33ma30563f[m Merge branch 'develop' into pkg_rh__v7-cc1-db-q2-Group
+[33mf0b3268[m Refactor namespace for Autorisation models to pkg_autorisations
+[33mafe8a33[m update add cvs
+[33m3816808[m Refactor namespace for Autorisation models to pkg_autorisations
+[33m448973b[m save
+[33mafea3a4[m update
+[33mbe7693e[m feat: Update namespace for Role and Action models
+[33m9856d56[m[33m ([m[1;31morigin/58-19-pkg_autorisations__v2-cc1-db-q3-controller[m[33m)[m save
+[33m1e56b7e[m edit data
+[33m441e659[m[33m ([m[1;31morigin/22-pkg_notifications__v6-cc1-db-q3-notification[m[33m)[m save
+[33m1b707c9[m Merge branch '18-pkg_notifications__v6-cc1-db-q2-notification' into 22-pkg_notifications__v6-cc1-db-q3-notification
+[33m8bb3926[m save
+[33m7a54ad9[m[33m ([m[1;31morigin/18-pkg_notifications__v6-cc1-db-q2-notification[m[33m)[m save
+[33m537d19d[m save
+[33m632b29b[m csv
+[33m8ad20ce[m Définir des modèles Laravel pour interagir avec la base de données
+[33m9b8ccfc[m[33m ([m[1;31morigin/19-pkg_autorisations__v2-cc1-db-q2-controller[m[33m)[m Delete docs/pkg_autorisations/réalisation/base-de-donnees.md
+[33mb72b311[m Delete app/database/migrations/pkg_autorisations/2024_05_21_091908_add_nom_to_controllers_table.php
+[33m9aaa43d[m Merge branch 'labs-web:develop' into pkg_autorisations__v1-cc1-db-q2-Action
+[33m104052a[m Merge branch 'labs-web:develop' into pkg_autorisations__v1-cc1-db-q1-Action
+[33m5b20c96[m feat: Add 'nom' and 'controller_id' columns to actions table
+[33me7e157e[m compte rendu
+[33m18ec36c[m Merge branch 'develop' into 3-pkg_rh__v7-cc1-db-q1-group
+[33mb081e3c[m add atttribut
+[33m00a38b3[m save
+[33m1bba45d[m save
+[33m535c257[m feat: Add 'nom' and 'controller_id' columns to actions table
+[33mdd942d9[m Merge branch 'develop' into pkg_realisation_projet__v10-cc1-db-q2-NatureLivrable
+[33m1481290[m add seeders with scv file
+[33mc0e4e31[m save
+[33m2ce1379[m Merge branch 'develop' into pkg_competences__v5-cc1-db-q3-categorietechnologie
+[33mf510833[m Merge branch 'develop' into 29-pkg_posts__v11-cc1-db-q2-posts
+[33mee1b7a5[m update
+[33m8cc9d0e[m Merge branch 'pkg_projets__v8-cc1-db-q1-ClassStatutTache' into pkg_projets__v8-cc1-db-q2-ClassStatutTache
+[33mcb559ef[m Merge branch 'develop' into 7-pkg_competences__v5-cc1-db-q2-categorietechnologie
+[33m6fef1da[m update
+[33m35f4287[m add seeder
+[33mdebd7a0[m feat: Add 'nom' and 'controller_id' columns to actions table
+[33m1086f01[m Merge branch '35-pkg_posts__v11-cc1-db-q3-Posts' into 29-pkg_posts__v11-cc1-db-q2-posts
+[33mca2ee2b[m Merge branch 'develop' into develop
+[33m15c2e3d[m update
+[33m2be9cda[m Merge branch 'develop' of https://github.com/aminaassaid1/prototype into develop
+[33m1801a5f[m save
+[33m752d076[m Merge branch 'labs-web:develop' into develop
+[33m34584d9[m add relation
+[33m711247c[m Merge branch 'develop' into 5-pkg_notifications__v6-cc1-db-q1-notification-1
+[33m947888e[m[33m ([m[1;31morigin/4-v4-cc1-db-competences[m[33m)[m Delete app/database/seeders/pkg_competences/CompetencesSeeder.php
+[33m98216e6[m Delete app/database/data/pkg_competences/competences.csv
+[33mf3b3233[m u
+[33m57ec080[m update
+[33mff61f52[m Merge branch 'develop' into 7-pkg_competences__v5-cc1-db-q1-categorietechnologie
+[33m92e23dd[m Merge pull request #25 from aminaassaid1/develop
+[33mc0448d0[m Merge branch 'develop' into 7-pkg_competences__v5-cc1-db-q2-categorietechnologie
+[33m5e5c909[m[33m ([m[1;31morigin/65-pkg_rh__v7-cc1-db-q3-group[m[33m, [m[1;31morigin/51-pkg_rh__v7-cc1-db-q2-group[m[33m, [m[1;31morigin/39-pkg_realisation_projet__v10-cc1-db-q3-naturelivrable[m[33m)[m Merge pull request #14 from Safaa1faiz/pkg_realisation_projet__v10-cc1-db-q1-NatureLivrable
+[33m5ad4115[m save
+[33m4f7e8a3[m Merge branch 'develop' into 5-pkg_notifications__v6-cc1-db-q1-notification-1
+[33m813f540[m Merge branch 'develop' into develop
+[33m0e85f17[m save
+[33md72b4bd[m add seeder
+[33m66d0473[m Merge branch 'develop' into pkg_realisation_projet__v10-cc1-db-q1-NatureLivrable
+[33m67d44e6[m Merge branch 'labs-web:develop' into develop
+[33ma70dc5f[m Merge pull request #26 from husseinbouik/init-app
+[33mb9eeba1[m add
+[33m1b2f9d3[m Update user role constants to use "apprenant" instead of "membre"
+[33m361a68e[m save
+[33m352fbe0[m Merge branch '5-pkg_notifications__v6-cc1-db-q1-notification' into 22-pkg_notifications__v6-cc1-db-q3-notification
+[33mfa717ac[m Merge pull request #1 from Yasmine-daifane/init-app
+[33mee283e1[m[33m ([m[1;31morigin/5-pkg_notifications__v6-cc1-db-q1-notification[m[33m)[m save
+[33m462e2e5[m Merge branch 'develop' into init-app
+[33m1c5179f[m Merge branch 'init-app' of https://github.com/Yasmine-daifane/prototype into init-app
+[33m92fe287[m update
+[33mba8da87[m u
+[33ma6bcf04[m save
+[33m0ce8e83[m Merge branch 'labs-web:develop' into develop
+[33m3cfd855[m save
+[33m1a01534[m chore: Add seeders for notifications, posts, projets, and realisation_projet packages
+[33m23c7dc9[m done
+[33mc81596a[m Merge branch 'develop' into pkg_projets__v8-cc1-db-q1-ClassStatutTache
+[33m4857f54[m save
+[33mdf7cee8[m add model Tag and Post
+[33m21431ba[m U
+[33m8d0739a[m Merge branch 'develop' into 7-pkg_competences__v5-cc1-db-q2-categorietechnologie
+[33m067c227[m save
+[33mfb78b0e[m Merge branch 'develop' into develop
+[33me435cf0[m save
+[33md252525[m update
+[33mc7db542[m fix
+[33m1e9c7a4[m save
+[33mc0e4fa9[m Merge branch '10-pkg_posts__v11-cc1-db-q1-Tags' of https://github.com/hamidAchaou/prototype into 10-pkg_posts__v11-cc1-db-q1-Tags
+[33m6cc534e[m add compte-rendu
+[33md3a4ca3[m Merge branch 'develop' into init-app
+[33m626918e[m add seeders
+[33me1c5d49[m save
+[33md0980a7[m update
+[33ma39d266[m chore: Add seeders for notifications, posts, projets, and realisation_projet packages
+[33mbdfebe7[m save
+[33me63ab6e[m save
+[33m05de596[m Merge branch 'develop' of https://github.com/aminaassaid1/prototype into develop
+[33m00a5204[m save
+[33m0e16a5d[m Merge branch 'develop' into 10-pkg_posts__v11-cc1-db-q1-Tags
+[33md185ec8[m Merge branch 'labs-web:develop' into develop
+[33ma77b513[m Merge branch 'develop' into pkg_projets__v8-cc1-db-q1-ClassStatutTache
+[33me11f466[m update done
+[33m02c57bd[m save
+[33m868811b[m add migration posts and post_tag
+[33mb913caf[m package config
+[33mdbf1b87[m add nom filde
+[33med9775d[m update
+[33m9e93301[m add migration tags
+[33m38695ac[m create attributes migration notifications
+[33me4ede6d[m save
+[33ma46dcd5[m save
+[33md179da5[m save discription
+[33ma0f7e73[m migration
+[33m9746407[m update
+[33mfb80b56[m Créer la structure de la table avec migration Laravel.
+[33med4bab7[m add discription
+[33m859f83c[m[33m ([m[1;31morigin/7-pkg_competences__v5-cc1-db-q1-categorietechnologie[m[33m)[m save
+[33m3f12958[m save
+[33md6ca1d0[m save
+[33m388ac8b[m pkg_projets
+[33mbcc30ae[m gestion_rh
+[33m162e166[m pkg_autorisations
+[33m7eea726[m organisation des dossiers par packages
+[33m1286dd5[m cc1-db
+[33mffe8cd3[m update diagrammes
+[33mf082b20[m save
+[33m32adf02[m save
+[33ma7861f0[m save
+[33m6dcb5ca[m cc3
+[33m11b3778[m save
+[33mb2e7c06[m save
+[33mb6a9346[m pkg_realisation_projet
+[33ma54e3bd[m pkg_notifications
+[33md6dd387[m pkg_competences
+[33m9574bc6[m pkg_rh
+[33meff8dd3[m save
+[33mc8caef9[m save
+[33m017846e[m save
+[33mbf1bc22[m save
+[33m5c9ec49[m pkg_projets
+[33md2f9803[m pkg_technologies
+[33m33d02c8[m pkg_competences
+[33m3c0eee4[m pkg_authentification
+[33m3d5f22a[m create workspace
+[33m02887fa[m save
+[33m2007246[m save
+[33mbb9662f[m Ordre des chapitres
+[33m8ec558b[m save
+[33me322b7d[m menu rapports
+[33me9c0053[m organisation de docs par packages
+[33m0eeb827[m save
+[33m3aa5716[m save
+[33m9cfc85a[m save
+[33mb53f567[m save
+[33mff145e5[m save
+[33me2e4576[m use_case_pk_authentification
+[33me9db4ca[m save
+[33m1460058[m init rapport par packages
+[33m2cf14f2[m save
+[33m15ab4a3[m conception - gestion_projets
+[33m8b5bbf8[m clean code
+[33m3e63eb3[m save
+[33m26c639e[m clean
+[33m73a9384[m clean conception
+[33ma54ab2e[m Conception - Gestion des compétences
+[33me1fbeb1[m organisation des docs
+[33m9df163e[m Création des dossiers des packages - docs
+[33mcbb41b3[m diagramme de classes global
+[33m37ca5f9[m fix totos
+[33m6c1a61c[m save
+[33mcc1a8c3[m create todo csv file
+[33m108d9d7[m save
+[33m764f410[m conception
+[33m197cc3d[m analyse technique
+[33m705267e[m config TODO tags
+[33m6a9bb54[m Analyse fonctionnelle
+[33m7e76713[m docs - introduction
+[33m63f51a7[m save
+[33mb7feb0d[m save
+[33mf225531[m save
+[33m1b4869d[m issue template
+[33mde27127[m edit Readme
+[33ma546735[m remove build assets
+[33mac041c7[m save
+[33m5e88d08[m save
+[33m49b2369[m copy project from lab_crud
+[33m9a28373[m Initial commit
