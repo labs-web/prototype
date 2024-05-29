@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', __('GestionProjets/projet.singular'))
+@section('title',  __('pkg_projets/taches/diagramme-de-gantt.singular'))
 
 @section('content')
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Diagramme de Gantt</h1>
+                    <h1>{{ __('pkg_projets/taches/diagramme-de-gantt.singular') }}</h1>
                 </div>
             </div>
         </div>

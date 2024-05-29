@@ -1,6 +1,6 @@
 @if ($taches->isEmpty())
     <div class="alert alert-warning m-3">
-        <strong>{{ __('Aucune tâche disponible.') }}</strong>
+        <strong>{{ __('app.Aucune') }} {{ __('pkg_projets/taches/task.singular') }} {{ __('app.disponible') }}</strong>
     </div>
 @else
     <div class="mermaid">
