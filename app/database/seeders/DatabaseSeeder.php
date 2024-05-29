@@ -9,7 +9,7 @@ use Database\Seeders\{
     CompetencesSeeder,
     NotificationsSeeder,
     AutorisationsSeeder,
-    RHSeeder,
+    RhSeeder,
     ProjetsSeeder,
     RealisationProjetSeeder,
     PostsSeeder,
@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->call(RHSeeder::class);
+        $this->call(RhSeeder::class);
         $this->call(AutorisationsSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(CompetencesSeeder::class);

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Repositories\pkg_autorisations\ActionRepository;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -12,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(ActionRepository::class, function ($app) {
+            return new ActionRepository();
+        });
     }
 
     /**

@@ -19,8 +19,9 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $adminRole = User::ADMIN;
-        $membreRole = User::APPRENANT;
+        $admin = User::ADMIN;
+        $apprenant = User::APPRENANT;
+        $formateur = User::FORMATEUR;
 
         User::create([
             'name' => 'apprenant',
@@ -28,7 +29,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('apprenant'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-        ])->assignRole($membreRole);
+        ])->assignRole($apprenant);
 
         User::create([
             'name' => 'admin',
@@ -36,6 +37,41 @@ class UserSeeder extends Seeder
             'password' => Hash::make('admin'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-        ])->assignRole($adminRole);
+        ])->assignRole($admin);
+
+        User::create([
+            'name' => 'formateur',
+            'email' => 'formateur@solicode.co',
+            'password' => Hash::make('formateur'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ])->assignRole($formateur);
+
+
+        // $permissionsAdmin = [
+        //     'index-ProjetController',
+        //     'show-ProjetController',
+        //     'create-ProjetController',
+        //     'store-ProjetController',
+        //     'edit-ProjetController',
+        //     'update-ProjetController',
+        //     'destroy-ProjetController',
+        //     'export-ProjetController',
+        //     'import-ProjetController'
+        // ];
+
+        // $permissionsApprenant = [
+        //     'index-ProjetController',
+        //     'show-ProjetController',
+        // ];
+
+        $adminRole = Role::where('name', $admin)->first();
+        $apprenantRole = Role::where('name', $apprenant)->first();
+        $formateurRole = Role::where('name', $formateur)->first();
+
+        // $adminRole->givePermissionTo($permissionsAdmin);
+        // $formateurRole->givePermissionTo($permissionsAdmin);
+        // $apprenantRole->givePermissionTo($permissionsApprenant);
     }
 }
+
