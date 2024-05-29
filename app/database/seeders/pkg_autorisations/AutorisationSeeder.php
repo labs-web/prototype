@@ -17,8 +17,9 @@ class AutorisationSeeder extends Seeder
      */
     public function run(): void
     {
-        $AdminRole = User::ADMIN;
-        $MembreRole = User::APPRENANT;
+
+
+
 
         Schema::disableForeignKeyConstraints();
         Autorisation::truncate();
@@ -33,16 +34,15 @@ class AutorisationSeeder extends Seeder
             if (!$firstline) {
                 Autorisation::create([
 
-                    
-                        "id"=>$data[0],
-                                        
-                        "action_id"=>$data[1],
 
-                        "role_id"=>$data[2],
-                                        
-                        "created_at"=>$data[3],
-                    
-                        "updated_at" => $data[4],                    
+
+                        "action_id"=>$data[0],
+
+                        "role_id"=>$data[1],
+
+                        "created_at"=>$data[2],
+
+                        "updated_at" => $data[3],
                 ]);
             }
             $firstline = false;

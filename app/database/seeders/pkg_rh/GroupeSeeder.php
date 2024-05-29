@@ -13,8 +13,7 @@ class GroupeSeeder extends Seeder
      */
     public function run(): void
     {
-   
-
+  
    
         Schema::disableForeignKeyConstraints();
         Groupe::truncate();
@@ -35,4 +34,4 @@ class GroupeSeeder extends Seeder
 
         fclose($csvFile);
     }
-}
+} 

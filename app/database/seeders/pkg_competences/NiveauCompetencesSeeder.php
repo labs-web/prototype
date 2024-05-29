@@ -15,24 +15,24 @@ class NiveauCompetencesSeeder extends Seeder
     public function run(): void
     {
         // TODO fix-database : CC database - NiveauCompetencesSeeder
-        // Schema::disableForeignKeyConstraints();
-        // NiveauCompetence::truncate();
-        // Schema::enableForeignKeyConstraints();
+        Schema::disableForeignKeyConstraints();
+        NiveauCompetence::truncate();
+        Schema::enableForeignKeyConstraints();
 
-        // $csvFile = fopen(base_path("database/data/pkg_competences/NiveauCompetences.csv"), "r");
-        // $firstline = true;
-        // $i = 0;
-        // while (($data = fgetcsv($csvFile)) !== FALSE) {
-        //     if (!$firstline) {
-        //         NiveauCompetence::create([
-        //             "competence_id,"=>$data['0'],
-        //             "nom"=>$data['1'],
-        //             "description" =>$data['2']
-        //         ]);
-        //     }
-        //     $firstline = false;
-        // }
+        $csvFile = fopen(base_path("database/data/pkg_competences/NiveauCompetences.csv"), "r");
+        $firstline = true;
+        $i = 0;
+        while (($data = fgetcsv($csvFile)) !== FALSE) {
+            if (!$firstline) {
+                NiveauCompetence::create([
+                    "nom" => $data['0'],
+                    "description" => $data['1']
+                ]);
+            }
+            $firstline = false;
+        }
 
-        // fclose($csvFile);
+
+        fclose($csvFile);
     }
 }

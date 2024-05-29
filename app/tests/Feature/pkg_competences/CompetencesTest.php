@@ -2,11 +2,8 @@
 
 namespace Tests\Feature\pkg_competences;
 
-use App\Models\pkg_competences\NiveauCompetence;
-use Tests\TestCase;
 use App\Models\pkg_competences\Competence;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class CompetencesTest extends TestCase
@@ -30,65 +27,53 @@ class CompetencesTest extends TestCase
 
     public function test_create_competences(): void
     {
-        $niveauCompetence = NiveauCompetence::first();
-
         $data = [
-            'nom' => "TestNomCompetences",
-            'description' => "TestDescriptionCompetences",
-            'niveau_competences_id' => $niveauCompetence->id
+            'nom' => 'TestNomCompetences',
+            'description' => 'TestDescriptionCompetences',
         ];
 
         $this->model->create($data);
+
         $this->assertDatabaseHas('competences', [
             'nom' => $data['nom'],
-            'description' => $data['description']
+            'description' => $data['description'],
         ]);
     }
 
     public function test_update_competences(): void
     {
-        $niveauCompetence = NiveauCompetence::first();
-
         $existingCompetences = $this->model->create([
             'nom' => 'ExistingNomCompetences',
-            'description' => "ExistingDescriptionCompetences",
-            'niveau_competences_id' => $niveauCompetence->id
+            'description' => 'ExistingDescriptionCompetences',
         ]);
 
         $newName = 'UpdatedNomCompetences';
         $newDescription = 'UpdatedDescriptionCompetences';
-        $newNiveauCompetencesId = $niveauCompetence->id; 
 
         $existingCompetences->update([
             'nom' => $newName,
             'description' => $newDescription,
-            'niveau_competences_id' => $newNiveauCompetencesId
         ]);
 
         $this->assertEquals($newName, $existingCompetences->nom);
         $this->assertEquals($newDescription, $existingCompetences->description);
-        $this->assertEquals($newNiveauCompetencesId, $existingCompetences->niveau_competences_id);
         $this->assertDatabaseHas('competences', [
             'nom' => $newName,
             'description' => $newDescription,
-            'niveau_competences_id' => $newNiveauCompetencesId
         ]);
     }
 
     public function test_delete_competences(): void
     {
-        $niveauCompetence = NiveauCompetence::first();
-
         $existingCompetences = $this->model->create([
             'nom' => 'ExistingNomCompetences',
             'description' => 'ExistingDescriptionCompetences',
-            'niveau_competences_id' => $niveauCompetence->id
         ]);
 
         $existingCompetences->delete();
 
         $this->assertDatabaseMissing('competences', [
-            'id' => $existingCompetences->id
+            'id' => $existingCompetences->id,
         ]);
     }
 }

@@ -16,7 +16,7 @@ class Message extends Model
         'titre',
         'description',
         'projet_id',
-        'tach_id',
+        'tache_id',
         'isLue',
     ];
 
