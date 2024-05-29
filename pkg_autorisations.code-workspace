@@ -31,6 +31,10 @@
             "name":"migrations"
         },
         {
+            "path": "./app/database/data/pkg_autorisations",
+            "name":"data"
+        },
+        {
             "path": "./docs/pkg_autorisations",
             "name":"docs"
         },
@@ -46,6 +50,10 @@
         {
             "path": "./maquettes/view/pkg_autorisations",
             "name": "maquettes"
+        },
+        {
+            "path": "./app/lang/fr/pkg_autorisations",
+            "name": "lang"
         },
         {
             "path": "./collaboration",
