@@ -17,8 +17,6 @@ class NotificationSeeder extends Seeder
     public function run(): void
     {
 
-        //  SQLSTATE[HY000]: General error: 1364 Field 'type' doesn't have a default value (Connection: mysql, SQL: insert into `personnes` (`id`, `nom`, `prenom`, `updated_at`, `created_at`) values (1, madani, ali, 2024-05-22 10:33:48, 2024-05-22 10:33:48))
-
         Schema::disableForeignKeyConstraints();
         Notification::truncate();
         Schema::enableForeignKeyConstraints();

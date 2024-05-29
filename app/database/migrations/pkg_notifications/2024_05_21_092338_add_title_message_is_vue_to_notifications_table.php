@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::table('notifications', function (Blueprint $table) {
             $table->string('titre')->after('id');
-            $table->text('message')->nullable()->after('title');
+            $table->text('message')->nullable()->after('titre');
             $table->boolean('isVue')->after('message');
         });
     }

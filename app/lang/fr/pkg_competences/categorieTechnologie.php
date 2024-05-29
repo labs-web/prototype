@@ -1,5 +1,5 @@
 <?php
 return [
-    'singular' => 'catégorie technologie',
-    'plural' => 'catégorie technologies',
+    'singular' => 'notification',
+    'plural' => 'notifications',
 ];

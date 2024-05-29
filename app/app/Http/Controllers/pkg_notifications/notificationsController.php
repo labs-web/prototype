@@ -46,7 +46,7 @@ class notificationController extends Controller
         try {
             $data = $request->validated();
             $this->notification->create($data);
-            return redirect()->route('notification.index')->with('success', 'Catégorie technologie  ' . __('app.addSucées'));
+            return redirect()->route('notification.index')->with('success', __('pkg_notifications/notification.singular') . ' ' . __('app.addSucées'));
         } catch (notificationException $e) {
             return back()->with('error', $e->getMessage());
         }
@@ -67,7 +67,7 @@ class notificationController extends Controller
         try {
             $data = $request->validated();
             $this->notification->update($id, $data);
-            return redirect()->route('notification.index')->with('success', 'Categorie Technologie ' . __('app.updateSucées'));
+            return redirect()->route('notification.index')->with('success', __('pkg_notifications/notification.singular') . ' ' . __('app.updateSucées'));
         } catch (notificationException $e) {
             return back()->with('error', $e->getMessage());
         }
@@ -75,7 +75,7 @@ class notificationController extends Controller
 
     public function destroy($id){
         $this->notification->destroy($id);
-        return redirect()->route('notification.index')->with('success', 'Categorie Technologie ' . __('app.deleteSucées'));
+        return redirect()->route('notification.index')->with('success', __('pkg_notifications/notification.singular') . ' ' . __('app.deleteSucées'));
     }
 
     public function export()
@@ -97,6 +97,6 @@ class notificationController extends Controller
         } catch (\InvalidArgumentException $e) {
             return redirect()->route('notification.index')->withError('Le symbole de séparation est introuvable. Pas assez de données disponibles pour satisfaire au format.');
         }
-        return redirect()->route('notification.index')->with('success', 'Categorie Technologie ' . __('app.addSucées'));
+        return redirect()->route('notification.index')->with('success', __('pkg_notifications/notification.singular') . ' ' . __('app.addSucées'));
     }
 }

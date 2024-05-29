@@ -37,39 +37,39 @@ class notificationRepository extends BaseRepository
 
     public function create(array $data)
     {
-        $nom = $data['nom'];
+        // $nom = $data['nom'];
 
-        $notificationExist =  $this->model->where('nom', $nom)->exists();
+        // $notificationExist =  $this->model->where('nom', $nom)->exists();
 
-        if ($notificationExist) {
-            throw notificationException::AlreadyExistNotification();
-        } else {
-            return parent::create($data);
-        }
+        // if ($notificationExist) {
+        //     throw notificationException::AlreadyExistNotification();
+        // } else {
+        // }
+        return parent::create($data);
     }
 
     public function update($id, array $data)
     {
-        $nom = $data['nom'];
+        // $nom = $data['nom'];
 
-        $notificationExist =  $this->model->where('nom', $nom)->where('id', '!=', $id)->exists();
+        // $notificationExist =  $this->model->where('nom', $nom)->where('id', '!=', $id)->exists();
 
-        if ($notificationExist) {
-            throw notificationException::AlreadyExistNotification();
-        } else {
-            return parent::update($id, $data);
-        }
+        // if ($notificationExist) {
+        //     throw notificationException::AlreadyExistNotification();
+        // } else {
+        // }
+        return parent::update($id, $data);
     }
 
     public function destroy($id)
     {
-        $notificationExist =  $this->model->find($id);
+        // $notificationExist =  $this->model->find($id);
+        return parent::destroy($id);
 
-        if (!$notificationExist) {
-            throw notificationException::NotExistNotification();
-        } else {
-            return parent::destroy($id);
-        }
+        // if (!$notificationExist) {
+        //     throw notificationException::NotExistNotification();
+        // } else {
+        // }
     }
 
         /**
