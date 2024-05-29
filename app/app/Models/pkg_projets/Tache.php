@@ -22,6 +22,7 @@ class Tache extends Model
         'status_tache_id',
         'projets_id',
     ];
+
     public function Personne(){
         return $this->belongsTo(Personne::class, 'personne_id');
     }
