@@ -9,6 +9,7 @@ use App\Http\Requests\pkg_notifications\notificationRequest;
 use App\Imports\pkg_notifications\notificationImport;
 use App\Models\pkg_notifications\notification as pkg_notificationsnotification;
 use App\Repositories\pkg_notifications\notificationRepository;
+use App\Repositories\pkg_rh\ApprenantRepositorie;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -16,9 +17,11 @@ class notificationController extends Controller
 {
 
     protected $notification;
-    public function __construct(notificationRepository $notification)
+    protected $apprenant;
+    public function __construct(notificationRepository $notification, ApprenantRepositorie $apprenant)
     {
 
+        $this->apprenant = $apprenant;
         $this->notification = $notification;
     }
 
@@ -38,7 +41,8 @@ class notificationController extends Controller
 
     public function create()
     {
-        return view('pkg_notifications.notification.create');
+        $apprenants = $this->apprenant->all();
+        return view('pkg_notifications.notification.create', compact('apprenants'));
     }
 
     public function store(notificationRequest $request)
@@ -58,8 +62,9 @@ class notificationController extends Controller
     }
     public function edit($id)
     {
+        $apprenants = $this->apprenant->all();
         $dataToEdit = $this->notification->find($id);
-        return view('pkg_notifications.notification.edit', compact('dataToEdit'));
+        return view('pkg_notifications.notification.edit', compact('dataToEdit', 'apprenants'));
     }
 
     public function update(notificationRequest $request, $id)

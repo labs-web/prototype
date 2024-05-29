@@ -22,8 +22,9 @@ class notificationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nom' => 'required',
-            'description' => 'required'
+            'titre' => 'required',
+            'message' => 'required', 
+            'apprenant_id' => 'required'
         ];
     }
 }

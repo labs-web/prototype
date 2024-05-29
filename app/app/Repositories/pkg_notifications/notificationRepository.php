@@ -14,7 +14,7 @@ class notificationRepository extends BaseRepository
      * @var array
      */
     protected $fieldsSearchable = [
-        'nom'
+        'titre'
     ];
 
     /**
@@ -83,8 +83,8 @@ class notificationRepository extends BaseRepository
     public function searchData($searchableData, $perPage = 4)
     {
         return $this->model->where(function ($query) use ($searchableData) {
-            $query->where('nom', 'like', '%' . $searchableData . '%')
-                ->orWhere('description', 'like', '%' . $searchableData . '%');
+            $query->where('titre', 'like', '%' . $searchableData . '%')
+                ->orWhere('message', 'like', '%' . $searchableData . '%');
         })->paginate($perPage);
     }
 }
