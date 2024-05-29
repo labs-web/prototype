@@ -9,7 +9,7 @@
                 </div>
                 @can('edit-TechnologieController')
                     <div class="col-sm-6">
-                        <a href="{{ route('technologies.edit', $fetchedData->id) }}" class="btn btn-default float-right">
+                        <a href="{{ route('technologie.edit', $fetchedData->id) }}" class="btn btn-default float-right">
                             <i class="far fa-edit"></i>
                             {{ __('app.edit') }}
                         </a>

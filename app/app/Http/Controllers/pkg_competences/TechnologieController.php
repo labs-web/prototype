@@ -61,7 +61,7 @@ class TechnologieController extends AppBaseController
             $validatedData = $request->validated();
             // dd($validatedData);
             $this->TechnologieRepository->create($validatedData);
-            return redirect()->route('technologies.index')->with('success', __('messages.create_success'));
+            return redirect()->route('technologie.index')->with('success', __('messages.create_success'));
 
         } catch (TechnologieAlreadyExistException $e) {
             return back()->withInput()->withErrors(['technologie_exists' => 'Technologie est déjà existant']);
@@ -91,14 +91,14 @@ class TechnologieController extends AppBaseController
     {
         $validatedData = $request->validated();
         $this->TechnologieRepository->update($id, $validatedData);
-        return redirect()->route('technologies.index', $id)->with('success', __('messages.update_success'));
+        return redirect()->route('technologie.index', $id)->with('success', __('messages.update_success'));
     }
 
 
     public function destroy(string $id)
     {
         $this->TechnologieRepository->destroy($id);
-        return redirect()->route('technologies.index')->with('success', __('messages.delete_success'));
+        return redirect()->route('technologie.index')->with('success', __('messages.delete_success'));
     }
 
 
@@ -119,8 +119,8 @@ class TechnologieController extends AppBaseController
         try {
             Excel::import(new TechnologieImport, $request->file('file'));
         } catch (\InvalidArgumentException $e) {
-            return redirect()->route('technologies.index')->withError('Le symbole de séparation est introuvable. Pas assez de données disponibles pour satisfaire au format.');
+            return redirect()->route('technologie.index')->withError('Le symbole de séparation est introuvable. Pas assez de données disponibles pour satisfaire au format.');
         }
-        return redirect()->route('technologies.index')->with('success', __('Pkg_competences.Technologie.singular') . ' ' . __('app.addSucées'));
+        return redirect()->route('technologie.index')->with('success', __('Pkg_competences.Technologie.singular') . ' ' . __('app.addSucées'));
     }
 }
