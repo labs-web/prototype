@@ -22,4 +22,5 @@ class Notification extends Model
     {
         return $this->belongsTo(Personne::class);
     }
+
 }
