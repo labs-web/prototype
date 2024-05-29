@@ -58,13 +58,11 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test1',
             'prenom' => 'test1',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
         $ApprenantData = [
             'nom' => 'test2',
             'prenom' => 'test2',
-            'type' => 'Apprenant',
             'groupe_id' => 1,
         ];
 
@@ -89,14 +87,12 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test1',
             'prenom' => 'test1',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
 
         $ApprenantData = [
             'nom' => 'test2',
             'prenom' => 'test2',
-            'type' => 'Apprenant',
             'groupe_id' => 1,
         ];
 
@@ -117,7 +113,6 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test1',
             'prenom' => 'test1',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
       
@@ -141,13 +136,11 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test1',
             'prenom' => 'test1',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
         $ApprenantData = [
             'nom' => 'test2',
             'prenom' => 'test2',
-            'type' => 'Apprenant',
             'groupe_id' => 1,
         ];
 
@@ -181,13 +174,11 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test1',
             'prenom' => 'test1',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
         $ApprenantData = [
             'nom' => 'test2',
             'prenom' => 'test2',
-            'type' => 'Apprenant',
             'groupe_id' => 1,
         ];
 
@@ -211,7 +202,6 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test',
             'prenom' => 'test',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
        
