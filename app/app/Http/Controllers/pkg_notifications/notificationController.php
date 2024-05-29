@@ -58,7 +58,8 @@ class notificationController extends Controller
     public function show($id)
     {
         $fetchedData = $this->notification->find($id);
-        return view('pkg_notifications.notification.show', compact('fetchedData'));
+        $personne = $this->apprenant->find($fetchedData->apprenant_id);
+        return view('pkg_notifications.notification.show', compact('fetchedData', 'personne'));
     }
     public function edit($id)
     {

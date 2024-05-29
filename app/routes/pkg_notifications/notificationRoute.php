@@ -11,7 +11,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/notification/{id}/edit', [notificationController::class, 'edit'])->name('notification.edit');
         Route::put('/notification/{id}/update', [notificationController::class, 'update'])->name('notification.update');
         Route::put('/notification/{id}/destroy', [notificationController::class, 'destroy'])->name('notification.destroy');
-        Route::put('/notification/{id}/show', [notificationController::class, 'show'])->name('notification.show');
+        Route::get('/notification/{id}/show', [notificationController::class, 'show'])->name('notification.show');
         Route::get('/notification/export', [notificationController::class, 'export'])->name('notification.export');
         Route::post('/notification/import', [notificationController::class, 'import'])->name('notification.import');
         // Route::resource('/notifications', notificationController::class);
