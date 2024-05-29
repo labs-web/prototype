@@ -99,6 +99,32 @@
       "extra": ""
     }
   ],
+  "apprenants": [
+    {
+      "name": "id",
+      "type": "bigint unsigned",
+      "nullable": "NO",
+      "key": "PRI",
+      "default": null,
+      "extra": "auto_increment"
+    },
+    {
+      "name": "created_at",
+      "type": "timestamp",
+      "nullable": "YES",
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamp",
+      "nullable": "YES",
+      "key": "",
+      "default": null,
+      "extra": ""
+    }
+  ],
   "autorisations": [
     {
       "name": "id",
@@ -219,7 +245,7 @@
     {
       "name": "description",
       "type": "text",
-      "nullable": "YES",
+      "nullable": "NO",
       "key": "",
       "default": null,
       "extra": ""
@@ -367,6 +393,32 @@
       "extra": "DEFAULT_GENERATED"
     }
   ],
+  "formateurs": [
+    {
+      "name": "id",
+      "type": "bigint unsigned",
+      "nullable": "NO",
+      "key": "PRI",
+      "default": null,
+      "extra": "auto_increment"
+    },
+    {
+      "name": "created_at",
+      "type": "timestamp",
+      "nullable": "YES",
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamp",
+      "nullable": "YES",
+      "key": "",
+      "default": null,
+      "extra": ""
+    }
+  ],
   "groupes": [
     {
       "name": "id",
@@ -419,30 +471,6 @@
       "extra": "auto_increment"
     },
     {
-      "name": "titre",
-      "type": "varchar(255)",
-      "nullable": "NO",
-      "key": "",
-      "default": null,
-      "extra": ""
-    },
-    {
-      "name": "lien",
-      "type": "varchar(255)",
-      "nullable": "NO",
-      "key": "",
-      "default": null,
-      "extra": ""
-    },
-    {
-      "name": "description",
-      "type": "text",
-      "nullable": "YES",
-      "key": "",
-      "default": null,
-      "extra": ""
-    },
-    {
       "name": "created_at",
       "type": "timestamp",
       "nullable": "YES",
@@ -455,22 +483,6 @@
       "type": "timestamp",
       "nullable": "YES",
       "key": "",
-      "default": null,
-      "extra": ""
-    },
-    {
-      "name": "nature_livrable_id",
-      "type": "bigint unsigned",
-      "nullable": "YES",
-      "key": "MUL",
-      "default": null,
-      "extra": ""
-    },
-    {
-      "name": "projet_id",
-      "type": "bigint unsigned",
-      "nullable": "YES",
-      "key": "MUL",
       "default": null,
       "extra": ""
     }
@@ -985,14 +997,6 @@
       "key": "",
       "default": null,
       "extra": ""
-    },
-    {
-      "name": "groupe_id",
-      "type": "bigint unsigned",
-      "nullable": "NO",
-      "key": "MUL",
-      "default": null,
-      "extra": ""
     }
   ],
   "post_tag": [
@@ -1297,14 +1301,6 @@
       "extra": ""
     },
     {
-      "name": "dateDebut",
-      "type": "date",
-      "nullable": "YES",
-      "key": "",
-      "default": null,
-      "extra": ""
-    },
-    {
       "name": "dateEchéance",
       "type": "date",
       "nullable": "NO",
@@ -1313,25 +1309,9 @@
       "extra": ""
     },
     {
-      "name": "personne_id",
+      "name": "apprenant_id",
       "type": "bigint unsigned",
       "nullable": "YES",
-      "key": "MUL",
-      "default": null,
-      "extra": ""
-    },
-    {
-      "name": "projets_id",
-      "type": "bigint unsigned",
-      "nullable": "NO",
-      "key": "MUL",
-      "default": null,
-      "extra": ""
-    },
-    {
-      "name": "status_tache_id",
-      "type": "bigint unsigned",
-      "nullable": "NO",
       "key": "MUL",
       "default": null,
       "extra": ""

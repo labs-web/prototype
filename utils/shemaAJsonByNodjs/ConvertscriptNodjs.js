@@ -1,12 +1,13 @@
 const mysql = require('mysql2');
 const fs = require('fs');
 
+// TODO : à lire depuis .env
 // Configuration de la connexion à la base de données
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'admin',
-    database: 'laravel'
+    database: 'prtotype'
 });
 
 connection.connect(err => {
