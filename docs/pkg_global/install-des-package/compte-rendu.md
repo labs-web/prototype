@@ -95,3 +95,14 @@ Spatie\Permission\PermissionServiceProvider::class,
    });
    ```
 Ajoutez le code dans `'resources/js/app.js'`:
+
+10. **Spatie laravel backup**
+
+```bash
+   composer require spatie/laravel-backup
+   php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
+
+   # in app\console\kernel.php add this to method schedule
+   $schedule->command('backup:run')->daily()->at('02:00');
+
+```
