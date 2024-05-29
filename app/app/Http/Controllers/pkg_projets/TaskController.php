@@ -88,24 +88,7 @@ class TaskController extends AppBaseController
         return view('pkg_projets.taches.index', compact('projectData'))->with('succes', 'Le task a été supprimer avec succés.');
     }
 
-    // public function indexGantt(Request $request, ProjectRepository $projectRepository)
-    // {   
-
-    //     if ($request->ajax()) {
-    //         $searchValue = $request->get('searchValue');
-    //         if ($searchValue !== '') {
-    //             $searchQuery = str_replace(' ', '%', $searchValue);
-    //             $taches = $this->taskRepository->searchData($searchQuery);
-    //             return view('pkg_projets.taches.index-gantt', compact('taches'));
-    //         }
-    //     }
-    //     // $taches = $this->taskRepository->find($project_id);
-    //     $taches = $this->taskRepository->all();
-    //     $taches->load('Projet', 'StatutTache');
-    //     $projects = $projectRepository->all();
-    //     return view('pkg_projets.taches.index-gantt', compact(['taches', 'projects']));
-    // }
-
+    // 
     public function indexGantt(Request $request, ProjectRepository $projectRepository)
     {
         if ($request->ajax()) {
