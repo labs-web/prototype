@@ -1,0 +1,217 @@
+classDiagram
+
+namespace gestion_authentifications {
+  class User {
+    + id : int
+    + login: string
+    + password: string
+  }
+  class Role {
+    + id : int
+    + name: string
+    + description: text
+  }
+}
+
+User "*" --> "1" Role
+
+namespace pkg_autorisations {
+  class Action {
+    id: int
+    nom: string
+  }
+  class Autorisation {
+    id: int
+  }
+  class Controller {
+    id: int
+    nom: string
+  }
+}
+
+namespace Spatie {
+  class Permission {
+    id: int
+    name: string
+    guard_name: string
+  }
+}
+
+namespace pkg_authentification {
+  class Role {
+    + id : int
+    + name: string
+    + description: text
+  }
+}
+
+Action "*" <-- "1" Controller
+Autorisation --> "1" Action
+Autorisation "*" <-- "1" Role
+Action "1" --> "1" Permission
+Action "1" --> "*" Action : "actions permises avec lui"
+
+namespace gestion_competences {
+  class Competence {
+    id : int
+    nom : string
+    description : string
+  }
+  class NiveauCompetence {
+    id : int
+    nom : string
+    description : string
+  }
+  class Technologie {
+    id : int
+    nom : string
+    description : string
+  }
+  class CategorieTechnologie {
+    id : int
+    nom : string
+    description : string
+  }
+}
+
+Competence "1" --> "*" Technologie
+Technologie "*" --> "1" CategorieTechnologie
+
+namespace pkg_notifications {
+  class Notification {
+    id : int
+    titre : string
+    message : Text
+    isVue: bool
+  }
+}
+
+namespace pkg_rh {
+  class Apprenant
+}
+
+Notification "*" --> "1" Apprenant : "un seul"
+
+namespace pkg_posts {
+  class Posts {
+    id : int
+    nom : String
+    description : Text
+  }
+  class Tags {
+    id : int
+    nom : String
+    description : String
+  }
+}
+
+Posts "*" --> "*" Tags
+
+namespace gestion_rh {
+  class Personne {
+    + id: int
+    + nom: string
+    + prenom: string
+  }
+  class Formateur
+  class Apprenant
+  class Groupe {
+    id: int
+    nom: string
+    description: text
+  }
+}
+
+Groupe "1" --> "*" Apprenant
+Formateur "*" --> "1" Groupe
+
+namespace pk_projets {
+  class Projet {
+    id: int
+    nom: string
+    description: text
+    objectifs: string
+    dateDebut: date
+    dateEcheance: date
+    CalculerStatutProjet()
+  }
+  class Tache {
+    id: int
+    nom: string
+    description: text
+    priorité: string
+    dateÉchéance: date
+  }
+  class StatutTache {
+    id: int
+    nom: string
+    description: text
+  }
+  class Equipe {
+    id: int
+    nom: string
+    description: text
+  }
+}
+
+Formateur "1" --> "*" Projet
+Projet "1" --> "*" Tache
+Projet "*" --> "*" Competence
+Tache "*" --> "1" Apprenant : 1
+Tache "*" --> "1" NiveauCompetence
+Tache "*" --> "*" Technologie
+Tache "*" --> "1" StatutTache
+Equipe "*" --> "1" Projet
+Equipe "*" --> "*" Apprenant : *
+
+namespace pkg_realisation_projet {
+  class Livrable {
+    id: int
+    titre: string
+    lien: string
+    description: text
+  }
+  class NatureLivrable {
+    id: int
+    nom: string
+    description: text
+  }
+  class Message {
+    id: int
+    titre: string
+    description: text
+  }
+}
+
+Projet "1" --> "*" Livrable
+Livrable "*" --> "1" NatureLivrable
+Message "*" --> "1" Tache
+Message "*" --> "1" Projet
+
+namespace gestion_rh {
+  class Personne {
+    + id: int
+    + nom: string
+    + prenom: string
+  }
+  class Utilisateur {
+    + id : int
+    + login: string
+    + password: string
+  }
+  class Formateur
+  class Apprenant
+  class Groupe {
+    id: int
+    nom: string
+    description: text
+  }
+}
+
+Personne <|-- Formateur
+Personne <|-- Apprenant
+Utilisateur "1" <-- "1" Formateur : "compte"
+Utilisateur "1" <-- "1" Apprenant : "compte"
+Apprenant "*" --> "1" Groupe
+Projet "*" --> "1" Formateur
+Formateur "*" --> "1" Groupe
