@@ -8,6 +8,7 @@ use App\Exceptions\pkg_competences\TechnologieAlreadyExistException;
 
 class TechnologieRepository extends BaseRepository
 {
+    protected $paginationLimit = 5;
     protected $fieldsSearchable = [
         'nom',
         'description',
@@ -60,7 +61,7 @@ class TechnologieRepository extends BaseRepository
      * @param int $perPage Nombre d'éléments par page.
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function searchData($searchableData, $perPage = 4)
+    public function searchData($searchableData, $perPage = 5)
     {
         return $this->model->where(function ($query) use ($searchableData) {
             $query->where('nom', 'like', '%' . $searchableData . '%')
