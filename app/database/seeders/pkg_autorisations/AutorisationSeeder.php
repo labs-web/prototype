@@ -18,41 +18,37 @@ class AutorisationSeeder extends Seeder
     public function run(): void
     {
 
-        // SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`prtotype`.`autorisations`, CONSTRAINT `autorisations_action_id_foreign` FOREIGN KEY (`action_id`) REFERENCES `actions` (`id`)) (Connection: mysql, SQL: insert into `autorisations` (`id`, `action_id`, `role_id`, `created_at`, `updated_at`) values (1, 1, 1, 2023-01-15 08:30:00, 2023-01-15 08:30:00))
 
 
-        // $AdminRole = User::ADMIN;
-        // $MembreRole = User::APPRENANT;
 
-        // Schema::disableForeignKeyConstraints();
-        // Autorisation::truncate();
-        // Schema::enableForeignKeyConstraints();
+        Schema::disableForeignKeyConstraints();
+        Autorisation::truncate();
+        Schema::enableForeignKeyConstraints();
 
-        // $csvFile = fopen(base_path("database/data/pkg_autorisations/Autorisations.csv"), "r");
-        // $firstline = true;
-        // $i = 0;
-        // while (($data = fgetcsv($csvFile)) !== FALSE) {
+        $csvFile = fopen(base_path("database/data/pkg_autorisations/Autorisations.csv"), "r");
+        $firstline = true;
+        $i = 0;
+        while (($data = fgetcsv($csvFile)) !== FALSE) {
 
 
-        //     if (!$firstline) {
-        //         Autorisation::create([
+            if (!$firstline) {
+                Autorisation::create([
 
-                    
-        //                 "id"=>$data[0],
-                                        
-        //                 "action_id"=>$data[1],
 
-        //                 "role_id"=>$data[2],
-                                        
-        //                 "created_at"=>$data[3],
-                    
-        //                 "updated_at" => $data[4],                    
-        //         ]);
-        //     }
-        //     $firstline = false;
-        // }
 
-        // fclose($csvFile);
+                        "action_id"=>$data[0],
+
+                        "role_id"=>$data[1],
+
+                        "created_at"=>$data[2],
+
+                        "updated_at" => $data[3],
+                ]);
+            }
+            $firstline = false;
+        }
+
+        fclose($csvFile);
 
     }
 }

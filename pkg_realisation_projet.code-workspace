@@ -40,9 +40,14 @@
             "path": "./app/database/seeders/pkg_realisation_projet",
             "name":"seeders"
         },
+
         {
             "path": "./app/database/migrations/pkg_realisation_projet",
             "name":"migrations"
+        },
+        {
+            "path": "./app/database/data/pkg_realisation_projet",
+            "name":"data"
         },
         {
             "path": "./docs/pkg_realisation_projet",
@@ -60,6 +65,10 @@
         {
             "path": "./maquettes/view/pkg_realisation_projet",
             "name": "maquettes"
+        },
+        {
+            "path": "./app/lang/fr/pkg_realisation_projet",
+            "name": "lang"
         },
         {
             "path": "./collaboration",
