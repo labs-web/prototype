@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', __('app.edit') . ' ' . __('pkg_competences/technologie/technologie.singular'))
+@section('title', __('app.edit') . ' ' . __('pkg_competences/technologie.singular'))
 
 @section('content')
     <div class="content-header">
