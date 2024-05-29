@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions\pkg_competences;
+namespace App\Exceptions\pkg_notifications;
 
 use App\Exceptions\BusinessException;
 use Exception;

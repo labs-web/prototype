@@ -1,12 +1,12 @@
 <?php
 namespace App\Repositories\pkg_notifications;
 
-use App\Exceptions\pkg_competences\notificationException;
+use App\Exceptions\pkg_notifications\notificationException;
 use App\Models\pkg_notifications\notification;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
 
-class notificationsRepository extends BaseRepository
+class notificationRepository extends BaseRepository
 {
         /**
      * Les champs de recherche disponibles pour les projets.

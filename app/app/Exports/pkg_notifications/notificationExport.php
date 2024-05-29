@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\pkg_competences;
+namespace App\Exports\pkg_notifications;
 
 use Maatwebsite\Excel\Concerns\FromArray;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 
-class notificationsExport implements FromCollection, WithHeadings, ShouldAutoSize, WithStyles
+class notificationExport implements FromCollection, WithHeadings, ShouldAutoSize, WithStyles
 {
     protected $data;
 
