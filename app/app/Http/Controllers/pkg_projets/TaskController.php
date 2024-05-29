@@ -9,6 +9,7 @@ use App\Http\Requests\pkg_projets\TaskRequest;
 use App\Imports\pkg_projets\TaskImport;
 use App\Exports\pkg_projets\TaskExport;
 use App\Models\pkg_projets\Tache;
+use App\Repositories\pkg_projets\ProjectRepository;
 use App\Repositories\pkg_projets\TaskRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -31,18 +32,18 @@ class TaskController extends AppBaseController
             $searchValue = $request->get('searchValue');
             if ($searchValue !== '') {
                 $searchQuery = str_replace(' ', '%', $searchValue);
-                $projectData = $this->taskRepository->searchData($searchQuery);
-                return view('pkg_projets.task.index', compact('projectData'))->render();
+                $taches = $this->taskRepository->searchData($searchQuery);
+                return view('pkg_projets.taches.index', compact('taches'))->render();
             }
         }
-        $projectData = $this->taskRepository->paginate();
-        return view('pkg_projets.task.index', compact('projectData'));
+        $taches = $this->taskRepository->paginate();
+        return view('pkg_projets.taches.index', compact('taches'));
     }
 
     public function create()
     {
         $dataToEdit = null;
-        return view('pkg_projets.task.create', compact('dataToEdit'));
+        return view('pkg_projets.taches.create', compact('dataToEdit'));
     }
 
     public function store(TaskRequest $request)
@@ -60,8 +61,8 @@ class TaskController extends AppBaseController
 
     public function show(string $id)
     {
-        $fetchedData = $this->taskRepository->find($id);
-        return view('pkg_projets.task.show', compact('fetchedData'));
+        $tache = $this->taskRepository->find($id);
+        return view('pkg_projets.taches.show', compact('tache'));
     }
 
     public function edit(string $id)
@@ -70,7 +71,7 @@ class TaskController extends AppBaseController
         $dataToEdit->date_debut = Carbon::parse($dataToEdit->date_debut)->format('Y-m-d');
         $dataToEdit->date_de_fin = Carbon::parse($dataToEdit->date_de_fin)->format('Y-m-d');
 
-        return view('pkg_projets.task.edit', compact('dataToEdit'));
+        return view('pkg_projets.taches.edit', compact('dataToEdit'));
     }
 
     public function update(TaskRequest $request, string $id)
@@ -84,16 +85,49 @@ class TaskController extends AppBaseController
     {
         $this->taskRepository->destroy($id);
         $projectData = $this->taskRepository->paginate();
-        return view('pkg_projets.task.index', compact('projectData'))->with('succes', 'Le task a été supprimer avec succés.');
+        return view('pkg_projets.taches.index', compact('projectData'))->with('succes', 'Le task a été supprimer avec succés.');
     }
 
-    public function indexGantt($project_id)
-    {   
-        $taches = $this->taskRepository->find($project_id);
+    // public function indexGantt(Request $request, ProjectRepository $projectRepository)
+    // {   
+
+    //     if ($request->ajax()) {
+    //         $searchValue = $request->get('searchValue');
+    //         if ($searchValue !== '') {
+    //             $searchQuery = str_replace(' ', '%', $searchValue);
+    //             $taches = $this->taskRepository->searchData($searchQuery);
+    //             return view('pkg_projets.taches.index-gantt', compact('taches'));
+    //         }
+    //     }
+    //     // $taches = $this->taskRepository->find($project_id);
+    //     $taches = $this->taskRepository->all();
+    //     $taches->load('Projet', 'StatutTache');
+    //     $projects = $projectRepository->all();
+    //     return view('pkg_projets.taches.index-gantt', compact(['taches', 'projects']));
+    // }
+
+    public function indexGantt(Request $request, ProjectRepository $projectRepository)
+    {
+        if ($request->ajax()) {
+            $projectId = $request->get('project_id');
+            // dd($projectId);
+            if ($projectId) {
+                $taches = $this->taskRepository->find($projectId);
+            } else {
+                $taches = $this->taskRepository->all();
+            }
+            $taches->load('Projet', 'StatutTache');
+            return view('pkg_projets.taches.gantt-chart', compact('taches'))->render();
+        }
+
+        $taches = $this->taskRepository->all();
         $taches->load('Projet', 'StatutTache');
-
-        return view('pkg_projets.task.index-gantt', compact('taches'));
+        $projects = $projectRepository->all();
+        return view('pkg_projets.taches.index-gantt', compact(['taches', 'projects']));
     }
+
+
+
 
 
     public function export()

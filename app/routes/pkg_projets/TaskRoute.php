@@ -11,5 +11,5 @@ Route::middleware('auth')->group(function () {
         Route::get('taches/export', [TaskController::class, 'export'])->name('tache.export');
         Route::post('taches/import', [TaskController::class, 'import'])->name('tache.import');
         // digrame degant
-        Route::get('/{project_id}/tasks/diagramme-de-Gantt', [TaskController::class, 'indexGantt'])->name('tasks.gantt');    });
+        Route::get('/tasks/diagramme-de-Gantt', [TaskController::class, 'indexGantt'])->name('tasks.gantt');    });
 });
