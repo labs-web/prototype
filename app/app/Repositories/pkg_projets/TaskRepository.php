@@ -61,7 +61,6 @@ class TaskRepository extends BaseRepository
 
     public function find($project_id, $column = []) {
         return $this->model->where('projets_id', $project_id)->get();
-        // return $this->model->where('projets_id', $project_id)->get();
     }
 
     /**
