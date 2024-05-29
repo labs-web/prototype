@@ -1,6 +1,6 @@
 @if ($taches->isEmpty())
-    <div class="alert alert-warning mt-3">
-        <strong>{{ __('No tasks available.') }}</strong>
+    <div class="alert alert-warning m-3">
+        <strong>{{ __('Aucune tâche disponible.') }}</strong>
     </div>
 @else
     <div class="mermaid">

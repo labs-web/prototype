@@ -19,17 +19,26 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header col-md-12">
-                            <div class="">
-                                <div class="form-group col-md-3">
-                                    {{-- <label for="projectSelect">{{ __('Select Project') }}</label> --}}
-                                    <select id="projectSelect" class="form-control">
-                                        <option value="">{{ __('All Projects') }}</option>
-                                        @foreach ($projects as $project)
-                                            <option value="{{ $project->id }}">{{ $project->nom }}</option>
-                                        @endforeach
-                                    </select>
+                            <div class="col-md-12">
+                                <div class="col-md-6 row">
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend">
+                                            <button type="submit" class="btn btn-default">
+                                                <i class="fas fa-filter"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-5 pl-0">
+                                            <select id="projectSelect" class="form-control">
+                                                <option value="">{{ __('Tous les Projets') }}</option>
+                                                @foreach ($projects as $project)
+                                                    <option value="{{ $project->id }}">{{ $project->nom }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
                         <div id="taskContainer">
                             @include('pkg_projets.taches.gantt-chart')
@@ -38,6 +47,5 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" id="page" value="1">
     </section>
 @endsection
