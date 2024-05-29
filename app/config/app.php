@@ -181,7 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        
+
 
         /*
          * Package Service Providers...
@@ -199,7 +199,8 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         // matewebsite Excel
         Maatwebsite\Excel\ExcelServiceProvider::class,
-
+        // Adminer
+        Onecentlin\Adminer\ServiceProvider::class,
     ],
 
     /*
