@@ -17,21 +17,10 @@ class NotificationSeeder extends Seeder
     public function run(): void
     {
 
-        // TODO fix-seeder : NotificationSeeder
+        // // TODO fix-seeder : NotificationSeeder
 
-        //  SQLSTATE[HY000]: General error: 1364 Field 'type' doesn't have a default value (Connection: mysql, SQL: insert into `personnes` (`id`, `nom`, `prenom`, `updated_at`, `created_at`) values (1, madani, ali, 2024-05-22 10:33:48, 2024-05-22 10:33:48))
+        // //  SQLSTATE[HY000]: General error: 1364 Field 'type' doesn't have a default value (Connection: mysql, SQL: insert into `personnes` (`id`, `nom`, `prenom`, `updated_at`, `created_at`) values (1, madani, ali, 2024-05-22 10:33:48, 2024-05-22 10:33:48))
 
-        // Personne::create([
-        //     'id' => '1',
-        //     'nom' => 'madani',
-        //     'prenom' => 'ali',
-        // ]);
-        // Personne::create([
-        //     'id' => '2',
-        //     'nom' => 'madani',
-        //     'prenom' => 'ahmad',
-        // ]);
-        // //
 
         // Schema::disableForeignKeyConstraints();
         // Notification::truncate();

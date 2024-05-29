@@ -1,14 +1,8 @@
-
-
-
-
-
-
 ---
 layout: default
 chapitre: true
 package : pkg_autorisations
-order: 621
+order: 623
 ---
 
 # Valider les actions CRUD à l’aide de tests unitaires

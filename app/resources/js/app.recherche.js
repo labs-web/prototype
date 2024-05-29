@@ -1,4 +1,3 @@
-
 import "https://code.jquery.com/jquery-3.6.0.min.js";
 
 $(document).ready(function () {
@@ -25,8 +24,10 @@ $(document).ready(function () {
 
     // Fonction pour récupérer les données avec AJAX
     function fetchData(page, searchValue) {
+        var neededUrl = window.location.pathname;
+        console.log(neededUrl);
         $.ajax({
-            url: "/projets/?page=" + page + "&searchValue=" + searchValue,
+            url: neededUrl + "/?page=" + page + "&searchValue=" + searchValue,
             success: function (data) {
                 var newData = $(data);
 
@@ -83,10 +84,10 @@ $(document).ready(function () {
         fetchData(page, searchValue);
     });
 
-    // Soumission du formulaire
-    function submitForm() {
-        document.getElementById("importForm").submit();
-    }
+    // Import
+    $(document).on("change", "#upload", function () {
+        $("#importForm").submit();
+    })
 
     // Activation des dropdowns Bootstrap
     $(document).ready(function () {

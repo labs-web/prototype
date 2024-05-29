@@ -16,5 +16,5 @@ class NiveauCompetence extends Model
         'nom',
         'description',
     ];
-  
+
 }

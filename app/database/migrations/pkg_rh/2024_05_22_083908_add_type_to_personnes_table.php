@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('personnes', function (Blueprint $table) {
             $table->string('type')->after('prenom');
+            $table->foreignId('groupe_id')->constrained('groupes')->after('type');
         });
     }
 
@@ -22,6 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('personnes', function (Blueprint $table) {
+            $table->dropForeign(['groupe_id']);
+            $table->dropColumn('groupe_id');
             $table->dropColumn('type');
         });
     }

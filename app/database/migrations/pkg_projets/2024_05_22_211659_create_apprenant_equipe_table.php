@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('equipe_id')->nullable();
             $table->foreign('equipe_id')->references('id')->on('equipes')->onDelete('cascade');
+
             $table->unsignedBigInteger('apprenant_id')->nullable();
-            $table->foreign('apprenant_id')->references('id')->on('apprenants')->onDelete('cascade');
+            $table->foreign('apprenant_id')->references('id')->on('personnes')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }
