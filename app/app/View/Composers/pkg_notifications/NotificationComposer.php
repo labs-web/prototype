@@ -15,8 +15,10 @@ class NotificationComposer
     public function compose(View $view): void
     {
         $userId = Auth::id();
-        $apprenant_id = Apprenant::where('user_id', $userId)->first()->id;
-        $notifications = Notification::where('apprenant_id', $apprenant_id)->get()->sortDesc()->take(7);
-        $view->with('notifications', $notifications);
+        if ($userId AND Auth::user()->name == 'apprenant') {
+            $apprenant_id = Apprenant::where('user_id', $userId)->first()->id;
+            $notifications = Notification::where('apprenant_id', $apprenant_id)->where('isVue', 0)->get()->sortDesc()->take(7);
+            $view->with('notifications', $notifications);
+        }
     }
 }

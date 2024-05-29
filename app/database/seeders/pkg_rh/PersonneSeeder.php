@@ -41,7 +41,6 @@ class PersonneSeeder extends Seeder
 
             // Map CSV data to database fields
             $user_id = $data[2] == 'apprenant' ? 1 : 2;
-            
             $personneData = [
                 "nom" => $data[0],
                 "prenom" => $data[1],
@@ -72,21 +71,6 @@ class PersonneSeeder extends Seeder
         $admin = Role::where('name', $adminRole)->first();
         if ($admin) {
             $admin->givePermissionTo($permissions);
-        }
-
-        $apprenant = Role::where('name', User::APPRENANT)->first();
-        if ($apprenant) {
-            $apprenant->givePermissionTo(['index-notificationController', 'show-notificationController']);
-        }
-
-        $admin = Role::where('name', $adminRole)->first();
-        if ($admin) {
-            $admin->givePermissionTo($permissions);
-        }
-
-        $formateuRole = Role::where('name', User::FORMATEUR)->first();
-        if ($formateuRole) {
-            $formateuRole->givePermissionTo($permissions);
         }
     }
 

@@ -61,6 +61,11 @@ class notificationRepository extends BaseRepository
         return parent::update($id, $data);
     }
 
+    public function SetasSeen($id){
+        return parent::update($id, ['isVue' => true]);
+    }
+
+
     public function destroy($id)
     {
         // $notificationExist =  $this->model->find($id);

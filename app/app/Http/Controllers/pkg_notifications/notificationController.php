@@ -12,8 +12,10 @@ use App\Repositories\pkg_notifications\notificationRepository;
 use App\Repositories\pkg_rh\ApprenantRepositorie;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Auth;
 
-class notificationController extends Controller
+class notificationController extends AppBaseController
 {
 
     protected $notification;
@@ -57,6 +59,10 @@ class notificationController extends Controller
     }
     public function show($id)
     {
+        if (Auth::user()->name == 'apprenant'){
+            $this->notification->SetasSeen($id);
+        }
+
         $fetchedData = $this->notification->find($id);
         $personne = $this->apprenant->find($fetchedData->apprenant_id);
         return view('pkg_notifications.notification.show', compact('fetchedData', 'personne'));
@@ -83,6 +89,8 @@ class notificationController extends Controller
         $this->notification->destroy($id);
         return redirect()->route('notification.index')->with('success', __('pkg_notifications/notification.singular') . ' ' . __('app.deleteSucées'));
     }
+
+
 
     public function export()
     {

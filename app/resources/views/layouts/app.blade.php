@@ -22,27 +22,29 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                @can('index-notificationController')                          
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" data-toggle="dropdown" href="#">
-                            <i class="far fa-bell"></i>
-                            <span class="badge badge-warning navbar-badge">{{ count($notifications) }}</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                            <span class="dropdown-item dropdown-header">{{ count($notifications) . ' ' . __('pkg_notifications/notification.plural') }}</span>
-                            <div class="dropdown-divider"></div>
-                            @foreach ($notifications as $notification)
-                                <a href="{{ route('notification.show', $notification->id) }}" class="dropdown-item">
-                                    <i class="fas fa-envelope mr-2"></i> {{ Str::limit($notification->titre, 25, '...') }}
-                                    <span class="float-right text-muted text-sm"></span>
+                @can('index-notificationController') 
+                    @if (Auth::id() && Auth::user()->name == 'apprenant')
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" data-toggle="dropdown" href="#">
+                                    <i class="far fa-bell"></i>
+                                    <span class="badge badge-warning navbar-badge">{{ count($notifications) }}</span>
                                 </a>
-                            @endforeach
-                            <div class="dropdown-divider"></div>
-                            <a href="{{ route('notification.index') }}" class="dropdown-item dropdown-footer"> {{'Voir tout ' . __('pkg_notifications/notification.plural') }}</a>
-                        </div>
-                    </li>
-                </ul>
+                                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                    <span class="dropdown-item dropdown-header">{{ count($notifications) . ' ' . __('pkg_notifications/notification.plural') }}</span>
+                                    <div class="dropdown-divider"></div>
+                                    @foreach ($notifications as $notification)
+                                        <a href="{{ route('notification.show', $notification->id) }}" class="dropdown-item">
+                                            <i class="fas fa-envelope mr-2"></i> {{ Str::limit($notification->titre, 25, '...') }}
+                                            <span class="float-right text-muted text-sm"></span>
+                                        </a>
+                                    @endforeach
+                                    <div class="dropdown-divider"></div>
+                                    <a href="{{ route('notification.index') }}" class="dropdown-item dropdown-footer"> {{'Voir tout ' . __('pkg_notifications/notification.plural') }}</a>
+                                </div>
+                            </li>
+                        </ul>
+                    @endif                         
                 @endcan
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown user-menu">
