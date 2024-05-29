@@ -18,7 +18,7 @@
                         // Generate the title using the title function
                         use App\helpers\TranslationHelper;
                         $lang = Config::get('app.locale');
-                        $translatedName = TranslationHelper::getTitle(__('pkg_realisation_projet/Nature_Livrables.name'), $lang);
+                        $translatedName = TranslationHelper::getTitle(__('pkg_realisation_projet/Nature_Livrables.plural'), $lang);
                         echo $translatedName;
                     @endphp
                 </h1>
@@ -28,7 +28,7 @@
                         @can('create-NatureLivrableController')
                         <a href="{{ route('nature-livrables.create') }}" class="btn btn-info">
                             <i class="fas fa-plus"></i>
-                            {{ __('app.add') }} {{ __('pkg_realisation_projet/Nature_Livrables.name') }}
+                            {{ __('app.add') }} {{ __('pkg_realisation_projet/Nature_Livrables.singular') }}
                         </a>
                         @endcan
                         <!-- New Ajouter button -->

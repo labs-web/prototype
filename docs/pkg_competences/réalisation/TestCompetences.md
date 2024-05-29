@@ -9,7 +9,7 @@ order:  625
 
 
 ````bash
-
+php artisan make:test  pkg_competences/NiveauCompetenceTest  
 php artisan test
 
 ````

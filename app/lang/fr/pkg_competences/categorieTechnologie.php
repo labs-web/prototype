@@ -1,6 +1,5 @@
 <?php
-
 return [
-    'singular' => 'Catégorie Technologie',
-    'plural' => 'Catégorie Technologies',
+    'singular' => 'catégorie technologie',
+    'plural' => 'catégorie technologies',
 ];

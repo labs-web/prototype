@@ -2,7 +2,7 @@
     <table class="table table-striped text-nowrap">
         <thead>
             <tr>
-                <th>{{ __('pkg_realisation_projet/Nature_Livrables.name') }}</th>
+                <th>{{ __('pkg_realisation_projet/Nature_Livrables.singular') }}</th>
                 <th>{{ __('app.description') }}</th>
                 <th class="text-center">{{ __('app.action') }}</th>
             </tr>
@@ -42,27 +42,30 @@
     </table>
 </div>
 
-<!-- <div class="d-md-flex justify-content-between align-items-center p-2">
+ <div class="d-md-flex justify-content-between align-items-center p-2">
     <div class="d-flex align-items-center mb-2 ml-2 mt-2">
         <!-- TODO css-2 : Importer et exporter ne doit pas s'afficher dans la version mobile  -->
-        <!-- @('import-NatureLivrableController') -->
-            <!-- <form action="{{ route('nature-livrables.import') }}" method="post" class="mt-2" enctype="multipart/form-data"
+        @can('import-NatureLivrableController')
+
+             <form action="{{ route('nature-livrables.import') }}" method="post" class="mt-2" enctype="multipart/form-data"
                 id="importForm">
                 @csrf
                 <label for="upload" class="btn btn-default btn-sm font-weight-normal">
                     <i class="fas fa-file-download"></i>
                     {{ __('app.import') }}
                 </label>
+                
                 <input type="file" id="upload" name="file" style="display:none;" onchange="submitForm()" />
-            </form> -->
-        
-        <!-- @('export-NatureLivrableController') -->
-            <!-- <form class="">
+            </form> 
+            @endcan
+
+            @can('export-NatureLivrableController')
+             <form class="">
                 <a href="{{ route('nature-livrables.export') }}" class="btn btn-default btn-sm mt-0 mx-2">
                     <i class="fas fa-file-export"></i>
                     {{ __('app.export') }}</a>
-            </form> -->
-        
+            </form> 
+            @endcan
     </div> 
     
     <ul class="pagination m-0 float-right">
@@ -70,3 +73,8 @@
     </ul>
 </div>
 
+<script>
+function submitForm() {
+    document.getElementById('importForm').submit();
+}
+</script>

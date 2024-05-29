@@ -13,7 +13,7 @@ php artisan make:migration add_nom_description_to_categorie_technologies_table -
 php artisan migrate
 ````
 
-- Ajouter UNite pour CategorieTechnologie
+- Ajouter Unite pour CategorieTechnologie
 
 ````bash
 php artisan make:test pkg_competences/CategorieTechnologieTest
