@@ -10,8 +10,6 @@ import './app.recherche';
 import 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js';
 // Importation de CKEditor
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
-import "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
 import "https://code.jquery.com/jquery-3.6.0.min.js"
 import "./pkg_projets/filterByprojets.js";
 
