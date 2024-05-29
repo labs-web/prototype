@@ -13,6 +13,10 @@
             "name":"Lang"
         },
         {
+            "path": "./app/tests/Feature/pkg_competences",
+            "name":"Tests"
+        },
+        {
             "path": "./app/app/Http/Controllers/pkg_competences",
             "name":"Controllers"
         },
