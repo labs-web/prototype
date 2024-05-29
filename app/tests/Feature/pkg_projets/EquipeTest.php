@@ -24,6 +24,7 @@ class EquipeTest extends TestCase
         $this->assertNotEmpty($equipes);
     }
 
+    // TODO : Il faut créer une équipe avec ces apprenants
     public function test_create_equipe(): void
     {
         $data = [
