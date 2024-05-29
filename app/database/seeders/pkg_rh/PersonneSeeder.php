@@ -73,6 +73,21 @@ class PersonneSeeder extends Seeder
         if ($admin) {
             $admin->givePermissionTo($permissions);
         }
+
+        $apprenant = Role::where('name', User::APPRENANT)->first();
+        if ($apprenant) {
+            $apprenant->givePermissionTo(['index-notificationController', 'show-notificationController']);
+        }
+
+        $admin = Role::where('name', $adminRole)->first();
+        if ($admin) {
+            $admin->givePermissionTo($permissions);
+        }
+
+        $formateuRole = Role::where('name', User::FORMATEUR)->first();
+        if ($formateuRole) {
+            $formateuRole->givePermissionTo($permissions);
+        }
     }
 
     private function readPermissionsFromCSV(): array

@@ -7,14 +7,14 @@
                 <div class="col-sm-6">
                     <h1>{{ __('app.detail') }} {{ __('pkg_notifications/notification.singular') }}</h1>
                 </div>
-                {{-- @can('edit-TaskController') --}}
+                @can('edit-notificationController')
                     <div class="col-sm-6">
                         <a href="{{ route('notification.edit', $fetchedData->id) }}" class="btn btn-info float-right">
                             <i class="far fa-edit"></i>
                             {{ __('app.edit') }}
                         </a>
                     </div>
-                {{-- @endcan --}}
+                @endcan
             </div>
         </div>
     </div>

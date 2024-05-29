@@ -22,6 +22,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                @can('index-notificationController')                          
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -42,6 +43,7 @@
                         </div>
                     </li>
                 </ul>
+                @endcan
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
