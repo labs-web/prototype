@@ -48,11 +48,6 @@ class TechnologiesSeeder extends Seeder
         // ==========================================================
         $FormateurRole = User::FORMATEUR;
         $Role = Role::where('name', $FormateurRole)->first();
-
-        Schema::disableForeignKeyConstraints();
-        Permission::truncate();
-        Schema::enableForeignKeyConstraints();
-
         $csvFile = fopen(base_path("database/data/pkg_competences/technologies/TechnologiesPermissions.csv"), "r");
         $firstline = true;
         while (($data = fgetcsv($csvFile)) !== FALSE) {
