@@ -36,7 +36,7 @@
                                     @foreach ($notifications as $notification)
                                         <a href="{{ route('notification.show', $notification->id) }}" class="dropdown-item">
                                             <i class="fas fa-envelope mr-2"></i> {{ Str::limit($notification->titre, 25, '...') }}
-                                            <span class="float-right text-muted text-sm"></span>
+                                            <span class="float-right text-muted text-sm">{{ \Carbon\Carbon::parse($notification->updated_at)->diffForHumans(['syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE ]) }}</span>
                                         </a>
                                     @endforeach
                                     <div class="dropdown-divider"></div>
