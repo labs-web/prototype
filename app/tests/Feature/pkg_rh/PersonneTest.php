@@ -29,7 +29,6 @@ class PersonneTest extends TestCase
         $this->personneModel->create([
             'nom' => 'Doe1',
             'prenom' => 'John1',
-            'type' => 'apprenant',
             'created_at' => now(),
             'updated_at' => now(),
             'groupe_id' => $groupe->id,
@@ -37,7 +36,6 @@ class PersonneTest extends TestCase
         $this->personneModel->create([
             'nom' => 'Doe2',
             'prenom' => 'John2',
-            'type' => 'apprenant',
             'created_at' => now(),
             'updated_at' => now(),
             'groupe_id' => $groupe->id,
@@ -55,7 +53,6 @@ class PersonneTest extends TestCase
         $data = [
             'nom' => 'Doe',
             'prenom' => 'John',
-            'type' => 'apprenant',
             'created_at' => now(),
             'updated_at' => now(),
             'groupe_id' => $groupe->id,
@@ -75,7 +72,6 @@ class PersonneTest extends TestCase
         $existingPersonne = $this->personneModel->create([
             'nom' => 'Doe',
             'prenom' => 'John',
-            'type' => 'apprenant',
             'created_at' => now(),
             'updated_at' => now(),
             'groupe_id' => $groupe->id,
@@ -94,7 +90,6 @@ class PersonneTest extends TestCase
         $existingPersonne = $this->personneModel->create([
             'nom' => 'Doe',
             'prenom' => 'John',
-            'type' => 'apprenant',
             'created_at' => now(),
             'updated_at' => now(),
             'groupe_id' => $groupe->id,
