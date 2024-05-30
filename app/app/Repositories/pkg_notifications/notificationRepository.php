@@ -14,7 +14,8 @@ class notificationRepository extends BaseRepository
      * @var array
      */
     protected $fieldsSearchable = [
-        'titre'
+        'titre',
+        'description'
     ];
 
     /**
