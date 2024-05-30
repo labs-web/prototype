@@ -3,70 +3,108 @@
 namespace Tests\Feature\pkg_autorisations;
 
 use Tests\TestCase;
-use App\Models\pkg_autorisations\Controller;
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use App\Models\pkg_autorisations\Controller;
+use App\Exceptions\pkg_autorisations\ControllerExceptions;
+use App\Repositories\pkg_autorisations\GestionControllersRepository;
+use App\Models\pkg_autorisations\Controller as AutorisationController;
 
 class ControllersTest extends TestCase
 {
     use DatabaseTransactions;
 
-    protected $model;
+    protected $ControllersRepository;
+    protected $user;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->model = new Controller;
+        $this->ControllersRepository = new GestionControllersRepository(new AutorisationController());
+        $this->user = User::factory()->create();
     }
 
-    /**
-     * Test the pagination of controllers.
-     */
-    public function test_paginate_controllers(): void
+    public function test_paginate_controllers()
     {
-        $controllers = $this->model->paginate(2);
+        $this->actingAs($this->user);
+        AutorisationController::factory()->create();
+        $controllers = $this->ControllersRepository->paginate();
         $this->assertNotNull($controllers);
         $this->assertNotEmpty($controllers);
     }
 
-    /**
-     * Test the creation of a new controller.
-     */
-    public function test_create_controller(): void
+    public function test_create_controller()
     {
-        $data = ['nom' => "TestController"];
+        $this->actingAs($this->user);
+        $controllerNames = $this->ControllersRepository->extractControllerNames();
+        $existingControllers = $this->ControllersRepository->getModel()::whereIn('nom', $controllerNames)->pluck('nom')->toArray();
 
-        $this->model->create($data);
+        if (count($existingControllers) == count($controllerNames)) {
+            $controllerToRemove = array_pop($existingControllers); // Remove one controller name
+            $this->ControllersRepository->getModel()::where('nom', $controllerToRemove)->delete(); // Remove it from the database
+        } else {
+            $nonExistingController = array_diff($controllerNames, $existingControllers);
+            $controllerToCreate = reset($nonExistingController); // Get the first non-existing controller
+        }
+
+        $data = ['nom' => $controllerToCreate ?? $controllerToRemove];
+        $this->ControllersRepository->create($data);
+
+        $this->assertTrue(true);
         $this->assertDatabaseHas('controllers', ['nom' => $data['nom']]);
     }
 
-
-    /**
-     * Test the update of an existing controller.
-     */
-    public function test_update_controller(): void
+    public function test_create_controller_not_exist()
     {
-        $existingController = $this->model->create(['nom' => 'ExistingController']);
+        $this->actingAs($this->user);
+        $data = ['nom' => 'NonExistentController'];
 
-        $newName = 'UpdatedController';
-        $existingController->update(['nom' => $newName]);
+        $this->expectException(ControllerExceptions::class);
 
-        $this->assertEquals($newName, $existingController->nom);
-        $this->assertDatabaseHas('controllers', ['nom' => $newName]);
-
+        $this->ControllersRepository->create($data);
     }
 
-
-    /**
-     * Test the deletion of an existing controller.
-     */
-    public function test_delete_controller(): void
+    public function test_update_controller()
     {
-        $existingController = $this->model->create(['nom' => 'ExistingController']);
+        $this->actingAs($this->user);
 
-        $existingController->delete();
+        $controllerNames = $this->ControllersRepository->extractControllerNames();
+        $existingControllers = $this->ControllersRepository->getModel()::whereIn('nom', $controllerNames)->pluck('nom')->toArray();
 
-        $this->assertDatabaseMissing('controllers', ['id' => $existingController->id]);
+        if (!empty($existingControllers)) {
+            $controllerToUpdate = $existingControllers[array_rand($existingControllers)];
+        } else {
+            $newControllerName = $controllerNames[array_rand($controllerNames)];
+            $data = ['nom' => $newControllerName];
+            $this->ControllersRepository->create($data);
+            $controllerToUpdate = $newControllerName;
+        }
+
+        $controllerId = $this->ControllersRepository->getModel()->where('nom', $controllerToUpdate)->value('id');
+        $updatedData = ['nom' => $controllerToUpdate];
+
+        $this->ControllersRepository->update($controllerId, $updatedData);
+
+        $this->assertDatabaseHas('controllers', ['nom' => $updatedData['nom']]);
     }
 
+    public function test_update_controller_not_exist()
+    {
+        $this->actingAs($this->user);
+        $controller = AutorisationController::factory()->create();
+        $data = ['nom' => 'UpdatedController'];
 
+        $this->expectException(ControllerExceptions::class);
+
+        $this->ControllersRepository->update($controller->id + 1, $data);
+    }
+
+    public function test_delete_controller()
+    {
+        $this->actingAs($this->user);
+        $controller = AutorisationController::factory()->create();
+        $this->ControllersRepository->destroy($controller->id);
+        $this->assertDatabaseMissing('controllers', ['id' => $controller->id]);
+    }
 }

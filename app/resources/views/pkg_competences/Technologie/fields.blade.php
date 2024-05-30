@@ -7,7 +7,7 @@
     <div class="card-body">
         <div class="form-group">
             <label for="nom">{{ __('app.name') }} <span class="text-danger">*</span></label>
-            <input name="nom" type="text" class="form-control" id="nom" placeholder="Entrez le titre"
+            <input name="nom" type="text" class="form-control" id="nom" placeholder="Entrez le technologie"
                 value="{{ $dataToEdit ? $dataToEdit->nom : old('nom') }}">
             @error('nom')
                 <div class="text-danger">{{ $message }}</div>
@@ -15,11 +15,11 @@
         </div>
 
         <div class="form-group">
-            <label for="competence_id">{{ __('pkg_competences/technologie/technologie.competence') }}
+            <label for="competence_id">{{ __('pkg_competences/competence.plural') }}
                 <span class="text-danger">*</span></label>
             <select name="competence_id" class="form-control" id="exampleInputProject">
                 @if (isset($dataToEdit))
-                    <option value="{{ $Competence->id }}">{{ $dataToEdit->competence->nom }}</option>
+                    <option value="{{ $dataToEdit->id }}">{{ $dataToEdit->competence->nom }}</option>
                 @else
                     <option value="">Choisir un Competence</option>
                 @endif
@@ -36,13 +36,12 @@
         </div>
 
         <div class="form-group">
-            <label
-                for="categorie_technologies_id">{{ __('pkg_competences/technologie/technologie.categorie_technologies') }}
+            <label for="categorie_technologies_id">{{ __('pkg_competences/categorieTechnologie.plural') }}
                 <span class="text-danger">*</span>
             </label>
             <select name="categorie_technologies_id" class="form-control" id="exampleInputProject">
                 @if (isset($dataToEdit))
-                    <option value="{{ $categorieTechnologie->id }}">{{ $dataToEdit->categorieTechnologie->nom }}
+                    <option value="{{ $dataToEdit->id }}">{{ $dataToEdit->categorieTechnologie->nom }}
                     </option>
                 @else
                     <option value="">Choisir un categorie technologies</option>
