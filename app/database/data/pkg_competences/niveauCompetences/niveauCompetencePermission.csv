@@ -1,0 +1,10 @@
+name,guard_name
+index-NiveauCompetencesController,web
+show-NiveauCompetencesController,web
+create-NiveauCompetencesController,web
+store-NiveauCompetencesController,web
+edit-NiveauCompetencesController,web
+destroy-NiveauCompetencesController,web
+update-NiveauCompetencesController,web
+import-NiveauCompetencesController,web
+export-NiveauCompetencesController,web
