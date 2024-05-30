@@ -4,7 +4,7 @@ namespace App\Exceptions\pkg_competences;
 
 use App\Exceptions\BusinessException;
 
-class niveauxCompetencesAlreadyExistException extends BusinessException
+class NiveauxCompetencesAlreadyExistException extends BusinessException
 {
     public static function createNiveauxCompetences()
     {
