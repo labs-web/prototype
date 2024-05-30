@@ -25,7 +25,7 @@ class PersonneTest extends TestCase
     public function test_paginate_personnes(): void
     {
         // Create some personnes for pagination test
-        $groupe = $this->groupeModel->create(['created_at' => now(), 'updated_at' => now()]);
+        $groupe = $this->groupeModel->create(['nom' => 'groupTest1','created_at' => now(), 'updated_at' => now()]);
         $this->personneModel->create([
             'nom' => 'Doe1',
             'prenom' => 'John1',
@@ -49,7 +49,7 @@ class PersonneTest extends TestCase
 
     public function test_create_personne(): void
     {
-        $groupe = $this->groupeModel->create(['created_at' => now(), 'updated_at' => now()]);
+        $groupe = $this->groupeModel->create(['nom' => 'groupTest1','created_at' => now(), 'updated_at' => now()]);
         $data = [
             'nom' => 'Doe',
             'prenom' => 'John',
@@ -68,7 +68,7 @@ class PersonneTest extends TestCase
 
     public function test_update_personne(): void
     {
-        $groupe = $this->groupeModel->create(['created_at' => now(), 'updated_at' => now()]);
+        $groupe = $this->groupeModel->create(['nom' => 'groupTest1','created_at' => now(), 'updated_at' => now()]);
         $existingPersonne = $this->personneModel->create([
             'nom' => 'Doe',
             'prenom' => 'John',
@@ -86,7 +86,7 @@ class PersonneTest extends TestCase
 
     public function test_delete_personne(): void
     {
-        $groupe = $this->groupeModel->create(['created_at' => now(), 'updated_at' => now()]);
+        $groupe = $this->groupeModel->create(['nom' => 'groupTest1','created_at' => now(), 'updated_at' => now()]);
         $existingPersonne = $this->personneModel->create([
             'nom' => 'Doe',
             'prenom' => 'John',
