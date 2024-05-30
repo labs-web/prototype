@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\GestionProjets;
+namespace Tests\Feature\pkg_rh;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -12,7 +12,6 @@ use App\Exceptions\pkg_rh\ApprenantAlreadyExistException;
 use App\Exceptions\pkg_rh\FormateurAlreadyExistException;
 
 use Tests\TestCase;
-use App\Exceptions\GestionProjets\ProjectAlreadyExistException;
 
 /**
  * Classe de test pour tester les fonctionnalités du module de projets.
@@ -58,13 +57,11 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test1',
             'prenom' => 'test1',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
         $ApprenantData = [
             'nom' => 'test2',
             'prenom' => 'test2',
-            'type' => 'Apprenant',
             'groupe_id' => 1,
         ];
 
@@ -89,14 +86,12 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test1',
             'prenom' => 'test1',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
 
         $ApprenantData = [
             'nom' => 'test2',
             'prenom' => 'test2',
-            'type' => 'Apprenant',
             'groupe_id' => 1,
         ];
 
@@ -117,7 +112,6 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test1',
             'prenom' => 'test1',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
       
@@ -141,13 +135,11 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test1',
             'prenom' => 'test1',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
         $ApprenantData = [
             'nom' => 'test2',
             'prenom' => 'test2',
-            'type' => 'Apprenant',
             'groupe_id' => 1,
         ];
 
@@ -181,13 +173,11 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test1',
             'prenom' => 'test1',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
         $ApprenantData = [
             'nom' => 'test2',
             'prenom' => 'test2',
-            'type' => 'Apprenant',
             'groupe_id' => 1,
         ];
 
@@ -211,7 +201,6 @@ class PersonneTest extends TestCase
         $formateurData = [
             'nom' => 'test',
             'prenom' => 'test',
-            'type' => 'Formateur',
             'groupe_id' => 1,
         ];
        
