@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Repositories\pkg_autorisations\ActionRepository;
-use App\View\Composers\pkg_notifications\NotificationComposer;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -31,7 +30,6 @@ class AppServiceProvider extends ServiceProvider
         // Bootstrap any application services.
         Paginator::useBootstrap();
         
-            View::composer('*', NotificationComposer::class);
     }
 
     /**
