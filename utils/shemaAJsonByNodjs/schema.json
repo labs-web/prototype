@@ -2,7 +2,7 @@
   "actions": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -34,7 +34,7 @@
     },
     {
       "name": "controller_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "YES",
       "key": "MUL",
       "default": null,
@@ -42,7 +42,7 @@
     },
     {
       "name": "permission_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "YES",
       "key": "MUL",
       "default": null,
@@ -50,7 +50,7 @@
     },
     {
       "name": "parent_action_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "YES",
       "key": "MUL",
       "default": null,
@@ -60,7 +60,7 @@
   "apprenant_equipe": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -68,7 +68,7 @@
     },
     {
       "name": "equipe_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "YES",
       "key": "MUL",
       "default": null,
@@ -76,37 +76,11 @@
     },
     {
       "name": "apprenant_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "YES",
       "key": "MUL",
       "default": null,
       "extra": ""
-    },
-    {
-      "name": "created_at",
-      "type": "timestamp",
-      "nullable": "YES",
-      "key": "",
-      "default": null,
-      "extra": ""
-    },
-    {
-      "name": "updated_at",
-      "type": "timestamp",
-      "nullable": "YES",
-      "key": "",
-      "default": null,
-      "extra": ""
-    }
-  ],
-  "apprenants": [
-    {
-      "name": "id",
-      "type": "bigint unsigned",
-      "nullable": "NO",
-      "key": "PRI",
-      "default": null,
-      "extra": "auto_increment"
     },
     {
       "name": "created_at",
@@ -128,7 +102,7 @@
   "autorisations": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -152,7 +126,7 @@
     },
     {
       "name": "action_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "MUL",
       "default": null,
@@ -160,7 +134,7 @@
     },
     {
       "name": "role_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "MUL",
       "default": null,
@@ -170,7 +144,7 @@
   "categorie_technologies": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -212,7 +186,7 @@
   "competences": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -245,7 +219,7 @@
     {
       "name": "description",
       "type": "text",
-      "nullable": "NO",
+      "nullable": "YES",
       "key": "",
       "default": null,
       "extra": ""
@@ -254,7 +228,7 @@
   "controllers": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -288,7 +262,7 @@
   "equipes": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -312,7 +286,7 @@
     },
     {
       "name": "projet_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "YES",
       "key": "MUL",
       "default": null,
@@ -338,7 +312,7 @@
   "failed_jobs": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -390,39 +364,13 @@
       "nullable": "NO",
       "key": "",
       "default": "CURRENT_TIMESTAMP",
-      "extra": "DEFAULT_GENERATED"
-    }
-  ],
-  "formateurs": [
-    {
-      "name": "id",
-      "type": "bigint unsigned",
-      "nullable": "NO",
-      "key": "PRI",
-      "default": null,
-      "extra": "auto_increment"
-    },
-    {
-      "name": "created_at",
-      "type": "timestamp",
-      "nullable": "YES",
-      "key": "",
-      "default": null,
-      "extra": ""
-    },
-    {
-      "name": "updated_at",
-      "type": "timestamp",
-      "nullable": "YES",
-      "key": "",
-      "default": null,
       "extra": ""
     }
   ],
   "groupes": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -464,11 +412,35 @@
   "livrables": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
       "extra": "auto_increment"
+    },
+    {
+      "name": "titre",
+      "type": "varchar(255)",
+      "nullable": "NO",
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "lien",
+      "type": "varchar(255)",
+      "nullable": "NO",
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "description",
+      "type": "text",
+      "nullable": "YES",
+      "key": "",
+      "default": null,
+      "extra": ""
     },
     {
       "name": "created_at",
@@ -485,12 +457,28 @@
       "key": "",
       "default": null,
       "extra": ""
+    },
+    {
+      "name": "nature_livrable_id",
+      "type": "bigint(20) unsigned",
+      "nullable": "YES",
+      "key": "MUL",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "projet_id",
+      "type": "bigint(20) unsigned",
+      "nullable": "YES",
+      "key": "MUL",
+      "default": null,
+      "extra": ""
     }
   ],
   "messages": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -514,7 +502,7 @@
     },
     {
       "name": "projet_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "MUL",
       "default": null,
@@ -522,7 +510,7 @@
     },
     {
       "name": "tache_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "MUL",
       "default": null,
@@ -556,7 +544,7 @@
   "migrations": [
     {
       "name": "id",
-      "type": "int unsigned",
+      "type": "int(10) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -572,7 +560,7 @@
     },
     {
       "name": "batch",
-      "type": "int",
+      "type": "int(11)",
       "nullable": "NO",
       "key": "",
       "default": null,
@@ -582,7 +570,7 @@
   "model_has_permissions": [
     {
       "name": "permission_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -598,7 +586,7 @@
     },
     {
       "name": "model_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -608,7 +596,7 @@
   "model_has_roles": [
     {
       "name": "role_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -624,7 +612,7 @@
     },
     {
       "name": "model_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -634,7 +622,7 @@
   "nature_livrables": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -676,7 +664,7 @@
   "niveau_competences": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -718,7 +706,7 @@
   "notifications": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -750,7 +738,7 @@
     },
     {
       "name": "apprenant_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "MUL",
       "default": null,
@@ -828,7 +816,7 @@
   "permissions": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -870,7 +858,7 @@
   "personal_access_tokens": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -886,7 +874,7 @@
     },
     {
       "name": "tokenable_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "",
       "default": null,
@@ -952,7 +940,7 @@
   "personnes": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -997,12 +985,20 @@
       "key": "",
       "default": null,
       "extra": ""
+    },
+    {
+      "name": "groupe_id",
+      "type": "bigint(20) unsigned",
+      "nullable": "NO",
+      "key": "MUL",
+      "default": null,
+      "extra": ""
     }
   ],
   "post_tag": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -1010,7 +1006,7 @@
     },
     {
       "name": "post_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "MUL",
       "default": null,
@@ -1018,7 +1014,7 @@
     },
     {
       "name": "tag_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "MUL",
       "default": null,
@@ -1044,7 +1040,7 @@
   "posts": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -1086,7 +1082,7 @@
   "projets": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -1152,7 +1148,7 @@
   "role_has_permissions": [
     {
       "name": "permission_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -1160,7 +1156,7 @@
     },
     {
       "name": "role_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -1170,7 +1166,7 @@
   "roles": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -1212,7 +1208,7 @@
   "statut_taches": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -1254,7 +1250,7 @@
   "taches": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -1309,9 +1305,25 @@
       "extra": ""
     },
     {
-      "name": "apprenant_id",
-      "type": "bigint unsigned",
+      "name": "personne_id",
+      "type": "bigint(20) unsigned",
       "nullable": "YES",
+      "key": "MUL",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "projets_id",
+      "type": "bigint(20) unsigned",
+      "nullable": "NO",
+      "key": "MUL",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "status_tache_id",
+      "type": "bigint(20) unsigned",
+      "nullable": "NO",
       "key": "MUL",
       "default": null,
       "extra": ""
@@ -1320,7 +1332,7 @@
   "tags": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -1362,7 +1374,7 @@
   "technologies": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
@@ -1386,7 +1398,7 @@
     },
     {
       "name": "categorie_technologies_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "MUL",
       "default": null,
@@ -1394,7 +1406,7 @@
     },
     {
       "name": "competence_id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "MUL",
       "default": null,
@@ -1420,7 +1432,7 @@
   "users": [
     {
       "name": "id",
-      "type": "bigint unsigned",
+      "type": "bigint(20) unsigned",
       "nullable": "NO",
       "key": "PRI",
       "default": null,
