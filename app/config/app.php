@@ -182,6 +182,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        // Ajouter ViewComposer Service Provider
+        App\Providers\pkg_notifications\ViewComposerServiceProvider::class,
 
         /*
          * Package Service Providers...
