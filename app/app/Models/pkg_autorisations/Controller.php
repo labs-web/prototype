@@ -2,9 +2,9 @@
 
 namespace App\Models\pkg_autorisations;
 
-use App\Models\Action;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\pkg_autorisations\Action;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Controller extends Model
 {

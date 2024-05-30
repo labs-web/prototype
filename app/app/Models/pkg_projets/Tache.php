@@ -10,16 +10,18 @@ class Tache extends Model
 {
     use HasFactory;
 
-    protected $filleable = [
-        'projets_id',
-        'personne_id',
+    protected $fillable = [
+        'nom',
+        'description',
         'dateEchéance',
         'priorité',
-        'description',
-        'nom',
+        'personne_id',
+        'projets_id',
+        'status_tache_id',
         'created_at',
         'updated_at'
     ];
+
     public function Personne(){
         return $this->belongsTo(Personne::class);
     }
