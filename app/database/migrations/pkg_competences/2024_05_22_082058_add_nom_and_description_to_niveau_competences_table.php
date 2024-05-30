@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::table('niveau_competences', function (Blueprint $table) {
             $table->string('nom');
             $table->string('description');
-        });
+     });
+
     }
 
     /**

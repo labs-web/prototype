@@ -7,7 +7,10 @@ use Illuminate\Database\Seeder;
 use App\Models\GestionProjets\Projet;
 use Illuminate\Support\Facades\Schema;
 use App\Models\pkg_notifications\Notification;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class NotificationSeeder extends Seeder
 {
@@ -17,43 +20,74 @@ class NotificationSeeder extends Seeder
     public function run(): void
     {
 
-        // TODO fix-seeder : NotificationSeeder
+        Schema::disableForeignKeyConstraints();
+        Notification::truncate();
+        Schema::enableForeignKeyConstraints();
 
-        //  SQLSTATE[HY000]: General error: 1364 Field 'type' doesn't have a default value (Connection: mysql, SQL: insert into `personnes` (`id`, `nom`, `prenom`, `updated_at`, `created_at`) values (1, madani, ali, 2024-05-22 10:33:48, 2024-05-22 10:33:48))
+        $csvFile = fopen(base_path("database/data/pkg_notifications/notifications.csv"), "r");
+        $firstline = true;
+        $i = 0;
+        while (($data = fgetcsv($csvFile)) !== FALSE) {
+            if (!$firstline) {
+                $isVue = filter_var($data['2'], FILTER_VALIDATE_BOOLEAN);
 
-        // Personne::create([
-        //     'id' => '1',
-        //     'nom' => 'madani',
-        //     'prenom' => 'ali',
-        // ]);
-        // Personne::create([
-        //     'id' => '2',
-        //     'nom' => 'madani',
-        //     'prenom' => 'ahmad',
-        // ]);
-        // //
+                Notification::create([
+                    "titre" => $data['0'],
+                    "message" => $data['1'],
+                    "isVue" => $isVue,
+                    "apprenant_id" => $data['3'],
+                ]);
+            }
+            $firstline = false;
+        }
 
-        // Schema::disableForeignKeyConstraints();
-        // Notification::truncate();
-        // Schema::enableForeignKeyConstraints();
+        fclose($csvFile);
 
-        // $csvFile = fopen(base_path("database/data/pkg_notifications/notifications.csv"), "r");
-        // $firstline = true;
-        // $i = 0;
-        // while (($data = fgetcsv($csvFile)) !== FALSE) {
-        //     if (!$firstline) {
-        //         $isVue = filter_var($data['2'], FILTER_VALIDATE_BOOLEAN);
+        $csvFilePath = base_path("database/data/pkg_notifications/notificationPermissions.csv");
+        $csvFile = fopen($csvFilePath, "r");
 
-        //         Notification::create([
-        //             "title" => $data['0'],
-        //             "message" => $data['1'],
-        //             "isVue" => $isVue,
-        //             "apprenant_id" => $data['3'],
-        //         ]);
-        //     }
-        //     $firstline = false;
-        // }
+        $firstline = true;
+        $FormateurRole = Role::where('name', User::FORMATEUR)->first();
+        $ApprenantRole = Role::where('name', User::APPRENANT)->first();
 
-        // fclose($csvFile);
+        while (($data = fgetcsv($csvFile)) !== FALSE) {
+            if (!$firstline) {
+                Permission::create([
+                    "name" => $data['0'],
+                    "guard_name" => 'web',
+                ]);
+
+                if ($FormateurRole) {
+                    // If the role exists, update its permissions
+                    $FormateurRole->givePermissionTo($data['0']);
+                    if (in_array($data['0'], ['index-notificationController', 'show-notificationController', 'export-notificationController'] )) {
+                        $ApprenantRole->givePermissionTo($data['0']);
+                    }
+                } else {
+                    // If the role doesn't exist, create it and give permissions
+                    Role::create([
+                        'name' => User::FORMATEUR,
+                        'guard_name' => 'web',
+                    ])->givePermissionTo($data['0']);
+                }
+
+                
+                if ($ApprenantRole) {
+                    if (in_array($data['0'], ['index-notificationController', 'show-notificationController', 'export-notificationController'] )) {
+                        $ApprenantRole->givePermissionTo($data['0']);
+                    }
+                } else {
+                    // If the role doesn't exist, create it and give permissions
+                    if (in_array($data['0'], ['index-notificationController', 'show-notificationController', 'export-notificationController'] )) {
+                        Role::create([
+                            'name' => User::APPRENANT,
+                            'guard_name' => 'web',
+                        ])->givePermissionTo($data['0']);
+                    }
+                }
+            }
+            $firstline = false;
+        }
+        fclose($csvFile);
     }
 }
