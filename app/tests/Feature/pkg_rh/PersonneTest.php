@@ -48,6 +48,7 @@ class PersonneTest extends TestCase
 
     public function test_create_personne(): void
     {
+        $groupe = $this->groupeModel->create(['created_at' => now(), 'updated_at' => now()]);
         $data = [
             'nom' => 'Doe',
             'prenom' => 'John',
@@ -66,6 +67,7 @@ class PersonneTest extends TestCase
 
     public function test_update_personne(): void
     {
+        $groupe = $this->groupeModel->create(['created_at' => now(), 'updated_at' => now()]);
         $existingPersonne = $this->personneModel->create([
             'nom' => 'Doe',
             'prenom' => 'John',
@@ -83,6 +85,7 @@ class PersonneTest extends TestCase
 
     public function test_delete_personne(): void
     {
+        $groupe = $this->groupeModel->create(['created_at' => now(), 'updated_at' => now()]);
         $existingPersonne = $this->personneModel->create([
             'nom' => 'Doe',
             'prenom' => 'John',
