@@ -19,7 +19,7 @@ $(document).ready(function() {
     function fetchTasks(params) {
         var taskContainer = $('#taskContainer');
         $.ajax({
-            url: "/tasks/diagramme-de-Gantt",
+            url: "/projets/projets/taches/digramme-de-gantt",
 
             type: 'GET',
             data: params,
