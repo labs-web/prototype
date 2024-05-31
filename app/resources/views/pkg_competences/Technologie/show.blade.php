@@ -9,7 +9,7 @@
                 </div>
                 @can('edit-TechnologieController')
                     <div class="col-sm-6">
-                        <a href="{{ route('technologies.edit', $fetchedData->id) }}" class="btn btn-default float-right">
+                        <a href="{{ route('technologie.edit', $fetchedData->id) }}" class="btn btn-default float-right">
                             <i class="far fa-edit"></i>
                             {{ __('app.edit') }}
                         </a>
@@ -30,13 +30,12 @@
                             </div>
 
                             <div class="col-sm-12">
-                                <label for="nom">{{ __('pkg_competences/technologie.competence') }}:</label>
+                                <label for="nom">{{ __('pkg_competences/competence.singular') }}:</label>
                                 <p>{{ $fetchedData->competence->nom }}</p>
                             </div>
 
                             <div class="col-sm-12">
-                                <label
-                                    for="nom">{{ __('pkg_competences/technologie.categorie_technologies') }}:</label>
+                                <label for="nom">{{ __('pkg_competences/categorieTechnologie.singular') }}:</label>
                                 <p>{{ $fetchedData->categorieTechnologie->nom }}</p>
                             </div>
 

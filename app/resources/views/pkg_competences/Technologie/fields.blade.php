@@ -1,4 +1,4 @@
-<form action="{{ $dataToEdit ? route('technologies.update', $dataToEdit->id) : route('technologies.store') }}"
+<form action="{{ $dataToEdit ? route('technologie.update', $dataToEdit->id) : route('technologie.store') }}"
     method="POST">
     @csrf
     @if ($dataToEdit)
@@ -70,7 +70,7 @@
     </div>
 
     <div class="card-footer">
-        <a href="{{ route('technologies.index') }}" class="btn btn-default">{{ __('app.cancel') }}</a>
+        <a href="{{ route('technologie.index') }}" class="btn btn-default">{{ __('app.cancel') }}</a>
         <button type="submit" class="btn btn-info">{{ $dataToEdit ? __('app.edit') : __('app.add') }}</button>
     </div>
 </form>
