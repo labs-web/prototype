@@ -1,4 +1,4 @@
-@startuml use_case_pk_authentification
+@startuml uses_cases_pkg_authentification
 
 left to right direction
 
