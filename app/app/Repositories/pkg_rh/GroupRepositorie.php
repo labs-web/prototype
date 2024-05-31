@@ -54,56 +54,49 @@ class GroupRepositorie extends BaseRepository
      * @throws GroupAlreadyExistException Si le group existe déjà.
      */
 
-     public function create(array $data)
-     {
+    public function create(array $data)
+    {
+        $nom = $data['nom'];
+    
+        $existingGroup = $this->model->where('nom', $nom)->exists();
+    
+        if ($existingGroup) {
+            throw GroupAlreadyExistException::createGroup();
+        } else {
+            $group = parent::create($data);
+            if (isset($data['formateur_id'])) {
+                $group->formateur()->associate($data['formateur_id'])->save();
+            }
+            if (isset($data['apprenant_ids']) && is_array($data['apprenant_ids'])) {
+                foreach ($data['apprenant_ids'] as $apprenantId) {
+                    $apprenant = Apprenant::find($apprenantId);
+                    if ($apprenant) {
+                        $group->apprenants()->save($apprenant);
+                    }
+                }
+            }
+            return $group;
+        }
+    }
 
-         $nom = $data['nom'];
-     
-         $existingGroup = $this->model->where('nom', $nom)->exists();
-     
-         if ($existingGroup) {
-             throw GroupAlreadyExistException::createGroup();
-         } else {
-             $group = parent::create($data);
-             if (isset($data['formateur_id'])) {
-                 $formateur = Formateur::find($data['formateur_id']);
-                 if ($formateur) {
-                     $group->formateur()->associate($formateur);
-                     $group->save();  // Save the association
-                 }
-             }
-             if (isset($data['apprenant_ids']) && is_array($data['apprenant_ids'])) {
-                 $group->apprenants()->sync($data['apprenant_ids']);
-             }
-             return $group;
-         }
-     }
-     
-     
+    public function update($id, array $data)
+    {
+        $group = $this->model->findOrFail($id);
 
-     public function update($id, array $data)
-     {
-         $group = $this->model->findOrFail($id);
-     
-         $group->update($data);
-     
-         if (isset($data['formateur_id'])) {
-             $formateur = Formateur::find($data['formateur_id']);
-             if ($formateur) {
-                 $group->formateur()->associate($formateur);
-                 $group->save();  // Save the association
-             }
-         }
-     
-         if (isset($data['apprenant_ids'])) {
-             $group->apprenants()->sync($data['apprenant_ids']);
-         }
-     
-        ;
-         
+        $group->update($data);
+
+        if (isset($data['formateur_id'])) {
+            $formateur = Formateur::findOrFail($data['formateur_id']);
+            $group->formateur()->associate($formateur);
+        }
+
+        if (isset($data['apprenant_ids'])) {
+            $group->apprenants()->sync($data['apprenant_ids']);
+        }
+
          return  $group->save();
-     }
-     
+        
+    }
 
 
        /**
