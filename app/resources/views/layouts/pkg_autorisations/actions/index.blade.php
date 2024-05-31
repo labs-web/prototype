@@ -64,7 +64,7 @@
    </form>
 
                             <!-- Recherche par nom d'action -->
-                            <form method="GET" action="{{ route('actions.index') }}" class="d-flex">
+                            <form method="GET" action="{{ route('actions.index') }}" class="d-flex justify-content-end">
                          <div class="input-group">
                        <input type="text" name="searchAction" id="searchAction" class="form-control" placeholder="Recherche">
                     <div class="input-group-append">
@@ -101,11 +101,13 @@
                                             <a href="{{ route('actions.edit', $action->id) }}" class="btn btn-sm btn-default">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <form action="{{ route('actions.destroy', $action->id) }}" method="POST" style="display:inline;">
+                                            <form action="{{ route('actions.destroy', $action->id) }}" method="POST"
+                                                style="display: inline;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger">
-                                                    <i class="fas fa-trash-alt"></i>
+                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce projet ?')">
+                                                    <i class="fas fa-trash"></i>
                                                 </button>
                                             </form>
                                         </td>

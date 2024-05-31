@@ -114,7 +114,7 @@ class ActionController extends Controller
     {
         $result = $this->actionRepository->destroy($action_id);
         if ($result) {
-            return back()->with('success', ' Action a été supprimée avec succès.');
+            return back()->with('success', __('pkg_autorisations/actions.Actiondelete'));
         } else {
             return back()->with('error', 'Échec de la suppression de l action. Veuillez réessayer.');
         }

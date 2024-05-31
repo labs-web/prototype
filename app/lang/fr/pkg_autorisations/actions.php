@@ -33,5 +33,6 @@ return [
     'createActionException' => "Creation d'une action qui existe deja ",
     'ActionAdded' => 'Action ajoutée avec succès.',
     'unexpected_error' => ' Erreur inattendue ',
-    'ActionUpdated' => 'Action mise à jour avec succès.'
+    'ActionUpdated' => 'Action mise à jour avec succès.',
+    'Actiondelete' => "Action a été supprimée avec succès."
 ];
