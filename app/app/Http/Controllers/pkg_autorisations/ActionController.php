@@ -116,7 +116,7 @@ class ActionController extends Controller
         if ($result) {
             return back()->with('success', __('pkg_autorisations/actions.Actiondelete'));
         } else {
-            return back()->with('error', 'Échec de la suppression de l action. Veuillez réessayer.');
+            return back()->with('error', __('pkg_autorisations/actions.suppression'));
         }
     }
     public function SyncControllersActions()
