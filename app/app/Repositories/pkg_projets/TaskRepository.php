@@ -1,10 +1,10 @@
 <?php
-namespace App\Repositories\GestionProjets;
 
-use App\Models\GestionProjets\Task;
+namespace App\Repositories\pkg_projets;
+
+use App\Exceptions\GestionProjets\TaskAlreadyExistException;
 use App\Repositories\BaseRepository;
-use Illuminate\Database\Eloquent\Model;
-use App\Exceptions\GestionTasks\ProjectAlreadyExistException;
+use App\Models\pkg_projets\Tache;
 
 /**
  * Classe TaskRepository qui gère la persistance des tasks dans la base de données.
@@ -17,7 +17,7 @@ class TaskRepository extends BaseRepository
      * @var array
      */
     protected $fieldsSearchable = [
-        'name'
+        'nom'
     ];
 
     /**
@@ -35,7 +35,7 @@ class TaskRepository extends BaseRepository
      */
     public function __construct()
     {
-        parent::__construct(new Task());
+        parent::__construct(new Tache());
     }
 
     /**
@@ -43,7 +43,7 @@ class TaskRepository extends BaseRepository
      *
      * @param array $data Données du task à créer.
      * @return mixed
-     * @throws ProjectAlreadyExistException Si le task existe déjà.
+     * @throws TaskAlreadyExistException Si le task existe déjà.
      */
     public function create(array $data)
     {
@@ -52,10 +52,15 @@ class TaskRepository extends BaseRepository
         $existingProject =  $this->model->where('nom', $nom)->exists();
 
         if ($existingProject) {
-            throw ProjectAlreadyExistException::createProject();
+            throw TaskAlreadyExistException::createTask();
         } else {
             return parent::create($data);
         }
+    }
+
+
+    public function find($project_id, $column = []) {
+        return $this->model->where('projets_id', $project_id)->get();
     }
 
     /**
