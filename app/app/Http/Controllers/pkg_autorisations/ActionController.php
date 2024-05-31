@@ -48,7 +48,7 @@ class ActionController extends Controller
         return view('pkg_autorisations.actions.index', compact('actions', 'controllers'))->render();
     }
     
-    return view('layouts.pkg_autorisations.actions.index', compact('actions', 'controllers'));
+    return view('pkg_autorisations.actions.index', compact('actions', 'controllers'));
 }
 
  
@@ -72,7 +72,7 @@ class ActionController extends Controller
     public function create()
     {
         $controllers = $this->actionRepository->filter();
-        return view('Layouts.pkg_autorisations.actions.create', compact('controllers'));
+        return view('pkg_autorisations.actions.create', compact('controllers'));
     }
 
     public function store(ActionRequest $request)
@@ -93,7 +93,7 @@ class ActionController extends Controller
     {
         $action = $this->actionRepository->find($id);
         $controllers = $this->actionRepository->filter();
-        return view('Layouts.pkg_autorisations.actions.edit', compact('action', 'controllers'));
+        return view('pkg_autorisations.actions.edit', compact('action', 'controllers'));
     }
 
     public function update(Request $request, $action_id)
