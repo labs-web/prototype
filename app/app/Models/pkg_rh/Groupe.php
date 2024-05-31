@@ -20,8 +20,11 @@ class Groupe extends Model
     }
 
 
-    public function formateurs()
+    public function formateur()
     {
-        return $this->hasMany(Formateur::class);
+        return $this->belongsTo(Formateur::class ,'formateur_id');
     }
+
+
+ 
 }

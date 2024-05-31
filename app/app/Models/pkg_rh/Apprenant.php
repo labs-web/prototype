@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Apprenant extends  Personne
 {
     use HasFactory, MorphType; 
+    protected $fillable = ['nom', 'prenom', 'user_id', 'groupe_id'];
 
     public function users(){
         return $this->belongsTo(User::class);

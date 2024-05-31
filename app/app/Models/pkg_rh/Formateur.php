@@ -9,4 +9,10 @@ use App\Traits\MorphType;
 class Formateur extends Personne
 {
     use HasFactory, MorphType; 
+    protected $fillable = ['nom', 'prenom', 'user_id', 'groupe_id'];
+
+    public function groupe()
+    {
+        return $this->hasOne(Groupe::class);
+    }
 }

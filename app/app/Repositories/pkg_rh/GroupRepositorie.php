@@ -4,15 +4,16 @@ namespace App\Repositories\pkg_rh;
 
 use App\Repositories\BaseRepository;
 use App\Models\pkg_rh\Groupe;
+use App\Models\pkg_rh\Apprenant;
+use App\Models\pkg_rh\Formateur;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use App\Exceptions\pkg_rh\GroupAlreadyExistException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class GroupRepositorie extends BaseRepository
 {
-    protected $type;
-
     /**
-     * Les champs de recherche disponibles pour les projets.
+     * Les champs de recherche disponibles pour les groupes.
      *
      * @var array
      */
@@ -44,32 +45,86 @@ class GroupRepositorie extends BaseRepository
         return $this->model->paginate($perPage, $columns);
     }
 
-    public function create(array $data)
-    {
-        $nom = $data['nom'];
-    
-        $existingGroup = $this->model->where('nom', $nom)->exists();
-    
-        if ($existingGroup) {
-            throw GroupAlreadyExistException::createGroup();
-        } else {
-           
-            return parent::create($data);
-        }
-    }
 
-    /**
-     * Recherche apprenants correspondants aux critères spécifiés.
+     /**
+     * Crée un nouveau group.
+     *
+     * @param array $data Données du groupe à créer.
+     * @return mixed
+     * @throws GroupAlreadyExistException Si le group existe déjà.
+     */
+
+     public function create(array $data)
+     {
+
+         $nom = $data['nom'];
+     
+         $existingGroup = $this->model->where('nom', $nom)->exists();
+     
+         if ($existingGroup) {
+             throw GroupAlreadyExistException::createGroup();
+         } else {
+             $group = parent::create($data);
+             if (isset($data['formateur_id'])) {
+                 $formateur = Formateur::find($data['formateur_id']);
+                 if ($formateur) {
+                     $group->formateur()->associate($formateur);
+                     $group->save();  // Save the association
+                 }
+             }
+             if (isset($data['apprenant_ids']) && is_array($data['apprenant_ids'])) {
+                 $group->apprenants()->sync($data['apprenant_ids']);
+             }
+             return $group;
+         }
+     }
+     
+     
+
+     public function update($id, array $data)
+     {
+         $group = $this->model->findOrFail($id);
+     
+         $group->update($data);
+     
+         if (isset($data['formateur_id'])) {
+             $formateur = Formateur::find($data['formateur_id']);
+             if ($formateur) {
+                 $group->formateur()->associate($formateur);
+                 $group->save();  // Save the association
+             }
+         }
+     
+         if (isset($data['apprenant_ids'])) {
+             $group->apprenants()->sync($data['apprenant_ids']);
+         }
+     
+        ;
+         
+         return  $group->save();
+     }
+     
+
+
+       /**
+     * Recherche les projets correspondants aux critères spécifiés.
      *
      * @param mixed $searchableData Données de recherche.
      * @param int $perPage Nombre d'éléments par page.
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function searchData($searchableData, $perPage = 4)
-    {
-        return $this->model->where(function($query) use ($searchableData) {
-            $query->where('nom', 'like', '%' . $searchableData . '%')
-                  ->orWhere('description', 'like', '%' . $searchableData . '%');
-        })->paginate($perPage);
-    }
+{
+    return $this->model->where(function($query) use ($searchableData) {
+        foreach ($searchableData as $term) {
+            $query->orWhere('nom', 'like', '%' . $term . '%')
+                  ->orWhere('description', 'like', '%' . $term . '%');
+        }
+    })->paginate($perPage);
+}
+
+
+
+
+
 }

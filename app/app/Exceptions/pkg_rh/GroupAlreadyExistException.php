@@ -8,6 +8,6 @@ class GroupAlreadyExistException extends BusinessException
 {
     public static function createGroup()
     {
-        return new self(__('Group already existe'));
+        return new self(__('Groupe already existe'));
     }
 }
