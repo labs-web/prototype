@@ -19,4 +19,8 @@ class Competence extends Model
     {
         return $this->hasMany(Technologie::class);
     }
+    public function niveau()
+    {
+        return $this->belongsToMany(NiveauCompetence::class, 'competences_niveau', 'competence_id', 'niveau_competence_id');
+    }
 }
