@@ -6,11 +6,9 @@
 @section('title', ('app.add') . ' ' . ('pkg_autorisations/actions.singular'))
 @section('content')
 
-<body class="sidebar-mini" style="height: auto;">
 
     <div class="wrapper">
         <!-- Navigation -->
-        <div class="container" style="min-height: 1302.4px;">
 
             <div class="content-header">
             </div>
@@ -25,7 +23,7 @@
                                 </div>
                                 <div class="card-body">
                                     <!-- Obtenir le formulaire -->
-                                    @include('Layouts/pkg_autorisations/actions.form')
+                                    @include('pkg_autorisations/actions.form')
                                 </div>
                             </div>
                         </div>
@@ -37,5 +35,4 @@
         
         <!-- Inclure le pied de page -->
         <!-- Inclure le script -->
-    </div>
 @endsection
