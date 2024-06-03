@@ -17,7 +17,7 @@
 
     <ul class="nav nav-treeview">
         <li class="nav-item">
-            <a href="" class="nav-link {{ Request::is('Actions*') ? 'active' : '' }}">
+            <a href="{{ route('actions.index') }}" class="nav-link {{ Request::is('Actions*') ? 'active' : '' }}">
                 <!-- <i class="nav-icon fas fa-leaf"></i> -->
                 <p>Actions</p>
             </a>
