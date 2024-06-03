@@ -29,12 +29,10 @@
                     @endphp
                 </h1>
             </div>
-
             <div class="col-sm-6">
                 <div class="float-sm-right d-flex justify-content-end">
-                    <form action="{{ route('controllers.download') }}" method="post">
+                    <form action="{{ route('controllers.sync') }}" method="get">
                         @csrf
-                        @method('post')
                         <button type="submit" class="btn btn-secondary mx-2"> <i class="fas fa-download"></i>
                             Mettre à jour {{ __('pkg_autorisations/Controller.singular') }}
                         </button>

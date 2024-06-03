@@ -10,7 +10,7 @@
 @include('layouts.pkg_projets.GestionProjetsMenu')
 @include('layouts.pkg_competences.CompetencesMenu')
 @include('layouts.pkg_rh.pkg_rhMenu')
-@include('layouts.pkg_realisation_projet.RealisationMenu')
+{{-- @include('layouts.pkg_realisation_projet.GestionLivrable') --}}
 @include('layouts.pkg_autorisations.AutorisationsMenu')
 @include('layouts.pkg_notifications.notificationsMenu')
 

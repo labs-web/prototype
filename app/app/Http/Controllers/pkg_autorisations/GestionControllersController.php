@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\pkg_autorisations;
 
+use App\Exceptions\pkg_autorisations\ControllerExceptions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Artisan;
@@ -46,15 +47,11 @@ class GestionControllersController extends AppBaseController
         try {
             $this->controllersRepository->create($validatedData);
             return redirect()->route('controllers.index')->with('success', 'Le contrôleur a été créé avec succès.');
+        } catch (ControllerExceptions $e) {
+            return redirect()->back()->withErrors(['nom' => $e->getMessage()])->withInput();
         } catch (\Exception $e) {
-            if ($e->getMessage() === 'ControllerNotExist') {
-                return redirect()->back()->withErrors(['nom' => 'Le contrôleur n\'existe pas.'])->withInput();
-            } elseif ($e->getMessage() === 'ControllerAlreadyExist') {
-                return redirect()->back()->withErrors(['nom' => 'Le contrôleur existe déjà.'])->withInput();
-            } else {
-                Log::error('Erreur lors de la création du contrôleur : ' . $e->getMessage());
-                return redirect()->back()->with('error', 'Une erreur s\'est produite lors de la création du contrôleur. Veuillez réessayer plus tard.')->withInput();
-            }
+            Log::error('Erreur lors de la création du contrôleur : ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Une erreur s\'est produite lors de la création du contrôleur. Veuillez réessayer plus tard.')->withInput();
         }
     }
 
@@ -104,5 +101,10 @@ class GestionControllersController extends AppBaseController
             Log::error('Erreur lors de l\'exécution du seeder : ' . $e->getMessage());
             return redirect()->back()->with('error', 'Une erreur s\'est produite lors du téléchargement du seeder. Veuillez réessayer plus tard.');
         }
+    }
+    public function SyncControllers()
+    {
+        Artisan::call('sync:Controllers');
+        return redirect()->back()->with('success','Contrôleurs sont  synchronisés avec succès.');
     }
 }
