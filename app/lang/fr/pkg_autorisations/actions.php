@@ -34,5 +34,6 @@ return [
     'ActionAdded' => 'Action ajoutée avec succès.',
     'unexpected_error' => ' Erreur inattendue ',
     'ActionUpdated' => 'Action mise à jour avec succès.',
-    'Actiondelete' => "Action a été supprimée avec succès."
+    'Actiondelete' => "Action a été supprimée avec succès.",
+    'suppression' => "AÉchec de la suppression de l action. Veuillez réessayer."
 ];
