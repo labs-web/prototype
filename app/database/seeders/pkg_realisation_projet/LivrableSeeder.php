@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\pkg_realisation_projet\Livrable;
 use App\Models\pkg_realisation_projet\NatureLivrable;
 use Illuminate\Support\Facades\Schema;
+use App\Models\pkg_projets\Projet;
 
 class LivrableSeeder extends Seeder
 {
@@ -39,7 +40,8 @@ class LivrableSeeder extends Seeder
                     "titre" => $data[0],
                     "description" => $data[1],
                     "lien" => $data[2],
-                    "nature_livrable_id" => $data[3]
+                    "nature_livrable_id" => $data[3],
+                    "projet_id" => $data[4] // Handle the new projet_id
                 ]);
             }
             $firstline = false;
