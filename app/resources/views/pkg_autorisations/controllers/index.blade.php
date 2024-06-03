@@ -32,7 +32,7 @@
 
             <div class="col-sm-6">
                 <div class="float-sm-right d-flex justify-content-end">
-                    <form action="{{ route('controllers.download') }}" method="post">
+                    <form action="{{ route('controllers.sync') }}" method="post">
                         @csrf
                         @method('post')
                         <button type="submit" class="btn btn-secondary mx-2"> <i class="fas fa-download"></i>
