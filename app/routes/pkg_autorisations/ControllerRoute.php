@@ -13,7 +13,7 @@ Route::middleware('auth')->group(function () {
         Route::put('controllers/{controller}', [GestionControllersController::class, 'update'])->name('controllers.update');
         Route::delete('controllers/{controller}', [GestionControllersController::class, 'destroy'])->name('controllers.destroy');
         // Route::post('/downloadSeeder', [GestionControllersController::class, 'downloadSeeder'])->name('controllers.download');
-        Route::post('/syncControllers', [GestionControllersController::class, 'syncControllers'])->name('controllers.sync');
+        Route::get('/syncControllers', [GestionControllersController::class, 'syncControllers'])->name('controllers.sync');
 
     });
 });

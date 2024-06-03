@@ -105,4 +105,9 @@ class GestionControllersController extends AppBaseController
             return redirect()->back()->with('error', 'Une erreur s\'est produite lors du téléchargement du seeder. Veuillez réessayer plus tard.');
         }
     }
+    public function SyncControllers()
+    {
+        Artisan::call('sync:Controllers');
+        return redirect()->back()->with('success','Contrôleurs sont  synchronisés avec succès.');
+    }
 }
