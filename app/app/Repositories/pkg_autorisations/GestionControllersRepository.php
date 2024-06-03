@@ -4,7 +4,13 @@ namespace App\Repositories\pkg_autorisations;
 use App\Repositories\BaseRepository;
 use Illuminate\Support\Facades\Route;
 use App\Exceptions\pkg_autorisations\ControllerExceptions;
+use App\Models\pkg_autorisations\Action;
 use App\Models\pkg_autorisations\Controller;
+use App\Models\pkg_autorisations\Permission;
+use Mockery;
+use Illuminate\Support\Facades\File;
+use ReflectionClass;
+use ReflectionMethod;
 
 class GestionControllersRepository extends BaseRepository
 {
@@ -112,4 +118,32 @@ class GestionControllersRepository extends BaseRepository
     {
         return $this->model->where('nom', 'like', '%' . $searchableData . '%')->paginate($perPage);
     }
+
+    public function syncControllers()
+    {
+        $controllersPath = app_path('Http/Controllers');
+        $controllers = [];
+
+        // Scan the controllers directory
+        $files = File::allFiles($controllersPath);
+
+        foreach ($files as $file) {
+            $class = 'App\\Http\\Controllers\\' . str_replace('.php', '', $file->getRelativePathname());
+
+            // Check if the file represents a valid controller class
+            if (class_exists($class)) {
+                // Extract controller name
+                $controllerName = class_basename($class);
+
+                // Store controller name in the array
+                $controllers[] = $controllerName;
+            }
+        }
+
+        // Insert data into the database
+        foreach ($controllers as $controllerName) {
+            Controller::firstOrCreate(['nom' => $controllerName]);
+        }
+    }
+
 }
