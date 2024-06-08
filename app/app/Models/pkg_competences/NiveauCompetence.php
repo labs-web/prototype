@@ -17,4 +17,9 @@ class NiveauCompetence extends Model
         'description',
     ];
 
+    public function competences()
+    {
+        return $this->belongsToMany(Competence::class, 'competences_niveau', 'niveau_competence_id', 'competence_id');
+    }
+
 }

@@ -40,7 +40,7 @@ class CategorieTechnologiesSeeder extends Seeder
         $ApprenantRole = Role::where('name', User::APPRENANT)->first();
 
         Schema::disableForeignKeyConstraints();
-        Permission::truncate();
+        // Permission::truncate();
         Schema::enableForeignKeyConstraints();
 
         $csvFile = fopen(base_path("database/data/pkg_competences/CategorieTechnologiePermissions.csv"), "r");
