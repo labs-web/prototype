@@ -38,3 +38,13 @@ php artisan test --filter=MessageTest
 
 ```` 
 
+### Variant 6 : class - Message Requêtes SQL :
+
+Donnez la liste des messages avec des notifications non lues
+
+````bash
+
+SELECT * FROM messages WHERE isLue = false; 
+
+```` 
+
